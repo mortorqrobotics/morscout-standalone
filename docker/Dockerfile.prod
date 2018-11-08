@@ -1,0 +1,22 @@
+FROM node:carbon-alpine
+
+# Create app directory
+WORKDIR /usr/src/app
+
+
+
+# Install app dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+# where available (npm@5+)
+COPY package*.json ./
+COPY yarn.lock yarn.lock
+# Create SSL Certificates and install dependencies
+RUN yarn --prod --non-interactive --silent --frozen-lockfile
+
+# Bundle app source
+COPY ./server/build ./server/build
+COPY ./server/*.js ./server/
+COPY ./app/build/web ./app/build/web
+COPY ./cli/build ./cli.build
+
+CMD [ "node", "./server/docker.js", "--production" ]
