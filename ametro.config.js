@@ -12,6 +12,8 @@ config.fileSystem = new CachedInputFileSystem(new NodeJsInputFileSystem(), 4000)
 // create a resolver
 const resolver = ResolverFactory.createResolver(config);
 
+
+
 module.exports = {
   transformer:{
   },
@@ -20,7 +22,7 @@ module.exports = {
     //   moduleName,
     //   platform,){
     //     const p = resolver.resolveSync(context, originModulePath, moduleName);
-    //     fs.writeFileSync('/d', "Here")
+    //     console.log(platform)
     //     return {
     //       type: 'sourceFile',
     //       filePath: p
@@ -28,7 +30,6 @@ module.exports = {
     // },
   },
   server: {
-    port: 8081,
     enableVisualizer: true
   },
   reporter: {update: console.log},
