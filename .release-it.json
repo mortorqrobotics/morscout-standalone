@@ -1,3 +1,6 @@
 {
-    
+    "github":{
+        "release": true,
+        "preRelease": true
+    }
 }
