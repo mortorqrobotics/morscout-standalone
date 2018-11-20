@@ -1,7 +1,12 @@
 {
+  "requireCleanWorkingDir": false,
   "github": {
     "release": true,
     "preRelease": true,
-    "assets": ["dist/*.zip"]
+    "assets": ["**/build"],
+    "beforeStartCommand": "bestzip dist/release.zip */build/*"
+  },
+  "prompt": {
+    "release": true
   }
 }
