@@ -1,6 +1,6 @@
 {
   "name": "mscout",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "private": true,
   "scripts": {
     "start:app": "node app/scripts/start.js",
