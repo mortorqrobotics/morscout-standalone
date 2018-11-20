@@ -4,7 +4,7 @@
     "release": true,
     "preRelease": true,
     "assets": ["**/build"],
-    "beforeStartCommand": "bestzip dist/release.zip */build/*"
+    "beforeStartCommand": "bestzip dist/release.zip app/build/* server/build/* cli/build/*"
   },
   "prompt": {
     "release": true
