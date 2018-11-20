@@ -1,14 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Provider } from "react-redux";
-import Matches from "screen/Matches";
-import Match from "screen/Match";
 import Index from "screen/Index";
-import Settings from "screen/Settings";
-import { Route, Router, Switch } from "@/react-router";
+import Matches from "screen/Matches";
+// import Match from "screen/Match";
+// import Settings from "screen/Settings";
 import { View, Text } from "react-native";
+// import {
+//   createBottomTabNavigator,
+//   createAppContainer,
+// } from "@react-navigation/web";
+import {
+  createSwitchNavigator /* , TabRouter */,
+} from "@react-navigation/core";
+import { createMaterialTopTabNavigator } from "react-navigation-tabs";
+import { createBrowserApp } from "@react-navigation/web";
 import H from "@/H";
-import Navigation from "~/TopNav";
+// import Navigation from "~/TopNav";
 import store from "store";
 import initialize from "actions/Basic/init";
 
@@ -34,6 +42,7 @@ class BackButton extends React.Component {
   }
 }
 
+// eslint-disable-next-line
 function NotFoundError() {
   return (
     <View>
@@ -43,20 +52,23 @@ function NotFoundError() {
   );
 }
 
+const App = createBrowserApp(
+  createMaterialTopTabNavigator(
+    createSwitchNavigator({
+      Matches: {
+        screen: Matches,
+        path: "Matches",
+      },
+      Index: {
+        screen: Index,
+        path: "",
+      },
+    }),
+  ),
+);
+
 export default () => (
   <Provider store={store}>
-    <Router>
-      <View>
-        <Navigation />
-        <Switch>
-          <Route path="/index" exact component={Index} />
-          <Route path="/" exact component={Index} />
-          <Route path="/Matches" exact component={Matches} />
-          <Route path="/Profile" exact component={Settings} />
-          <Route path="/Match/:id" component={Match} />
-          <Route component={NotFoundError} />
-        </Switch>
-      </View>
-    </Router>
+    <App />
   </Provider>
 );

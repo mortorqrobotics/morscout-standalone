@@ -32,8 +32,7 @@ class TitleInt extends React.Component {
       state.title !== undefined && i < state.title.length;
       i += 1
     ) {
-      // eslint-disable-next-line
-            state.title[i].innerHTML = props.children;
+      state.title[i].innerHTML = props.children;
     }
     return (
       <H className="Title" level={1}>

@@ -1,3 +1,3 @@
-export default socket => {
-  console.log(socket);
+export default (/* socket */) => {
+  // console.log(socket);
 };
