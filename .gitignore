@@ -58,3 +58,4 @@ buck-out/
 
 # Build Dirs
 /**/build
+dist/*
