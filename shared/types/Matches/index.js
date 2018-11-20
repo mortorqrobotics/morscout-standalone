@@ -1,2 +1,2 @@
-export let updated = 'UPDATED_MATCHES';
-export let loadAllMatches = 'server/getMatches';
+export const updated = "UPDATED_MATCHES";
+export const loadAllMatches = "server/getMatches";

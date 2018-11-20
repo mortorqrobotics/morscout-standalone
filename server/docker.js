@@ -1,5 +1,4 @@
-
-const app = require('./index');
+const app = require("./index");
 
 const http = app;
 const https = http;

@@ -1,5 +1,5 @@
 import {
-  BrowserRouter as BR,
+  NativeRouter as NR,
   Route as R,
   Link as L,
   Switch as S,
@@ -8,9 +8,9 @@ import {
   HashRouter as HR,
   Prompt as P,
   MemoryRouter as MR,
-} from "react-router-dom";
+} from "react-router-native";
 
-export const Router = BR;
+export const Router = NR;
 export const Route = R;
 export const Link = L;
 export const Switch = S;

@@ -1,8 +1,6 @@
-import {
-  connect,
-} from 'react-redux';
-import loadMatch from 'actions/Match';
-import Match from './Match';
+import { connect } from "react-redux";
+import loadMatch from "actions/Match";
+import Match from "./Match";
 
 export default function makeMatch(id) {
   function mapStateToProps(state) {
@@ -11,7 +9,8 @@ export default function makeMatch(id) {
         match: state.match[id],
         id,
       };
-    } if (state.matches.id !== undefined) {
+    }
+    if (state.matches.id !== undefined) {
       return {
         match: state.matches[id],
         id,
@@ -19,7 +18,7 @@ export default function makeMatch(id) {
     }
     return {
       match: {
-        name: 'data',
+        name: "data",
       },
       id,
     };

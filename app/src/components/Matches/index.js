@@ -1,13 +1,9 @@
-import {
-  connect,
-} from 'react-redux';
-import loadMatches from 'actions/Matches/index';
-import Matches from './Matches';
+import { connect } from "react-redux";
+import loadMatches from "actions/Matches/index";
+import Matches from "./Matches";
 
 function mapStateToProps(state) {
-  const {
-    matches,
-  } = state;
+  const { matches } = state;
   const ms = {};
   Object.entries(matches).forEach(([id, match]) => {
     if (match === undefined) {

@@ -1,12 +1,12 @@
-import React from 'react';
-import Uranium from 'uranium';
-import H from '@/H';
+import React from "react";
+import Uranium from "uranium";
+import H from "@/H";
 
-export default @Uranium class Header extends React.Component {
+export default
+@Uranium
+class Header extends React.Component {
   render() {
-    const {
-      props,
-    } = this;
+    const { props } = this;
     return (
       <H className="Header" level="2">
         {React.Children.map(props.children, child => child)}
@@ -20,17 +20,18 @@ class TitleInt extends React.Component {
     super(props);
     // eslint-disable-next-line
         this.state = document ? {
-      title: document.getElementsByTagName('title'),
-    }
+          title: document.getElementsByTagName("title"),
+        }
       : {};
   }
 
   render() {
-    const {
-      props,
-      state,
-    } = this;
-    for (let i = 0; state.title !== undefined && i < state.title.length; i += 1) {
+    const { props, state } = this;
+    for (
+      let i = 0;
+      state.title !== undefined && i < state.title.length;
+      i += 1
+    ) {
       // eslint-disable-next-line
             state.title[i].innerHTML = props.children;
     }

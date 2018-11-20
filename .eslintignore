@@ -1,8 +1,15 @@
-android
-ios
-windows
+# auto-generated files
+/android
+/ios
+/windows
 
-ssl
-docker
+# for speed
+/ssl
+/docker
 
-node_modules
+# outside references
+/ndocs
+
+# other auto-generated files
+/node_modules
+**/build

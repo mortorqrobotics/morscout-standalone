@@ -1,21 +1,21 @@
-import React from 'react';
-import Uranium from 'uranium';
-import {
-  Text,
-} from 'react-native';
-import PropTypes from 'prop-types';
+import React from "react";
+import Uranium from "uranium";
+import { Text } from "react-native";
+import PropTypes from "prop-types";
 
-export default @Uranium class Message extends React.Component {
+export default
+@Uranium
+class Message extends React.Component {
   static propTypes = {
     isVisible: PropTypes.bool,
     onClick: PropTypes.func,
     children: PropTypes.node.isRequired,
-  }
+  };
 
   static defaultProp = {
     isVisible: true,
     onClick: () => {},
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -28,10 +28,8 @@ export default @Uranium class Message extends React.Component {
   }
 
   render() {
-    const {
-      state,
-    } = this;
-    const style = state.isVisible ? ' style="display:none;"' : '';
+    const { state } = this;
+    const style = state.isVisible ? ' style="display:none;"' : "";
     return (
       <Text {...style} onClick={state.onClick} className="Message">
         {state.message}
@@ -43,9 +41,7 @@ export default @Uranium class Message extends React.Component {
 class RandomMessageInt extends React.Component {
   constructor(p) {
     super(p);
-    const {
-      props,
-    } = this;
+    const { props } = this;
     const state = {
       message: 0,
       messages: [],
@@ -53,17 +49,17 @@ class RandomMessageInt extends React.Component {
     };
     // eslint-disable-next-line
     state.messages = React.Children.toArray(props.children);
-    state.message = Math.min(Math.floor(Math.random() * state.messages.length), 4);
+    state.message = Math.min(
+      Math.floor(Math.random() * state.messages.length),
+      4,
+    );
     state.activeMessage = state.messages[state.message];
     // eslint-disable-next-line
     this.state = state;
   }
 
   randomMessage() {
-    const {
-      state,
-      setState,
-    } = this;
+    const { state, setState } = this;
     const newState = Object.assign({}, state);
     do {
       newState.message = Math.floor(Math.random() * newState.messages.length);
@@ -73,11 +69,13 @@ class RandomMessageInt extends React.Component {
   }
 
   render() {
-    const {
-      state,
-    } = this;
+    const { state } = this;
     return (
-      <Message onClick={() => this.randomMessage()} className="RandomMessage" key={state.message}>
+      <Message
+        onClick={() => this.randomMessage()}
+        className="RandomMessage"
+        key={state.message}
+      >
         {state.activeMessage}
       </Message>
     );

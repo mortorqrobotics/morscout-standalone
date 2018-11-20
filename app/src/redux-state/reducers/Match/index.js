@@ -1,6 +1,4 @@
-import {
-  updated,
-} from 'shared/types/Match';
+import { updated } from "shared/types/Match";
 
 export default (state = global.matches, action) => {
   const match = {};
@@ -12,7 +10,7 @@ export default (state = global.matches, action) => {
         id,
       } = action.data;
       match[id] = action.data;
-      match[id].teams.blue.map((team) => {
+      match[id].teams.blue.map(team => {
         global.teams[team.num] = team;
         return team;
       });

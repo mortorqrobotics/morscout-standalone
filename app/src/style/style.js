@@ -1,4 +1,4 @@
-import NavBar from './Navbar';
+import NavBar from "./Navbar";
 
 export default {
   Navigation: NavBar,
@@ -8,10 +8,10 @@ export default {
   Basic: {
     Align: {
       center: {
-        flexDirection: 'column',
+        flexDirection: "column",
         flex: 1,
-        justifyContent: 'flex-start',
-        alignItems: 'center',
+        justifyContent: "flex-start",
+        alignItems: "center",
       },
     },
   },
@@ -19,24 +19,23 @@ export default {
     Table: {
       Cell: {
         borderRightWidth: 1,
-        borderRightColor: '#d6d7da',
+        borderRightColor: "#d6d7da",
         height: 25,
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-around',
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-around",
         flex: 1,
       },
       teams: {
         flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
+        flexDirection: "row",
+        justifyContent: "space-between",
       },
       Link: {
-        alignSelf: 'stretch',
-        textAlign: 'center',
-        display: 'inline-block',
+        alignSelf: "stretch",
+        textAlign: "center",
+        display: "inline-block",
       },
-
     },
     Input: {
       main: {
@@ -51,8 +50,8 @@ export default {
       flex: 1,
     },
     main: {
-      flexDirection: 'row',
-      alignItems: 'flex-start',
+      flexDirection: "row",
+      alignItems: "flex-start",
     },
   },
 };

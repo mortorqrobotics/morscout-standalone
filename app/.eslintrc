@@ -1,8 +1,4 @@
 {
-    "extends": [
-        "eslint-config-react-app",
-        "eslint-config-airbnb"
-    ],
     "rules": {
         "import/no-unresolved": "off",
         "import/no-extraneous-dependencies": "off",

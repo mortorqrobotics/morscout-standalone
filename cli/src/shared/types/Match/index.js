@@ -1,2 +1,2 @@
-export const loadMatch = 'server/LOAD_MATCH';
-export const updated = 'UPDATED_MATCH';
+export const loadMatch = "server/LOAD_MATCH";
+export const updated = "UPDATED_MATCH";

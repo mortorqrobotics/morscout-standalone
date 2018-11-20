@@ -1,26 +1,26 @@
 // Do this as the first thing so that any code reading it knows the right env.
-process.env.BABEL_ENV = 'production';
-process.env.NODE_ENV = 'production';
+process.env.BABEL_ENV = "production";
+process.env.NODE_ENV = "production";
 
 // Makes the script crash on unhandled rejections instead of silently
 // ignoring them. In the future, promise rejections that are not handled will
 // terminate the Node.js process with a non-zero exit code.
-process.on('unhandledRejection', (err) => {
+process.on("unhandledRejection", err => {
   throw err;
 });
 
 // Ensure environment variables are read.
-require('../config/env');
+require("../config/env");
 
-const chalk = require('chalk');
-const fs = require('fs-extra');
-const webpack = require('webpack');
-const checkRequiredFiles = require('react-dev-utils/checkRequiredFiles');
-const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages');
-const FileSizeReporter = require('react-dev-utils/FileSizeReporter');
-const printBuildError = require('react-dev-utils/printBuildError');
-const paths = require('../config/paths');
-const config = require('../config/webpack.config.prod');
+const chalk = require("chalk");
+const fs = require("fs-extra");
+const webpack = require("webpack");
+const checkRequiredFiles = require("react-dev-utils/checkRequiredFiles");
+const formatWebpackMessages = require("react-dev-utils/formatWebpackMessages");
+const FileSizeReporter = require("react-dev-utils/FileSizeReporter");
+const printBuildError = require("react-dev-utils/printBuildError");
+const paths = require("../config/paths");
+const config = require("../config/webpack.config.prod");
 
 const {
   measureFileSizesBeforeBuild,
@@ -54,22 +54,22 @@ function build(previousFileSizes) {
         if (messages.errors.length > 1) {
           messages.errors.length = 1;
         }
-        return reject(new Error(messages.errors.join('\n\n')));
+        return reject(new Error(messages.errors.join("\n\n")));
       }
       if (
-        process.env.CI
-        && (typeof process.env.CI !== 'string'
-        || process.env.CI.toLowerCase() !== 'false')
-        && messages.warnings.length
+        process.env.CI &&
+        (typeof process.env.CI !== "string" ||
+          process.env.CI.toLowerCase() !== "false") &&
+        messages.warnings.length
       ) {
         // eslint-disable-next-line
         console.log(
           chalk.yellow(
-            '\nTreating warnings as errors because process.env.CI = true.\n'
-            + 'Most CI servers set it automatically.\n',
+            "\nTreating warnings as errors because process.env.CI = true.\n" +
+              "Most CI servers set it automatically.\n",
           ),
         );
-        return reject(new Error(messages.warnings.join('\n\n')));
+        return reject(new Error(messages.warnings.join("\n\n")));
       }
       return resolve({
         stats,
@@ -82,7 +82,7 @@ function build(previousFileSizes) {
 // First, read the current file sizes in build directory.
 // This lets us display how much they changed later.
 measureFileSizesBeforeBuild(paths.appBuild)
-  .then((previousFileSizes) => {
+  .then(previousFileSizes => {
     // Remove all content but keep the directory so that
     // if you're in it, you don't end up in Trash
     fs.emptyDirSync(paths.appBuild);
@@ -90,11 +90,7 @@ measureFileSizesBeforeBuild(paths.appBuild)
     return build(previousFileSizes);
   })
   .then(
-    ({
-      stats,
-      previousFileSizes,
-      warnings,
-    }) => {
+    ({ stats, previousFileSizes, warnings }) => {
       if (warnings.length) {
         // eslint-disable-next-line
         console.log(chalk.yellow('Compiled with warnings.\n'));
@@ -102,15 +98,15 @@ measureFileSizesBeforeBuild(paths.appBuild)
         console.log(warnings.join('\n\n'));
         // eslint-disable-next-line
         console.log(
-          `\nSearch for the ${
-            chalk.underline(chalk.yellow('keywords'))
-          } to learn more about each warning.`,
+          `\nSearch for the ${chalk.underline(
+            chalk.yellow("keywords"),
+          )} to learn more about each warning.`,
         );
         // eslint-disable-next-line
         console.log(
-          `To ignore, add ${
-            chalk.cyan('// eslint-disable-next-line')
-          } to the line before.\n`,
+          `To ignore, add ${chalk.cyan(
+            "// eslint-disable-next-line",
+          )} to the line before.\n`,
         );
       } else {
         // eslint-disable-next-line
@@ -129,14 +125,14 @@ measureFileSizesBeforeBuild(paths.appBuild)
       // eslint-disable-next-line
         console.log();
     },
-    (err) => {
+    err => {
       // eslint-disable-next-line
       console.log(chalk.red('Failed to compile.\n'));
       printBuildError(err);
       process.exit(1);
     },
   )
-  .catch((err) => {
+  .catch(err => {
     if (err && err.message) {
       // eslint-disable-next-line
       console.log(err.message);

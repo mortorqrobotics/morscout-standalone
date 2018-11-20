@@ -1,21 +1,19 @@
+const path = require("path");
+const webpack = require("webpack");
+const eslintFormatter = require("react-dev-utils/eslintFormatter");
+const ModuleScopePlugin = require("react-dev-utils/ModuleScopePlugin");
+const NodeExternals = require("webpack-node-externals");
+const paths = require("./paths");
+require("./env");
 
-
-const path = require('path');
-const webpack = require('webpack');
-const eslintFormatter = require('react-dev-utils/eslintFormatter');
-const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
-const NodeExternals = require('webpack-node-externals');
-const paths = require('./paths');
-require('./env');
-
-const getSrc = (...folder) => path.resolve(__dirname, '..', 'src', ...folder);
+const getSrc = (...folder) => path.resolve(__dirname, "..", "src", ...folder);
 
 // This is the production configuration.
 // It compiles slowly and is focused on producing a fast and minimal bundle.
 // The development configuration is different and lives in a separate file.
 module.exports = {
-  target: 'node',
-  mode: 'development',
+  target: "node",
+  mode: "development",
   // Don't attempt to continue if there are any errors.
   bail: true,
   // We generate sourcemaps in production. This is slow but gives good results.
@@ -32,8 +30,8 @@ module.exports = {
     // Generated JS file names (with nested folders).
     // There will be one main bundle, and one file per asynchronous chunk.
     // We don't currently advertise code splitting but Webpack supports it.
-    filename: '[name].js',
-    chunkFilename: 'chunks/[name].[chunkhash:8].chunk.js',
+    filename: "[name].js",
+    chunkFilename: "chunks/[name].[chunkhash:8].chunk.js",
     // We inferred the "public path" (such as / or /my-project) from homepage.
     publicPath: paths.appBuild,
   },
@@ -51,7 +49,7 @@ module.exports = {
     // We placed these paths second because we want `node_modules` to "win"
     // if there are any conflicts. This matches Node resolution mechanism.
     // https://github.com/facebook/create-react-app/issues/253
-    modules: ['node_modules'].concat(
+    modules: ["node_modules"].concat(
       // It is guaranteed to exist because we tweak it in `env.js`
       process.env.NODE_PATH.split(path.delimiter).filter(Boolean),
     ),
@@ -61,14 +59,22 @@ module.exports = {
     // https://github.com/facebook/create-react-app/issues/290
     // `web` extension prefixes have been added for better support
     // for React Native Web.
-    extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx', '.aggregates.min.js'],
+    extensions: [
+      ".web.js",
+      ".mjs",
+      ".js",
+      ".json",
+      ".web.jsx",
+      ".jsx",
+      ".aggregates.min.js",
+    ],
     alias: {
       // MorScout Folder Linking
-      shared: getSrc('shared'),
-      cmds: getSrc('cmds'),
-      '~': getSrc('some_dir', '..'),
-      server: getSrc('..', '..', 'server', 'index.js'),
-      build: getSrc('..', 'build'),
+      shared: getSrc("shared"),
+      cmds: getSrc("cmds"),
+      "~": getSrc("some_dir", ".."),
+      server: getSrc("..", "..", "server", "index.js"),
+      build: getSrc("..", "build"),
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).
@@ -93,20 +99,21 @@ module.exports = {
       // It's important to do this before Babel processes the JS.
       {
         test: /\.(js|jsx|mjs)$/,
-        enforce: 'pre',
-        use: [{
-          options: {
-            formatter: eslintFormatter,
-            eslintPath: require.resolve('eslint'),
-            // TODO: consider separate config for production,
-            // e.g. to enable no-console and no-debugger only in production.
-            baseConfig: {
-              extends: [require.resolve('eslint-config-react-app')],
+        enforce: "pre",
+        use: [
+          {
+            options: {
+              formatter: eslintFormatter,
+              eslintPath: require.resolve("eslint"),
+              // TODO: consider separate config for production,
+              // e.g. to enable no-console and no-debugger only in production.
+              baseConfig: {
+                extends: [require.resolve("eslint-config-react-app")],
+              },
             },
-
+            loader: require.resolve("eslint-loader"),
           },
-          loader: require.resolve('eslint-loader'),
-        }],
+        ],
         include: paths.srcPaths,
         exclude: [/[/\\\\]node_modules[/\\\\]/],
       },
@@ -124,9 +131,9 @@ module.exports = {
             use: [
               // This loader parallelizes code compilation, it is optional but
               // improves compile time on larger projects
-              require.resolve('thread-loader'),
+              require.resolve("thread-loader"),
               {
-                loader: require.resolve('babel-loader'),
+                loader: require.resolve("babel-loader"),
                 options: {
                   compact: true,
                   highlightCode: true,
@@ -141,9 +148,9 @@ module.exports = {
             use: [
               // This loader parallelizes code compilation, it is optional but
               // improves compile time on larger projects
-              require.resolve('thread-loader'),
+              require.resolve("thread-loader"),
               {
-                loader: require.resolve('babel-loader'),
+                loader: require.resolve("babel-loader"),
                 options: {
                   cacheDirectory: true,
                   highlightCode: true,
@@ -157,9 +164,7 @@ module.exports = {
       },
     ],
   },
-  externals: [
-    NodeExternals(),
-  ],
+  externals: [NodeExternals()],
   // Turn off performance processing because we utilize
   // our own hints via the FileSizeReporter
   node: {
@@ -170,7 +175,7 @@ module.exports = {
   plugins: [
     new webpack.BannerPlugin({
       raw: true,
-      banner: '#!/usr/bin/env node',
+      banner: "#!/usr/bin/env node",
     }),
   ],
 };

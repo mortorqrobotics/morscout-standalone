@@ -1,13 +1,12 @@
-import React from 'react';
-import { View } from 'react-native';
-import Uranium from 'uranium';
-import style from 'style';
-import Loadable from 'react-loadable';
-import Loader from '@/Loader';
-
+import React from "react";
+import { View } from "react-native";
+import Uranium from "uranium";
+import style from "style";
+import Loadable from "react-loadable";
+import Loader from "@/Loader";
 
 const MatchContainer = Loadable({
-  loader: () => import('~/Matches'),
+  loader: () => import("~/Matches"),
   loading: Loader,
 });
 

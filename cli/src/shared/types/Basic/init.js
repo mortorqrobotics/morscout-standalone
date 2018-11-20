@@ -1,1 +1,1 @@
-export default 'INITIALIZE';
+export default "INITIALIZE";

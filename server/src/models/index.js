@@ -1,7 +1,5 @@
-import Team from './Team';
+import Team from "./Team";
 
-export default ({
-  mongoose,
-}) => ({
+export default ({ mongoose }) => ({
   Team: Team(mongoose),
 });

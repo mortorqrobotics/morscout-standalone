@@ -1,16 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Provider } from 'react-redux';
-import Matches from 'screen/Matches';
-import Match from 'screen/Match';
-import Index from 'screen/Index';
-import Settings from 'screen/Settings';
-import { Route, Router, Switch } from '@/react-router';
-import { View, Text } from 'react-native';
-import H from '@/H';
-import Navigation from '~/TopNav';
-import store from 'store';
-import initialize from 'actions/Basic/init';
+import React from "react";
+import PropTypes from "prop-types";
+import { Provider } from "react-redux";
+import Matches from "screen/Matches";
+import Match from "screen/Match";
+import Index from "screen/Index";
+import Settings from "screen/Settings";
+import { Route, Router, Switch } from "@/react-router";
+import { View, Text } from "react-native";
+import H from "@/H";
+import Navigation from "~/TopNav";
+import store from "store";
+import initialize from "actions/Basic/init";
 
 const unsub = store.subscribe(() => store.getState());
 store.dispatch(initialize);
@@ -18,13 +18,8 @@ unsub();
 
 // eslint-disable-next-line
 function dataDumper(props){
-  return (
-    <H level={6}>
-      {JSON.stringify(props)}
-    </H>
-  );
+  return <H level={6}>{JSON.stringify(props)}</H>;
 }
-
 
 // eslint-disable-next-line
 class BackButton extends React.Component {
@@ -34,23 +29,15 @@ class BackButton extends React.Component {
   };
 
   render() {
-    const {
-      context,
-    } = this;
-    return (
-      <Text onClick={context.router.history.goBack}>
-        Back
-      </Text>
-    );
+    const { context } = this;
+    return <Text onClick={context.router.history.goBack}>Back</Text>;
   }
 }
 
 function NotFoundError() {
   return (
     <View>
-      <H level={1}>
-        Page not found
-      </H>
+      <H level={1}>Page not found</H>
       <BackButton />
     </View>
   );

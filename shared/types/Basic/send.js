@@ -1,1 +1,1 @@
-export default 'SEND';
+export default "SEND";
