@@ -4,7 +4,7 @@
     "release": true,
     "preRelease": true,
     "assets": ["dist/release.zip"],
-    "beforeStartCommand": "bestzip dist/release.zip app/build/* server/build/* cli/build/*"
+    "beforeStartCommand": "npx bestzip dist/release.zip app/build/* server/build/* cli/build/*"
   },
   "prompt": {
     "release": true
