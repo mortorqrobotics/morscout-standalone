@@ -18,7 +18,9 @@
     "release": "release-it",
     "precommit": "git-add",
     "commit": "git-cz",
-    "postcommit": "git push"
+    "postcommit": "git push",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "jest": {
     "preset": "react-native"
@@ -73,7 +75,7 @@
     "react-native-match-media": "^0.1.1",
     "react-native-universal": "^0.0.2",
     "react-native-web": "^0.9.8",
-    "react-native-windows": "0.57.0-rc.0",
+    "react-native-windows": "1.0.0",
     "react-navigation": "^3.0.0",
     "react-redux": "^5.1.1",
     "react-router": "^4.3.1",
@@ -85,7 +87,8 @@
     "socketio-wildcard": "^2.0.0",
     "source-map-support": "^0.5.9",
     "vm2": "^3.6.4",
-    "yarn": "^1.12.3"
+    "yarn": "^1.12.3",
+    "snyk": "^1.110.0"
   },
   "devDependencies": {
     "@babel/core": "^7.1.6",
@@ -193,5 +196,6 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  }
+  },
+  "snyk": true
 }
