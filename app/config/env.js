@@ -1,11 +1,13 @@
 const fs = require("fs");
 const path = require("path");
+const dotenv = require("dotenv");
+const dotenvExpand = require("dotenv-expand");
 const paths = require("./paths");
 
 // Make sure that including paths.js after env.js will read .env variables.
 delete require.cache[require.resolve("./paths")];
 
-const NODE_ENV = process.env.NODE_ENV;
+const { NODE_ENV } = process.env;
 if (!NODE_ENV) {
   throw new Error(
     "The NODE_ENV environment variable is required but was not specified.",
@@ -30,8 +32,8 @@ const dotenvFiles = [
 // https://github.com/motdotla/dotenv-expand
 dotenvFiles.forEach(dotenvFile => {
   if (fs.existsSync(dotenvFile)) {
-    require("dotenv-expand")(
-      require("dotenv").config({
+    dotenvExpand(
+      dotenv.config({
         path: dotenvFile,
       }),
     );
@@ -63,8 +65,9 @@ function getClientEnvironment(publicUrl) {
     .filter(key => REACT_APP.test(key))
     .reduce(
       (env, key) => {
-        env[key] = process.env[key];
-        return env;
+        const e = Object.assign({}, env);
+        e[key] = process.env[key];
+        return e;
       },
       {
         // Useful for determining whether we’re running in production mode.
@@ -80,8 +83,9 @@ function getClientEnvironment(publicUrl) {
   // Stringify all values so we can feed into Webpack DefinePlugin
   const stringified = {
     "process.env": Object.keys(raw).reduce((env, key) => {
-      env[key] = JSON.stringify(raw[key]);
-      return env;
+      const e = Object.assign({}, env);
+      e[key] = JSON.stringify(raw[key]);
+      return e;
     }, {}),
   };
 

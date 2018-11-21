@@ -1,5 +1,9 @@
 import React from "react";
-import ReactNative from "react-native";
+import { render } from "react-dom";
+import mediaMock from "uranium/matchMediaMock";
+
+global.matchMedia = mediaMock;
+// eslint-disable-next-line import/first
 import App from "./App";
 
-ReactNative.render(<App />, document.getElementById("root"));
+render(<App />, document.getElementById("root"));

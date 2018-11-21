@@ -21,6 +21,7 @@ function ensureSlash(inputPath, needsSlash) {
 }
 
 const getPublicUrl = appPackageJson =>
+  // eslint-disable-next-line global-require, import/no-dynamic-require
   envPublicUrl || require(appPackageJson).homepage;
 
 // We use `PUBLIC_URL` environment variable or "homepage" field to infer
@@ -52,8 +53,8 @@ const moduleFileExtensions = [
 
 // Resolve file paths in the same order as webpack
 const resolveModule = (resolveFn, filePath) => {
-  const extension = moduleFileExtensions.find(extension =>
-    fs.existsSync(resolveFn(`${filePath}.${extension}`)),
+  const extension = moduleFileExtensions.find(ext =>
+    fs.existsSync(resolveFn(`${filePath}.${ext}`)),
   );
 
   if (extension) {

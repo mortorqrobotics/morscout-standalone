@@ -17,6 +17,8 @@ const getCSSModuleLocalIdent = require("react-dev-utils/getCSSModuleLocalIdent")
 const ModuleNotFoundPlugin = require("react-dev-utils/ModuleNotFoundPlugin");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin-alt");
 const typescriptFormatter = require("react-dev-utils/typescriptFormatter");
+const pcsspenv = require("postcss-preset-env");
+const pcssff = require("postcss-flexbugs-fixes");
 const getClientEnvironment = require("./env");
 const paths = require("./paths");
 
@@ -77,8 +79,8 @@ const getStyleLoaders = (cssOptions, preProcessor) => {
         // https://github.com/facebook/create-react-app/issues/2677
         ident: "postcss",
         plugins: () => [
-          require("postcss-flexbugs-fixes"),
-          require("postcss-preset-env")({
+          pcssff,
+          pcsspenv({
             autoprefixer: {
               flexbox: "no-2009",
             },

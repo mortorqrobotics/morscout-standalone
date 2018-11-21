@@ -11,17 +11,19 @@
     "test:server": "node server/scripts/test.js",
     "start:cli": "node cli/scripts/start.js",
     "build:cli": "node cli/scripts/build.js",
-    "test:cli": "node cli/scripts/test.js",
+    "test:cli": "#node cli/scripts/test.js",
+    "prebuild": "npm run build:server",
+    "build": "npm run build:app",
+    "postbuild": "npm run build:cli",
     "start": "node server",
     "test": "jest",
-    "prerelease": "bestzip dist/release.zip app/build/* server/build/* cli/build/*",
-    "release": "release-it",
+    "prerelease": "npm run build",
+    "release": "bestzip dist/release.zip app/build/* server/build/* cli/build/*",
+    "postrelease": "release-it",
     "precommit": "git-add",
     "commit": "git-cz",
-    "postcommit": "git push"
-  },
-  "jest": {
-    "preset": "react-native"
+    "postcommit": "git push",
+    "lint": "eslint cli/**/*.js app/**/*.js server/**/*.js"
   },
   "bin": "cli/build/cli.js",
   "browserslist": {
@@ -52,7 +54,6 @@
     "dotenv-expand": "^4.2.0",
     "express": "^4.16.4",
     "fs-extra": "^7.0.1",
-    "git-add": "^0.0.2",
     "inquirer": "^6.2.0",
     "inquirer-command-prompt": "^0.0.8",
     "jshashes": "^1.0.7",
@@ -113,6 +114,8 @@
     "@babel/runtime": "^7.1.5",
     "@svgr/cli": "^4.0.3",
     "ava": "^0.25.0",
+    "git-add": "^0.0.2",
+    "babel-core": "^7.0.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",

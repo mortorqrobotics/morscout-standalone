@@ -1,6 +1,8 @@
+const path = require("path");
+
 module.exports = {
   collectCoverageFrom: ["src/**/*.{js,jsx,mjs}"],
-  setupFiles: ["<rootDir>/config/polyfills.js"],
+  // setupFiles: ["<rootDir>/config/polyfills.js"],
   testMatch: [
     "**/__tests__/**/*.{js,jsx,mjs}",
     "**/?(*.)(spec|test).{js,jsx,mjs}",
@@ -11,7 +13,7 @@ module.exports = {
   transform: {
     "^.+\\.(js|jsx|mjs)$": "<rootDir>/config/jest/babelTransform.js",
     "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
-    "^.+\\.(graphql)$": "<rootDir>/config/jest/graphqlTransform.js",
+    // "^.+\\.(graphql)$": "<rootDir>/config/jest/graphqlTransform.js",
     "^(?!.*\\.(js|jsx|mjs|css|json|graphql)$)":
       "<rootDir>/config/jest/fileTransform.js",
   },
@@ -22,6 +24,7 @@ module.exports = {
   moduleNameMapper: {
     "^react-native$": "react-native-web",
     "^.+\\.module\\.css$": "identity-obj-proxy",
+    "^uranium": path.join(__dirname, "src", "uranium"),
   },
   moduleFileExtensions: [
     "web.js",
