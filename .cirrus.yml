@@ -38,9 +38,10 @@ docker_builder:
   snyk_install_script: npm i -g snyk || true
   login_script: docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
   pull_script: docker pull eschablowski/morscout || true
-  build_script: docker build . --file docker/Dockerfile.prod \
+  build_script: docker build . \
+    --file docker/Dockerfile.prod \
     --cache-from myrepo/foo:latest \
     --tag myrepo/foo:$CIRRUS_TAG \
-    --tag myrepo/foo:latest .
+    --tag myrepo/foo:latest
   test_script: snyk test --docker eschabblowski/morscout:latest || true
   push_script: docker push eschabblowski/morscout:latest
