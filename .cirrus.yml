@@ -33,10 +33,23 @@ docker_builder:
   env:
     DOCKER_USERNAME: ENCRYPTED[c4ebf22212aa6eb1da6c1970dc80287abf298452717f00f7d993424346e31f0fd97113edd3af589e511ed1f27d4409e3]
     DOCKER_PASSWORD: ENCRYPTED[be48c52b4385a779d7c01a7d551b2b08439e93ef6ca81d6b42c811be31f8d59b19a80d31d61c10f5f5f4d2d0651ab4e7]
-  nvm_install_script:
-    - curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
-    - chmod +x /.nvm/nvm.sh
-  node_install_script: /.nvm/nvm.sh install lts/*
+    NODE_VERSION: 10.13.0
+  node_install_script:
+    - ARCH= && dpkgArch="$(dpkg --print-architecture)"
+    - case "${dpkgArch##*-}" in \
+        amd64) ARCH='x64';; \
+        ppc64el) ARCH='ppc64le';; \
+        s390x) ARCH='s390x';; \
+        arm64) ARCH='arm64';; \
+        armhf) ARCH='armv7l';; \
+        i386) ARCH='x86';; \
+        *) echo "unsupported architecture"; exit 1 ;; \
+      esac \
+    - set -x
+    - curl -fsSLO --compressed "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-$ARCH.tar.xz"
+    - tar -xJf "node-v$NODE_VERSION-linux-$ARCH.tar.xz" -C /usr/local --strip-components=1 --no-same-owner
+    - rm "node-v$NODE_VERSION-linux-$ARCH.tar.xz"
+    - ln -s /usr/local/bin/node /usr/local/bin/nodejs
   snyk_install_script: npm i -g snyk
   login_script: docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
   pull_script: docker pull $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest || true
