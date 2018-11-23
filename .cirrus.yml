@@ -33,8 +33,10 @@ docker_test_task:
     folder: node_modules
     fingerprint_script: cat yarn.lock
     populate_script: yarn install
-  setup_script: curl -fsSL https://get.docker.com -o docker.sh && chmod +x ./docker.sh && ./docker.sh && rm docker.sh
-  docker_test_script: /usr/bin/docker build --tag eschabblowski/morscout:$CIRRUS_TAG . && snyk test --docker eschabblowski/morscout:latest
+  env:
+    TAG: cirrus
+  setup_script: apt install apt-utils && curl -fsSL https://get.docker.com -o docker.sh && chmod +x ./docker.sh && ./docker.sh && rm docker.sh
+  docker_test_script: /usr/bin/docker build --tag eschabblowski/morscout:$TAG . && snyk test --docker eschabblowski/morscout:latest
 
 docker_builder:
   only_if: $CIRRUS_TAG != ''
