@@ -27,14 +27,12 @@ lint_task:
 
 docker_test:
   container:
-    matrix:
-      image: node:carbon-stretch
-      image: node:stretch
+      image: snyk/snyk-cli:npm
   node_modules_cache:
     folder: node_modules
     fingerprint_script: cat yarn.lock
     populate_script: yarn install
-  test_script: yarn run lint
+  test_script: snyk test --docker eschabblowski/morscout:latest --file Dockerfile
 
 docker_builder:
   only_if: $CIRRUS_TAG != ''
