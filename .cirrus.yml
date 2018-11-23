@@ -1,11 +1,11 @@
 container:
-    image: node:carbon-slim
+    image: node:dubnium-slim
 
 test_task:
   container:
     matrix:
       image: node:slim
-      image: node:carbon-slim
+      image: node:dubnium-slim
     # additional_containers:
     #   - name: mongo
     #     image: mongo:latest
