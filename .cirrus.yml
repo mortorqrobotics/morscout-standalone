@@ -35,7 +35,7 @@ docker_builder:
     DOCKER_PASSWORD: ENCRYPTED[be48c52b4385a779d7c01a7d551b2b08439e93ef6ca81d6b42c811be31f8d59b19a80d31d61c10f5f5f4d2d0651ab4e7]
   node_install_script: 
     - curl -sL https://deb.nodesource.com/setup_11.x | sudo bash -
-    - apt-get install -y nodejs
+    - sudo apt-get install -y nodejs
   snyk_install_script: npm i -g snyk
   build_script: docker build --tag eschabblowski/morscout:latest ./docker/Dockerfile.prod
   test_script: snyk test --docker eschabblowski/morscout:latest
