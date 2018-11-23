@@ -1,11 +1,11 @@
 container:
-    image: node:carbon-alpine
+    image: node:carbon-slim
 
 test_task:
   container:
     matrix:
-      image: node:alpine
-      image: node:carbon-alpine
+      image: node:slim
+      image: node:carbon-slim
     additional_containers:
       - name: mongo
         image: mongo:latest
