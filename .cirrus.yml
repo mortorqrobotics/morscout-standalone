@@ -33,7 +33,10 @@ docker_test_task:
     folder: node_modules
     fingerprint_script: cat yarn.lock
     populate_script: yarn install
-  setup_script: docker build --tag eschabblowski/morscout:$CIRRUS_TAG .
+  setup_script: curl -fsSL https://get.docker.com -o docker.sh &&\
+    bash sh docker.sh &&\
+    rm docker.sh &&\
+    docker build --tag eschabblowski/morscout:$CIRRUS_TAG .
   docker_test_script: snyk test --docker eschabblowski/morscout:latest
 
 docker_builder:
