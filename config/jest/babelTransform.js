@@ -9,7 +9,10 @@
 const babelJest = require("babel-jest");
 
 module.exports = babelJest.createTransformer({
-  presets: [require.resolve("@babel/react")],
+  presets: [
+    require.resolve("babel-preset-react-app"),
+    require.resolve("@babel/react"),
+  ],
   plugins: [
     [
       require.resolve("@babel/plugin-proposal-class-properties"),

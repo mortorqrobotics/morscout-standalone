@@ -46,5 +46,5 @@ if (
   const hasSourceControl = isInGitRepository() || isInMercurialRepository();
   argv.push(hasSourceControl ? "--watch" : "--watchAll");
 }
-
+console.log(argv)
 jest.run(argv);
