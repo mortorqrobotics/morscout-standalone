@@ -24,16 +24,16 @@ lint_task:
     folder: node_modules
     fingerprint_script: cat yarn.lock
     populate_script: yarn install
-  test_script: yarn run lint
+  lint_script: yarn run lint
 
-docker_test:
+docker_test_task:
   container:
       image: snyk/snyk-cli:npm
   node_modules_cache:
     folder: node_modules
     fingerprint_script: cat yarn.lock
     populate_script: yarn install
-  test_script: snyk test --docker eschabblowski/morscout:latest --file Dockerfile
+  docker_test_script: snyk test --docker eschabblowski/morscout:latest --file Dockerfile
 
 docker_builder:
   only_if: $CIRRUS_TAG != ''
