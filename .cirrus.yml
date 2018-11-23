@@ -27,7 +27,6 @@ lint_task:
   lint_script: yarn run lint
 
 docker_builder:
-  only_if: $CIRRUS_TAG != ''
   depends_on: 
     # - test
     - lint
@@ -38,7 +37,7 @@ docker_builder:
     - curl -sL https://deb.nodesource.com/setup_11.x | bash -
     - apt-get install -y nodejs
   snyk_install_script: npm i -g snyk
-  build_script: docker build --tag eschabblowski/morscout:$CIRRUS_TAG ./docker/Dockerfile.prod
-  test_script: snyk test --docker eschabblowski/morscout:$CIRRUS_TAG
+  build_script: docker build --tag eschabblowski/morscout:latest ./docker/Dockerfile.prod
+  test_script: snyk test --docker eschabblowski/morscout:latest
   login_script: docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
-  push_script: docker push eschabblowski/morscout:$CIRRUS_TAG
+  push_script: docker push eschabblowski/morscout:latest
