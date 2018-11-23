@@ -36,8 +36,7 @@ docker_builder:
   nvm_install_script:
     - curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
     - chmod +x /.nvm/nvm.sh
-    - /.nvm/nvm.sh
-  node_install_script: nvm install lts/*
+  node_install_script: /.nvm/nvm.sh install lts/*
   snyk_install_script: npm i -g snyk
   login_script: docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
   pull_script: docker pull $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest || true
