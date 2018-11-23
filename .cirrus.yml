@@ -6,18 +6,18 @@ test_task:
     matrix:
       image: node:alpine
       image: node:carbon-alpine
+    additional_containers:
+      - name: mongo
+        image: mongo:latest
+        port: 27017
+        env:
+          MONGO_INITDB_ROOT_USERNAME: ""
+          MONGO_INITDB_ROOT_PASSWORD: ""
   node_modules_cache:
     folder: node_modules
     fingerprint_script: cat yarn.lock
     populate_script: yarn install
   test_script: yarn run test
-  additional_containers:
-    - name: mongo
-      image: mongo:latest
-      port: 27017
-      env:
-        MONGO_INITDB_ROOT_USERNAME: ""
-        MONGO_INITDB_ROOT_PASSWORD: ""
 
 lint_task:
   node_modules_cache:
