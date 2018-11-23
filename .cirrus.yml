@@ -35,7 +35,7 @@ docker_test_task:
     populate_script: yarn install
   env:
     TAG: cirrus
-  setup_script: apt install apt-utils -y && curl -fsSL https://get.docker.com -o docker.sh && chmod +x ./docker.sh && ./docker.sh && rm docker.sh
+  _script: apt install apt-utils -y && curl -fsSL https://get.docker.com -o docker.sh && chmod +x ./docker.sh && ./docker.sh && rm docker.sh
   docker_test_script: /usr/bin/docker build --tag eschabblowski/morscout:$TAG . && snyk test --docker eschabblowski/morscout:latest
 
 docker_builder:
@@ -47,6 +47,9 @@ docker_builder:
   env:
     DOCKER_USERNAME: ENCRYPTED[c4ebf22212aa6eb1da6c1970dc80287abf298452717f00f7d993424346e31f0fd97113edd3af589e511ed1f27d4409e3]
     DOCKER_PASSWORD: ENCRYPTED[be48c52b4385a779d7c01a7d551b2b08439e93ef6ca81d6b42c811be31f8d59b19a80d31d61c10f5f5f4d2d0651ab4e7]
+  node_install_script: curl -sL https://deb.nodesource.com/setup_11.x | bash - && apt-get install -y nodejs
+  snyk_install_script: npm i -g snyk
   build_script: docker build --tag eschabblowski/morscout:$CIRRUS_TAG .
+  test_script: snyk test --docker eschabblowski/morscout:$CIRRUS_TAG
   login_script: docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
   push_script: docker push eschabblowski/morscout:$CIRRUS_TAG
