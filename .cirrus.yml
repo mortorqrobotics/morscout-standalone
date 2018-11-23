@@ -1,10 +1,11 @@
 container:
-  matrix:
     image: node:alpine
-    image: node:carbon-alpine
-
 
 test_task:
+  container:
+    matrix:
+      image: node:alpine
+      image: node:carbon-alpine
   node_modules_cache:
     folder: node_modules
     fingerprint_script: cat yarn.lock
