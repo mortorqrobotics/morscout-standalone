@@ -6,13 +6,13 @@ test_task:
     matrix:
       image: node:slim
       image: node:carbon-slim
-    additional_containers:
-      - name: mongo
-        image: mongo:latest
-        port: 27017
-        env:
-          MONGO_INITDB_ROOT_USERNAME: ""
-          MONGO_INITDB_ROOT_PASSWORD: ""
+    # additional_containers:
+    #   - name: mongo
+    #     image: mongo:latest
+    #     port: 27017
+    #     env:
+    #       MONGO_INITDB_ROOT_USERNAME: ""
+    #       MONGO_INITDB_ROOT_PASSWORD: ""
   node_modules_cache:
     folder: node_modules
     fingerprint_script: cat yarn.lock
@@ -26,24 +26,11 @@ lint_task:
     populate_script: yarn install
   lint_script: yarn run lint
 
-docker_test_task:
-  container:
-      image: snyk/snyk-cli:npm
-  node_modules_cache:
-    folder: node_modules
-    fingerprint_script: cat yarn.lock
-    populate_script: yarn install
-  env:
-    TAG: cirrus
-  _script: apt install apt-utils -y && curl -fsSL https://get.docker.com -o docker.sh && chmod +x ./docker.sh && ./docker.sh && rm docker.sh
-  docker_test_script: /usr/bin/docker build --tag eschabblowski/morscout:$TAG . && snyk test --docker eschabblowski/morscout:latest
-
 docker_builder:
   only_if: $CIRRUS_TAG != ''
   depends_on: 
     - test
     - lint
-    - docker_test_task
   env:
     DOCKER_USERNAME: ENCRYPTED[c4ebf22212aa6eb1da6c1970dc80287abf298452717f00f7d993424346e31f0fd97113edd3af589e511ed1f27d4409e3]
     DOCKER_PASSWORD: ENCRYPTED[be48c52b4385a779d7c01a7d551b2b08439e93ef6ca81d6b42c811be31f8d59b19a80d31d61c10f5f5f4d2d0651ab4e7]
