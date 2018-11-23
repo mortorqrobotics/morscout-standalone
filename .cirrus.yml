@@ -40,6 +40,7 @@ docker_builder:
   depends_on: 
     - test
     - lint
+    - docker_test_task
   env:
     DOCKER_USERNAME: ENCRYPTED[c4ebf22212aa6eb1da6c1970dc80287abf298452717f00f7d993424346e31f0fd97113edd3af589e511ed1f27d4409e3]
     DOCKER_PASSWORD: ENCRYPTED[be48c52b4385a779d7c01a7d551b2b08439e93ef6ca81d6b42c811be31f8d59b19a80d31d61c10f5f5f4d2d0651ab4e7]
