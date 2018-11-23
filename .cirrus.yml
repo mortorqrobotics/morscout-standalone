@@ -35,7 +35,7 @@ docker_test_task:
     populate_script: yarn install
   env:
     TAG: cirrus
-  setup_script: apt install apt-utils && curl -fsSL https://get.docker.com -o docker.sh && chmod +x ./docker.sh && ./docker.sh && rm docker.sh
+  setup_script: apt install apt-utils -y && curl -fsSL https://get.docker.com -o docker.sh && chmod +x ./docker.sh && ./docker.sh && rm docker.sh
   docker_test_script: /usr/bin/docker build --tag eschabblowski/morscout:$TAG . && snyk test --docker eschabblowski/morscout:latest
 
 docker_builder:
