@@ -2,17 +2,17 @@ container:
     image: node:carbon-slim
 
 test_task:
-  container:
-    # matrix:
-    #   image: node:slim
-    #   image: node:carbon-slim
-    additional_containers:
-      - name: mongo
-        image: mongo:latest
-        port: 27017
-        env:
-          MONGO_INITDB_ROOT_USERNAME: ""
-          MONGO_INITDB_ROOT_PASSWORD: ""
+  # container:
+  #   matrix:
+  #     image: node:slim
+  #     image: node:carbon-slim
+  #   additional_containers:
+  #     - name: mongo
+  #       image: mongo:latest
+  #       port: 27017
+  #       env:
+  #         MONGO_INITDB_ROOT_USERNAME: ""
+  #         MONGO_INITDB_ROOT_PASSWORD: ""
   node_modules_cache:
     folder: node_modules
     fingerprint_script: cat yarn.lock
@@ -34,7 +34,7 @@ docker_test_task:
     fingerprint_script: cat yarn.lock
     populate_script: yarn install
   setup_script: curl -fsSL https://get.docker.com -o docker.sh &&\
-    sh docker.sh &&\
+    /bin/sh docker.sh &&\
     rm docker.sh &&\
     docker build --tag eschabblowski/morscout:$CIRRUS_TAG .
   docker_test_script: snyk test --docker eschabblowski/morscout:latest
