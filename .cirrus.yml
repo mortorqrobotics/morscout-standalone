@@ -1,5 +1,5 @@
 container:
-    image: node:alpine
+    image: node:carbon-alpine
 
 test_task:
   container:
