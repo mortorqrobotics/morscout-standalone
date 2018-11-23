@@ -1,4 +1,6 @@
 # MorScout
+[![Build Status](https://api.cirrus-ci.com/github/eschablowski/morscout.svg)](https://cirrus-ci.com/github/eschablowski/morscout)
+[![Known Vulnerabilities](https://snyk.io/test/github/eschablowski/morscout/badge.svg)](https://snyk.io/test/github/eschablowski/morscout)
 
 This is a repository for the server, app, and CLI of MorScout, the official MorTorq FRC scouting application
 
