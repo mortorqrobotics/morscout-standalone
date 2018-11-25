@@ -1,0 +1,14 @@
+[production staging]
+>1%, not dead
+>1% in my stats
+last 4 versions
+unreleased versions
+
+[development]
+last 2 chrome versions
+last 2 firefox versions
+last 2 edge versions
+Electron 3.0.10
+
+[electron]
+Electron 3.0.10

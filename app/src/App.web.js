@@ -10,13 +10,10 @@ import { View, Text } from "react-native";
 //   createBottomTabNavigator,
 //   createAppContainer,
 // } from "@react-navigation/web";
-import {
-  createSwitchNavigator /* , TabRouter */,
-} from "@react-navigation/core";
-import { createMaterialTopTabNavigator } from "react-navigation-tabs";
+import { createSwitchNavigator } from "@react-navigation/core";
 import { createBrowserApp } from "@react-navigation/web";
 import H from "@/H";
-// import Navigation from "~/TopNav";
+import Navigation from "@/Navigation";
 import store from "store";
 import initialize from "actions/Basic/init";
 
@@ -52,19 +49,28 @@ function NotFoundError() {
   );
 }
 
+// eslint-disable-next-line
 const App = createBrowserApp(
-  createMaterialTopTabNavigator(
-    createSwitchNavigator({
-      Matches: {
-        screen: Matches,
-        path: "Matches",
-      },
-      Index: {
-        screen: Index,
-        path: "",
-      },
-    }),
-  ),
+  createSwitchNavigator({
+    Matches: {
+      screen: () => (
+        <>
+          <Navigation />
+          <Matches />
+        </>
+      ),
+      path: "Matches",
+    },
+    Index: {
+      screen: () => (
+        <>
+          <Navigation />
+          <Index />
+        </>
+      ),
+      path: "",
+    },
+  }),
 );
 
 export default () => (

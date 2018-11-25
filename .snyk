@@ -1,35 +1,4 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
 version: v1.13.1
-# ignores vulnerabilities until expiry date; change duration by modifying expiry date
-ignore:
-  'npm:braces:20180219':
-    - react-native > metro-core > jest-haste-map > micromatch > braces:
-        reason: Only used in build
-        expires: '2020-01-01T00:00:00.000Z'
-    - react-native > metro > jest-haste-map > micromatch > braces:
-        reason: Only used in build
-        expires: '2020-01-01T00:00:00.000Z'
-    - react-native > metro > metro-core > jest-haste-map > micromatch > braces:
-        reason: Only used in build
-        expires: '2020-01-01T00:00:00.000Z'
-    - react-native > metro > metro-cache > metro-core > jest-haste-map > micromatch > braces:
-        reason: Only used in build
-        expires: '2020-01-01T00:00:00.000Z'
-    - react-native > metro > metro-config > metro-core > jest-haste-map > micromatch > braces:
-        reason: Only used in build
-        expires: '2020-01-01T00:00:00.000Z'
-    - react-native > metro > metro-config > metro-cache > metro-core > jest-haste-map > micromatch > braces:
-        reason: Only used in build
-        expires: '2020-01-01T00:00:00.000Z'
-  'npm:mem:20180117':
-    - react-native > yargs > os-locale > mem:
-        reason: Only used in build
-        expires: '2020-01-01T00:00:00.000Z'
-    - react-native > metro > yargs > os-locale > mem:
-        reason: Only used in build
-        expires: '2020-01-01T00:00:00.000Z'
-  'npm:plist:20180219':
-    - react-native > xcode > simple-plist > plist:
-        reason: Only used in build
-        expires: '2020-01-01T00:00:00.000Z'
+ignore: {}
 patch: {}

@@ -4,15 +4,15 @@ const webpack = require("webpack");
 const resolve = require("resolve");
 const PnpWebpackPlugin = require("pnp-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const InlineChunkHtmlPlugin = require("react-dev-utils/InlineChunkHtmlPlugin");
+// const InlineChunkHtmlPlugin = require("react-dev-utils/InlineChunkHtmlPlugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const safePostCssParser = require("postcss-safe-parser");
 const ManifestPlugin = require("webpack-manifest-plugin");
-const InterpolateHtmlPlugin = require("react-dev-utils/InterpolateHtmlPlugin");
+// const InterpolateHtmlPlugin = require("react-dev-utils/InterpolateHtmlPlugin");
 const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
-const ModuleScopePlugin = require("react-dev-utils/ModuleScopePlugin");
+// const ModuleScopePlugin = require("react-dev-utils/ModuleScopePlugin");
 const getCSSModuleLocalIdent = require("react-dev-utils/getCSSModuleLocalIdent");
 const ModuleNotFoundPlugin = require("react-dev-utils/ModuleNotFoundPlugin");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin-alt");
@@ -21,6 +21,7 @@ const pcsspenv = require("postcss-preset-env");
 const pcssff = require("postcss-flexbugs-fixes");
 const getClientEnvironment = require("./env");
 const paths = require("./paths");
+const resolveConf = require("./resolve");
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // It requires a trailing slash, or the file assets will get an incorrect path.
@@ -32,7 +33,7 @@ const shouldUseRelativeAssetPaths = publicPath === "./";
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== "false";
 // Some apps do not need the benefits of saving a web request, so not inlining the chunk
 // makes for a smoother build process.
-const shouldInlineRuntimeChunk = process.env.INLINE_RUNTIME_CHUNK !== "false";
+// const shouldInlineRuntimeChunk = process.env.INLINE_RUNTIME_CHUNK !== "false";
 // `publicUrl` is just like `publicPath`, but we will provide it to our app
 // as %PUBLIC_URL% in `index.html` and `process.env.PUBLIC_URL` in JavaScript.
 // Omit trailing slash as %PUBLIC_URL%/xyz looks better than %PUBLIC_URL%xyz.
@@ -47,7 +48,7 @@ if (env.stringified["process.env"].NODE_ENV !== '"production"') {
 }
 
 // Check if TypeScript is setup
-const useTypeScript = fs.existsSync(paths.appTsConfig);
+// const useTypeScript = fs.existsSync(paths.appTsConfig);
 
 // style files regexes
 const cssRegex = /\.css$/;
@@ -101,6 +102,8 @@ const getStyleLoaders = (cssOptions, preProcessor) => {
   }
   return loaders;
 };
+
+const getSrc = (...p) => path.join("..", "src", ...p);
 
 // This is the production configuration.
 // It compiles slowly and is focused on producing a fast and minimal bundle.
@@ -201,41 +204,9 @@ module.exports = {
     // https://twitter.com/wSokra/status/969679223278505985
     runtimeChunk: true,
   },
-  resolve: {
-    // This allows you to set a fallback for where Webpack should look for modules.
-    // We placed these paths second because we want `node_modules` to "win"
-    // if there are any conflicts. This matches Node resolution mechanism.
-    // https://github.com/facebook/create-react-app/issues/253
-    modules: ["node_modules"].concat(
-      // It is guaranteed to exist because we tweak it in `env.js`
-      process.env.NODE_PATH.split(path.delimiter).filter(Boolean),
-    ),
-    // These are the reasonable defaults supported by the Node ecosystem.
-    // We also include JSX as a common component filename extension to support
-    // some tools, although we do not recommend using it, see:
-    // https://github.com/facebook/create-react-app/issues/290
-    // `web` extension prefixes have been added for better support
-    // for React Native Web.
-    extensions: paths.moduleFileExtensions
-      .map(ext => `.${ext}`)
-      .filter(ext => useTypeScript || !ext.includes("ts")),
-    alias: {
-      // Support React Native Web
-      // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
-      "react-native": "react-native-web",
-    },
-    plugins: [
-      // Adds support for installing with Plug'n'Play, leading to faster installs and adding
-      // guards against forgotten dependencies and such.
-      PnpWebpackPlugin,
-      // Prevents users from importing files from outside of src/ (or node_modules/).
-      // This often causes confusion because we only process files within src/ with babel.
-      // To fix this, we prevent you from importing files out of src/ -- if you'd like to,
-      // please link the files into your node_modules/ and let module-resolution kick in.
-      // Make sure your source files are compiled, as they will not be processed in any way.
-      new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
-    ],
-  },
+  resolve: resolveConf({
+    platform: "web",
+  }),
   resolveLoader: {
     plugins: [
       // Also related to Plug'n'Play, but this time it tells Webpack to load its loaders
@@ -288,9 +259,9 @@ module.exports = {
 
             loader: require.resolve("babel-loader"),
             options: {
-              customize: require.resolve(
-                "babel-preset-react-app/webpack-overrides",
-              ),
+              // customize: require.resolve(
+              //   "babel-preset-react-app/webpack-overrides",
+              // ),
 
               plugins: [
                 [
@@ -320,12 +291,7 @@ module.exports = {
               babelrc: false,
               configFile: false,
               compact: false,
-              presets: [
-                [
-                  require.resolve("babel-preset-react-app/dependencies"),
-                  { helpers: true },
-                ],
-              ],
+              presets: [],
               cacheDirectory: true,
               // Save disk space when time isn't as important
               cacheCompression: true,
@@ -442,14 +408,14 @@ module.exports = {
     }),
     // Inlines the webpack runtime script. This script is too small to warrant
     // a network request.
-    shouldInlineRuntimeChunk &&
-      new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/runtime~.+[.]js/]),
+    // shouldInlineRuntimeChunk &&
+    //   new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/runtime~.+[.]js/]),
     // Makes some environment variables available in index.html.
     // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
     // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
     // In production, it will be an empty string unless you specify "homepage"
     // in `package.json`, in which case it will be the pathname of that URL.
-    new InterpolateHtmlPlugin(HtmlWebpackPlugin, env.raw),
+    // new InterpolateHtmlPlugin(HtmlWebpackPlugin, env.raw),
     // This gives some necessary context to module not found errors, such as
     // the requesting resource.
     new ModuleNotFoundPlugin(paths.appPath),
@@ -479,7 +445,8 @@ module.exports = {
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     // Generate a service worker script that will precache, and keep up to date,
     // the HTML & assets that are part of the Webpack build.
-    new WorkboxWebpackPlugin.GenerateSW({
+    new WorkboxWebpackPlugin.InjectManifest({
+      swSrc: getSrc("sw.js"),
       clientsClaim: true,
       exclude: [/\.map$/, /asset-manifest\.json$/],
       importWorkboxFrom: "cdn",

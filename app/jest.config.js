@@ -1,35 +1,37 @@
 const path = require("path");
 
 module.exports = {
-  collectCoverageFrom: ["src/**/*.{js,jsx,mjs}"],
-  // setupFiles: ["<rootDir>/config/polyfills.js"],
+  collectCoverageFrom: ["src/**/*.{js,jsx,ts,tsx}", "!src/**/*.d.ts"],
+  resolver: "jest-pnp-resolver",
+  setupFiles: ["react-app-polyfill/jsdom"],
   testMatch: [
-    "**/__tests__/**/*.{js,jsx,mjs}",
-    "**/?(*.)(spec|test).{js,jsx,mjs}",
+    "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
+    "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,ts,tsx}",
   ],
-  roots: ["<rootDir>/src"],
-  testEnvironment: "node",
+  testEnvironment: "jsdom",
   testURL: "http://localhost",
   transform: {
-    "^.+\\.(js|jsx|mjs)$": "<rootDir>/config/jest/babelTransform.js",
+    "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/../node_modules/babel-jest",
     "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
-    // "^.+\\.(graphql)$": "<rootDir>/config/jest/graphqlTransform.js",
-    "^(?!.*\\.(js|jsx|mjs|css|json|graphql)$)":
+    "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)":
       "<rootDir>/config/jest/fileTransform.js",
   },
   transformIgnorePatterns: [
-    "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$",
-    "^.+\\.module\\.css$",
+    "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
+    "^.+\\.module\\.(css|sass|scss)$",
   ],
   moduleNameMapper: {
     "^react-native$": "react-native-web",
-    "^.+\\.module\\.css$": "identity-obj-proxy",
+    "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",
     "^uranium": path.join(__dirname, "src", "uranium"),
   },
   moduleFileExtensions: [
     "web.js",
-    "mjs",
     "js",
+    "web.ts",
+    "ts",
+    "web.tsx",
+    "tsx",
     "json",
     "web.jsx",
     "jsx",

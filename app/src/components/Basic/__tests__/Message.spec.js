@@ -3,7 +3,7 @@ import React from "react";
 import renderer from "react-test-renderer";
 import Message from "../Messages";
 
-// Note: test renderer must be required after react-native.
+// console.log(require("canvas"));
 
 test("renders correctly", () => {
   const tree = renderer

@@ -1,3 +1,28 @@
 {
-    "eslint.enable": true
+  "eslint.enable": true,
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true,
+    "**/windows/**": true,
+    "**/ios/**": true,
+    "**/android/**": true
+  },
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "windows": true,
+    "ios": true,
+    "android": true,
+    ".buckconfig": true,
+    "yarn.lock": true,
+    "package-lock.json": true,
+    ".snyk": true,
+    ".gitattributes": true,
+    ".flowconfig": true,
+    "ssl": true
+  }
 }

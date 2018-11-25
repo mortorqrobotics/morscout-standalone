@@ -7,11 +7,11 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="c9168ff9-fa66-4aba-b5ed-a1999f374561"
+    Name="72a4fced-b305-4c53-9f60-f5339475ee19"
     Publisher="CN=eschablowski"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="c9168ff9-fa66-4aba-b5ed-a1999f374561" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="72a4fced-b305-4c53-9f60-f5339475ee19" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>mscout</DisplayName>

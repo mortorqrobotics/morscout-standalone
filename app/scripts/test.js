@@ -15,6 +15,7 @@ require("../config/env");
 
 const jest = require("jest");
 const { execSync } = require("child_process");
+const path = require("path");
 
 const argv = process.argv.slice(2);
 
@@ -46,5 +47,8 @@ if (
   const hasSourceControl = isInGitRepository() || isInMercurialRepository();
   argv.push(hasSourceControl ? "--watch" : "--watchAll");
 }
-console.log(argv);
+
+argv.push("-c");
+argv.push(path.join(__dirname, "..", "jest.config.js"));
+
 jest.run(argv);

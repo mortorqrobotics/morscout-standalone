@@ -6,15 +6,6 @@ import resolveStyles from './resolveStyles'
 
 if (!global.matchMedia) {
   global.matchMedia = matchMediaMock;
-
-  if (!global.__exponent) {
-    console.warn( // eslint-disable-line no-console
-      'global.matchMedia not found. Uranium has mocked it for you. ' +
-      'To get rid of this warning, in your index.ios.js or index.android.js ' +
-      'set global.matchMedia to react-native-match-media or to Uranium\'s `matchMediaMock`. ' +
-      'See the Uranium docs for details.'
-    )
-  }
 }
 
 export { default as animate } from './animate'

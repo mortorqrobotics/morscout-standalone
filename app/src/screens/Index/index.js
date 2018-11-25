@@ -6,8 +6,6 @@ import style from "style";
 import Message, { RandomMessage } from "~/Basic/Messages";
 import { Title } from "~/Basic/Headers";
 
-console.log("Index");
-
 export default
 @Uranium
 class Index extends React.Component {

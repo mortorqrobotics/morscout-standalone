@@ -181,7 +181,7 @@ module.exports = {
               {
                 loader: require.resolve("babel-loader"),
                 options: {
-                  presets: [require.resolve("babel-preset-react-app")],
+                  presets: [],
                   plugins: [
                     [
                       require.resolve("babel-plugin-named-asset-import"),
@@ -213,9 +213,7 @@ module.exports = {
                 options: {
                   babelrc: false,
                   compact: false,
-                  presets: [
-                    require.resolve("babel-preset-react-app/dependencies"),
-                  ],
+                  presets: [],
                   cacheDirectory: true,
                   highlightCode: true,
                 },

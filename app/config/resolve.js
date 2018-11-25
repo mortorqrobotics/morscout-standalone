@@ -7,7 +7,22 @@ const paths = require("./paths");
 const getSrc = (...p) => path.join(__dirname, "..", "src", ...p);
 
 module.exports = options => {
-  const config = {
+  let extensions = (options.sourceExts || paths.moduleFileExtensions)
+    .map(ext => `.${ext}`)
+    .filter(ext => !ext.includes("ts"))
+    .concat(
+      paths.moduleFileExtensions
+        .map(ext => `.${options.platform || "web"}.${ext}`)
+        .filter(ext => !ext.includes("ts")),
+    );
+  if (options.platform === "ios" || options.platform === "android") {
+    extensions.concat(
+      paths.moduleFileExtensions
+        .map(ext => `.native.${ext}`)
+        .filter(ext => !ext.includes("ts")),
+    );
+  }
+  let config = {
     // This allows you to set a fallback for where Webpack should look for modules.
     // We placed these paths second because we want `node_modules` to "win"
     // if there are any conflicts. This matches Node resolution mechanism.
@@ -28,14 +43,7 @@ module.exports = options => {
     // https://github.com/facebook/create-react-app/issues/290
     // `web` extension prefixes have been added for better support
     // for React Native Web.
-    extensions: (options.sourceExts || paths.moduleFileExtensions)
-      .map(ext => `.${ext}`)
-      .filter(ext => !ext.includes("ts"))
-      .concat(
-        paths.moduleFileExtensions
-          .map(ext => `.${options.platform || "web"}.${ext}`)
-          .filter(ext => !ext.includes("ts")),
-      ),
+    extensions,
     alias: {
       // Basic Redirects
       "~": getSrc("components"),
@@ -67,7 +75,11 @@ module.exports = options => {
       new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
     ],
   };
-  if (config.platform === "web") {
+  if (
+    config.platform !== "ios" &&
+    config.platform !== "android" &&
+    config.platform !== "windows"
+  ) {
     // Support React Native Web
     // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
     config.alias["react-native"] = "react-native-web";

@@ -1,1 +1,4 @@
-app/app.json
+{
+    "name": "MorScout",
+    "displayName": "MorScout"
+}
