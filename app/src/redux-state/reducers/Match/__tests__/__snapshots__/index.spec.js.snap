@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`reducer returns the same as before (for compatibility) 1`] = `
+Object {
+  "progress": 3,
+  "teams": Object {
+    "blue": Array [
+      Object {
+        "num": 1515,
+      },
+      Object {
+        "num": 1928,
+      },
+      Object {
+        "num": 1385,
+      },
+    ],
+    "red": Array [
+      Object {
+        "num": 999,
+      },
+      Object {
+        "num": 666,
+      },
+      Object {
+        "num": 333,
+      },
+    ],
+  },
+  "time": 2017-12-17T17:45:00.000Z,
+}
+`;
+
+exports[`reducer returns the same as before (for compatibility) 2`] = `
+Object {
+  "progress": 4,
+  "teams": Object {
+    "blue": Array [
+      Object {
+        "num": 1515,
+      },
+      Object {
+        "num": 1928,
+      },
+      Object {
+        "num": 1385,
+      },
+    ],
+    "red": Array [
+      Object {
+        "num": 999,
+      },
+      Object {
+        "num": 666,
+      },
+      Object {
+        "num": 333,
+      },
+    ],
+  },
+  "time": 2017-12-17T17:45:00.000Z,
+}
+`;

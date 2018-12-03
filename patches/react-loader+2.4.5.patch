@@ -1,0 +1,14 @@
+patch-package
+--- a/node_modules/react-loader/lib/react-loader.js
++++ b/node_modules/react-loader/lib/react-loader.js
+@@ -103,7 +103,9 @@
+         var target =  ReactDOM.findDOMNode(this.refs.loader);
+ 
+         // clear out any other spinners from previous renders
+-        target.innerHTML = '';
++        if(target !== null) {
++          target.innerHTML = '';
++        }
+         spinner.spin(target);
+       }
+     },
