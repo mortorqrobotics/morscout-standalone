@@ -4,11 +4,11 @@ import Uranium from "uranium";
 import PropTypes from "prop-types";
 import style from "style";
 import fuzzyFilterFactory from "react-fuzzy-filter";
-import { Title } from "~/Basic/Headers";
 import { View } from "react-native";
-import { Link } from "@/react-router";
+import { Link } from "@/Navigation";
 import Table from "./Table";
-import Loader from "@/Loader";
+import H from "@/H";
+import Loader from "~/Basic/Loader";
 
 const { InputFilter, FilterResults } = fuzzyFilterFactory();
 const fuseConfig = {
@@ -59,17 +59,41 @@ function renderTeams(teams, mId) {
   return (
     <View style={style.Matches.Table.teams}>
       <View style={style.Matches.Table.Cell}>
-        <Link to={`/Scouting/${teams[0]}?Match=${mId}`}>{teams[0]}</Link>
+        <Link
+          routeName="Scouting"
+          params={{
+            match: mId,
+            team: teams[1],
+          }}
+        >
+          {teams[0]}
+        </Link>
       </View>
       <View style={style.Matches.Table.Cell}>
-        <Link to={`/Scouting/${teams[1]}?Match=${mId}`}>{teams[1]}</Link>
+        <Link
+          routeName="Scouting"
+          params={{
+            match: mId,
+            team: teams[1],
+          }}
+        >
+          {teams[1]}
+        </Link>
       </View>
       <View
         style={Object.assign({}, style.Matches.Table.Cell, {
           borderRightWidth: 0,
         })}
       >
-        <Link to={`/Scouting/${teams[2]}?Match=${mId}`}>{teams[2]}</Link>
+        <Link
+          routeName="Scouting"
+          params={{
+            match: mId,
+            team: teams[2],
+          }}
+        >
+          {teams[2]}
+        </Link>
       </View>
     </View>
   );
@@ -126,7 +150,9 @@ class Matches extends React.Component {
         <View style={style.Matches.space} />
         <View style={style.Matches.back}>
           <View css={style.Basic.Align.center}>
-            <Title css={style.Basic.Title}>All Matches</Title>
+            <H style={style.Basic.Title} level={1}>
+              All Matches
+            </H>
           </View>
           <View css={style.Basic.Align.center}>
             <InputFilter
@@ -189,7 +215,10 @@ class Matches extends React.Component {
                   ) {
                     m[data] = (
                       <Link
-                        to={`/Match/${m.id}`}
+                        routeName="Match"
+                        params={{
+                          id: m.id,
+                        }}
                         style={{ alignSelf: "center" }}
                       >
                         {m[data]}
@@ -198,7 +227,13 @@ class Matches extends React.Component {
                   }
                 });
                 m.id = (
-                  <Link to={`/Match/${m.id}`} style={style.Matches.Table.Link}>
+                  <Link
+                    routeName="Match"
+                    params={{
+                      id: m.id,
+                    }}
+                    style={style.Matches.Table.Link}
+                  >
                     {m.id}
                   </Link>
                 );

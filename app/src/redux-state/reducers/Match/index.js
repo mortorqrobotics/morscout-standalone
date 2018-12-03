@@ -1,8 +1,10 @@
 import { updated } from "shared/types/Match";
 
+global.matches = global.matches ? global.matches : {};
+global.teams = global.teams ? global.teams : {};
+
 export default (state = global.matches, action) => {
   const match = {};
-  const s = Object.assign({}, state);
   switch (action.type) {
     case updated:
       // eslint-disable-next-line
@@ -16,8 +18,8 @@ export default (state = global.matches, action) => {
       });
       match[id].time = new Date(match[id].time);
       delete match[action.data.id].id;
-      global.matches = Object.assign({}, s, match);
-      return s;
+      global.matches = Object.assign({}, global.matches, match);
+      return global.matches[id];
     default:
       return state;
   }

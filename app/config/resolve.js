@@ -61,7 +61,7 @@ module.exports = options => {
       uranium: getSrc("uranium"),
 
       // Platform Specific Polyfills
-      "@": getSrc("polyfills", options.platform || "web"),
+      "@": getSrc("polyfills"),
     },
     plugins: [
       // Adds support for installing with Plug'n'Play, leading to faster installs and adding

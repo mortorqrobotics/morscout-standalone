@@ -72,6 +72,7 @@ module.exports = {
   appPublic: resolveApp("public"),
   appHtml: resolveApp("public/index.html"),
   appIndexJs: resolveModule(resolveApp, "src/index"),
+  favicon: resolveApp(path.join("public", "logo.png")),
   appPackageJson: resolveApp("..", "package.json"),
   appSrc: resolveApp("src"),
   appTsConfig: resolveApp("tsconfig.json"),

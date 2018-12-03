@@ -5,8 +5,11 @@ const ignoredFiles = require("react-dev-utils/ignoredFiles");
 const fs = require("fs");
 const http = require("http");
 const mongoose = require("mongoose");
+const { default: requireWatch } = require("require-watch");
 const config = require("./webpack.config.dev");
 const paths = require("./paths");
+
+requireWatch(require.resolve("../../server/index"));
 const apiServer = require("../../server/index");
 
 const protocol = process.env.HTTPS === "true" ? "https" : "http";
@@ -105,14 +108,22 @@ function s(proxy, allowedHost) {
       app.use(noopServiceWorkerMiddleware());
     },
     after(express /* , server */) {
-      const { app, io } = apiServer({
+      const { io } = apiServer({
         development: true,
         modules: {
           mongoose,
         },
       });
-      express.use(app);
-      io.listen(http.Server().listen(3002)).of("io");
+      express.use((req, res, next) =>
+        // eslint-disable-next-line global-require
+        require("../../server")({
+          development: true,
+          modules: {
+            mongoose,
+          },
+        }).api(req, res, next),
+      );
+      io.listen(http.Server().listen(3030), {});
     },
   };
 }

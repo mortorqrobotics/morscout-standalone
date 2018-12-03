@@ -73,7 +73,7 @@ module.exports = {
     extensions: [".web.js", ".mjs", ".js", ".json", ".web.jsx", ".jsx"],
     alias: {
       // MorScout Folder Linking
-      shared: getSrc("..", "..", "shared"),
+      shared: getSrc("shared"),
       models: getSrc("models"),
     },
     plugins: [

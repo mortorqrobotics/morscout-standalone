@@ -24,5 +24,6 @@
     ".gitattributes": true,
     ".flowconfig": true,
     "ssl": true
-  }
+  },
+  "javascript.implicitProjectConfig.experimentalDecorators": true
 }

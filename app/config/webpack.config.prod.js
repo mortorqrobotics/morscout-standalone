@@ -4,6 +4,7 @@ const webpack = require("webpack");
 const resolve = require("resolve");
 const PnpWebpackPlugin = require("pnp-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 // const InlineChunkHtmlPlugin = require("react-dev-utils/InlineChunkHtmlPlugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -437,6 +438,40 @@ module.exports = {
       fileName: "asset-manifest.json",
       publicPath,
     }),
+    new FaviconsWebpackPlugin({
+      // Your source logo
+      logo: paths.favicon,
+      // The prefix for all image files (might be a folder or a name)
+      prefix: "icons/",
+      // Emit all stats of the generated icons
+      emitStats: false,
+      // The name of the json containing all favicon information
+      statsFilename: "iconstats-[hash].json",
+      // Generate a cache file with control hashes and
+      // don't rebuild the favicons until those hashes change
+      persistentCache: true,
+      // Inject the html into the html-webpack-plugin
+      inject: true,
+      // favicon background color (see https://github.com/haydenbleasel/favicons#usage)
+      background: "#fff",
+      // favicon app title (see https://github.com/haydenbleasel/favicons#usage)
+      // eslint-disable-next-line import/no-dynamic-require, global-require
+      title: require(paths.appPackageJson).name,
+
+      // which icons should be generated (see https://github.com/haydenbleasel/favicons#usage)
+      icons: {
+        android: true,
+        appleIcon: true,
+        appleStartup: true,
+        coast: true,
+        favicons: true,
+        firefox: true,
+        opengraph: true,
+        twitter: true,
+        yandex: true,
+        windows: true,
+      },
+    }),
     // Moment.js is an extremely popular library that bundles large locale files
     // by default due to how Webpack interprets its code. This is a practical
     // solution that requires the user to opt into importing specific locales.
@@ -446,18 +481,18 @@ module.exports = {
     // Generate a service worker script that will precache, and keep up to date,
     // the HTML & assets that are part of the Webpack build.
     new WorkboxWebpackPlugin.InjectManifest({
-      swSrc: getSrc("sw.js"),
-      clientsClaim: true,
+      swSrc: path.resolve(__dirname, getSrc("sw.js")),
+      // clientsClaim: true,
       exclude: [/\.map$/, /asset-manifest\.json$/],
-      importWorkboxFrom: "cdn",
-      navigateFallback: `${publicUrl}/index.html`,
-      navigateFallbackBlacklist: [
-        // Exclude URLs starting with /_, as they're likely an API call
-        new RegExp("^/_"),
-        // Exclude URLs containing a dot, as they're likely a resource in
-        // public/ and not a SPA route
-        new RegExp("/[^/]+\\.[^/]+$"),
-      ],
+      importWorkboxFrom: "local",
+      // navigateFallback: `${publicUrl}/index.html`,
+      // navigateFallbackBlacklist: [
+      //   // Exclude URLs starting with /_, as they're likely an API call
+      //   new RegExp("^/_"),
+      //   // Exclude URLs containing a dot, as they're likely a resource in
+      //   // public/ and not a SPA route
+      //   new RegExp("/[^/]+\\.[^/]+$"),
+      // ],
     }),
     // TypeScript type checking
     fs.existsSync(paths.appTsConfig) &&

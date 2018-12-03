@@ -1,5 +1,7 @@
 const path = require("path");
 
+const getSrc = (...p) => path.join(__dirname, "src", ...p);
+
 module.exports = {
   collectCoverageFrom: ["src/**/*.{js,jsx,ts,tsx}", "!src/**/*.d.ts"],
   resolver: "jest-pnp-resolver",
@@ -22,8 +24,16 @@ module.exports = {
   ],
   moduleNameMapper: {
     "^react-native$": "react-native-web",
+    "^shared(.*)$": getSrc("shared", "$1"),
+    "^screen(.*)$": getSrc("screens", "$1"),
+    "^~/(.*)$": getSrc("components", "$1"),
+    "^@/(.*)$": getSrc("polyfills", "$1"),
+    "^style(.*)$": getSrc("style", "$1"),
+    "^store(.*)$": getSrc("redux-state", "store", "$1"),
+    "^reducers(.*)$": getSrc("redux-state", "reducers", "$1"),
+    "^actions/(.*)$": getSrc("redux-state", "actions", "$1"),
     "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",
-    "^uranium": path.join(__dirname, "src", "uranium"),
+    "^uranium": getSrc("uranium"),
   },
   moduleFileExtensions: [
     "web.js",
@@ -37,4 +47,5 @@ module.exports = {
     "jsx",
     "node",
   ],
+  coveragePathIgnorePatterns: ["uranium"],
 };

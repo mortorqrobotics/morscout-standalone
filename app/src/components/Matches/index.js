@@ -10,7 +10,10 @@ function mapStateToProps(state) {
       return;
     }
     ms[id] = {
-      time: [match.time.getHours(), match.time.getMinutes()],
+      time: [
+        new Date(match.time).getHours(),
+        new Date(match.time).getMinutes(),
+      ],
       blue: match.teams.blue,
       red: match.teams.red,
       progress: match.progress,

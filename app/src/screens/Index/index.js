@@ -4,15 +4,24 @@ import Uranium from "uranium";
 import style from "style";
 
 import Message, { RandomMessage } from "~/Basic/Messages";
-import { Title } from "~/Basic/Headers";
+import H from "@/H";
 
 export default
 @Uranium
 class Index extends React.Component {
+  static navigationOptions = () => ({
+    title: "MorScout",
+    linkName: "MorScout Index",
+  });
+
+  static path = "";
+
   render() {
     return (
       <View css={style.Index.background}>
-        <Title css={style.Index.Title}>MorScout -- Index</Title>
+        <H style={style.Index.Title} level={1}>
+          MorScout -- Index
+        </H>
         <RandomMessage css={style.Index.Message}>
           <Message>Welcome to MorScout!</Message>
           <Message>OurScout is MorScout Than YourScout</Message>

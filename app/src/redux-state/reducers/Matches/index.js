@@ -2,6 +2,7 @@ import { updated } from "shared/types/Matches";
 
 global.matches = global.matches ? global.matches : {};
 global.teams = global.teams ? global.teams : {};
+
 export default (state = global.matches, action) => {
   const matches = Object.assign({}, state, action.data);
   switch (action.type) {

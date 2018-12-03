@@ -33,7 +33,7 @@ class Match extends React.Component {
     return (
       <View>
         <Text>{JSON.stringify(this.state)}</Text>
-        {/* <Calendar current={new Date(this.state.time)} /> */}
+        {/* <Text>{JSON.stringify(this.props)}</Text> */}
       </View>
     );
   }
