@@ -23,7 +23,8 @@
     ".snyk": true,
     ".gitattributes": true,
     ".flowconfig": true,
-    "ssl": true
+    "ssl": true,
+    "packages-cache": true
   },
   "javascript.implicitProjectConfig.experimentalDecorators": true
 }

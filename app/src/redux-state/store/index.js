@@ -10,7 +10,7 @@ const engine = createEngine("redux");
 const storageMiddleware = storage.createMiddleware(engine);
 
 const composeEnhancers = compose({
-  actionsBlacklist: ["REDUX_STORAGE_LOAD", "REDUX_STORAGE_SAVE", "@@INIT"],
+  // actionsBlacklist: ["REDUX_STORAGE_LOAD", "REDUX_STORAGE_SAVE", "@@INIT"],
 });
 
 const socket = io("http://localhost:3030");

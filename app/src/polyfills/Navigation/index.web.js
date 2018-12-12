@@ -1,10 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Uranium from "uranium";
-import { Button, View, Text, Linking } from "react-native";
+import { View, Text, Linking } from "react-native";
 import { Link } from "@react-navigation/web";
 import { SceneView } from "@react-navigation/core";
-import style from "style";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHome, faBars } from "@fortawesome/free-solid-svg-icons";
+import styleFunc from "./style";
+import UserIcon from "./userIcon";
 
 export { Link } from "@react-navigation/web";
 
@@ -22,6 +25,9 @@ class Navigator extends React.PureComponent {
         ),
       }),
     }),
+    user: PropTypes.shape({
+      loggedIn: PropTypes.bool,
+    }),
   };
 
   constructor(props) {
@@ -36,13 +42,11 @@ class Navigator extends React.PureComponent {
     const { visible } = this.state;
     const activeKey = navigation.state.routes[navigation.state.index].key;
     const descriptor = descriptors[activeKey];
+    const style = styleFunc(visible);
     return (
-      <View>
+      <View css={style.Container}>
         <View
-          css={style.Navigation.Back}
-          style={{
-            visibility: visible ? "visible" : "hidden",
-          }}
+          css={style.Nav}
           onClick={() => {
             const newState = Object.assign({}, this.state, {
               visible: false,
@@ -50,20 +54,20 @@ class Navigator extends React.PureComponent {
             this.setState(newState);
           }}
         >
-          <View css={style.Navigation.Top.Left}>
-            <Link routeName="Index" css={style.Navigation.Top.Link}>
-              MorScout
+          <View css={style.Top.Left}>
+            <Link routeName="Index" css={style.Top.Link}>
+              <FontAwesomeIcon icon={faHome} />
             </Link>
-            <Link routeName="Matches" css={style.Navigation.Top.Link}>
-              All Matches
+            <Link routeName="Matches" css={style.Top.Link}>
+              All&nbsp;Matches
             </Link>
-            <Link routeName="TeamList" css={style.Navigation.Top.Link}>
-              Team List
+            <Link routeName="TeamList" css={style.Top.Link}>
+              Team&nbsp;List
             </Link>
           </View>
-          <View css={style.Navigation.Top.Right}>
+          <View css={style.Top.Right}>
             <Text
-              css={style.Navigation.Top.Link}
+              css={style.Top.Link}
               onClick={() => {
                 if (Linking.canOpenURL("morteam://") && window === undefined) {
                   Linking.openURL("morteam://");
@@ -74,25 +78,26 @@ class Navigator extends React.PureComponent {
             >
               MorTeam
             </Text>
-            <Link routeName="Profile" css={style.Navigation.Top.Link}>
+            <Link routeName="Profile" css={style.Top.Link}>
               Profile
             </Link>
-            <Link routeName="logout" css={style.Navigation.Top.Link}>
-              Log Out
-            </Link>
+            <UserIcon />
           </View>
         </View>
-        <Button
-          onPress={e => {
-            e.preventDefault();
+        <button
+          onClick={e => {
             const { visible: isVisible } = this.state;
             const newState = Object.assign({}, this.state, {
               visible: !isVisible,
             });
             this.setState(newState);
+            e.preventDefault();
           }}
-          title="Show/hide"
-        />
+          type="button"
+          css={style.Button}
+        >
+          <FontAwesomeIcon icon={faBars} />
+        </button>
         <View
           onClick={() => {
             const newState = Object.assign({}, this.state, {
@@ -100,9 +105,7 @@ class Navigator extends React.PureComponent {
             });
             this.setState(newState);
           }}
-          style={{
-            height: 1,
-          }}
+          css={style.App}
         >
           <SceneView
             component={descriptor.getComponent()}

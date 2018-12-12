@@ -1,7 +1,4 @@
-import NavBar from "./Navbar";
-
 export default {
-  Navigation: NavBar,
   Index: {
     background: {},
   },
