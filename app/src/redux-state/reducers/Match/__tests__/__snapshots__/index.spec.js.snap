@@ -1,6 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`reducer returns the same as before (for compatibility) 1`] = `
+exports[`reducer must not initialize the same thing and not with undefined 1`] = `Object {}`;
+
+exports[`reducer returns the same as before (for compatibility) 1`] = `Object {}`;
+
+exports[`reducer returns the same as before (for compatibility) 2`] = `
 Object {
   "progress": 3,
   "teams": Object {
@@ -31,7 +35,7 @@ Object {
 }
 `;
 
-exports[`reducer returns the same as before (for compatibility) 2`] = `
+exports[`reducer returns the same as before (for compatibility) 3`] = `
 Object {
   "progress": 4,
   "teams": Object {

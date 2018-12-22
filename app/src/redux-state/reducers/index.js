@@ -1,9 +1,11 @@
-import matches from "reducers/Matches/index";
-import match from "reducers/Match/index";
+import matches from "reducers/Matches";
+import match from "reducers/Match";
+import teams from "reducers/Teams";
 import user from "reducers/Basic/user";
+import reduceReducers from "reduce-reducers";
 
 export default {
-  matches,
-  match,
+  matches: reduceReducers(matches, match),
+  teams: reduceReducers(teams),
   user,
 };

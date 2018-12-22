@@ -1,25 +1,19 @@
 import { updated } from "shared/types/Match";
 
-global.matches = global.matches ? global.matches : {};
-global.teams = global.teams ? global.teams : {};
-
-export default (state = global.matches, action) => {
-  const match = {};
+export default (state = {}, action) => {
+  const matches = Object.assign({}, state);
   switch (action.type) {
     case updated:
       // eslint-disable-next-line
-      const {
-        id,
-      } = action.data;
-      match[id] = action.data;
-      match[id].teams.blue.map(team => {
-        global.teams[team.num] = team;
-        return team;
-      });
-      match[id].time = new Date(match[id].time);
-      delete match[action.data.id].id;
-      global.matches = Object.assign({}, global.matches, match);
-      return global.matches[id];
+      const { id } = action.data;
+      matches[id] = action.data;
+      if (matches[id].time) {
+        matches[id].time = new Date(matches[id].time);
+      }
+      if (matches[id].id) {
+        delete matches[id].id;
+      }
+      return matches[id];
     default:
       return state;
   }

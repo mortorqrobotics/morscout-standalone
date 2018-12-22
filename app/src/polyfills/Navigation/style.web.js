@@ -19,6 +19,16 @@ export default visible => ({
       height: "25px",
       width: "25px",
     },
+    User: {
+      visibility: visible ? "visible" : "hidden",
+      height: visible ? undefined : 0,
+      width: visible ? undefined : 0,
+      overflow: "hidden",
+      alignSelf: "flex-start",
+      "@media screen and (min-aspect-ratio: 1/1)": {
+        alignSelf: "flex-end",
+      },
+    },
   },
   Button: {
     height: "3vh",

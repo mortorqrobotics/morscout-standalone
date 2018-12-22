@@ -7,7 +7,7 @@ export default socket => {
       type: updated,
       data: {
         "1": {
-          time: "2017-12-17T17:45:00.000Z",
+          time: "2017-12-17T17:00:00.000Z",
           teams: {
             blue: [
               {
@@ -32,7 +32,7 @@ export default socket => {
               },
             ],
           },
-          progress: 3,
+          progress: { current: 3, max: 6 },
         },
       },
     });

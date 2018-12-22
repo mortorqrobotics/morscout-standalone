@@ -4,13 +4,14 @@ import io from "socket.io-client";
 import { composeWithDevTools as compose } from "redux-devtools-extension";
 import * as storage from "redux-storage";
 import createEngine from "redux-storage-engine-reactnativeasyncstorage";
+import filter from "redux-storage-decorator-filter";
 import reducers from "reducers";
 
-const engine = createEngine("redux");
+const engine = filter(createEngine("redux"), [], ["user"]);
 const storageMiddleware = storage.createMiddleware(engine);
 
 const composeEnhancers = compose({
-  // actionsBlacklist: ["REDUX_STORAGE_LOAD", "REDUX_STORAGE_SAVE", "@@INIT"],
+  actionsBlacklist: ["REDUX_STORAGE_LOAD", "REDUX_STORAGE_SAVE"],
 });
 
 const socket = io("http://localhost:3030");

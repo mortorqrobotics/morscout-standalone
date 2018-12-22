@@ -1,15 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { View } from "react-native";
+import { View, Text } from "react-native";
+import Uranium from "uranium";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSignInAlt,
   faSignOutAlt,
   faUser,
+  faCog,
 } from "@fortawesome/free-solid-svg-icons";
 import { connect } from "react-redux";
-import { Link } from "./index.web";
+import { Link } from "./index";
+import styleFunc from "./style";
 
+@Uranium
 class UserIcon extends React.Component {
   static propTypes = {
     user: PropTypes.shape({
@@ -28,10 +32,11 @@ class UserIcon extends React.Component {
   render() {
     const { user, dispatch } = this.props;
     const { open } = this.state;
+    const style = styleFunc(open);
     if (user && user.loggedIn) {
       return (
         <View>
-          <View
+          <Text
             onClick={e => {
               const newState = {
                 ...this.state,
@@ -44,35 +49,55 @@ class UserIcon extends React.Component {
           >
             <FontAwesomeIcon icon={faUser} />
             {user.name}
-          </View>
-          <View
-            style={{
-              visibility: open ? "visible" : "hidden",
-              height: open ? undefined : 0,
-              width: open ? undefined : 0,
-              overflow: "hidden",
-            }}
-          >
-            <Link routeName="logout">
-              Log Out
-              <FontAwesomeIcon icon={faSignOutAlt} />
-            </Link>
-          </View>
+          </Text>
+
+          <div css={style.Top.User}>
+            <View>
+              <Text>
+                <Link routeName="logout">
+                  <FontAwesomeIcon icon={faCog} />
+                  Settings
+                </Link>
+              </Text>
+              <Text>
+                <a
+                  onClick={e => {
+                    dispatch({
+                      type: "logout",
+                    });
+                    const newState = {
+                      ...this.state,
+                      open: false,
+                    };
+                    this.setState(newState);
+                    e.stopPropagation();
+                  }}
+                  role="button"
+                  tabIndex="0"
+                >
+                  Log Out
+                  <FontAwesomeIcon icon={faSignOutAlt} />
+                </a>
+              </Text>
+            </View>
+          </div>
         </View>
       );
     }
     return (
-      <Link
-        routeName="login"
-        onClick={() =>
+      <a
+        onClick={e => {
           dispatch({
             type: "login",
-          })
-        }
+          });
+          e.stopPropagation();
+        }}
+        role="button"
+        tabIndex="-1"
       >
         Log In
         <FontAwesomeIcon icon={faSignInAlt} />
-      </Link>
+      </a>
     );
   }
 }

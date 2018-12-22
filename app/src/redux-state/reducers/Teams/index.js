@@ -1,14 +1,14 @@
-import { updated } from "shared/types/Matches";
+import { updated } from "shared/types/Teams";
 
 export default (state = {}, action) => {
-  const matches = Object.assign({}, state);
+  const teams = Object.assign({}, state);
   switch (action.type) {
     case updated:
       Object.entries(action.data).forEach(([id, match]) => {
-        matches[id] = match;
-        matches[id].time = new Date(match.time);
+        teams[id] = match;
+        teams[id].time = new Date(match.time);
       });
-      return matches;
+      return teams;
     default:
       return state;
   }

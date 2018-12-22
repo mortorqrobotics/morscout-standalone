@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 import style from "style";
 import fuzzyFilterFactory from "react-fuzzy-filter";
 import { View } from "react-native";
-import Match from "./Match";
 import H from "@/H";
 import Loader from "~/Basic/Loader";
 
@@ -20,24 +19,28 @@ export default
 class Matches extends React.Component {
   static propTypes = {
     load: PropTypes.func.isRequired,
-    matches: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        time: PropTypes.instanceOf(Date).isRequired,
-        progress: PropTypes.shape({
-          max: PropTypes.number.isRequired,
-          current: PropTypes.number.isRequired,
-        }).isRequired,
-        red: PropTypes.arrayOf(PropTypes.number).isRequired,
-        blue: PropTypes.arrayOf(PropTypes.number).isRequired,
-      }).isRequired,
-    ).isRequired,
+    // eslint-disable-next-line
+    teams: PropTypes.object.isRequired,
+    /* arrayOf(PropTypes.shape({
+      id: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.string,
+      ]),
+      time: PropTypes.arrayOf(PropTypes.number),
+      blue: PropTypes.(PropTypes.shape({
+        num: PropTypes.number,
+        id: PropTypes.oneOfType([
+          PropTypes.number,
+          PropTypes.string,
+        ]),
+      })), 
+     })).isRequired, */
   };
 
   constructor(props) {
     super(props);
     this.state = {
-      matches: props.matches,
+      teams: props.teams,
     };
     props.load();
   }
@@ -48,13 +51,13 @@ class Matches extends React.Component {
 
   static getDerivedStateFromProps(nextProps, prevState) {
     return Object.assign({}, prevState, {
-      matches: nextProps.matches,
+      teams: nextProps.teams,
     });
   }
 
   render() {
-    const { state } = this;
-    if (state.matches.length === 0) {
+    const { teams } = this.state;
+    if (teams.length === 0) {
       return <Loader />;
     }
     return (
@@ -63,7 +66,7 @@ class Matches extends React.Component {
         <View style={style.Matches.back}>
           <View css={style.Basic.Align.center}>
             <H style={style.Basic.Title} level={1}>
-              All Matches
+              All Teams
             </H>
           </View>
           <View css={style.Basic.Align.center}>
@@ -73,25 +76,14 @@ class Matches extends React.Component {
             />
           </View>
           <FilterResults
-            items={state.matches}
+            items={teams}
             fuseConfig={fuseConfig}
             prefilters={[
               {
                 regex: /\S+:\S+/g,
-                handler: (search, matches, Fuse) => {
-                  const key = search.split(":")[0].toLowerCase();
-                  const value = search.split(":")[1].toLowerCase();
-                  const items = matches.map(match => ({
-                    id: match.id,
-                    time: `${new Date(match.time).getHours()}:${new Date(
-                      match.time,
-                    ).getMinutes()}`,
-                    red: match.red,
-                    blue: match.blue,
-                    progress: `${match.progress.current} of ${
-                      match.progress.max
-                    }`,
-                  }));
+                handler: (match, items, Fuse) => {
+                  const key = match.split(":")[0].toLowerCase();
+                  const value = match.split(":")[1].toLowerCase();
                   if (_.has(key)) {
                     const fuse = new Fuse(
                       items,
@@ -122,9 +114,12 @@ class Matches extends React.Component {
               },
             ]}
           >
-            {results =>
-              results.map(match => <Match match={match} key={match.id} />)
-            }
+            {results => {
+              const matches = Array.isArray(results)
+                ? results.map(team => Object.assign({}, team))
+                : results;
+              return JSON.stringify(matches);
+            }}
           </FilterResults>
         </View>
         <View style={style.Matches.space} />

@@ -5,18 +5,13 @@ import { readFile } from "fs-extra";
 import { join } from "path";
 import reducer from "../index";
 
-test("reducer returns the global matches if there is no state", async () => {
-  expect.assertions(1);
-  global.matches = {};
-  expect(reducer(undefined, {})).toBe(global.matches);
-});
-
 test("reducer must never mutate the state directly", async () => {
   expect.assertions(2);
   const matches = {};
   const a = Object.assign({}, matches);
-  expect(reducer(matches, {})).toBe(matches);
-  expect(global.matches).toEqual(a);
+  const res = reducer(matches, {});
+  expect(res).toBe(matches);
+  expect(res).toEqual(a);
 });
 
 test("reducer returns the same as before (for compatibility)", async () => {
@@ -29,14 +24,9 @@ test("reducer returns the same as before (for compatibility)", async () => {
   });
 });
 
-test("reducer shouldn't override existing global variables", async () => {
+test("reducer must not initialize the same thing and not with undefined", async () => {
   expect.assertions(2);
-  global.matches = { Data: 1 };
-  global.teams = { Data: 1 };
-  const matches = Object.assign({}, global.matches);
-  const teams = Object.assign({}, global.teams);
-  // eslint-disable-next-line global-require
-  require("../index");
-  expect(matches).toEqual(global.matches);
-  expect(teams).toEqual(global.teams);
+  const init = reducer(undefined, {});
+  expect(init).not.toBe(undefined);
+  expect(init).toMatchSnapshot();
 });

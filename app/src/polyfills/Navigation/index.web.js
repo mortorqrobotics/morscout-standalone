@@ -61,7 +61,7 @@ class Navigator extends React.PureComponent {
             <Link routeName="Matches" css={style.Top.Link}>
               All&nbsp;Matches
             </Link>
-            <Link routeName="TeamList" css={style.Top.Link}>
+            <Link routeName="Teams" css={style.Top.Link}>
               Team&nbsp;List
             </Link>
           </View>
@@ -78,9 +78,6 @@ class Navigator extends React.PureComponent {
             >
               MorTeam
             </Text>
-            <Link routeName="Profile" css={style.Top.Link}>
-              Profile
-            </Link>
             <UserIcon />
           </View>
         </View>
@@ -89,6 +86,7 @@ class Navigator extends React.PureComponent {
             const { visible: isVisible } = this.state;
             const newState = Object.assign({}, this.state, {
               visible: !isVisible,
+              open: false,
             });
             this.setState(newState);
             e.preventDefault();

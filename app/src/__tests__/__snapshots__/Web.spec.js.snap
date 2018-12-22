@@ -45,7 +45,7 @@ exports[`Match renders Correctly 1`] = `
         All Matches
       </a>
       <a
-        href="/"
+        href="/Teams"
         onClick={[Function]}
       >
         <style>
@@ -76,17 +76,9 @@ exports[`Match renders Correctly 1`] = `
         MorTeam
       </div>
       <a
-        href="/"
         onClick={[Function]}
-      >
-        <style>
-          .ur.ur-526994a{background-color:orange;}
-        </style>
-        Profile
-      </a>
-      <a
-        href="/"
-        onClick={[Function]}
+        role="button"
+        tabIndex="-1"
       >
         Log In
         <svg
@@ -111,7 +103,7 @@ exports[`Match renders Correctly 1`] = `
       </style>
     </div>
     <style>
-      .ur.ur-982a71e{align-items:flex-start;background-color:orange;flex-direction:column;flex-wrap:wrap;justify-content:space-between;overflow-x:hidden;transition:0.5s;visibility:hidden;width:0px;z-index:0;}@media screen and (min-aspect-ratio: 1/1){.ur.ur-982a71e{box-shadow:0px 10px 5px grey;flex-direction:row;visibility:visible;width:100%;z-index:1;}}@media print{.ur.ur-982a71e{height:0px;visibility:hidden;width:0px;}}
+      .ur.ur-982a71e{align-items:flex-start;background-color:orange;flex-direction:column;flex-wrap:wrap;justify-content:space-between;overflow-x:hidden;transition:0.5s;visibility:hidden;width:0px;z-index:0;}@media screen and (min-aspect-ratio: 1/1){.ur.ur-982a71e{box-shadow:0px 10px 5px grey;flex-direction:row;transition:0s;visibility:visible;width:100%;z-index:1;}}@media print{.ur.ur-982a71e{height:0px;visibility:hidden;width:0px;}}
     </style>
   </div>
   <button
@@ -201,7 +193,7 @@ exports[`Match renders Correctly 1`] = `
       </style>
     </div>
     <style>
-      .ur.ur-6113973{background-color:white;box-shadow:-10px 0px 5px gray;flex-basis:auto;flex-grow:1;flex-shrink:1;height:100%;margin-left:-34px;padding-left:9px;position:relative;transition:0.5s;z-index:1;}@media screen and (min-aspect-ratio: 1/1){.ur.ur-6113973{margin-left:0px;}}
+      .ur.ur-6113973{background-color:white;box-shadow:-10px 0px 5px gray;flex-basis:auto;flex-grow:1;flex-shrink:1;height:100%;margin-left:-34px;padding-left:9px;position:relative;transition:0.5s;z-index:1;}@media screen and (min-aspect-ratio: 1/1){.ur.ur-6113973{margin-left:0px;transition:0s;}}
     </style>
   </div>
   <style>

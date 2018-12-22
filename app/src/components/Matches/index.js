@@ -4,20 +4,18 @@ import Matches from "./Matches";
 
 function mapStateToProps(state) {
   const { matches } = state;
-  const ms = {};
+  const ms = [];
   Object.entries(matches).forEach(([id, match]) => {
     if (match === undefined) {
       return;
     }
-    ms[id] = {
-      time: [
-        new Date(match.time).getHours(),
-        new Date(match.time).getMinutes(),
-      ],
-      blue: match.teams.blue,
-      red: match.teams.red,
+    ms.push({
+      id,
+      time: new Date(match.time),
+      blue: match.teams.blue.map(team => team.num),
+      red: match.teams.red.map(team => team.num),
       progress: match.progress,
-    };
+    });
   });
   return {
     matches: ms,
