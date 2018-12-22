@@ -7,6 +7,7 @@ const paths = require("./paths");
 const getSrc = (...p) => path.join(__dirname, "..", "src", ...p);
 
 module.exports = options => {
+  // eslint-disable-next-line prefer-const
   let extensions = (options.sourceExts || paths.moduleFileExtensions)
     .map(ext => `.${ext}`)
     .filter(ext => !ext.includes("ts"))
@@ -22,7 +23,8 @@ module.exports = options => {
         .filter(ext => !ext.includes("ts")),
     );
   }
-  let config = {
+  // eslint-disable-next-line prefer-const
+  const config = {
     // This allows you to set a fallback for where Webpack should look for modules.
     // We placed these paths second because we want `node_modules` to "win"
     // if there are any conflicts. This matches Node resolution mechanism.
