@@ -13,6 +13,7 @@ test_task:
     #     env:
     #       MONGO_INITDB_ROOT_USERNAME: ""
     #       MONGO_INITDB_ROOT_PASSWORD: ""
+  install_script: apt install bzip2
   node_modules_cache:
     folder: node_modules
     fingerprint_script: cat yarn.lock

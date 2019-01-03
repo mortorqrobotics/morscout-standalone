@@ -21,7 +21,7 @@
     "build": "npm run build:app",
     "postbuild": "npm run build:cli",
     "start": "node server",
-    "test": "jest",
+    "test": "snyk test && jest",
     "prerelease": "npm run build",
     "release": "bestzip dist/release.zip \"app/build/*\" \"server/build/*\" \"cli/build/*\"",
     "postrelease": "release-it",
@@ -94,7 +94,6 @@
     "redux-storage": "^4.1.2",
     "redux-storage-decorator-filter": "^1.1.8",
     "redux-storage-engine-reactnativeasyncstorage": "^1.0.5",
-    "shelljs": "^0.8.3",
     "socket.io": "^2.2.0",
     "socket.io-client": "^2.2.0",
     "socketio-wildcard": "^2.0.0",
@@ -102,6 +101,7 @@
     "vm2": "^3.6.6"
   },
   "devDependencies": {
+    "shelljs": "^0.8.3",
     "@babel/core": "^7.2.2",
     "@babel/plugin-proposal-class-properties": "^7.2.3",
     "@babel/plugin-proposal-decorators": "^7.2.3",
