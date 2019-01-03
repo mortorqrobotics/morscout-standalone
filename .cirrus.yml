@@ -67,7 +67,9 @@ docker_builder:
   snyk_install_script: npm i -g snyk
   login_script: docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
   pull_script: docker pull $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest || true
-  app_build_script: yarn build
+  app_build_script:
+    - yarn build:app
+    - yarn build:server
   docker_build_script: docker build --file docker/Dockerfile.prod --cache-from $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest --tag $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest .
   test_script: snyk test --docker $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest || true
   push_script: docker push $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest

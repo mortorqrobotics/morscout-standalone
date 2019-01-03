@@ -17,6 +17,5 @@ RUN yarn --prod --non-interactive --silent --frozen-lockfile
 COPY ./server/build ./server/build
 COPY ./server/*.js ./server/
 COPY ./app/build/web ./app/build/web
-COPY ./cli/build ./cli.build
 
 CMD [ "node", "./server/docker.js", "--production" ]
