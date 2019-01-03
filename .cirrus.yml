@@ -20,6 +20,7 @@ test_task:
     fingerprint_script: cat yarn.lock
     populate_script: yarn install
   login_script: yarn snyk auth $SNYK_API_KEY
+  build_script: yarn build:server
   test_script: yarn run test
 
 lint_task:
@@ -31,7 +32,7 @@ lint_task:
 
 docker_builder:
   depends_on: 
-    # - test
+    - test
     - lint
   env:
     DOCKER_USERNAME: ENCRYPTED[c4ebf22212aa6eb1da6c1970dc80287abf298452717f00f7d993424346e31f0fd97113edd3af589e511ed1f27d4409e3]
