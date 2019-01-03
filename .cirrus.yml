@@ -4,8 +4,8 @@ container:
 test_task:
   container:
     matrix:
-      image: node:slim
-      image: node:dubnium-slim
+      image: node:stretch
+      image: node:dubnium-stretch
     # additional_containers:
     #   - name: mongo
     #     image: mongo:latest
