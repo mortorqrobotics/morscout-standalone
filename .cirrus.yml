@@ -1,7 +1,9 @@
 container:
-    image: node:dubnium-slim
+    image: node:dubnium-stretch
 
 test_task:
+  env:
+    SNYK_API_KEY: ENCRYPTED[eac7bad296c62312d7ab0f4e53bbf159c77f9e59169950293bd8e93edb708689345f949fcfe6e47e7c0ea6af5cd2f4d5]
   container:
     matrix:
       image: node:stretch
@@ -13,11 +15,11 @@ test_task:
     #     env:
     #       MONGO_INITDB_ROOT_USERNAME: ""
     #       MONGO_INITDB_ROOT_PASSWORD: ""
-  install_script: apt install bzip2
   node_modules_cache:
     folder: node_modules
     fingerprint_script: cat yarn.lock
     populate_script: yarn install
+  login_script: yarn snyk auth $SNYK_API_KEY
   test_script: yarn run test
 
 lint_task:
