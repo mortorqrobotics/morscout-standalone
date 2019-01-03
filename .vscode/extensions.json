@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "msjsdiag.debugger-for-chrome",
+    "peterjausovec.vscode-docker",
+    "esbenp.prettier-vscode",
+    "mrmlnc.vscode-json5"
+  ]
+}

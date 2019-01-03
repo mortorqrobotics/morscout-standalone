@@ -1,3 +1,43 @@
-appId: com.example.app
+appId: com.mortorq.morscout
 directories:
-  buildResources: app/build/web
+  buildResources: app
+  output: app/build/electron/full
+files:
+  - from: app/build/web
+    to: web
+  - from: app/electron
+    to: main
+  - package.json
+extraMetadata:
+  main: main/index.js
+linux:
+  target:
+    - deb
+    - rpm
+    - apk
+    - tar.gz
+    - AppImage
+    - snap
+  category: Network
+  executableName: morscout
+  icon: app/build/web/logo.png
+  desktop:
+    Name: MorScout
+    Icon: morscout
+    Type: Application
+    Categories: Network; MorTorq; Scouting; FRC
+win:
+  target:
+    - nsis
+    - nsis-web
+    - portable
+    - appx
+    - msi
+  icon: app/build/web/logo.png
+mac:
+  target:
+    - dmg
+    - mas
+  icon: app/build/web/logo.png
+nsis:
+  oneClick: false
