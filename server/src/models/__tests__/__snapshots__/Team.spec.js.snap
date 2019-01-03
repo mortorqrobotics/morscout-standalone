@@ -1,0 +1,168 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Model is same throughout 1`] = `
+Schema {
+  "$id": 1,
+  "_indexes": Array [],
+  "_userProvidedOptions": Object {},
+  "aliases": Object {},
+  "callQueue": Array [],
+  "childSchemas": Array [],
+  "inherits": Object {},
+  "methodOptions": Object {},
+  "methods": Object {},
+  "nested": Object {
+    "awards": true,
+  },
+  "obj": Object {
+    "awards": Object {
+      "Type": [Function],
+    },
+    "name": Object {
+      "type": [Function],
+    },
+    "number": Object {
+      "type": [Function],
+      "validate": Object {
+        "message": "{ Value } is not a legal team number",
+        "validator": [Function],
+      },
+    },
+  },
+  "options": Object {
+    "_id": true,
+    "autoIndex": null,
+    "bufferCommands": true,
+    "capped": false,
+    "discriminatorKey": "__t",
+    "id": true,
+    "minimize": true,
+    "noId": false,
+    "noVirtualId": false,
+    "read": null,
+    "shardKey": null,
+    "strict": true,
+    "typeKey": "type",
+    "validateBeforeSave": true,
+    "versionKey": "__v",
+  },
+  "paths": Object {
+    "_id": ObjectId {
+      "_index": null,
+      "defaultValue": [Function],
+      "getters": Array [],
+      "instance": "ObjectID",
+      "options": Object {
+        "auto": true,
+        "type": [Function],
+      },
+      "path": "_id",
+      "setters": Array [
+        [Function],
+      ],
+      "validators": Array [],
+    },
+    "awards.Type": Map {
+      "$__schemaType": Mixed {
+        "_index": null,
+        "getters": Array [],
+        "instance": "Mixed",
+        "options": Object {
+          "type": Object {},
+        },
+        "path": "awards.Type.$*",
+        "setters": Array [],
+        "validators": Array [],
+        Symbol(mongoose:schema_mixed): true,
+      },
+      "$isSchemaMap": true,
+      "_index": null,
+      "getters": Array [],
+      "instance": "Map",
+      "options": Object {
+        "type": [Function],
+      },
+      "path": "awards.Type",
+      "setters": Array [],
+      "validators": Array [],
+    },
+    "awards.Type.$*": Mixed {
+      "_index": null,
+      "getters": Array [],
+      "instance": "Mixed",
+      "options": Object {
+        "type": Object {},
+      },
+      "path": "awards.Type.$*",
+      "setters": Array [],
+      "validators": Array [],
+      Symbol(mongoose:schema_mixed): true,
+    },
+    "name": SchemaString {
+      "_index": null,
+      "enumValues": Array [],
+      "getters": Array [],
+      "instance": "String",
+      "options": Object {
+        "type": [Function],
+      },
+      "path": "name",
+      "regExp": null,
+      "setters": Array [],
+      "validators": Array [],
+    },
+    "number": SchemaNumber {
+      "_index": null,
+      "getters": Array [],
+      "instance": "Number",
+      "options": Object {
+        "type": [Function],
+        "validate": Object {
+          "message": "{ Value } is not a legal team number",
+          "validator": [Function],
+        },
+      },
+      "path": "number",
+      "setters": Array [],
+      "validators": Array [
+        Object {
+          "message": "{ Value } is not a legal team number",
+          "type": "user defined",
+          "validator": [Function],
+        },
+      ],
+    },
+  },
+  "plugins": Array [],
+  "query": Object {},
+  "s": Object {
+    "hooks": Kareem {
+      "_posts": Map {},
+      "_pres": Map {},
+    },
+  },
+  "singleNestedPaths": Object {},
+  "statics": Object {},
+  "subpaths": Object {},
+  "tree": Object {
+    "_id": Object {
+      "auto": true,
+      "type": [Function],
+    },
+    "awards": Object {
+      "Type": [Function],
+    },
+    "name": Object {
+      "type": [Function],
+    },
+    "number": Object {
+      "type": [Function],
+      "validate": Object {
+        "message": "{ Value } is not a legal team number",
+        "validator": [Function],
+      },
+    },
+  },
+  "virtuals": Object {},
+}
+`;

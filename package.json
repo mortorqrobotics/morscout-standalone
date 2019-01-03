@@ -101,7 +101,6 @@
     "vm2": "^3.6.6"
   },
   "devDependencies": {
-    "shelljs": "^0.8.3",
     "@babel/core": "^7.2.2",
     "@babel/plugin-proposal-class-properties": "^7.2.3",
     "@babel/plugin-proposal-decorators": "^7.2.3",
@@ -175,6 +174,7 @@
     "metro-react-native-babel-preset": "^0.51.1",
     "metro-visualizer": "^0.51.1",
     "mini-css-extract-plugin": "^0.5.0",
+    "mockingoose": "^2.12.0",
     "node-loader": "^0.6.0",
     "nodemon": "^1.18.9",
     "npmlog": "^4.1.2",
@@ -197,6 +197,7 @@
     "rnpm-plugin-windows": "^0.2.8",
     "sass-loader": "^7.0.3",
     "semver": "^5.6.0",
+    "shelljs": "^0.8.3",
     "snyk": "^1.120.1",
     "source-map-loader": "^0.2.3",
     "style-loader": "^0.23.1",
