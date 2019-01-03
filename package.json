@@ -134,7 +134,7 @@
     "babel-plugin-named-asset-import": "^0.3.0",
     "bestzip": "^2.1.2",
     "browserslist-ga": "^0.0.10",
-    "canvas-prebuilt": "^2.0.0-alpha.14",
+    "canvas": "^2.2.0",
     "case-sensitive-paths-webpack-plugin": "^2.1.2",
     "chokidar": "^2.0.4",
     "commitizen": "^3.0.5",
