@@ -4,7 +4,7 @@ container:
 test_task:
   env:
     SNYK_API_KEY: ENCRYPTED[eac7bad296c62312d7ab0f4e53bbf159c77f9e59169950293bd8e93edb708689345f949fcfe6e47e7c0ea6af5cd2f4d5]
-    CODE_COV_KEY: ENCRYPTED[91e06a49ded64384320f2d35490413c7a2c9ce1eea072b68451f823b45b82550fea9fda85f9992e1679bf43f663f8c8f]
+    CODECOV_TOKEN: ENCRYPTED[91e06a49ded64384320f2d35490413c7a2c9ce1eea072b68451f823b45b82550fea9fda85f9992e1679bf43f663f8c8f]
   container:
     matrix:
       image: node:stretch
@@ -24,9 +24,9 @@ test_task:
   build_script: yarn build:server
   test_script: yarn run test:coverage
   coverage_upload_script:
-    - bash <(curl -s https://codecov.io/bash) -cF app-`node -v` -f app/coverage/coverage-final.json -t $CODE_COV_KEY
-    - bash <(curl -s https://codecov.io/bash) -cF server-`node -v` -f server/coverage/coverage-final.json -t $CODE_COV_KEY
-    - bash <(curl -s https://codecov.io/bash) -cF cli-`node -v` -f cli/coverage/coverage-final.json -t $CODE_COV_KEY
+    - bash <(curl -s https://codecov.io/bash) -cF app -F `node -v | sed 's/\..*$//'` -f app/coverage/coverage-final.json -t $CODECOV_TOKEN
+    - bash <(curl -s https://codecov.io/bash) -cF server -F `node -v | sed 's/\..*$//'` -f server/coverage/coverage-final.json -t $CODECOV_TOKEN
+    - bash <(curl -s https://codecov.io/bash) -cF cli -F `node -v | sed 's/\..*$//'` cli/coverage/coverage-final.json -t $CODECOV_TOKEN
 
 lint_task:
   node_modules_cache:
