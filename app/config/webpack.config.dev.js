@@ -1,20 +1,20 @@
-/* eslint-disable */
 const fs = require("fs");
 const path = require("path");
 const resolve = require("resolve");
 const webpack = require("webpack");
 const PnpWebpackPlugin = require("pnp-webpack-plugin");
+const HardSourceWebpackPlugin = require("hard-source-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 const CaseSensitivePathsPlugin = require("case-sensitive-paths-webpack-plugin");
-const InterpolateHtmlPlugin = require("react-dev-utils/InterpolateHtmlPlugin");
 const WatchMissingNodeModulesPlugin = require("react-dev-utils/WatchMissingNodeModulesPlugin");
-const ModuleScopePlugin = require("react-dev-utils/ModuleScopePlugin");
 const ManifestPlugin = require("webpack-manifest-plugin");
 const ModuleNotFoundPlugin = require("react-dev-utils/ModuleNotFoundPlugin");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin-alt");
 const typescriptFormatter = require("react-dev-utils/typescriptFormatter");
 const loaderUtils = require("loader-utils");
+const postcssFlexbugsFixes = require("postcss-flexbugs-fixes");
+const postcssPresetEnv = require("postcss-preset-env");
 const paths = require("./paths");
 const getClientEnvironment = require("./env");
 const resolveConf = require("./resolve");
@@ -87,8 +87,8 @@ const getStyleLoaders = (cssOptions, preProcessor) => {
         // https://github.com/facebook/create-react-app/issues/2677
         ident: "postcss",
         plugins: () => [
-          require("postcss-flexbugs-fixes"),
-          require("postcss-preset-env")({
+          postcssFlexbugsFixes,
+          postcssPresetEnv({
             autoprefixer: {
               flexbox: "no-2009",
             },
@@ -103,8 +103,6 @@ const getStyleLoaders = (cssOptions, preProcessor) => {
   }
   return loaders;
 };
-
-const getSrc = (...p) => path.join(__dirname, "..", "src", ...p);
 
 // This is the development configuration.
 // It is focused on developer experience and fast rebuilds.
@@ -162,7 +160,7 @@ module.exports = {
     // runtimeChunk: true,
   },
   resolve: resolveConf({
-    platform: "web"
+    platform: "web",
   }),
   resolveLoader: {
     plugins: [
@@ -263,8 +261,8 @@ module.exports = {
                   require.resolve("@babel/plugin-transform-flow-strip-types"),
                   {
                     requireDirective: true,
-                  }
-                ]
+                  },
+                ],
               ],
               cacheDirectory: true,
               // Don't waste time on Gzipping the cache
@@ -378,6 +376,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new HardSourceWebpackPlugin(),
     // Generates an `index.html` file with the <script> injected.
     new HtmlWebpackPlugin({
       inject: true,

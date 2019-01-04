@@ -1,5 +1,4 @@
 {
-  "presets": [],
   "plugins": [
     "@babel/plugin-proposal-object-rest-spread",
     "@babel/plugin-proposal-function-bind",

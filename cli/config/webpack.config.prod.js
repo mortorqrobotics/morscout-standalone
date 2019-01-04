@@ -1,4 +1,6 @@
 const path = require("path");
+const HardSourceWebpackPlugin = require("hard-source-webpack-plugin");
+const NodeExternals = require("webpack-node-externals");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const ManifestPlugin = require("webpack-manifest-plugin");
 const eslintFormatter = require("react-dev-utils/eslintFormatter");
@@ -31,7 +33,7 @@ if (env.stringified["process.env"].NODE_ENV !== '"production"') {
 // The development configuration is different and lives in a separate file.
 module.exports = {
   target: "async-node",
-  mode: "production",
+  mode: "development",
   // Don't attempt to continue if there are any errors.
   bail: true,
   // We generate sourcemaps in production. This is slow but gives good results.
@@ -39,7 +41,8 @@ module.exports = {
   devtool: false,
   // In production, we only want to load the polyfills and the app code.
   entry: {
-    server: paths.appIndexJs,
+    server: paths.serverJs,
+    cli: paths.appIndexJs,
   },
   output: {
     // The build folder.
@@ -47,51 +50,48 @@ module.exports = {
     // Generated JS file names (with nested folders).
     // There will be one main bundle, and one file per asynchronous chunk.
     // We don't currently advertise code splitting but Webpack supports it.
-    filename: "node/[name].[chunkhash:8].js",
-    chunkFilename: "node/[name].[chunkhash:8].chunk.js",
+    filename: "[name].js",
+    chunkFilename: "chunks/[name].[chunkhash:8].chunk.js",
     // // We inferred the "public path" (such as / or /my-project) from homepage.
     publicPath: paths.serverBuild,
   },
   optimization: {
-    minimizer: [
-      new UglifyJsPlugin({
-        uglifyOptions: {
-          parse: {
-            // we want uglify-js to parse ecma 8 code. However, we don't want it
-            // to apply any minfication steps that turns valid ecma 5 code
-            // into invalid ecma 5 code. This is why the 'compress' and 'output'
-            // sections only apply transformations that are ecma 5 safe
-            // https://github.com/facebook/create-react-app/pull/4234
-            ecma: 8,
-          },
-          compress: {
-            ecma: 5,
-            warnings: false,
-            // Disabled because of an issue with Uglify breaking seemingly valid code:
-            // https://github.com/facebook/create-react-app/issues/2376
-            // Pending further investigation:
-            // https://github.com/mishoo/UglifyJS2/issues/2011
-            comparisons: false,
-          },
-          mangle: {
-            safari10: true,
-          },
-          output: {
-            ecma: 5,
-            comments: false,
-            // Turned on because emoji and regex is not minified properly using default
-            // https://github.com/facebook/create-react-app/issues/2488
-            ascii_only: true,
-          },
-        },
-        // Use multi-process parallel running to improve the build speed
-        // Default number of concurrent runs: os.cpus().length - 1
-        parallel: true,
-        // Enable file caching
-        cache: true,
-        sourceMap: shouldUseSourceMap,
-      }),
-    ],
+    // minimizer: [
+    //   new UglifyJsPlugin({
+    //     uglifyOptions: {
+    //       parse: {
+    //         // we want uglify-js to parse ecma 8 code. However, we don't want it
+    //         // to apply any minfication steps that turns valid ecma 5 code
+    //         // into invalid ecma 5 code. This is why the 'compress' and 'output'
+    //         // sections only apply transformations that are ecma 5 safe
+    //         // https://github.com/facebook/create-react-app/pull/4234
+    //         // ecma: 8,
+    //       },
+    //       compress: {
+    //         // ecma: 5,
+    //         warnings: false,
+    //         // Disabled because of an issue with Uglify breaking seemingly valid code:
+    //         // https://github.com/facebook/create-react-app/issues/2376
+    //         // Pending further investigation:
+    //         // https://github.com/mishoo/UglifyJS2/issues/2011
+    //         comparisons: false,
+    //       },
+    //       output: {
+    //         // ecma: 5,
+    //         comments: false,
+    //         // Turned on because emoji and regex is not minified properly using default
+    //         // https://github.com/facebook/create-react-app/issues/2488
+    //         ascii_only: true,
+    //       },
+    //     },
+    //     // Use multi-process parallel running to improve the build speed
+    //     // Default number of concurrent runs: os.cpus().length - 1
+    //     parallel: true,
+    //     // Enable file caching
+    //     cache: true,
+    //     sourceMap: shouldUseSourceMap,
+    //   }),
+    // ],
     // Automatically split vendor and commons
     // https://twitter.com/wSokra/status/969633336732905474
     // https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
@@ -122,6 +122,8 @@ module.exports = {
     alias: {
       // MorScout Folder Linking
       shared: getSrc("shared"),
+      cmds: getSrc("cmds"),
+      server: getSrc("..", ".."),
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).
@@ -178,7 +180,7 @@ module.exports = {
               {
                 loader: require.resolve("babel-loader"),
                 options: {
-                  presets: [require.resolve("@babel/preset-react")],
+                  presets: [],
                   plugins: [
                     [
                       require.resolve("babel-plugin-named-asset-import"),
@@ -208,11 +210,9 @@ module.exports = {
               {
                 loader: require.resolve("babel-loader"),
                 options: {
-                  babelrc: false,
+                  babelrc: true,
                   compact: false,
-                  presets: [
-                    require.resolve("babel-preset-react-app/dependencies"),
-                  ],
+                  presets: ["@babel/react"],
                   cacheDirectory: true,
                   highlightCode: true,
                 },
@@ -226,6 +226,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new HardSourceWebpackPlugin(),
     // Generate a manifest file which contains a mapping of all asset filenames
     // to their corresponding output file so that tools can pick it up without
     // having to parse `index.html`.
@@ -238,6 +239,7 @@ module.exports = {
     //   'VERSION': '"' + require('../../package.json').version +  '"',
     // }),
   ],
+  externals: [NodeExternals()],
   // Turn off performance processing because we utilize
   // our own hints via the FileSizeReporter
   node: {

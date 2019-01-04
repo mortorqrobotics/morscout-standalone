@@ -1,4 +1,5 @@
 const path = require("path");
+const HardSourceWebpackPlugin = require("hard-source-webpack-plugin");
 const NodeExternals = require("webpack-node-externals");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const ManifestPlugin = require("webpack-manifest-plugin");
@@ -227,6 +228,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new HardSourceWebpackPlugin(),
     // Generate a manifest file which contains a mapping of all asset filenames
     // to their corresponding output file so that tools can pick it up without
     // having to parse `index.html`.

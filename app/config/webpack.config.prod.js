@@ -3,6 +3,7 @@ const path = require("path");
 const webpack = require("webpack");
 const resolve = require("resolve");
 const PnpWebpackPlugin = require("pnp-webpack-plugin");
+const HardSourceWebpackPlugin = require("hard-source-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 // const InlineChunkHtmlPlugin = require("react-dev-utils/InlineChunkHtmlPlugin");
@@ -390,6 +391,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new HardSourceWebpackPlugin(),
     // Generates an `index.html` file with the <script> injected.
     new HtmlWebpackPlugin({
       inject: true,

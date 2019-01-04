@@ -33,10 +33,9 @@ function prompt() {
     ])
     .then(data => {
       let args = data.cmd.split(" ");
-
       const cmd = args.splice(0, 1);
       args = yargs(args);
-      history.push(cmd, args);
+      history.push({ cmd, args });
       cmds[cmd](args);
       prompt();
     });
@@ -48,7 +47,9 @@ try {
   let args = process.argv.slice(2);
   args = yargs(args);
   const [cmd] = args._;
-  cmds[cmd](args);
+  if (typeof cmds[cmd] === "function") {
+    cmds[cmd](args);
+  }
 } catch (err) {
   // eslint-disable-next-line
   console.log(err);

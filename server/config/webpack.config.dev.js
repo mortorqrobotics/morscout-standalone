@@ -1,5 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
+const HardSourceWebpackPlugin = require("hard-source-webpack-plugin");
 const NodeExternals = require("webpack-node-externals");
 const ManifestPlugin = require("webpack-manifest-plugin");
 const eslintFormatter = require("react-dev-utils/eslintFormatter");
@@ -161,6 +162,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new HardSourceWebpackPlugin(),
     // Generate a manifest file which contains a mapping of all asset filenames
     // to their corresponding output file so that tools can pick it up without
     // having to parse `index.html`.
