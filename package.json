@@ -22,6 +22,7 @@
     "postbuild": "npm run build:cli",
     "start": "node server",
     "test": "snyk test && npm run test:app && npm run test:cli && npm run test:server",
+    "test:coverage": "snyk test && npm run test:app -- --coverage && npm run test:cli -- --coverage && npm run test:server -- --coverage",
     "prerelease": "npm run build",
     "release": "bestzip dist/release.zip \"app/build/*\" \"server/build/*\" \"cli/build/*\"",
     "postrelease": "release-it",

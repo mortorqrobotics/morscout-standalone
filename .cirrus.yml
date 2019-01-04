@@ -21,7 +21,11 @@ test_task:
     populate_script: yarn install
   login_script: yarn snyk auth $SNYK_API_KEY
   build_script: yarn build:server
-  test_script: yarn run test
+  test_script: yarn run test:coverage
+  coverage_upload_script:
+    - bash <(curl -s https://codecov.io/bash) -cF app-`node -v` -f app/coverage/coverage-final.json
+    - bash <(curl -s https://codecov.io/bash) -cF server-`node -v` -f server/coverage/coverage-final.json
+    - bash <(curl -s https://codecov.io/bash) -cF cli-`node -v` -f cli/coverage/coverage-final.json
 
 lint_task:
   node_modules_cache:
