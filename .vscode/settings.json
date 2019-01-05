@@ -17,13 +17,11 @@
     "windows": true,
     "ios": true,
     "android": true,
+    ".flowconfig": true,
     ".buckconfig": true,
     "yarn.lock": true,
     "package-lock.json": true,
-    ".snyk": true,
     ".gitattributes": true,
-    ".flowconfig": true,
-    "ssl": true,
     "packages-cache": true
   },
   "javascript.implicitProjectConfig.experimentalDecorators": true

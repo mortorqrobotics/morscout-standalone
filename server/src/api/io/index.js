@@ -1,10 +1,11 @@
-import { updated } from "shared/types/Matches";
+import { updated as updatedMatches } from "shared/types/Matches";
+import { updated as updatedTeams } from "shared/types/Teams";
 
 export default socket => {
   // console.log(socket);
   socket.on("getMatches", () => {
     socket.emit("action", {
-      type: updated,
+      type: updatedMatches,
       data: {
         "1": {
           time: "2017-12-17T17:00:00.000Z",
@@ -33,6 +34,17 @@ export default socket => {
             ],
           },
           progress: { current: 3, max: 6 },
+        },
+      },
+    });
+  });
+  socket.on("getTeams", () => {
+    socket.emit("action", {
+      type: updatedTeams,
+      data: {
+        "1515": {
+          matches: ["1"],
+          name: "MorTorq",
         },
       },
     });

@@ -6,7 +6,6 @@ export default (state = {}, action) => {
     case updated:
       Object.entries(action.data).forEach(([id, match]) => {
         teams[id] = match;
-        teams[id].time = new Date(match.time);
       });
       return teams;
     default:

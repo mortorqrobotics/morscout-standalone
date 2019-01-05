@@ -682,7 +682,7 @@
     "@babel/helper-builder-binary-assignment-operator-visitor" "^7.1.0"
     "@babel/helper-plugin-utils" "^7.0.0"
 
-"@babel/plugin-transform-flow-strip-types@^7.0.0":
+"@babel/plugin-transform-flow-strip-types@^7.0.0", "@babel/plugin-transform-flow-strip-types@^7.2.3":
   version "7.2.3"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-flow-strip-types/-/plugin-transform-flow-strip-types-7.2.3.tgz#e3ac2a594948454e7431c7db33e1d02d51b5cd69"
   integrity sha512-xnt7UIk9GYZRitqCnsVMjQK1O2eKZwFB3CvvHjf5SGx6K6vr/MScCKQDnf1DxRaj501e3pXjti+inbSXX2ZUoQ==
@@ -14703,6 +14703,11 @@ react-native-keychain@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/react-native-keychain/-/react-native-keychain-3.0.0.tgz#29da1dfa43c2581f76bf9420914fd38a1558cf18"
   integrity sha512-0incABt1+aXsZvG34mDV57KKanSB+iMHmxvWv+N6lgpNLaSoqrCxazjbZdeqD4qJ7Z+Etp5CLf/4v1aI+sNLBw==
+
+react-native-maps@^0.22.1:
+  version "0.22.1"
+  resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.22.1.tgz#ce856e71970e872e596e6fa4773279cae2c4dcdd"
+  integrity sha512-JjBpAXjzZY8AW4HTcAZxX+cGk6e6i+J5Vd//DViMUe0bRkKKv92ds1W9rqZ+o9PhUqdP++3DvKv0jrB05icqKA==
 
 react-native-match-media@^0.1.1:
   version "0.1.1"

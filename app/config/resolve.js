@@ -17,7 +17,7 @@ module.exports = options => {
         .filter(ext => !ext.includes("ts")),
     );
   if (options.platform === "ios" || options.platform === "android") {
-    extensions.concat(
+    extensions = extensions.concat(
       paths.moduleFileExtensions
         .map(ext => `.native.${ext}`)
         .filter(ext => !ext.includes("ts")),
@@ -39,6 +39,13 @@ module.exports = options => {
         .split(path.delimiter)
         .filter(Boolean),
     ),
+    mainFields: [
+      options.platform === "ios" || options.platform === "android"
+        ? "react-native"
+        : undefined,
+      "browser",
+      "main",
+    ].filter(field => !!field),
     // These are the reasonable defaults supported by the Node ecosystem.
     // We also include JSX as a common component filename extension to support
     // some tools, although we do not recommend using it, see:

@@ -5,12 +5,8 @@ const ignoredFiles = require("react-dev-utils/ignoredFiles");
 const fs = require("fs");
 const http = require("http");
 const mongoose = require("mongoose");
-const { default: requireWatch } = require("require-watch");
 const config = require("./webpack.config.dev");
 const paths = require("./paths");
-
-requireWatch(require.resolve("../../server/index"));
-const apiServer = require("../../server/index");
 
 const protocol = process.env.HTTPS === "true" ? "https" : "http";
 const host = process.env.HOST || "0.0.0.0";
@@ -94,6 +90,15 @@ function s(proxy, allowedHost) {
         // eslint-disable-next-line global-require, import/no-dynamic-require
         require(paths.proxySetup)(app);
       }
+      // eslint-disable-next-line global-require
+      const { app: api, io } = require("../../server")({
+        development: true,
+        modules: {
+          mongoose,
+        },
+      });
+      io.listen(http.Server().listen(3030), {});
+      app.use(api);
 
       // This lets us fetch source contents from webpack for the error overlay
       app.use(evalSourceMapMiddleware(server));
@@ -106,24 +111,6 @@ function s(proxy, allowedHost) {
       // it used the same host and port.
       // https://github.com/facebook/create-react-app/issues/2272#issuecomment-302832432
       app.use(noopServiceWorkerMiddleware());
-    },
-    after(express /* , server */) {
-      const { io } = apiServer({
-        development: true,
-        modules: {
-          mongoose,
-        },
-      });
-      express.use((req, res, next) =>
-        // eslint-disable-next-line global-require
-        require("../../server")({
-          development: true,
-          modules: {
-            mongoose,
-          },
-        }).api(req, res, next),
-      );
-      io.listen(http.Server().listen(3030), {});
     },
   };
 }
