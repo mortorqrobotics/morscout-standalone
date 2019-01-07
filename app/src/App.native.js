@@ -1,45 +1,30 @@
 import React from "react";
-// import { Provider } from "react-redux";
-// import Index from "screen/Index";
-// import Matches from "screen/Matches";
-// import Match from "screen/Match";
-// import Settings from "screen/Settings";
-// import { View, Text } from "react-native";
-// import {
-//   createBottomTabNavigator,
-//   createAppContainer,
-// } from "@react-navigation/web";
-import {
-  createSwitchNavigator /* , TabRouter */,
-} from "@react-navigation/core";
-import { createBottomTabNavigator } from "react-navigation-tabs";
-import { createBrowserApp } from "@react-navigation/native";
-import H from "@/H";
-// import Navigation from "~/TopNav";
-// import store from "store";
-// import initialize from "actions/Basic/init";
+import { Text, View } from "react-native";
+import { createBottomTabNavigator, createAppContainer } from "react-navigation";
 
-// const unsub = store.subscribe(() => store.getState());
-// store.dispatch(initialize);
-// unsub();
+class HomeScreen extends React.Component {
+  render() {
+    return (
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <Text>Home!</Text>
+      </View>
+    );
+  }
+}
 
-const App = createBrowserApp(
-  createBottomTabNavigator(
-    createSwitchNavigator({
-      Matches: {
-        screen: <H>Matches</H>,
-        path: "Matches",
-      },
-      Index: {
-        screen: () => <H>Hello</H>,
-        path: "",
-      },
-    }),
-  ),
-);
+class SettingsScreen extends React.Component {
+  render() {
+    return (
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <Text>Settings!</Text>
+      </View>
+    );
+  }
+}
 
-export default () => (
-  // <Provider store={store}>
-  <App />
-  // </Provider>
-);
+const TabNavigator = createBottomTabNavigator({
+  Home: HomeScreen,
+  Settings: SettingsScreen,
+});
+
+export default createAppContainer(TabNavigator);
