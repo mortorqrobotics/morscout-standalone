@@ -4,7 +4,6 @@
   },
   "github": {
     "release": true,
-    "preRelease": true,
     "assets": ["release.zip"],
     "beforeStartCommand": "npx bestzip dist/release.zip app/build/* server/build/* cli/build/*"
   },
