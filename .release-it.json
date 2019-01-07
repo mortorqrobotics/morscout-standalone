@@ -1,5 +1,7 @@
 {
-  "requireCleanWorkingDir": false,
+  "git": {
+    "requireCleanWorkingDir": false
+  },
   "github": {
     "release": true,
     "preRelease": true,
@@ -8,5 +10,10 @@
   },
   "prompt": {
     "release": true
+  },
+  "scripts": {
+    "beforeStart": "npm run build",
+    "beforeStage":"npm run zip",
+    "afterRelease": "rm release.zip"
   }
 }
