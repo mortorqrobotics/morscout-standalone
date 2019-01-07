@@ -12,7 +12,7 @@ import Loader from "~/Basic/Loader";
 const { InputFilter, FilterResults } = fuzzyFilterFactory();
 const fuseConfig = {
   shouldSort: true,
-  keys: ["id", "blue", "red", "time", "progress"],
+  keys: ["id", "blue", "red", "time", "progress"]
 };
 
 export default
@@ -26,18 +26,18 @@ class Matches extends React.Component {
         time: PropTypes.instanceOf(Date).isRequired,
         progress: PropTypes.shape({
           max: PropTypes.number.isRequired,
-          current: PropTypes.number.isRequired,
+          current: PropTypes.number.isRequired
         }).isRequired,
         red: PropTypes.arrayOf(PropTypes.number).isRequired,
-        blue: PropTypes.arrayOf(PropTypes.number).isRequired,
-      }).isRequired,
-    ).isRequired,
+        blue: PropTypes.arrayOf(PropTypes.number).isRequired
+      }).isRequired
+    ).isRequired
   };
 
   constructor(props) {
     super(props);
     this.state = {
-      matches: props.matches,
+      matches: props.matches
     };
     props.load();
   }
@@ -48,7 +48,7 @@ class Matches extends React.Component {
 
   static getDerivedStateFromProps(nextProps, prevState) {
     return Object.assign({}, prevState, {
-      matches: nextProps.matches,
+      matches: nextProps.matches
     });
   }
 
@@ -84,13 +84,13 @@ class Matches extends React.Component {
                   const items = matches.map(match => ({
                     id: match.id,
                     time: `${new Date(match.time).getHours()}:${new Date(
-                      match.time,
+                      match.time
                     ).getMinutes()}`,
                     red: match.red,
                     blue: match.blue,
                     progress: `${match.progress.current} of ${
                       match.progress.max
-                    }`,
+                    }`
                   }));
                   if (_.has(key)) {
                     const fuse = new Fuse(
@@ -98,9 +98,9 @@ class Matches extends React.Component {
                       Object.assign(
                         {},
                         {
-                          keys: [key],
-                        },
-                      ),
+                          keys: [key]
+                        }
+                      )
                     );
                     return fuse.search(value);
                   }
@@ -110,16 +110,16 @@ class Matches extends React.Component {
                       Object.assign(
                         {},
                         {
-                          keys: ["red", "blue"],
-                        },
-                      ),
+                          keys: ["red", "blue"]
+                        }
+                      )
                     );
                     return fuse.search(value);
                   }
                   const fuse = new Fuse(items, fuseConfig);
                   return fuse.search(`${key}:${value}`);
-                },
-              },
+                }
+              }
             ]}
           >
             {results =>

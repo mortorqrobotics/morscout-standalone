@@ -5,17 +5,17 @@ import Teams from "./Teams";
 function mapStateToProps(state) {
   const { teams } = state;
   return {
-    teams,
+    teams
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    load: () => dispatch(loadTeams()),
+    load: () => dispatch(loadTeams())
   };
 }
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
+  mapDispatchToProps
 )(Teams);

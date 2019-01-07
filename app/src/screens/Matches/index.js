@@ -7,7 +7,7 @@ import Loader from "~/Basic/Loader";
 
 const MatchContainer = Loadable({
   loader: () => import("~/Matches"),
-  loading: Loader,
+  loading: Loader
 });
 
 export default
@@ -15,7 +15,7 @@ export default
 class Matches extends React.Component {
   static navigationOptions = () => ({
     title: "MorScout Matches",
-    linkName: "MorScout Matches",
+    linkName: "MorScout Matches"
   });
 
   static path = "Matches";

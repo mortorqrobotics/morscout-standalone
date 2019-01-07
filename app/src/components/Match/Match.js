@@ -9,10 +9,10 @@ export default
 class Match extends React.Component {
   static propTypes = {
     match: PropTypes.shape({
-      id: PropTypes.number,
+      id: PropTypes.number
     }).isRequired,
     id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
-    load: PropTypes.func.isRequired,
+    load: PropTypes.func.isRequired
   };
 
   constructor(props) {

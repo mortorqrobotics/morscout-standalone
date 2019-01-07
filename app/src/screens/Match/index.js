@@ -13,13 +13,13 @@ export default
 class MatchScreen extends React.Component {
   static propTypes = {
     navigation: PropTypes.shape({
-      getParam: PropTypes.func,
-    }),
+      getParam: PropTypes.func
+    })
   };
 
   static navigationOptions = ({ navigation }) => ({
     title: `Morscout Match -- ${navigation.getParam("id")}`,
-    linkName: `MorScout Match -- ${navigation.getParam("id")}`,
+    linkName: `MorScout Match -- ${navigation.getParam("id")}`
   });
 
   static path = "Match/:id";
@@ -35,8 +35,8 @@ class MatchScreen extends React.Component {
             render(loaded) {
               const Match = loaded.default(navigation.getParam("id", "1001"));
               return <Match />;
-            },
-          }),
+            }
+          })
         )}
       </View>
     );

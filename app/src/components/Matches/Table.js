@@ -10,19 +10,19 @@ const DEFAULT_HEIGHT = 240;
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
+    flexDirection: "row"
     // justifyContent: 'space-between'
   },
   content: {
-    flex: 1,
+    flex: 1
   },
   contentContainer: {
-    flex: 1,
+    flex: 1
   },
   header: {
     flexDirection: "row",
     // flex: 1,
-    height: 30, // DEFAULT_HEIGHT,
+    height: 30 // DEFAULT_HEIGHT,
   },
   headerItem: {
     height: 30,
@@ -32,17 +32,17 @@ const styles = StyleSheet.create({
     borderRightWidth: 1,
     borderRightColor: "#dfdfdf",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "center"
   },
   dataView: {
-    flexGrow: 1,
+    flexGrow: 1
   },
   dataViewContent: {},
   row: {
     flexDirection: "row",
     backgroundColor: "#fbfbfb",
     borderBottomWidth: 1,
-    borderBottomColor: "#dfdfdf",
+    borderBottomColor: "#dfdfdf"
   },
   cell: {
     minHeight: 25,
@@ -52,8 +52,8 @@ const styles = StyleSheet.create({
     borderRightWidth: 1,
     borderRightColor: "#dfdfdf",
     alignItems: "stretch",
-    justifyContent: "center",
-  },
+    justifyContent: "center"
+  }
 });
 
 class Table extends Component {
@@ -62,18 +62,18 @@ class Table extends Component {
       PropTypes.shape({
         title: PropTypes.string.isRequired,
         dataIndex: PropTypes.string.isRequired,
-        width: PropTypes.number,
-      }),
+        width: PropTypes.number
+      })
     ).isRequired,
     height: PropTypes.number,
     // eslint-disable-next-line
       dataSource: PropTypes.array.isRequired,
-    renderCell: PropTypes.func,
+    renderCell: PropTypes.func
   };
 
   static defaultProps = {
     height: DEFAULT_HEIGHT,
-    renderCell: undefined,
+    renderCell: undefined
   };
 
   // eslint-disable-next-line
@@ -123,7 +123,7 @@ class Table extends Component {
         contentContainerStyle={[
           styles.contentContainer,
           { height },
-          styles.container,
+          styles.container
         ]}
         horizontal
         bounces={false}
@@ -140,7 +140,7 @@ class Table extends Component {
             {/* eslint-disable-next-line no-underscore-dangle */}
             {dataSource.map((rowData, index) =>
               // eslint-disable-next-line no-underscore-dangle
-              this._renderRow(rowData, index),
+              this._renderRow(rowData, index)
             )}
           </ScrollView>
         </View>

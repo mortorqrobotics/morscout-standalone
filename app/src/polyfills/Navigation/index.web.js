@@ -20,20 +20,20 @@ class Navigator extends React.PureComponent {
       state: PropTypes.shape({
         routes: PropTypes.arrayOf(
           PropTypes.shape({
-            key: PropTypes.string,
-          }),
-        ),
-      }),
+            key: PropTypes.string
+          })
+        )
+      })
     }),
     user: PropTypes.shape({
-      loggedIn: PropTypes.bool,
-    }),
+      loggedIn: PropTypes.bool
+    })
   };
 
   constructor(props) {
     super(props);
     this.state = {
-      visible: false,
+      visible: false
     };
   }
 
@@ -49,7 +49,7 @@ class Navigator extends React.PureComponent {
           css={style.Nav}
           onClick={() => {
             const newState = Object.assign({}, this.state, {
-              visible: false,
+              visible: false
             });
             this.setState(newState);
           }}
@@ -86,7 +86,7 @@ class Navigator extends React.PureComponent {
             const { visible: isVisible } = this.state;
             const newState = Object.assign({}, this.state, {
               visible: !isVisible,
-              open: false,
+              open: false
             });
             this.setState(newState);
             e.preventDefault();
@@ -99,7 +99,7 @@ class Navigator extends React.PureComponent {
         <View
           onClick={() => {
             const newState = Object.assign({}, this.state, {
-              visible: false,
+              visible: false
             });
             this.setState(newState);
           }}

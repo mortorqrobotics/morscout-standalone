@@ -12,17 +12,17 @@ class Match extends React.Component {
       time: PropTypes.instanceOf(Date).isRequired,
       progress: PropTypes.shape({
         max: PropTypes.number.isRequired,
-        current: PropTypes.number.isRequired,
+        current: PropTypes.number.isRequired
       }).isRequired,
       red: PropTypes.arrayOf(PropTypes.number).isRequired,
-      blue: PropTypes.arrayOf(PropTypes.number).isRequired,
-    }).isRequired,
+      blue: PropTypes.arrayOf(PropTypes.number).isRequired
+    }).isRequired
   };
 
   constructor(props) {
     super(props);
     this.state = {
-      open: true,
+      open: true
     };
   }
 
@@ -35,7 +35,7 @@ class Match extends React.Component {
         <Text>
           {match.time.toLocaleTimeString([], {
             hour: "2-digit",
-            minute: "2-digit",
+            minute: "2-digit"
           })}
         </Text>
       </View>

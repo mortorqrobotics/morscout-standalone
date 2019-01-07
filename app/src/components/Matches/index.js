@@ -14,21 +14,21 @@ function mapStateToProps(state) {
       time: new Date(match.time),
       blue: match.teams.blue.map(team => team.num),
       red: match.teams.red.map(team => team.num),
-      progress: match.progress,
+      progress: match.progress
     });
   });
   return {
-    matches: ms,
+    matches: ms
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    load: () => dispatch(loadMatches()),
+    load: () => dispatch(loadMatches())
   };
 }
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
+  mapDispatchToProps
 )(Matches);

@@ -1,23 +1,23 @@
 export default visible => ({
   Top: {
     Link: {
-      backgroundColor: "orange",
+      backgroundColor: "orange"
     },
     Left: {
       "@media screen and (min-aspect-ratio: 1/1)": {
-        flexDirection: "row",
+        flexDirection: "row"
       },
-      flexDirection: "column",
+      flexDirection: "column"
     },
     Right: {
       "@media screen and (min-aspect-ratio: 1/1)": {
-        flexDirection: "row",
+        flexDirection: "row"
       },
-      flexDirection: "column",
+      flexDirection: "column"
     },
     Button: {
       height: "25px",
-      width: "25px",
+      width: "25px"
     },
     User: {
       visibility: visible ? "visible" : "hidden",
@@ -26,9 +26,9 @@ export default visible => ({
       overflow: "hidden",
       alignSelf: "flex-start",
       "@media screen and (min-aspect-ratio: 1/1)": {
-        alignSelf: "flex-end",
-      },
-    },
+        alignSelf: "flex-end"
+      }
+    }
   },
   Button: {
     height: "3vh",
@@ -51,7 +51,7 @@ export default visible => ({
       minWidth: 0,
       margin: 0,
       padding: 0,
-      border: 0,
+      border: 0
     },
     "@media print": {
       visibility: "hidden",
@@ -59,20 +59,20 @@ export default visible => ({
       width: 0,
       margin: 0,
       padding: 0,
-      border: 0,
-    },
+      border: 0
+    }
   },
   Container: {
     flexDirection: "row",
     height: "100vh",
     "@media screen and (min-aspect-ratio: 1/1)": {
-      flexDirection: "column",
-    },
+      flexDirection: "column"
+    }
   },
   App: {
     "@media screen and (min-aspect-ratio: 1/1)": {
       marginLeft: 0,
-      transition: "0s",
+      transition: "0s"
     },
     flex: 1,
     height: "100%",
@@ -82,7 +82,7 @@ export default visible => ({
     marginLeft: "-34px",
     backgroundColor: "white",
     transition: "0.5s",
-    zIndex: 1,
+    zIndex: 1
   },
   Nav: {
     "@media screen and (min-aspect-ratio: 1/1)": {
@@ -91,12 +91,12 @@ export default visible => ({
       visibility: "visible",
       boxShadow: "0px 10px 5px grey",
       zIndex: 1,
-      transition: "0s",
+      transition: "0s"
     },
     "@media print": {
       visibility: "hidden",
       height: 0,
-      width: 0,
+      width: 0
     },
     zIndex: 0,
     flexDirection: "column",
@@ -107,6 +107,6 @@ export default visible => ({
     backgroundColor: "orange",
     transition: "0.5s",
     width: visible ? "100px" : "0px",
-    overflowX: "hidden",
-  },
+    overflowX: "hidden"
+  }
 });

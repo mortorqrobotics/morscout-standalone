@@ -6,7 +6,7 @@ export default
 @Uranium
 class H extends React.Component {
   static propTypes = {
-    level: PropType.number.isRequired,
+    level: PropType.number.isRequired
     // childen: PropType.oneOfType([
     //   PropType.element,
     //   PropType.string,
@@ -16,7 +16,7 @@ class H extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      level: props.level,
+      level: props.level
     };
   }
 

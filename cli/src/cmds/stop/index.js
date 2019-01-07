@@ -15,8 +15,8 @@ export default args => {
   let argv = revminimist(
     Object.assign(minimist(process.argv.slice(2)), {
       secure,
-      port,
-    }),
+      port
+    })
   );
   if (!all && global.daemons[port]) {
     global.daemons[port].kill();
@@ -27,7 +27,7 @@ export default args => {
       name: `morscout:${port}`,
       pidfile: `morscout.${port}.pid`,
       argv,
-      silent: true,
+      silent: true
     });
     d.start(() => d.kill());
   } else {
@@ -43,15 +43,15 @@ export default args => {
         argv = revminimist(
           Object.assign(minimist(process.argv.slice(2)), {
             secure,
-            port,
-          }),
+            port
+          })
         );
         const d = daemonize({
           main: "server.js",
           name: `morscout:${port}`,
           pidfile: `morscout.${port}.pid`,
           argv,
-          silent: true,
+          silent: true
         });
         d.start(() => d.kill());
       }

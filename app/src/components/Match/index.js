@@ -7,25 +7,25 @@ export default function makeMatch(id) {
     if (state.matches[id] !== undefined) {
       return {
         match: state.matches[id],
-        id,
+        id
       };
     }
     return {
       match: {
-        name: "data",
+        name: "data"
       },
-      id,
+      id
     };
   }
 
   function mapDispatchToProps(dispatch) {
     return {
-      load: i => dispatch(loadMatch(i)),
+      load: i => dispatch(loadMatch(i))
     };
   }
 
   return connect(
     mapStateToProps,
-    mapDispatchToProps,
+    mapDispatchToProps
   )(Match);
 }

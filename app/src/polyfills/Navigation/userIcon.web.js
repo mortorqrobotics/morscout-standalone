@@ -7,7 +7,7 @@ import {
   faSignInAlt,
   faSignOutAlt,
   faUser,
-  faCog,
+  faCog
 } from "@fortawesome/free-solid-svg-icons";
 import { connect } from "react-redux";
 import { Link } from "./index";
@@ -17,15 +17,15 @@ import styleFunc from "./style";
 class UserIcon extends React.Component {
   static propTypes = {
     user: PropTypes.shape({
-      loggedIn: PropTypes.bool,
+      loggedIn: PropTypes.bool
     }),
-    dispatch: PropTypes.func,
+    dispatch: PropTypes.func
   };
 
   constructor(props) {
     super(props);
     this.state = {
-      open: false,
+      open: false
     };
   }
 
@@ -40,7 +40,7 @@ class UserIcon extends React.Component {
             onClick={e => {
               const newState = {
                 ...this.state,
-                open: !open,
+                open: !open
               };
               this.setState(newState);
               // stop the click from triggering a close of the navbar
@@ -63,11 +63,11 @@ class UserIcon extends React.Component {
                 <a
                   onClick={e => {
                     dispatch({
-                      type: "logout",
+                      type: "logout"
                     });
                     const newState = {
                       ...this.state,
-                      open: false,
+                      open: false
                     };
                     this.setState(newState);
                     e.stopPropagation();
@@ -88,7 +88,7 @@ class UserIcon extends React.Component {
       <a
         onClick={e => {
           dispatch({
-            type: "login",
+            type: "login"
           });
           e.stopPropagation();
         }}
@@ -105,17 +105,17 @@ class UserIcon extends React.Component {
 function mapStateToProps(state, props) {
   return {
     ...props,
-    user: state.user || { loggedIn: false },
+    user: state.user || { loggedIn: false }
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    dispatch,
+    dispatch
   };
 }
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
+  mapDispatchToProps
 )(UserIcon);

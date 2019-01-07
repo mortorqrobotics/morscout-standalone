@@ -10,7 +10,7 @@ export default
 @Uranium
 class Cal extends React.Component {
   static propTypes = {
-    current: PropTypes.instanceOf(Date),
+    current: PropTypes.instanceOf(Date)
   };
 
   isEqual({ date }) {

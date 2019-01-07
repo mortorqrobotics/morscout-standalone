@@ -3,7 +3,7 @@ import { Schema } from "mongoose";
 export default mongoose => {
   const TeamSchema = new Schema({
     name: {
-      type: String,
+      type: String
     },
     number: {
       // Just the team number
@@ -14,12 +14,12 @@ export default mongoose => {
           Number.isFinite(num) &&
           Number.isNaN(num) &&
           num > 0,
-        message: "{ Value } is not a legal team number",
-      },
+        message: "{ Value } is not a legal team number"
+      }
     },
     awards: {
-      Type: Map,
-    },
+      Type: Map
+    }
   });
 
   return mongoose.model("Team", TeamSchema);

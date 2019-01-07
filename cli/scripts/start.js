@@ -33,12 +33,12 @@ const compiler = createCompiler(webpack, config, appName, [], paths.useYarn);
 
 const watcher = compiler.watch(
   {
-    ignored: /node_modules/,
+    ignored: /node_modules/
   },
   err => {
     // eslint-disable-next-line
   if (err) console.error(err);
-  },
+  }
 );
 
 ["SIGINT", "SIGTERM"].forEach(sig => {

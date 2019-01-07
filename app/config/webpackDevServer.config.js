@@ -71,7 +71,7 @@ function s(proxy, allowedHost) {
     // src/node_modules is not ignored to support absolute imports
     // https://github.com/facebook/create-react-app/issues/1065
     watchOptions: {
-      ignored: ignoredFiles(paths.appSrc),
+      ignored: ignoredFiles(paths.appSrc)
     },
     // Enable HTTPS if the HTTPS environment variable is set to 'true'
     https: protocol === "https",
@@ -80,7 +80,7 @@ function s(proxy, allowedHost) {
     historyApiFallback: {
       // Paths with dots should still use the history fallback.
       // See https://github.com/facebook/create-react-app/issues/387.
-      disableDotRule: true,
+      disableDotRule: true
     },
     public: allowedHost,
     proxy,
@@ -94,8 +94,8 @@ function s(proxy, allowedHost) {
       const { app: api, io } = require("../../server")({
         development: true,
         modules: {
-          mongoose,
-        },
+          mongoose
+        }
       });
       io.listen(http.Server().listen(3030), {});
       app.use(api);
@@ -111,7 +111,7 @@ function s(proxy, allowedHost) {
       // it used the same host and port.
       // https://github.com/facebook/create-react-app/issues/2272#issuecomment-302832432
       app.use(noopServiceWorkerMiddleware());
-    },
+    }
   };
 }
 module.exports = s;

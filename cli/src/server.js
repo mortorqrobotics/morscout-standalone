@@ -11,8 +11,8 @@ import mongoose from "mongoose";
     mongoose.connect("mongodb://localhost:27017");
     const { app } = (await import("server")).default({
       modules: {
-        mongoose,
-      },
+        mongoose
+      }
     });
     const m = yargs(process.argv.slice(2));
     let secure = m.secure || m.s;
@@ -24,7 +24,7 @@ import mongoose from "mongoose";
       s = express();
       s.use("*", (req, res) => {
         res.redirect(
-          (secure ? "https://" : "http://") + req.headers.host + req.url,
+          (secure ? "https://" : "http://") + req.headers.host + req.url
         );
       });
       secure = !secure;

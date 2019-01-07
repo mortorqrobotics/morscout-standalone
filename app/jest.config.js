@@ -8,7 +8,7 @@ module.exports = {
   setupFiles: ["react-app-polyfill/jsdom"],
   testMatch: [
     "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
-    "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,ts,tsx}",
+    "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,ts,tsx}"
   ],
   testEnvironment: "jsdom",
   testURL: "http://localhost",
@@ -16,11 +16,11 @@ module.exports = {
     "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/../node_modules/babel-jest",
     "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
     "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)":
-      "<rootDir>/config/jest/fileTransform.js",
+      "<rootDir>/config/jest/fileTransform.js"
   },
   transformIgnorePatterns: [
     "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
-    "^.+\\.module\\.(css|sass|scss)$",
+    "^.+\\.module\\.(css|sass|scss)$"
   ],
   moduleNameMapper: {
     "^react-native$": "react-native-web",
@@ -33,7 +33,7 @@ module.exports = {
     "^reducers(.*)$": getSrc("redux-state", "reducers", "$1"),
     "^actions/(.*)$": getSrc("redux-state", "actions", "$1"),
     "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",
-    "^uranium": getSrc("uranium"),
+    "^uranium": getSrc("uranium")
   },
   moduleFileExtensions: [
     "web.js",
@@ -45,7 +45,7 @@ module.exports = {
     "json",
     "web.jsx",
     "jsx",
-    "node",
+    "node"
   ],
-  coveragePathIgnorePatterns: ["uranium"],
+  coveragePathIgnorePatterns: ["uranium"]
 };

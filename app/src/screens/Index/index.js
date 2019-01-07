@@ -11,7 +11,7 @@ export default
 class Index extends React.Component {
   static navigationOptions = () => ({
     title: "MorScout",
-    linkName: "MorScout Index",
+    linkName: "MorScout Index"
   });
 
   static path = "";

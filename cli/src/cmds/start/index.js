@@ -15,15 +15,15 @@ export default args => {
     Object.assign(minimist(process.argv.slice(2)), {
       secure,
       port,
-      redirect,
-    }),
+      redirect
+    })
   );
   const daemon = daemonize({
     main: "server.js",
     name: `morscout:${port}`,
     pidfile: `morscout.${port}.pid`,
     argv,
-    silent: true,
+    silent: true
   });
   daemon.on("error", error => {
     // eslint-disable-next-line

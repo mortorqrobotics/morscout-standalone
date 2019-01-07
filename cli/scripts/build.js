@@ -24,7 +24,7 @@ const config = require("../config/webpack.config.prod");
 
 const {
   measureFileSizesBeforeBuild,
-  printFileSizesAfterBuild,
+  printFileSizesAfterBuild
 } = FileSizeReporter;
 
 // These sizes are pretty large. We'll warn for bundles exceeding them.
@@ -66,15 +66,15 @@ function build(previousFileSizes) {
   console.log(
           chalk.yellow(
             "\nTreating warnings as errors because process.env.CI = true.\n" +
-              "Most CI servers set it automatically.\n",
-          ),
+              "Most CI servers set it automatically.\n"
+          )
         );
         return reject(new Error(messages.warnings.join("\n\n")));
       }
       return resolve({
         stats,
         previousFileSizes,
-        warnings: messages.warnings,
+        warnings: messages.warnings
       });
     });
   });
@@ -100,14 +100,14 @@ measureFileSizesBeforeBuild(paths.appBuild)
         // eslint-disable-next-line
   console.log(
           `\nSearch for the ${chalk.underline(
-            chalk.yellow("keywords"),
-          )} to learn more about each warning.`,
+            chalk.yellow("keywords")
+          )} to learn more about each warning.`
         );
         // eslint-disable-next-line
   console.log(
           `To ignore, add ${chalk.cyan(
-            "// eslint-disable-next-line",
-          )} to the line before.\n`,
+            "// eslint-disable-next-line"
+          )} to the line before.\n`
         );
       } else {
         // eslint-disable-next-line
@@ -121,7 +121,7 @@ measureFileSizesBeforeBuild(paths.appBuild)
         previousFileSizes,
         paths.appBuild,
         WARN_AFTER_BUNDLE_GZIP_SIZE,
-        WARN_AFTER_CHUNK_GZIP_SIZE,
+        WARN_AFTER_CHUNK_GZIP_SIZE
       );
       // eslint-disable-next-line
   console.log();
@@ -131,7 +131,7 @@ measureFileSizesBeforeBuild(paths.appBuild)
   console.log(chalk.red('Failed to compile.\n'));
       printBuildError(err);
       process.exit(1);
-    },
+    }
   )
   .catch(err => {
     if (err && err.message) {

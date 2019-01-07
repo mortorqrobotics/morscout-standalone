@@ -18,10 +18,10 @@ const App = createBrowserApp(
       Matches,
       Match,
       Settings,
-      Teams,
+      Teams
     }),
-    {},
-  ),
+    {}
+  )
 );
 
 export default () => (

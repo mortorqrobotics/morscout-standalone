@@ -22,7 +22,7 @@ module.exports = {
   // In production, we only want to load the polyfills and the app code.
   entry: {
     cli: paths.appIndexJs,
-    server: paths.serverJs,
+    server: paths.serverJs
   },
   output: {
     // The build folder.
@@ -33,13 +33,13 @@ module.exports = {
     filename: "[name].js",
     chunkFilename: "chunks/[name].[chunkhash:8].chunk.js",
     // We inferred the "public path" (such as / or /my-project) from homepage.
-    publicPath: paths.appBuild,
+    publicPath: paths.appBuild
   },
   optimization: {
     // Automatically split vendor and commons
     // https://twitter.com/wSokra/status/969633336732905474
     // https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
-    minimize: false,
+    minimize: false
     // Keep the runtime chunk seperated to enable long term caching
     // https://twitter.com/wSokra/status/969679223278505985
     // runtimeChunk: true,
@@ -51,7 +51,7 @@ module.exports = {
     // https://github.com/facebook/create-react-app/issues/253
     modules: ["node_modules"].concat(
       // It is guaranteed to exist because we tweak it in `env.js`
-      process.env.NODE_PATH.split(path.delimiter).filter(Boolean),
+      process.env.NODE_PATH.split(path.delimiter).filter(Boolean)
     ),
     // These are the reasonable defaults supported by the Node ecosystem.
     // We also include JSX as a common component filename extension to support
@@ -66,7 +66,7 @@ module.exports = {
       ".json",
       ".web.jsx",
       ".jsx",
-      ".aggregates.min.js",
+      ".aggregates.min.js"
     ],
     alias: {
       // MorScout Folder Linking
@@ -74,7 +74,7 @@ module.exports = {
       cmds: getSrc("cmds"),
       "~": getSrc("some_dir", ".."),
       server: getSrc("..", "..", "server", "index.js"),
-      build: getSrc("..", "build"),
+      build: getSrc("..", "build")
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).
@@ -82,8 +82,8 @@ module.exports = {
       // To fix this, we prevent you from importing files out of src/ -- if you'd like to,
       // please link the files into your node_moAdules/ and let module-resolution kick in.
       // Make sure your source files are compiled, as they will not be processed in any way.
-      new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
-    ],
+      new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson])
+    ]
   },
   module: {
     strictExportPresence: true,
@@ -91,8 +91,8 @@ module.exports = {
       // Disable require.ensure as it's not a standard language feature.
       {
         parser: {
-          requireEnsure: false,
-        },
+          requireEnsure: false
+        }
       },
 
       // First, run the linter.
@@ -108,14 +108,14 @@ module.exports = {
               // TODO: consider separate config for production,
               // e.g. to enable no-console and no-debugger only in production.
               baseConfig: {
-                extends: [require.resolve("eslint-config-react-app")],
-              },
+                extends: [require.resolve("eslint-config-react-app")]
+              }
             },
-            loader: require.resolve("eslint-loader"),
-          },
+            loader: require.resolve("eslint-loader")
+          }
         ],
         include: paths.srcPaths,
-        exclude: [/[/\\\\]node_modules[/\\\\]/],
+        exclude: [/[/\\\\]node_modules[/\\\\]/]
       },
       {
         // "oneOf" will traverse all following loaders until one will
@@ -136,10 +136,10 @@ module.exports = {
                 loader: require.resolve("babel-loader"),
                 options: {
                   compact: true,
-                  highlightCode: true,
-                },
-              },
-            ],
+                  highlightCode: true
+                }
+              }
+            ]
           },
           // Process any JS outside of the app with Babel.
           // Unlike the application JS, we only compile the standard ES features.
@@ -153,16 +153,16 @@ module.exports = {
                 loader: require.resolve("babel-loader"),
                 options: {
                   cacheDirectory: true,
-                  highlightCode: true,
-                },
-              },
-            ],
-          },
+                  highlightCode: true
+                }
+              }
+            ]
+          }
           // ** STOP ** Are you adding a new loader?
           // Make sure to add the new loader(s) before the "file" loader.
-        ],
-      },
-    ],
+        ]
+      }
+    ]
   },
   externals: [NodeExternals()],
   // Turn off performance processing because we utilize
@@ -170,12 +170,12 @@ module.exports = {
   node: {
     Buffer: false,
     __dirname: true,
-    __filename: false,
+    __filename: false
   },
   plugins: [
     new webpack.BannerPlugin({
       raw: true,
-      banner: "#!/usr/bin/env node",
-    }),
-  ],
+      banner: "#!/usr/bin/env node"
+    })
+  ]
 };

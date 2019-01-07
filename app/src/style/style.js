@@ -1,6 +1,6 @@
 export default {
   Index: {
-    background: {},
+    background: {}
   },
   Basic: {
     Align: {
@@ -8,9 +8,9 @@ export default {
         flexDirection: "column",
         flex: 1,
         justifyContent: "flex-start",
-        alignItems: "center",
-      },
-    },
+        alignItems: "center"
+      }
+    }
   },
   Matches: {
     Table: {
@@ -21,34 +21,34 @@ export default {
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-around",
-        flex: 1,
+        flex: 1
       },
       teams: {
         flex: 1,
         flexDirection: "row",
-        justifyContent: "space-between",
+        justifyContent: "space-between"
       },
       Link: {
         alignSelf: "stretch",
         textAlign: "center",
-        display: "inline-block",
-      },
+        display: "inline-block"
+      }
     },
     Input: {
       main: {
-        width: 272,
-      },
+        width: 272
+      }
     },
     back: {
       flex: 8,
-      minWidth: 272,
+      minWidth: 272
     },
     space: {
-      flex: 1,
+      flex: 1
     },
     main: {
       flexDirection: "row",
-      alignItems: "flex-start",
-    },
-  },
+      alignItems: "flex-start"
+    }
+  }
 };

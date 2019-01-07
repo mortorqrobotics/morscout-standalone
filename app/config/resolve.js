@@ -14,13 +14,13 @@ module.exports = options => {
     .concat(
       paths.moduleFileExtensions
         .map(ext => `.${options.platform || "web"}.${ext}`)
-        .filter(ext => !ext.includes("ts")),
+        .filter(ext => !ext.includes("ts"))
     );
   if (options.platform === "ios" || options.platform === "android") {
     extensions = extensions.concat(
       paths.moduleFileExtensions
         .map(ext => `.native.${ext}`)
-        .filter(ext => !ext.includes("ts")),
+        .filter(ext => !ext.includes("ts"))
     );
   }
   // eslint-disable-next-line prefer-const
@@ -37,14 +37,14 @@ module.exports = options => {
         .map(folder => path.resolve(fs.realpathSync(process.cwd()), folder))
         .join(path.delimiter)
         .split(path.delimiter)
-        .filter(Boolean),
+        .filter(Boolean)
     ),
     mainFields: [
       options.platform === "ios" || options.platform === "android"
         ? "react-native"
         : undefined,
       "browser",
-      "main",
+      "main"
     ].filter(field => !!field),
     // These are the reasonable defaults supported by the Node ecosystem.
     // We also include JSX as a common component filename extension to support
@@ -70,7 +70,7 @@ module.exports = options => {
       uranium: getSrc("uranium"),
 
       // Platform Specific Polyfills
-      "@": getSrc("polyfills"),
+      "@": getSrc("polyfills")
     },
     plugins: [
       // Adds support for installing with Plug'n'Play, leading to faster installs and adding
@@ -81,8 +81,8 @@ module.exports = options => {
       // To fix this, we prevent you from importing files out of src/ -- if you'd like to,
       // please link the files into your node_modules/ and let module-resolution kick in.
       // Make sure your source files are compiled, as they will not be processed in any way.
-      new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
-    ],
+      new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson])
+    ]
   };
   if (
     config.platform !== "ios" &&

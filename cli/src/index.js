@@ -12,7 +12,7 @@ const cmds = {
   start,
   exit,
   stop,
-  kill: stop,
+  kill: stop
 };
 const history = [];
 const cmdsL = Object.keys(cmds);
@@ -28,8 +28,8 @@ function prompt() {
         validate: val =>
           cmdsL.indexOf(val.split(" ")[0]) >= 0
             ? true
-            : "If you don't know the available commands, type help for help",
-      },
+            : "If you don't know the available commands, type help for help"
+      }
     ])
     .then(data => {
       let args = data.cmd.split(" ");

@@ -47,13 +47,13 @@ module.exports = {
   testsSetup: resolveApp("server/src/setupTests.js"),
   appNodeModules: resolveApp("node_modules"),
   publicUrl: getPublicUrl(resolveApp("package.json")),
-  servedPath: getServedPath(resolveApp("package.json")),
+  servedPath: getServedPath(resolveApp("package.json"))
 };
 
 module.exports.srcPaths = [module.exports.appSrc];
 
 module.exports.useYarn = fs.existsSync(
-  path.join(module.exports.appPath, "yarn.lock"),
+  path.join(module.exports.appPath, "yarn.lock")
 );
 
 module.exports.useYarn = module.exports.useYarn;

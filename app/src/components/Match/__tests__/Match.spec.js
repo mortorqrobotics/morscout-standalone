@@ -12,7 +12,7 @@ test("Match renders Correctly", async () => {
     .create(
       <Provider store={store}>
         <MatchComp />
-      </Provider>,
+      </Provider>
     )
     .toJSON();
   expect(tree).toMatchSnapshot();

@@ -28,7 +28,7 @@ module.exports = {
   devtool: false,
   // In production, we only want to load the polyfills and the app code.
   entry: {
-    server: getSrc(paths.appIndexJs),
+    server: getSrc(paths.appIndexJs)
   },
   output: {
     // The build folder.
@@ -42,7 +42,7 @@ module.exports = {
     publicPath: getSrc(paths.appBuild),
     library: "morscout",
     libraryExport: "default",
-    libraryTarget: "commonjs2",
+    libraryTarget: "commonjs2"
   },
   optimization: {
     // Automatically split vendor and commons
@@ -50,8 +50,8 @@ module.exports = {
     // https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
     splitChunks: {
       chunks: "all",
-      name: "vendors",
-    },
+      name: "vendors"
+    }
     // Keep the runtime chunk seperated to enable long term caching
     // https://twitter.com/wSokra/status/969679223278505985
     // runtimeChunk: true,
@@ -63,7 +63,7 @@ module.exports = {
     // https://github.com/facebook/create-react-app/issues/253
     modules: ["node_modules"].concat(
       // It is guaranteed to exist because we tweak it in `env.js`
-      process.env.NODE_PATH.split(path.delimiter).filter(Boolean),
+      process.env.NODE_PATH.split(path.delimiter).filter(Boolean)
     ),
     // These are the reasonable defaults supported by the Node ecosystem.
     // We also include JSX as a common component filename extension to support
@@ -75,7 +75,7 @@ module.exports = {
     alias: {
       // MorScout Folder Linking
       shared: getSrc("shared"),
-      models: getSrc("models"),
+      models: getSrc("models")
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).
@@ -83,8 +83,8 @@ module.exports = {
       // To fix this, we prevent you from importing files out of src/ -- if you'd like to,
       // please link the files into your node_moAdules/ and let module-resolution kick in.
       // Make sure your source files are compiled, as they will not be processed in any way.
-      new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
-    ],
+      new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson])
+    ]
   },
   module: {
     strictExportPresence: true,
@@ -105,14 +105,14 @@ module.exports = {
               // TODO: consider separate config for production,
               // e.g. to enable no-console and no-debugger only in production.
               baseConfig: {
-                extends: [require.resolve("eslint-config-react-app")],
-              },
+                extends: [require.resolve("eslint-config-react-app")]
+              }
             },
-            loader: require.resolve("eslint-loader"),
-          },
+            loader: require.resolve("eslint-loader")
+          }
         ],
         include: paths.srcPaths,
-        exclude: [/[/\\\\]node_modules[/\\\\]/],
+        exclude: [/[/\\\\]node_modules[/\\\\]/]
       },
       {
         // "oneOf" will traverse all following loaders until one will
@@ -133,10 +133,10 @@ module.exports = {
                 loader: require.resolve("babel-loader"),
                 options: {
                   compact: true,
-                  highlightCode: true,
-                },
-              },
-            ],
+                  highlightCode: true
+                }
+              }
+            ]
           },
           // Process any JS outside of the app with Babel.
           // Unlike the application JS, we only compile the standard ES features.
@@ -150,16 +150,16 @@ module.exports = {
                 loader: require.resolve("babel-loader"),
                 options: {
                   cacheDirectory: true,
-                  highlightCode: true,
-                },
-              },
-            ],
-          },
+                  highlightCode: true
+                }
+              }
+            ]
+          }
           // ** STOP ** Are you adding a new loader?
           // Make sure to add the new loader(s) before the "file" loader.
-        ],
-      },
-    ],
+        ]
+      }
+    ]
   },
   plugins: [
     new HardSourceWebpackPlugin(),
@@ -168,11 +168,11 @@ module.exports = {
     // having to parse `index.html`.
     new ManifestPlugin({
       fileName: "asset-manifest.json",
-      publicPath,
+      publicPath
     }),
     new webpack.EnvironmentPlugin({
-      __version: packageJson.version,
-    }),
+      __version: packageJson.version
+    })
   ],
   externals: [NodeExternals()],
   // Turn off performance processing because we utilize
@@ -180,6 +180,6 @@ module.exports = {
   node: {
     Buffer: false,
     __dirname: true,
-    __filename: false,
-  },
+    __filename: false
+  }
 };

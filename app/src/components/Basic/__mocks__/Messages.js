@@ -9,12 +9,12 @@ class Message extends React.Component {
   static propTypes = {
     isVisible: PropTypes.bool,
     onClick: PropTypes.func,
-    children: PropTypes.node.isRequired,
+    children: PropTypes.node.isRequired
   };
 
   static defaultProp = {
     isVisible: true,
-    onClick: () => {},
+    onClick: () => {}
   };
 
   constructor(props) {
@@ -23,7 +23,7 @@ class Message extends React.Component {
     this.state = {
       message: props.children,
       isVisible: props.isVisible,
-      onClick: props.onClick,
+      onClick: props.onClick
     };
   }
 
@@ -45,13 +45,13 @@ class RandomMessageInt extends React.Component {
     const state = {
       message: 0,
       messages: [],
-      activeMessage: {},
+      activeMessage: {}
     };
     // eslint-disable-next-line
     state.messages = React.Children.toArray(props.children);
     state.message = Math.min(
       Math.floor(0.5 * state.messages.length),
-      state.messages.length - 1,
+      state.messages.length - 1
     );
     state.activeMessage = state.messages[state.message];
     // eslint-disable-next-line

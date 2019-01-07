@@ -16,14 +16,14 @@ export default imports => {
   app.use(
     "/api",
     api.server({
-      mongoose,
-    }),
+      mongoose
+    })
   );
 
   // Main Route Handler(only if not DevServer)
   if (!development) {
     app.get(
-      express.static(pathJoin(__dirname, "..", "..", "app", "build", "web")),
+      express.static(pathJoin(__dirname, "..", "..", "app", "build", "web"))
     );
     app.get("*", (req, res) => {
       res.send("Hi!");
@@ -31,6 +31,6 @@ export default imports => {
   }
   return {
     app,
-    io,
+    io
   };
 };

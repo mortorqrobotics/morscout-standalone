@@ -11,7 +11,7 @@ const engine = filter(createEngine("redux"), [], ["user"]);
 const storageMiddleware = storage.createMiddleware(engine);
 
 const composeEnhancers = compose({
-  actionsBlacklist: ["REDUX_STORAGE_LOAD", "REDUX_STORAGE_SAVE"],
+  actionsBlacklist: ["REDUX_STORAGE_LOAD", "REDUX_STORAGE_SAVE"]
 });
 
 const socket = io("http://localhost:3030");
@@ -24,16 +24,16 @@ const socketIoMiddleware = createSocketIoMiddleware(socket, "server/", {
       .join("/");
     emit(type, data);
     next(action);
-  },
+  }
 });
 const store = createStore(
   storage.reducer(
     combineReducers({
-      ...reducers,
-    }),
+      ...reducers
+    })
   ),
   // JSON.parse(window.localStorage.getItem('state') | '{matches:[], match: {}}'),
-  composeEnhancers(applyMiddleware(socketIoMiddleware, storageMiddleware)),
+  composeEnhancers(applyMiddleware(socketIoMiddleware, storageMiddleware))
 );
 // export default applyMiddleware(socketIoMiddleware)(createStore)(combineReducers(reducers))
 

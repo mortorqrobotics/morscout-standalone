@@ -11,7 +11,7 @@ import Loader from "~/Basic/Loader";
 const { InputFilter, FilterResults } = fuzzyFilterFactory();
 const fuseConfig = {
   shouldSort: true,
-  keys: ["id", "blue", "red", "time", "progress"],
+  keys: ["id", "blue", "red", "time", "progress"]
 };
 
 export default
@@ -40,7 +40,7 @@ class Matches extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      teams: props.teams,
+      teams: props.teams
     };
     props.load();
   }
@@ -51,7 +51,7 @@ class Matches extends React.Component {
 
   static getDerivedStateFromProps(nextProps, prevState) {
     return Object.assign({}, prevState, {
-      teams: nextProps.teams,
+      teams: nextProps.teams
     });
   }
 
@@ -90,9 +90,9 @@ class Matches extends React.Component {
                       Object.assign(
                         {},
                         {
-                          keys: [key],
-                        },
-                      ),
+                          keys: [key]
+                        }
+                      )
                     );
                     return fuse.search(value);
                   }
@@ -102,16 +102,16 @@ class Matches extends React.Component {
                       Object.assign(
                         {},
                         {
-                          keys: ["red", "blue"],
-                        },
-                      ),
+                          keys: ["red", "blue"]
+                        }
+                      )
                     );
                     return fuse.search(value);
                   }
                   const fuse = new Fuse(items, fuseConfig);
                   return fuse.search(`${key}:${value}`);
-                },
-              },
+                }
+              }
             ]}
           >
             {results => {

@@ -12,30 +12,30 @@ export default socket => {
           teams: {
             blue: [
               {
-                num: 1515,
+                num: 1515
               },
               {
-                num: 1928,
+                num: 1928
               },
               {
-                num: 1385,
-              },
+                num: 1385
+              }
             ],
             red: [
               {
-                num: 999,
+                num: 999
               },
               {
-                num: 666,
+                num: 666
               },
               {
-                num: 333,
-              },
-            ],
+                num: 333
+              }
+            ]
           },
-          progress: { current: 3, max: 6 },
-        },
-      },
+          progress: { current: 3, max: 6 }
+        }
+      }
     });
   });
   socket.on("getTeams", () => {
@@ -44,9 +44,9 @@ export default socket => {
       data: {
         "1515": {
           matches: ["1"],
-          name: "MorTorq",
-        },
-      },
+          name: "MorTorq"
+        }
+      }
     });
   });
 };

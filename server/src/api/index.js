@@ -3,5 +3,5 @@ import server from "./server";
 
 export default {
   io,
-  server,
+  server
 };

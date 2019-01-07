@@ -7,5 +7,5 @@ import reduceReducers from "reduce-reducers";
 export default {
   matches: reduceReducers(matches, match),
   teams: reduceReducers(teams),
-  user,
+  user
 };
