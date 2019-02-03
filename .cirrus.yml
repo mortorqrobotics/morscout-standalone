@@ -40,8 +40,6 @@ docker_builder:
     - test
     - lint
   env:
-    DOCKER_USERNAME: ENCRYPTED[c4ebf22212aa6eb1da6c1970dc80287abf298452717f00f7d993424346e31f0fd97113edd3af589e511ed1f27d4409e3]
-    DOCKER_PASSWORD: ENCRYPTED[be48c52b4385a779d7c01a7d551b2b08439e93ef6ca81d6b42c811be31f8d59b19a80d31d61c10f5f5f4d2d0651ab4e7]
     NODE_VERSION: 10.13.0
     ARCH: x64
     YARN_VERSION: 1.10.1
@@ -70,11 +68,9 @@ docker_builder:
     - rm yarn-v$YARN_VERSION.tar.gz
   app_install_script: yarn install
   snyk_install_script: npm i -g snyk
-  login_script: docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
   pull_script: docker pull $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest || true
   app_build_script:
     - yarn build:server
     - yarn build:app
   docker_build_script: docker build --file docker/Dockerfile.prod --cache-from $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest --tag $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest .
-  test_script: snyk test --docker $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest || true
-  push_script: docker push $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest
+  test_script: snyk test --docker $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest
