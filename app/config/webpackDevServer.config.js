@@ -5,6 +5,7 @@ const ignoredFiles = require("react-dev-utils/ignoredFiles");
 const fs = require("fs");
 const http = require("http");
 const mongoose = require("mongoose");
+const shell = require("shelljs");
 const config = require("./webpack.config.dev");
 const paths = require("./paths");
 
@@ -90,8 +91,11 @@ function s(proxy, allowedHost) {
         // eslint-disable-next-line global-require, import/no-dynamic-require
         require(paths.proxySetup)(app);
       }
+      if (!fs.existsSync("../../server/build/server.js")) {
+        shell.exec("npm run build:server");
+      }
       // eslint-disable-next-line global-require
-      const { app: api, io } = require("../../server")({
+      const { app: api, io } = require("../../server/build/server.js")({
         development: true,
         modules: {
           mongoose

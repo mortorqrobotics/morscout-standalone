@@ -21,7 +21,6 @@ test_task:
     fingerprint_script: cat yarn.lock
     populate_script: yarn install
   login_script: yarn snyk auth $SNYK_API_KEY
-  build_script: yarn build:server
   test_script: yarn run test:coverage
   coverage_upload_script:
     - bash <(curl -s https://codecov.io/bash) -cF app -F `node -v | sed 's/\..*$//'` -s app/coverage/ -t $CODECOV_TOKEN
