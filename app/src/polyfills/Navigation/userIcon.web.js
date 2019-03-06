@@ -3,14 +3,10 @@ import PropTypes from "prop-types";
 import { View, Text } from "react-native";
 import Uranium from "uranium";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faSignInAlt,
-  faSignOutAlt,
-  faUser,
-  faCog
-} from "@fortawesome/free-solid-svg-icons";
+import { faSignOutAlt, faUser, faCog } from "@fortawesome/free-solid-svg-icons";
 import { connect } from "react-redux";
 import { Link } from "./index";
+import LogIn from "./LogIn";
 import styleFunc from "./style";
 
 @Uranium
@@ -85,19 +81,9 @@ class UserIcon extends React.Component {
       );
     }
     return (
-      <a
-        onClick={e => {
-          dispatch({
-            type: "login"
-          });
-          e.stopPropagation();
-        }}
-        role="button"
-        tabIndex="-1"
-      >
-        Log In
-        <FontAwesomeIcon icon={faSignInAlt} />
-      </a>
+      <div>
+        <LogIn />
+      </div>
     );
   }
 }

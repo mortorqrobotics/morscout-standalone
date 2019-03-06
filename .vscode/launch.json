@@ -7,6 +7,15 @@
         {
             "type": "node",
             "request": "launch",
+            "name": "Launch via NPM",
+            "runtimeExecutable": "yarn",
+            "runtimeArgs": [
+                "start:app"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
             "name": "Electron",
             "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
             "program": "${workspaceFolder}/app/electron/index.js"
@@ -30,7 +39,7 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Launch Chrome against localhost",
+            "name": "Launch Chrome",
             "url": "http://localhost:3000",
             "webRoot": "${workspaceFolder}"
         }

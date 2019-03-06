@@ -1,7 +1,0 @@
-patch-package
-new file mode 120000
---- /dev/null
-+++ b/node_modules/engine.io-client/node_modules/xmlhttprequest-ssl
-@@ -0,0 +1 @@
-+../../xmlhttprequest-ssl
-\ No newline at end of file

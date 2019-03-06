@@ -59,13 +59,13 @@ class RandomMessageInt extends React.Component {
   }
 
   randomMessage() {
-    const { state, setState } = this;
+    const { state } = this;
     const newState = Object.assign({}, state);
     do {
       newState.message = Math.floor(Math.random() * newState.messages.length);
     } while (newState.message === state.message);
     newState.activeMessage = state.messages[state.message];
-    setState.bind(this)(newState);
+    this.setState(newState);
   }
 
   render() {
