@@ -61,6 +61,7 @@ Schema {
         [Function],
       ],
       "validators": Array [],
+      Symbol(mongoose#schemaType): true,
     },
     "awards.Type": Map {
       "$__schemaType": Mixed {
@@ -73,6 +74,7 @@ Schema {
         "path": "awards.Type.$*",
         "setters": Array [],
         "validators": Array [],
+        Symbol(mongoose#schemaType): true,
         Symbol(mongoose:schema_mixed): true,
       },
       "$isSchemaMap": true,
@@ -85,6 +87,7 @@ Schema {
       "path": "awards.Type",
       "setters": Array [],
       "validators": Array [],
+      Symbol(mongoose#schemaType): true,
     },
     "awards.Type.$*": Mixed {
       "_index": null,
@@ -96,6 +99,7 @@ Schema {
       "path": "awards.Type.$*",
       "setters": Array [],
       "validators": Array [],
+      Symbol(mongoose#schemaType): true,
       Symbol(mongoose:schema_mixed): true,
     },
     "name": SchemaString {
@@ -110,6 +114,7 @@ Schema {
       "regExp": null,
       "setters": Array [],
       "validators": Array [],
+      Symbol(mongoose#schemaType): true,
     },
     "number": SchemaNumber {
       "_index": null,
@@ -131,6 +136,7 @@ Schema {
           "validator": [Function],
         },
       ],
+      Symbol(mongoose#schemaType): true,
     },
   },
   "plugins": Array [],
