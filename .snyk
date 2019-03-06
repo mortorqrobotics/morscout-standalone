@@ -2,68 +2,20 @@
 version: v1.13.1
 # ignores vulnerabilities until expiry date; change duration by modifying expiry date
 ignore:
-  SNYK-JS-LODASHMERGE-173732:
-    - redux-storage > redux-storage-merger-simple > lodash.merge:
-        reason: No possible fix
-        expires: '2019-04-05T04:51:02.660Z'
-    - react-native-web > inline-style-prefixer > gitbook-plugin-prism > cheerio > lodash.merge:
-        reason: No posible fix
-        expires: '2019-04-05T04:51:02.660Z'
-  'npm:braces:20180219':
-    - react-native > metro > jest-haste-map > micromatch > braces:
-        reason: Not important
-        expires: '2019-04-05T04:51:02.660Z'
-    - react-native > metro-core > jest-haste-map > micromatch > braces:
-        reason: Not important
-        expires: '2019-04-05T04:51:02.660Z'
-    - react-native > metro-config > metro-core > jest-haste-map > micromatch > braces:
-        reason: Not important
-        expires: '2019-04-05T04:51:02.660Z'
-    - react-native > metro-config > metro > jest-haste-map > micromatch > braces:
-        reason: Not important
-        expires: '2019-04-05T04:51:02.660Z'
-    - react-native > metro > metro-core > jest-haste-map > micromatch > braces:
-        reason: Not important
-        expires: '2019-04-05T04:51:02.660Z'
-    - react-native > metro-config > metro-cache > metro-core > jest-haste-map > micromatch > braces:
-        reason: None given
-        expires: '2019-04-05T04:51:02.660Z'
-    - react-native > metro > metro-config > metro-core > jest-haste-map > micromatch > braces:
-        reason: None given
-        expires: '2019-04-05T04:51:02.661Z'
-    - react-native > metro-config > metro > metro-core > jest-haste-map > micromatch > braces:
-        reason: None given
-        expires: '2019-04-05T04:51:02.661Z'
-    - react-native > metro > metro-cache > metro-core > jest-haste-map > micromatch > braces:
-        reason: None given
-        expires: '2019-04-05T04:51:02.661Z'
-    - react-native > metro-config > metro > metro-cache > metro-core > jest-haste-map > micromatch > braces:
-        reason: None given
-        expires: '2019-04-05T04:51:02.661Z'
-    - react-native > metro > metro-config > metro-cache > metro-core > jest-haste-map > micromatch > braces:
-        reason: None given
-        expires: '2019-04-05T04:51:02.661Z'
-  'npm:mem:20180117':
-    - react-native > yargs > os-locale > mem:
-        reason: None given
-        expires: '2019-04-05T04:51:02.661Z'
-    - react-native > metro > yargs > os-locale > mem:
-        reason: None given
-        expires: '2019-04-05T04:51:02.661Z'
-    - react-native > metro-config > metro > yargs > os-locale > mem:
-        reason: None given
-        expires: '2019-04-05T04:51:02.661Z'
   'npm:plist:20180219':
-    - react-native > xcode > simple-plist > plist:
-        reason: None given
-        expires: '2019-04-05T04:51:02.661Z'
-    - appcenter > appcenter-link-scripts > xcode > simple-plist > plist:
-        reason: None given
-        expires: '2019-04-05T04:51:02.662Z'
-    - appcenter-analytics > appcenter > appcenter-link-scripts > xcode > simple-plist > plist:
-        reason: None given
-        expires: '2019-04-05T04:51:02.662Z'
-    - appcenter-crashes > appcenter > appcenter-link-scripts > xcode > simple-plist > plist:
-        reason: None given
-        expires: '2019-04-05T04:51:02.662Z'
+    - '*':
+        reason: None Given
+        expires: 2020-01-01T00:00:00.000Z
+  'npm:mem:20180117':
+    - '*':
+        reason: None Given
+        expires: 2020-01-01T00:00:00.000Z
+  'npm:braces:20180219':
+    - '*':
+        reason: None Given
+        expires: 2020-01-01T00:00:00.000Z
+  SNYK-JS-LODASHMERGE-173732:
+    - '*':
+        reason: None Given
+        expires: 2020-01-01T00:00:00.000Z
 patch: {}
