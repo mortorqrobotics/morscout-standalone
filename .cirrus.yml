@@ -70,7 +70,7 @@ docker_builder:
     - docker build --file docker/Dockerfile.prod --cache-from $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest --tag $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest .
     - docker build --file docker/Dockerfile.dev --cache-from $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest-dev --tag $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest-dev .
   test_script: snyk test --docker $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest
-  tag_script: docker tag $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest $DOCKER_USERNAME/$CIRRUS_REPO_NAME:$CIRRUS_TAG
+  tag_script: if [$CIRRUS_TAG != ""]; then docker tag $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest $DOCKER_USERNAME/$CIRRUS_REPO_NAME:$CIRRUS_TAG; fi
   docker_push_script:
     - if [$CIRRUS_TAG != ""]; then docker push $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest; fi
     - docker push $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest
