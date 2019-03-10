@@ -12,7 +12,6 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const safePostCssParser = require("postcss-safe-parser");
 const ManifestPlugin = require("webpack-manifest-plugin");
-const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 // const InterpolateHtmlPlugin = require("react-dev-utils/InterpolateHtmlPlugin");
 const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
 // const ModuleScopePlugin = require("react-dev-utils/ModuleScopePlugin");
@@ -358,7 +357,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new BundleAnalyzerPlugin(),
     new HardSourceWebpackPlugin(),
     // Generates an `index.html` file with the <script> injected.
     new HtmlWebpackPlugin({
