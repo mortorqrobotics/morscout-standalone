@@ -1,0 +1,11 @@
+parsers:
+  javascript:
+    enable_partials: yes
+coverage:
+  range: 50..90
+  round: down
+  precision: 2
+
+codecov:
+  ci:
+    - cirrus-ci.com

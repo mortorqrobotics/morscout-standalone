@@ -66,5 +66,11 @@ docker_builder:
   app_build_script:
     - yarn build:server
     - yarn build:app
-  docker_build_script: docker build --file docker/Dockerfile.prod --cache-from $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest --tag $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest .
+  docker_build_script:
+    - docker build --file docker/Dockerfile.prod --cache-from $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest --tag $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest .
+    - docker build --file docker/Dockerfile.dev --cache-from $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest-dev --tag $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest-dev .
   test_script: snyk test --docker $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest
+  tag_script: docker tag $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest $DOCKER_USERNAME/$CIRRUS_REPO_NAME:$CIRRUS_TAG
+  docker_push_script:
+    - if [$CIRRUS_TAG != ""]; then docker push $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest; fi
+    - docker push $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest
