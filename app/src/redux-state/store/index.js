@@ -11,7 +11,7 @@ const engine = filter(createEngine("redux"), [], ["user"]);
 const storageMiddleware = storage.createMiddleware(engine);
 
 const composeEnhancers = compose({
-  actionsBlacklist: ["REDUX_STORAGE_LOAD", "REDUX_STORAGE_SAVE"]
+  actionsBlacklist: ["REDUX_STORAGE_SAVE"] // , "REDUX_STORAGE_LOAD"]
 });
 
 const socket = io("http://localhost:3030");

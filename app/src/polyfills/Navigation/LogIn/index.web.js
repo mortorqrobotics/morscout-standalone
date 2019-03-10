@@ -4,17 +4,10 @@ import { connect } from "react-redux";
 import Modal from "react-modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignInAlt } from "@fortawesome/free-solid-svg-icons";
-import { randomBytes } from "crypto";
+import nanoid from "nanoid";
 import { createCipher } from "aes256";
 import { login } from "shared/types/Basic/LogIn";
 import styles from "./styles";
-
-function randomPasswordString(length) {
-  let str = randomBytes(length * 2).toString("base64");
-  str = str.repeat(Math.ceil(str.length / length));
-  str = str.substr(0, length);
-  return str;
-}
 
 Modal.setAppElement("#root");
 
@@ -30,17 +23,19 @@ class LogIn extends React.Component {
       open: false,
       username: "",
       password: "",
+      passwordOverlay: "",
       passwordLength: 0,
-      usernameId: `username: ${randomBytes(8).toString("base64")}`,
-      passwordId: `password: ${randomBytes(8).toString("base64")}`
+      usernameId: `username: ${nanoid(8)}`,
+      passwordId: `password: ${nanoid(8)}`
     };
 
-    this.#cipher = createCipher(`key: ${randomBytes(256).toString("base64")}`);
+    this.#cipher = createCipher(`key: ${nanoid(256)}`);
 
     this.closeModal = this.closeModal.bind(this);
     this.handleUsernameChange = this.handleUsernameChange.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
   #cipher;
@@ -56,19 +51,55 @@ class LogIn extends React.Component {
   handlePasswordChange(event) {
     event.stopPropagation();
     const { value } = event.target;
-    const { password, passwordLength } = this.state;
+    const { password, passwordLength, passwordOverlay } = this.state;
     const cipher = this.#cipher;
     const newState = Object.assign({}, this.state);
-    const pass = password.length > 0 ? cipher.decrypt(password) : "";
-    // console.log(pass);
-    if (value.length > passwordLength) {
-      newState.password = pass + value.substr(-1, 1);
+    let pass = password.length > 0 ? cipher.decrypt(password) : "";
+    // Optimization for deleting the whole password
+    if (value.length === 0) {
+      pass = "";
+      newState.passwordOverlay = "";
+    } else if (value.length > passwordLength) {
+      let i = 0;
+      let l = 0;
+      value.split("").forEach((c, indx) => {
+        const o = passwordOverlay.split("")[i];
+        // console.log(o);
+        // console.log(c);
+        if (o !== c) {
+          pass = pass.substring(0, indx) + c + pass.substring(indx);
+          l += 1;
+        } else {
+          i += 1;
+        }
+      });
+      newState.passwordOverlay += nanoid(l).substr(0, l);
     } else {
-      newState.password = pass.substr(0, pass.length - 1);
+      let i = 0;
+      let po = passwordOverlay;
+      const rem = [];
+      po = passwordOverlay
+        .split("")
+        .map((o, indx) => {
+          const c = value.split("")[i];
+          // console.log(o);
+          // console.log(c);
+          if (o !== c) {
+            rem.push(indx);
+            return null;
+          }
+          i += 1;
+          return c;
+        })
+        .join("");
+      pass = pass
+        .split("")
+        .map((c, indx) => (!rem.includes(indx) ? c : null))
+        .join("");
+      newState.passwordOverlay = po;
     }
-    newState.passwordLength = newState.password.length;
-    newState.password =
-      newState.passwordLength > 0 ? cipher.encrypt(newState.password) : "";
+    newState.passwordLength = pass.length;
+    newState.password = newState.passwordLength > 0 ? cipher.encrypt(pass) : "";
     this.setState(newState);
   }
 
@@ -93,11 +124,17 @@ class LogIn extends React.Component {
     event.stopPropagation();
   }
 
+  handleKeyDown(event) {
+    if (event.keyCode === 13) {
+      this.handleSubmit(event);
+    }
+  }
+
   render() {
     const {
       open,
       username,
-      passwordLength,
+      passwordOverlay,
       usernameId,
       passwordId
     } = this.state;
@@ -132,6 +169,7 @@ class LogIn extends React.Component {
               name="username"
               value={username}
               onChange={this.handleUsernameChange}
+              onKeyDown={this.handleKeyDown}
               id={usernameId}
             />
           </div>
@@ -141,8 +179,9 @@ class LogIn extends React.Component {
             <input
               type="password"
               name="password"
-              value={randomPasswordString(passwordLength)}
+              value={passwordOverlay}
               onChange={this.handlePasswordChange}
+              onKeyDown={this.handleKeyDown}
               id={passwordId}
             />
           </div>

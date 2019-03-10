@@ -1,6 +1,6 @@
 import { updated as updatedMatches } from "shared/types/Matches";
 import { updated as updatedTeams } from "shared/types/Teams";
-import { loggedin } from "shared/types/Basic/LogIn";
+import { loggedin, loggedout } from "shared/types/Basic/LogIn";
 
 export default sock => {
   // console.log(socket);
@@ -56,5 +56,9 @@ export default sock => {
       name: "Elias Schablowski"
     };
     send(loggedin, socket.user);
+  });
+  socket.on("LOGOUT", () => {
+    socket.user = {};
+    send(loggedout);
   });
 };

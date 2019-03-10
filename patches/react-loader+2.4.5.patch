@@ -1,4 +1,5 @@
-patch-package
+diff --git a/node_modules/react-loader/lib/react-loader.js b/node_modules/react-loader/lib/react-loader.js
+index 31a7464..080654e 100644
 --- a/node_modules/react-loader/lib/react-loader.js
 +++ b/node_modules/react-loader/lib/react-loader.js
 @@ -103,7 +103,9 @@

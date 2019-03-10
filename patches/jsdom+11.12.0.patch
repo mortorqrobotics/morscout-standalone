@@ -1,11 +1,12 @@
-patch-package
+diff --git a/node_modules/jsdom/lib/jsdom/utils.js b/node_modules/jsdom/lib/jsdom/utils.js
+index d05ae92..c8360f5 100644
 --- a/node_modules/jsdom/lib/jsdom/utils.js
 +++ b/node_modules/jsdom/lib/jsdom/utils.js
-@@ -184,6 +184,9 @@ exports.Canvas = null;
+@@ -184,6 +198,9 @@ exports.Canvas = null;
  ["canvas", "canvas-prebuilt"].some(moduleName => {
    try {
      exports.Canvas = require(moduleName);
-+    if (typeof exports.Canvas.createCanvas !== "undefined"){
++    if (typeof exports.Canvas.createCanvas !== "undefined") {
 +      exports.Canvas = exports.Canvas.createCanvas;
 +    }
      if (typeof exports.Canvas !== "function") {
