@@ -31,7 +31,7 @@ class Message extends React.Component {
     const { state } = this;
     const style = state.isVisible ? ' style="display:none;"' : "";
     return (
-      <Text {...style} onClick={state.onClick} className="Message">
+      <Text {...style} onClick={state.onClick}>
         {state.message}
       </Text>
     );
@@ -71,11 +71,7 @@ class RandomMessageInt extends React.Component {
   render() {
     const { state } = this;
     return (
-      <Message
-        onClick={() => this.randomMessage()}
-        className="RandomMessage"
-        key={state.message}
-      >
+      <Message onClick={() => this.randomMessage()} key={state.message}>
         {state.activeMessage}
       </Message>
     );

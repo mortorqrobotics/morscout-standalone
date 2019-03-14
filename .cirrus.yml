@@ -33,7 +33,7 @@ lint_task:
     fingerprint_script: cat yarn.lock
     populate_script: yarn install
   lint_script: yarn run lint
-
+  
 docker_builder:
   depends_on: 
     - test
@@ -70,7 +70,22 @@ docker_builder:
     - docker build --file docker/Dockerfile.prod --cache-from $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest --tag $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest .
     - docker build --file docker/Dockerfile.dev --cache-from $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest-dev --tag $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest-dev .
   test_script: snyk test --docker $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest
-  tag_script: if [$CIRRUS_TAG != ""]; then docker tag $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest $DOCKER_USERNAME/$CIRRUS_REPO_NAME:$CIRRUS_TAG; fi
+  tag_script: if [$CIRRUS_TAG != ""]; then docker tag $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest $DOCKER_USERNAME/$CIRRUS_REPO_NAME:r`echo $CIRRUS_TAG | sed "s/^[a-z0-9A-Z]//"`; fi
   docker_push_script:
     - if [$CIRRUS_TAG != ""]; then docker push $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest; fi
     - docker push $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest
+
+
+windows_container:
+  image: cirrusci/windowsservercore:2019
+  os_version: 2019
+
+build_task:
+  depends_on:
+    - test
+    - lint
+
+rn_build_task:
+  container:
+    image: cirrusci/windowsservercore:2019
+  

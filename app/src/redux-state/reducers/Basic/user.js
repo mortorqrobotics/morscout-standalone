@@ -13,8 +13,6 @@ export default (state = { loggedIn: false }, { type, data }) => {
         loggedIn: false
       };
     default:
-      return {
-        loggedIn: false
-      };
+      return state;
   }
 };
