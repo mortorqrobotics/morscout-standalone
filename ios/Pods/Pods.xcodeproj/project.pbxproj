@@ -1,0 +1,980 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		397BBDFEBE9CC818487FA8ABB7623A33 /* AppCenter */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = D0944D0DEFF9CDF0CBE6D4A41B195020 /* Build configuration list for PBXAggregateTarget "AppCenter" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = AppCenter;
+		};
+		ED8B76EC90CA1D894B6D38663D04C292 /* AppCenterReactNativeShared */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = B1AADDABC0FF92BF51AC88E6BD57DB25 /* Build configuration list for PBXAggregateTarget "AppCenterReactNativeShared" */;
+			buildPhases = (
+			);
+			dependencies = (
+				0051E4214884EF5346A2A55966EC832B /* PBXTargetDependency */,
+			);
+			name = AppCenterReactNativeShared;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		9833E569FCE54E9F6BCD6DD1181DDFEE /* Pods-morscout-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B4609078F9694C60A60E776365C461 /* Pods-morscout-dummy.m */; };
+		9F4FBC926F6C0F3AA3FACB00021152C3 /* Pods-morscout-tvOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 89AA346F8C37DF059491D738582D0A67 /* Pods-morscout-tvOS-dummy.m */; };
+		AB1603912BEF4C58C86BBD7EFAE8DC4A /* Pods-morscoutTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D0E32502DD2D8FAD5626C4746B14BE /* Pods-morscoutTests-dummy.m */; };
+		D2B7F349CBD51E9D8AF4C01EC631D94F /* Pods-morscout-tvOSTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BFBFE9586DFBA72731F11E23CEBD8A /* Pods-morscout-tvOSTests-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		163E0E5145E8DB2F4496133687C50BAB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED8B76EC90CA1D894B6D38663D04C292;
+			remoteInfo = AppCenterReactNativeShared;
+		};
+		6A954FF03CEF271BA8F885F0E768DECA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 397BBDFEBE9CC818487FA8ABB7623A33;
+			remoteInfo = AppCenter;
+		};
+		C3C261588B353C464B3825EFB3889347 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 473EEE5538B1A722FD8A7CC609D6683F;
+			remoteInfo = "Pods-morscout";
+		};
+		D96B09CB6F7CDF72F3099DD83AD5AB87 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 397BBDFEBE9CC818487FA8ABB7623A33;
+			remoteInfo = AppCenter;
+		};
+		F4DA07C96C81B7B049B65A5360596F06 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7CB62FE1BB2A267DBDE8EF95AF5CE54D;
+			remoteInfo = "Pods-morscout-tvOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0685EE32BB0EC7073DDA281B529D3591 /* Pods-morscout-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-morscout-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		13B92FDAB1F37CDDD6F3B7A2F540A36C /* Pods-morscout-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-morscout-acknowledgements.plist"; sourceTree = "<group>"; };
+		15BAEAE419F2AA7D23B117BA68513220 /* Pods-morscout-tvOSTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-morscout-tvOSTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		18D0E32502DD2D8FAD5626C4746B14BE /* Pods-morscoutTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-morscoutTests-dummy.m"; sourceTree = "<group>"; };
+		1F2ECBA5538961B4D4FA0C4F593667EF /* Pods-morscoutTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-morscoutTests.debug.xcconfig"; sourceTree = "<group>"; };
+		26B4609078F9694C60A60E776365C461 /* Pods-morscout-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-morscout-dummy.m"; sourceTree = "<group>"; };
+		2DDCBF1577A0AAFF9474745CCC327110 /* Pods-morscout-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-morscout-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		394E3D082C89AC04FBCD0842859861AE /* libPods-morscout-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-morscout-tvOS.a"; path = "libPods-morscout-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		40CF2AAC4E7957360B8266AC20228F4D /* Pods-morscoutTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-morscoutTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		53628B18AE386BE2D2A1E24BADA249C8 /* AppCenterAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppCenterAnalytics.framework; path = "AppCenter-SDK-Apple/iOS/AppCenterAnalytics.framework"; sourceTree = "<group>"; };
+		60149D9BBE48AD20253E4B0CFE22B78E /* AppCenterPush.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppCenterPush.framework; path = "AppCenter-SDK-Apple/iOS/AppCenterPush.framework"; sourceTree = "<group>"; };
+		60BFBFE9586DFBA72731F11E23CEBD8A /* Pods-morscout-tvOSTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-morscout-tvOSTests-dummy.m"; sourceTree = "<group>"; };
+		6370B15EAB8369FF7F42C2072516EE64 /* Pods-morscout-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-morscout-acknowledgements.markdown"; sourceTree = "<group>"; };
+		6701505CADC1F073744B145CF2D7BB4C /* libPods-morscout-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-morscout-tvOSTests.a"; path = "libPods-morscout-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		760435C5BFDA5873C4EEDE9143B6CC8A /* AppCenterReactNativeShared.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AppCenterReactNativeShared.xcconfig; sourceTree = "<group>"; };
+		7F77F4FE41DDC8B0DB0F6B5AB2EDD662 /* Pods-morscout-tvOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-morscout-tvOS-acknowledgements.plist"; sourceTree = "<group>"; };
+		822F073626A6A060CD6CD602549DD3DB /* Pods-morscout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-morscout.release.xcconfig"; sourceTree = "<group>"; };
+		845DE7E436A8F769E9EDF4B2397931BB /* Pods-morscout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-morscout.debug.xcconfig"; sourceTree = "<group>"; };
+		89AA346F8C37DF059491D738582D0A67 /* Pods-morscout-tvOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-morscout-tvOS-dummy.m"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A30B7A7432390AAA97416D27C1F360DC /* AppCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppCenter.framework; path = "AppCenter-SDK-Apple/iOS/AppCenter.framework"; sourceTree = "<group>"; };
+		A6788003DCEB10014B962C75B245C22B /* Pods-morscout-tvOS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-morscout-tvOS-acknowledgements.markdown"; sourceTree = "<group>"; };
+		B7EF9AFFBA29AB4FF85CEB546138A200 /* Pods-morscout-tvOSTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-morscout-tvOSTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		CDC4E709097B904E43752C8574B913DE /* libPods-morscout.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-morscout.a"; path = "libPods-morscout.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF0A25877DCCED8B2450A1D8A414C6E9 /* Pods-morscoutTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-morscoutTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		DCD900B40FDE5CFF780320554E74EEC3 /* Pods-morscoutTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-morscoutTests.release.xcconfig"; sourceTree = "<group>"; };
+		E39C74A5A1B8AD2DAA194CF5DBF1CC02 /* libPods-morscoutTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-morscoutTests.a"; path = "libPods-morscoutTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E773DEB297B19BD6738928B05E6A24B6 /* AppCenterCrashes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppCenterCrashes.framework; path = "AppCenter-SDK-Apple/iOS/AppCenterCrashes.framework"; sourceTree = "<group>"; };
+		F06E9268137BFE2ACC8B7790DE36E25E /* Pods-morscout-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-morscout-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		F0CB88BAB6542777D40036E306346CA0 /* AppCenterReactNativeShared.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppCenterReactNativeShared.framework; path = AppCenterReactNativeShared/AppCenterReactNativeShared.framework; sourceTree = "<group>"; };
+		F2FC9E5F80868AC1117A9826864D1D14 /* Pods-morscout-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-morscout-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		FEC5A374E8ADB29C9EDDBE4A00684A25 /* AppCenter.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AppCenter.xcconfig; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		556E66A8AB696AD45FB307D01C96408C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5887EE0B7284A22E668BEA1CAE25DF90 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		82FE49C12D0FFF3AB736FF9D26E18242 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		853D30FE24473855CD84FD2A7E70AD84 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		168E8541376A7B24897A864A43C7CB2D /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				66707934E49279B49B6A4130B7209488 /* Pods-morscout */,
+				8CFC51A1A50A906A3443944AEDEAE242 /* Pods-morscout-tvOS */,
+				AC1D6073E0D4269457A4F57A64E2B9B6 /* Pods-morscout-tvOSTests */,
+				F94AA1EE8E9D4B004A4CC7C496A1BADD /* Pods-morscoutTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		28FE3E9D1E45FE180BF47AF842D66BAE /* AppCenterReactNativeShared */ = {
+			isa = PBXGroup;
+			children = (
+				F4D2C444B2834EDEA5A73008A2099184 /* Frameworks */,
+				8A8DEB86768AB442713033DF83AB96B0 /* Support Files */,
+			);
+			name = AppCenterReactNativeShared;
+			path = AppCenterReactNativeShared;
+			sourceTree = "<group>";
+		};
+		2B362BB1247A48A12367022154144B63 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				FEC5A374E8ADB29C9EDDBE4A00684A25 /* AppCenter.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/AppCenter";
+			sourceTree = "<group>";
+		};
+		2CFEFAA9D3305769C766A484A2C4D645 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				6331A11F93C389D58256AFE7E3DFB699 /* Frameworks */,
+			);
+			name = Analytics;
+			sourceTree = "<group>";
+		};
+		2D43EF4F51734528C1BFADD1402FB32B /* AppCenter */ = {
+			isa = PBXGroup;
+			children = (
+				2CFEFAA9D3305769C766A484A2C4D645 /* Analytics */,
+				365D78B64EB76D8FD1B4E1383EB58BCD /* Core */,
+				5AE9203DB9EF3A32BC3F5C28C5204761 /* Crashes */,
+				8CA6CADE963187192655799BA4EF5CA1 /* Push */,
+				2B362BB1247A48A12367022154144B63 /* Support Files */,
+			);
+			name = AppCenter;
+			path = AppCenter;
+			sourceTree = "<group>";
+		};
+		2E68A29817DF34A79C7D6328673233B0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CDC4E709097B904E43752C8574B913DE /* libPods-morscout.a */,
+				394E3D082C89AC04FBCD0842859861AE /* libPods-morscout-tvOS.a */,
+				6701505CADC1F073744B145CF2D7BB4C /* libPods-morscout-tvOSTests.a */,
+				E39C74A5A1B8AD2DAA194CF5DBF1CC02 /* libPods-morscoutTests.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		365D78B64EB76D8FD1B4E1383EB58BCD /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				C60FC5B19BE18CF7AF0094C096C96D97 /* Frameworks */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		5AE9203DB9EF3A32BC3F5C28C5204761 /* Crashes */ = {
+			isa = PBXGroup;
+			children = (
+				C1A16900848282A30EF525E1027778D6 /* Frameworks */,
+			);
+			name = Crashes;
+			sourceTree = "<group>";
+		};
+		6331A11F93C389D58256AFE7E3DFB699 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				53628B18AE386BE2D2A1E24BADA249C8 /* AppCenterAnalytics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		658DF18E1BC0DB01C503ED3A18FAD8F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				60149D9BBE48AD20253E4B0CFE22B78E /* AppCenterPush.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		66707934E49279B49B6A4130B7209488 /* Pods-morscout */ = {
+			isa = PBXGroup;
+			children = (
+				6370B15EAB8369FF7F42C2072516EE64 /* Pods-morscout-acknowledgements.markdown */,
+				13B92FDAB1F37CDDD6F3B7A2F540A36C /* Pods-morscout-acknowledgements.plist */,
+				26B4609078F9694C60A60E776365C461 /* Pods-morscout-dummy.m */,
+				845DE7E436A8F769E9EDF4B2397931BB /* Pods-morscout.debug.xcconfig */,
+				822F073626A6A060CD6CD602549DD3DB /* Pods-morscout.release.xcconfig */,
+			);
+			name = "Pods-morscout";
+			path = "Target Support Files/Pods-morscout";
+			sourceTree = "<group>";
+		};
+		8A8DEB86768AB442713033DF83AB96B0 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				760435C5BFDA5873C4EEDE9143B6CC8A /* AppCenterReactNativeShared.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/AppCenterReactNativeShared";
+			sourceTree = "<group>";
+		};
+		8CA6CADE963187192655799BA4EF5CA1 /* Push */ = {
+			isa = PBXGroup;
+			children = (
+				658DF18E1BC0DB01C503ED3A18FAD8F5 /* Frameworks */,
+			);
+			name = Push;
+			sourceTree = "<group>";
+		};
+		8CFC51A1A50A906A3443944AEDEAE242 /* Pods-morscout-tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				A6788003DCEB10014B962C75B245C22B /* Pods-morscout-tvOS-acknowledgements.markdown */,
+				7F77F4FE41DDC8B0DB0F6B5AB2EDD662 /* Pods-morscout-tvOS-acknowledgements.plist */,
+				89AA346F8C37DF059491D738582D0A67 /* Pods-morscout-tvOS-dummy.m */,
+				F06E9268137BFE2ACC8B7790DE36E25E /* Pods-morscout-tvOS.debug.xcconfig */,
+				0685EE32BB0EC7073DDA281B529D3591 /* Pods-morscout-tvOS.release.xcconfig */,
+			);
+			name = "Pods-morscout-tvOS";
+			path = "Target Support Files/Pods-morscout-tvOS";
+			sourceTree = "<group>";
+		};
+		AC1D6073E0D4269457A4F57A64E2B9B6 /* Pods-morscout-tvOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				B7EF9AFFBA29AB4FF85CEB546138A200 /* Pods-morscout-tvOSTests-acknowledgements.markdown */,
+				15BAEAE419F2AA7D23B117BA68513220 /* Pods-morscout-tvOSTests-acknowledgements.plist */,
+				60BFBFE9586DFBA72731F11E23CEBD8A /* Pods-morscout-tvOSTests-dummy.m */,
+				2DDCBF1577A0AAFF9474745CCC327110 /* Pods-morscout-tvOSTests.debug.xcconfig */,
+				F2FC9E5F80868AC1117A9826864D1D14 /* Pods-morscout-tvOSTests.release.xcconfig */,
+			);
+			name = "Pods-morscout-tvOSTests";
+			path = "Target Support Files/Pods-morscout-tvOSTests";
+			sourceTree = "<group>";
+		};
+		B76E3ECB2914751A360C7957E6A5901D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2D43EF4F51734528C1BFADD1402FB32B /* AppCenter */,
+				28FE3E9D1E45FE180BF47AF842D66BAE /* AppCenterReactNativeShared */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C1A16900848282A30EF525E1027778D6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E773DEB297B19BD6738928B05E6A24B6 /* AppCenterCrashes.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C60FC5B19BE18CF7AF0094C096C96D97 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A30B7A7432390AAA97416D27C1F360DC /* AppCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D89477F20FB1DE18A04690586D7808C4 /* Frameworks */,
+				B76E3ECB2914751A360C7957E6A5901D /* Pods */,
+				2E68A29817DF34A79C7D6328673233B0 /* Products */,
+				168E8541376A7B24897A864A43C7CB2D /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D89477F20FB1DE18A04690586D7808C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F4D2C444B2834EDEA5A73008A2099184 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F0CB88BAB6542777D40036E306346CA0 /* AppCenterReactNativeShared.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F94AA1EE8E9D4B004A4CC7C496A1BADD /* Pods-morscoutTests */ = {
+			isa = PBXGroup;
+			children = (
+				CF0A25877DCCED8B2450A1D8A414C6E9 /* Pods-morscoutTests-acknowledgements.markdown */,
+				40CF2AAC4E7957360B8266AC20228F4D /* Pods-morscoutTests-acknowledgements.plist */,
+				18D0E32502DD2D8FAD5626C4746B14BE /* Pods-morscoutTests-dummy.m */,
+				1F2ECBA5538961B4D4FA0C4F593667EF /* Pods-morscoutTests.debug.xcconfig */,
+				DCD900B40FDE5CFF780320554E74EEC3 /* Pods-morscoutTests.release.xcconfig */,
+			);
+			name = "Pods-morscoutTests";
+			path = "Target Support Files/Pods-morscoutTests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		29C1ED3DB2BEC50380DF26969AC03899 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		350749718344DF49F4FAA6D6585F019D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50F1AF40018C329B0152D83012DA4BEB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7F08F31020B45C9C3AB8551418CF1FA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		2B4E067267028E84F34A1BD97D8B0222 /* Pods-morscoutTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E2284578D7FD966C66C1161DF815CB32 /* Build configuration list for PBXNativeTarget "Pods-morscoutTests" */;
+			buildPhases = (
+				50F1AF40018C329B0152D83012DA4BEB /* Headers */,
+				FA1B81F5AA0C13391C10CC11F4034DA5 /* Sources */,
+				82FE49C12D0FFF3AB736FF9D26E18242 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9D590C6DE83A4F0B3DE39A2C1510147C /* PBXTargetDependency */,
+			);
+			name = "Pods-morscoutTests";
+			productName = "Pods-morscoutTests";
+			productReference = E39C74A5A1B8AD2DAA194CF5DBF1CC02 /* libPods-morscoutTests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		473EEE5538B1A722FD8A7CC609D6683F /* Pods-morscout */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CC1BD68E6352C22FDAD93463F5741BC7 /* Build configuration list for PBXNativeTarget "Pods-morscout" */;
+			buildPhases = (
+				E7F08F31020B45C9C3AB8551418CF1FA /* Headers */,
+				9072C713D751E628B24E5DEF3586F99A /* Sources */,
+				5887EE0B7284A22E668BEA1CAE25DF90 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				80B9A228AACAF107A08F1FF03F738149 /* PBXTargetDependency */,
+				2707C239D33F9DCB9DD8DF04F5C5D5A3 /* PBXTargetDependency */,
+			);
+			name = "Pods-morscout";
+			productName = "Pods-morscout";
+			productReference = CDC4E709097B904E43752C8574B913DE /* libPods-morscout.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		62FEEEC0706848316270B7A22C3ACCB7 /* Pods-morscout-tvOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD7A026A00643AE48E4732BD00E4A12F /* Build configuration list for PBXNativeTarget "Pods-morscout-tvOSTests" */;
+			buildPhases = (
+				350749718344DF49F4FAA6D6585F019D /* Headers */,
+				42B8C50EEA8E2AD36A6562CA6918119E /* Sources */,
+				556E66A8AB696AD45FB307D01C96408C /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				39FCDF2E917FC45DA22A81072216A412 /* PBXTargetDependency */,
+			);
+			name = "Pods-morscout-tvOSTests";
+			productName = "Pods-morscout-tvOSTests";
+			productReference = 6701505CADC1F073744B145CF2D7BB4C /* libPods-morscout-tvOSTests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		7CB62FE1BB2A267DBDE8EF95AF5CE54D /* Pods-morscout-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 893001BEB841B8C4C2E8B93B7CC0BF6E /* Build configuration list for PBXNativeTarget "Pods-morscout-tvOS" */;
+			buildPhases = (
+				29C1ED3DB2BEC50380DF26969AC03899 /* Headers */,
+				3885A7B7701FF17FB429758E2B3E58BF /* Sources */,
+				853D30FE24473855CD84FD2A7E70AD84 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-morscout-tvOS";
+			productName = "Pods-morscout-tvOS";
+			productReference = 394E3D082C89AC04FBCD0842859861AE /* libPods-morscout-tvOS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 2E68A29817DF34A79C7D6328673233B0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				397BBDFEBE9CC818487FA8ABB7623A33 /* AppCenter */,
+				ED8B76EC90CA1D894B6D38663D04C292 /* AppCenterReactNativeShared */,
+				473EEE5538B1A722FD8A7CC609D6683F /* Pods-morscout */,
+				7CB62FE1BB2A267DBDE8EF95AF5CE54D /* Pods-morscout-tvOS */,
+				62FEEEC0706848316270B7A22C3ACCB7 /* Pods-morscout-tvOSTests */,
+				2B4E067267028E84F34A1BD97D8B0222 /* Pods-morscoutTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3885A7B7701FF17FB429758E2B3E58BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F4FBC926F6C0F3AA3FACB00021152C3 /* Pods-morscout-tvOS-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		42B8C50EEA8E2AD36A6562CA6918119E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2B7F349CBD51E9D8AF4C01EC631D94F /* Pods-morscout-tvOSTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9072C713D751E628B24E5DEF3586F99A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9833E569FCE54E9F6BCD6DD1181DDFEE /* Pods-morscout-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA1B81F5AA0C13391C10CC11F4034DA5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB1603912BEF4C58C86BBD7EFAE8DC4A /* Pods-morscoutTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0051E4214884EF5346A2A55966EC832B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AppCenter;
+			target = 397BBDFEBE9CC818487FA8ABB7623A33 /* AppCenter */;
+			targetProxy = D96B09CB6F7CDF72F3099DD83AD5AB87 /* PBXContainerItemProxy */;
+		};
+		2707C239D33F9DCB9DD8DF04F5C5D5A3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AppCenterReactNativeShared;
+			target = ED8B76EC90CA1D894B6D38663D04C292 /* AppCenterReactNativeShared */;
+			targetProxy = 163E0E5145E8DB2F4496133687C50BAB /* PBXContainerItemProxy */;
+		};
+		39FCDF2E917FC45DA22A81072216A412 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-morscout-tvOS";
+			target = 7CB62FE1BB2A267DBDE8EF95AF5CE54D /* Pods-morscout-tvOS */;
+			targetProxy = F4DA07C96C81B7B049B65A5360596F06 /* PBXContainerItemProxy */;
+		};
+		80B9A228AACAF107A08F1FF03F738149 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AppCenter;
+			target = 397BBDFEBE9CC818487FA8ABB7623A33 /* AppCenter */;
+			targetProxy = 6A954FF03CEF271BA8F885F0E768DECA /* PBXContainerItemProxy */;
+		};
+		9D590C6DE83A4F0B3DE39A2C1510147C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-morscout";
+			target = 473EEE5538B1A722FD8A7CC609D6683F /* Pods-morscout */;
+			targetProxy = C3C261588B353C464B3825EFB3889347 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		14AFC6441E8D1BE8F6B7E0A00EF0BB1E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2FC9E5F80868AC1117A9826864D1D14 /* Pods-morscout-tvOSTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		44DA8D30A185CF39FF38CACD51676CDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 760435C5BFDA5873C4EEDE9143B6CC8A /* AppCenterReactNativeShared.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5ED1F1A308E994717015549174333D8B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2DDCBF1577A0AAFF9474745CCC327110 /* Pods-morscout-tvOSTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Debug;
+		};
+		6102AAACF1F680356B7D3FAF0632D673 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				SYMROOT = "${SRCROOT}/../build";
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Release;
+		};
+		6F4D25CB9F599D775DBC451590213731 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FEC5A374E8ADB29C9EDDBE4A00684A25 /* AppCenter.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		716C5F3F7CD9229E711EC173C658243B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCD900B40FDE5CFF780320554E74EEC3 /* Pods-morscoutTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		83364CFE45D36BA04ED9266BC21B6819 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F06E9268137BFE2ACC8B7790DE36E25E /* Pods-morscout-tvOS.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Debug;
+		};
+		8A791558A6CAD52F6A29BE7CDFC70C4B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FEC5A374E8ADB29C9EDDBE4A00684A25 /* AppCenter.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8BBA25EDDDAEDE7FFB8870004DC7E4C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				SYMROOT = "${SRCROOT}/../build";
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Debug;
+		};
+		993FE156345E88C0721E356735D36816 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F2ECBA5538961B4D4FA0C4F593667EF /* Pods-morscoutTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A4F198C1E194E6D6AC8C30E415553E2B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 822F073626A6A060CD6CD602549DD3DB /* Pods-morscout.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C4939254D9B12C5F8E84CFE6C51D11AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 760435C5BFDA5873C4EEDE9143B6CC8A /* AppCenterReactNativeShared.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C554CC00E1DE737A93CEB31F7AA183DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 845DE7E436A8F769E9EDF4B2397931BB /* Pods-morscout.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C9482031FB67491175061F3E3BBE3E0A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0685EE32BB0EC7073DDA281B529D3591 /* Pods-morscout-tvOS.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8BBA25EDDDAEDE7FFB8870004DC7E4C0 /* Debug */,
+				6102AAACF1F680356B7D3FAF0632D673 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		893001BEB841B8C4C2E8B93B7CC0BF6E /* Build configuration list for PBXNativeTarget "Pods-morscout-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83364CFE45D36BA04ED9266BC21B6819 /* Debug */,
+				C9482031FB67491175061F3E3BBE3E0A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B1AADDABC0FF92BF51AC88E6BD57DB25 /* Build configuration list for PBXAggregateTarget "AppCenterReactNativeShared" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4939254D9B12C5F8E84CFE6C51D11AE /* Debug */,
+				44DA8D30A185CF39FF38CACD51676CDD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BD7A026A00643AE48E4732BD00E4A12F /* Build configuration list for PBXNativeTarget "Pods-morscout-tvOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5ED1F1A308E994717015549174333D8B /* Debug */,
+				14AFC6441E8D1BE8F6B7E0A00EF0BB1E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CC1BD68E6352C22FDAD93463F5741BC7 /* Build configuration list for PBXNativeTarget "Pods-morscout" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C554CC00E1DE737A93CEB31F7AA183DA /* Debug */,
+				A4F198C1E194E6D6AC8C30E415553E2B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D0944D0DEFF9CDF0CBE6D4A41B195020 /* Build configuration list for PBXAggregateTarget "AppCenter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6F4D25CB9F599D775DBC451590213731 /* Debug */,
+				8A791558A6CAD52F6A29BE7CDFC70C4B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E2284578D7FD966C66C1161DF815CB32 /* Build configuration list for PBXNativeTarget "Pods-morscoutTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				993FE156345E88C0721E356735D36816 /* Debug */,
+				716C5F3F7CD9229E711EC173C658243B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
