@@ -35,7 +35,7 @@ lint_task:
   lint_script: yarn run lint
 
 github_build_task:
-  only_if: $CIRRUS_RELEASE != ''
+  only_if: $CIRRUS_TAG != ''
   env:
     GITHUB_TOKEN: ENCRYPTED[fe2f6a4cb19c2b021a40d50aa13797cd32fe0b66062db53700fefe3dd1650ffa3b5af637005b735b82fc9fa69689a480]
   node_modules_cache:
