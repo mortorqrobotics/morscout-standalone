@@ -18,7 +18,7 @@ test_task:
     #       MONGO_INITDB_ROOT_PASSWORD: ""
   node_modules_cache:
     folder: node_modules
-    fingerprint_script: cat yarn.lock
+    fingerprint_script: sha1sum yarn.lock
     populate_script: yarn install
   login_script: yarn snyk auth $SNYK_API_KEY
   test_script: yarn run test:coverage
@@ -30,17 +30,17 @@ test_task:
 lint_task:
   node_modules_cache:
     folder: node_modules
-    fingerprint_script: cat yarn.lock
+    fingerprint_script: sha1sum yarn.lock
     populate_script: yarn install
   lint_script: yarn run lint
 
 github_build_task:
-  only_if: $CIRRUS_TAG != ''
+  only_if: $CIRRUS_RELEASE != ''
   env:
     GITHUB_TOKEN: ENCRYPTED[fe2f6a4cb19c2b021a40d50aa13797cd32fe0b66062db53700fefe3dd1650ffa3b5af637005b735b82fc9fa69689a480]
   node_modules_cache:
     folder: node_modules
-    fingerprint_script: cat yarn.lock
+    fingerprint_script: sha1sum yarn.lock
     populate_script: yarn install
   build_script:
     - yarn run build:app
@@ -94,6 +94,7 @@ docker_builder:
 
 
 rn_build_task:
+  only_if: $CIRRUS_TAG != "" && 
   windows_container:
     image: cirrusci/windowsservercore:2019
     os_version: 2019
