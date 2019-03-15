@@ -94,7 +94,7 @@ docker_builder:
 
 
 rn_build_task:
-  only_if: $CIRRUS_TAG != "" && 
+  only_if: $CIRRUS_TAG != ""
   windows_container:
     image: cirrusci/windowsservercore:2019
     os_version: 2019
