@@ -33,8 +33,24 @@ lint_task:
     fingerprint_script: cat yarn.lock
     populate_script: yarn install
   lint_script: yarn run lint
-  
+
+github_build_task:
+  only_if: $CIRRUS_TAG != ''
+  env:
+    GITHUB_TOKEN: ENCRYPTED[fe2f6a4cb19c2b021a40d50aa13797cd32fe0b66062db53700fefe3dd1650ffa3b5af637005b735b82fc9fa69689a480]
+  node_modules_cache:
+    folder: node_modules
+    fingerprint_script: cat yarn.lock
+    populate_script: yarn install
+  build_script:
+    - yarn run build:app
+    - yarn run build:server
+    - yarn run build:cli
+  bundle_script: webpack --config configs/webpack.config.compressor.js
+  github_upload_script: scripts/upload_assets.sh
+
 docker_builder:
+  only_if: $CIRRUS_TAG != ''
   depends_on: 
     - test
     - lint
@@ -70,22 +86,18 @@ docker_builder:
     - docker build --file docker/Dockerfile.prod --cache-from $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest --tag $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest .
     - docker build --file docker/Dockerfile.dev --cache-from $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest-dev --tag $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest-dev .
   test_script: snyk test --docker $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest
-  tag_script: if [$CIRRUS_TAG != ""]; then docker tag $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest $DOCKER_USERNAME/$CIRRUS_REPO_NAME:r`echo $CIRRUS_TAG | sed "s/^[a-z0-9A-Z]//"`; fi
+  tag_script: docker tag $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest $DOCKER_USERNAME/$CIRRUS_REPO_NAME:r`echo $CIRRUS_TAG | sed "s/^[a-z0-9A-Z]//"`
   docker_push_script:
-    - if [$CIRRUS_TAG != ""]; then docker push $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest; fi
     - docker push $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest
+    - docker push docker tag $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest $DOCKER_USERNAME/$CIRRUS_REPO_NAME:v`echo $CIRRUS_TAG | sed "s/^[a-z0-9A-Z]//"`
+    - docker push $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest-dev
 
 
-windows_container:
-  image: cirrusci/windowsservercore:2019
-  os_version: 2019
-
-build_task:
+rn_build_task:
+  windows_container:
+    image: cirrusci/windowsservercore:2019
+    os_version: 2019
   depends_on:
     - test
     - lint
-
-rn_build_task:
-  container:
-    image: cirrusci/windowsservercore:2019
-  
+  install_script:

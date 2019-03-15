@@ -5,11 +5,14 @@ if (shell.which("emulator")) {
   shell.exec(
     "emulator -list-avds",
     {
-      silent: true,
+      silent: true
     },
     (code, out) => {
-      if (code !== 0) console.error(out);
-      else {
+      if (code !== 0) {
+        const err = new Error(out);
+        err.name = code;
+        throw err;
+      } else {
         const avds = out.split("\n").filter(avd => avd !== "");
 
         inquirer
@@ -18,19 +21,19 @@ if (shell.which("emulator")) {
               message: "AVD",
               name: "avd",
               type: "list",
-              choices: avds,
-            },
+              choices: avds
+            }
           ])
           .then(({ avd }) => {
             shell.exec(`emulator -avd ${avd}`, {
               silent: true,
-              async: true,
+              async: true
             });
             process.exit();
           });
       }
-    },
+    }
   );
 } else {
-  console.error("You must have Android Studio installed to run the emulator");
+  throw new Error("You must have Android Studio installed to run the emulator");
 }

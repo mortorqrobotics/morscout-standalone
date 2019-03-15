@@ -2,6 +2,9 @@
   "git": {
     "requireCleanWorkingDir": false
   },
+  "npm": {
+    "publish": false
+  },
   "github": {
     "release": true,
     "assets": ["release.zip"],
@@ -9,10 +12,5 @@
   },
   "prompt": {
     "release": true
-  },
-  "scripts": {
-    "beforeStart": "npm run build",
-    "beforeStage":"npm run zip",
-    "afterRelease": "rm release.zip"
   }
 }

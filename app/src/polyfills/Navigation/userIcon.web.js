@@ -29,7 +29,6 @@ class UserIcon extends React.Component {
     const { user, dispatch } = this.props;
     const { open } = this.state;
     const style = styleFunc(open);
-    console.log(user);
     if (user && user.loggedIn) {
       return (
         <View>
