@@ -46,8 +46,8 @@ github_build_task:
     - yarn run build:app
     - yarn run build:server
     - yarn run build:cli
-  bundle_script: webpack --config configs/webpack.config.compressor.js
-  github_upload_script: scripts/upload_assets.sh
+  bundle_script: webpack --config .cirrus/webpack.config.compressor.js
+  github_upload_script: .cirrus/upload_assets.sh
 
 docker_builder:
   only_if: $CIRRUS_TAG != ''

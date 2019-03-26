@@ -1,6 +1,6 @@
-import express from "express";
 import socketIo from "socket.io";
 import { join as pathJoin } from "path";
+import express from "express";
 import api from "./api";
 
 export default imports => {

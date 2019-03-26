@@ -6,9 +6,7 @@
     "publish": false
   },
   "github": {
-    "release": true,
-    "assets": ["release.zip"],
-    "beforeStartCommand": "npx bestzip dist/release.zip app/build/* server/build/* cli/build/*"
+    "release": true
   },
   "prompt": {
     "release": true

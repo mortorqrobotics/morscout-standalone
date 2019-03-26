@@ -58,3 +58,5 @@ buck-out/
 packages-cache/*
 
 release.zip
+
+.cirrus/out

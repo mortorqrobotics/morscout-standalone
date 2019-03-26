@@ -1,0 +1,14 @@
+{
+    "name": "morscout",
+    "version": 2,
+    "scope": "eschablowski",
+    "builds": [
+        {
+            "src": "package.json",
+            "use": "@now/static-build",
+            "config": {
+                "distDir": "build"
+            }
+        }
+    ]
+}
