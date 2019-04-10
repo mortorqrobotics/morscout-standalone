@@ -1,14 +1,30 @@
 {
     "name": "morscout",
     "version": 2,
-    "scope": "eschablowski",
     "builds": [
         {
-            "src": "package.json",
+            "src": ".now/build_app.sh",
             "use": "@now/static-build",
             "config": {
-                "distDir": "build"
+                "distDir": "../app/build/web"
             }
+        },
+        {
+            "src": ".now/build_server.sh",
+            "use": "@now/static-build",
+            "config": {
+                "distDir": "../server/build"
+            }
+        },
+        {
+            "src": ".now/server.js",
+            "use": "@now/node-server"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/",
+            "dest": ".now"
         }
     ]
 }

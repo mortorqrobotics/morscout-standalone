@@ -1,0 +1,8 @@
+/packages-cache
+/docker
+/cli
+/ios
+/android
+/.cirrus
+/.vscode
+

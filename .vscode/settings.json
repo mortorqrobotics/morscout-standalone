@@ -19,5 +19,6 @@
     ".gitattributes": true,
     "packages-cache": true
   },
-  "javascript.implicitProjectConfig.experimentalDecorators": true
+  "javascript.implicitProjectConfig.experimentalDecorators": true,
+  "editor.tabSize": 2
 }

@@ -1,14 +1,17 @@
 version: '3.4'
-x-logging:
-  &default-logging
-  options:
-    max-size: '12m'
-    max-file: '5'
-  driver: json-file
+# x-logging:
+#   &default-logging
+#   options:
+#     max-size: '12m'
+#     max-file: '5'
+#   driver: json-file
 
 services:
   MorScout:
-    image: eschabblowski/morscout:latest # change this
+    image: morscout:latest-prod
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.prod
     depends_on:
       - db
     ports:
@@ -19,12 +22,12 @@ services:
         aliases:
           - morscout
   db:
-    image: mongo
-    logging:
-      *default-logging
+    image: mongo:latest
+    # logging:
+    #   *default-logging
     expose:
       - 27017
-    networks: 
+    networks:
       app:
         aliases:
           - db
