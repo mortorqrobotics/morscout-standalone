@@ -17,7 +17,6 @@ const path = require("path");
 const chalk = require("chalk");
 const fs = require("fs-extra");
 const webpack = require("webpack");
-const bfj = require("bfj");
 const checkRequiredFiles = require("react-dev-utils/checkRequiredFiles");
 const formatWebpackMessages = require("react-dev-utils/formatWebpackMessages");
 const printHostingInstructions = require("react-dev-utils/printHostingInstructions");

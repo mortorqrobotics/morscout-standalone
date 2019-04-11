@@ -33,7 +33,7 @@ export default mongoose => {
     // List of Registered Regionals
     registeredRegionals: [
       {
-        type: Schema.Types.ObjectID,
+        type: Schema.Types.ObjectId,
         ref: "Regional"
       }
     ],

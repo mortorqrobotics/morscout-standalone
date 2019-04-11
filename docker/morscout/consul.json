@@ -1,0 +1,11 @@
+{
+  "service": {
+    "name": "morscout",
+    "tags": [
+      "node",
+      "web",
+      "react"
+    ],
+    "port": 443
+  }
+}

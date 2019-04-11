@@ -1,4 +1,4 @@
-rules: 
+rules:
     import/no-unresolved: off
     import/no-extraneous-dependencies: off
     react/jsx-filename-extension: off
@@ -6,8 +6,8 @@ rules:
     react/no-array-index-key: off
     react/require-default-props: off
     jsx-a11y/href-no-hash: off
-    jsx-a11y/anchor-is-valid: 
-        - warn 
+    jsx-a11y/anchor-is-valid:
+        - warn
         - aspects:
             - invalidHref
     no-underscore-dangle: off

@@ -1,0 +1,48 @@
+version: '3.7'
+x-logging:
+  &default-logging
+  options:
+    max-size: '12m'
+    max-file: '5'
+  driver: json-file
+
+services:
+  nginx:
+    build:
+      context: ../nginx
+      args:
+        address: test.localhost
+    networks:
+      app:
+       aliases:
+        load-balancer
+    ports:
+      - "127.0.0.1:8080:80"
+      - "127.0.0.1:8433:433"
+  MorScout:
+    image: morscout:latest-dev
+    build:
+      context: ../..
+      dockerfile: docker/dev/Dockerfile
+    depends_on:
+      - db
+    ports:
+      - "127.0.0.1:8080:80"
+      - "127.0.0.1:8433:433"
+    networks:
+      app:
+        aliases:
+          - morscout
+  db:
+    image: mongo:latest
+    logging:
+      *default-logging
+    expose:
+      - 27017
+    networks:
+      app:
+        aliases:
+          - db
+
+networks:
+  app:
