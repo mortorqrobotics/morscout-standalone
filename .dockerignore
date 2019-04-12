@@ -3,6 +3,5 @@
 !/.flowconfig
 /android
 /ios
-/docker
 /node_modules
 /packages-cache

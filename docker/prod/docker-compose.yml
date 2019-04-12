@@ -25,10 +25,10 @@ services:
     image: consul:latest
     networks:
       - app
-      - backup
+      # - backup
     environment:
-      CONSUL_ALLOW_PRIVILEGED_PORTS: null
-    command: consul agent -dns-port=53 -recursor=8.8.8.8 -bind=0.0.0.0
+      CONSUL_ALLOW_PRIVILEGED_PORTS: ""
+    command: consul agent -server -dns-port=53 -recursor=8.8.8.8 -data-dir /consul/data -bootstrap
     expose:
       - 53
   Vault:
