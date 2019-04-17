@@ -11,6 +11,7 @@ RUN apt-get update &&\
   apt-get clean
 # Copy patches
 COPY patches patches
+COPY .snyk .snyk
 
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
@@ -29,18 +30,28 @@ FROM node:lts-alpine
 
 LABEL dev=false
 LABEL prod=true
+ENV NODE_ENV=production
+
+# Install runit for daemons & update certificates
+RUN apk add --no-cache runit ca-certificates
+COPY docker/morscout/consul.service /etc/service/consul/run
+RUN chmod agu+x /etc/service/*/run
+
+# Copy starter script
+COPY docker/morscout/prod.sh /start.sh
+RUN chmod agu+x /start.sh
 
 # Install Consul
 COPY --from=consul:latest /bin/consul /bin/consul
 
-# Copy Start File
-COPY docker/morscout/start.sh /start.sh
+# Copy Consul config
 COPY docker/morscout/consul.json /consul/morscout.json
 
 WORKDIR /morscout
 
 # Copy patches
 COPY patches patches
+COPY .snyk .snyk
 
 # Install prod dependencies
 COPY package*.json ./
@@ -49,4 +60,5 @@ RUN yarn install --production --non-interactive --frozen-lockfile && rm -rf pack
 
 COPY --from=builder /root/app/build/web/ ./app/build/web/
 COPY --from=builder /root/server/build/ ./server/build/
-CMD "/start.sh"
+
+CMD ["/start.sh"]

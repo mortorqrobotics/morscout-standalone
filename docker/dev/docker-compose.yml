@@ -1,40 +1,72 @@
-version: '3.7'
+version: '3.6'
 x-logging:
   &default-logging
   options:
     max-size: '12m'
     max-file: '5'
-  driver: json-file
+  driver: none
 
 services:
   nginx:
+    logging:
+      *default-logging
     build:
       context: ../nginx
       args:
-        address: test.localhost
+        address: morteam.com
     networks:
       app:
        aliases:
-        load-balancer
+        - load-balancer
     ports:
       - "127.0.0.1:8080:80"
       - "127.0.0.1:8433:433"
+    depends_on:
+      - Consul
+  Consul:
+    logging:
+      *default-logging
+    image: consul:latest
+    networks:
+      - app
+      # - backup
+    environment:
+      CONSUL_ALLOW_PRIVILEGED_PORTS: ""
+    command: consul agent -server -dns-port=53 -recursor=8.8.8.8 -data-dir /consul/data -bootstrap
+    expose:
+      - 53
+  Vault:
+    logging:
+      *default-logging
+    image: vault:latest
+    environment:
+      VAULT_ADDR: http://127.0.0.1:8200
+      VAULT_LOCAL_CONFIG: "{\"backend\": {\"file\": {\"path\": \"/vault/file\"}}, \"default_lease_ttl\": \"168h\", \"max_lease_ttl\": \"720h\"}"
+    command: server
+    cap_add:
+      - IPC_LOCK
+    depends_on:
+      - Consul
+    networks:
+      - app
+      - backup
+    expose:
+      - 8200
   MorScout:
-    image: morscout:latest-dev
+    image: morscout:latest
     build:
       context: ../..
-      dockerfile: docker/dev/Dockerfile
+      dockerfile: docker/prod/Dockerfile
     depends_on:
       - db
-    ports:
-      - "127.0.0.1:8080:80"
-      - "127.0.0.1:8433:433"
+    expose:
+      - 443
     networks:
       app:
         aliases:
           - morscout
   db:
-    image: mongo:latest
+    image: mvertes/alpine-mongo
     logging:
       *default-logging
     expose:
@@ -43,6 +75,10 @@ services:
       app:
         aliases:
           - db
+      backup:
+        aliases:
+          - db
 
 networks:
   app:
+  backup:

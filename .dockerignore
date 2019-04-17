@@ -1,7 +1,11 @@
 /.*
 !/.babelrc
 !/.flowconfig
+!/.snyk
 /android
 /ios
 /node_modules
-/packages-cache
+
+/docker
+!/docker/morscout
+!/docker/nginx

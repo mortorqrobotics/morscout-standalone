@@ -1,0 +1,10 @@
+{
+  "server": true,
+  "bootstrap": true,
+  "bootstrap_expect": 1,
+  "data_dir": "/consul/data",
+  "ports": {
+    "dns": 53,
+    "serf_lan": 8301
+  }
+}

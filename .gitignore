@@ -60,3 +60,6 @@ packages-cache/*
 release.zip
 
 .cirrus/out
+
+/*/build
+/*/coverage

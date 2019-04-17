@@ -8,6 +8,9 @@ x-logging:
 
 services:
   nginx:
+    image: mortorqrobotics/mornetwork
+    logging:
+      *default-logging
     build:
       context: ../nginx
       args:
@@ -16,22 +19,38 @@ services:
       app:
        aliases:
         - load-balancer
+      consul:
     ports:
       - "127.0.0.1:8080:80"
       - "127.0.0.1:8433:433"
     depends_on:
       - Consul
   Consul:
+    logging:
+      *default-logging
     image: consul:latest
     networks:
-      - app
+      consul:
+        ipv4_address: 192.19.0.2
       # - backup
     environment:
       CONSUL_ALLOW_PRIVILEGED_PORTS: ""
-    command: consul agent -server -dns-port=53 -recursor=8.8.8.8 -data-dir /consul/data -bootstrap
+    command: consul agent -config-dir /consul/config -bind 192.19.0.2
+    volumes:
+      - type: bind
+        source: ../consul
+        target: /consul/config
+        read_only: false
     expose:
-      - 53
+      - 8300
+      - 8301
+      - 8302
+      - 8400
+      - 8500
+      - 8600
   Vault:
+    logging:
+      *default-logging
     image: vault:latest
     environment:
       VAULT_ADDR: http://127.0.0.1:8200
@@ -43,23 +62,32 @@ services:
       - Consul
     networks:
       - app
-      - backup
     expose:
       - 8200
   MorScout:
-    image: morscout:latest
+    logging:
+      *default-logging
+    image: mortorqrobotics/morscout:latest
     build:
       context: ../..
       dockerfile: docker/prod/Dockerfile
     depends_on:
-      - db
+      # - MongoDB
+      - Consul
     expose:
       - 443
+      - 8301
+      - 8302
+      - 8400
+      - 8500
+      - 8600
     networks:
       app:
         aliases:
           - morscout
-  db:
+      consul:
+        ipv4_address: 192.19.0.4
+  MongoDB:
     image: mvertes/alpine-mongo
     logging:
       *default-logging
@@ -68,11 +96,12 @@ services:
     networks:
       app:
         aliases:
-          - db
-      backup:
-        aliases:
-          - db
+          - mongo
 
 networks:
   app:
-  backup:
+  consul:
+    ipam:
+      driver: default
+      config:
+        - subnet: "192.19.0.0/24"

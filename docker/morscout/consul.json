@@ -7,5 +7,6 @@
       "react"
     ],
     "port": 443
-  }
+  },
+  "data_dir": "/consul-data",
 }
