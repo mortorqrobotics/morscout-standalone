@@ -33,7 +33,7 @@ LABEL prod=true
 ENV NODE_ENV=production
 
 # Install runit for daemons & update certificates
-RUN apk add --no-cache runit ca-certificates
+RUN apk add --no-cache runit ca-certificates bash
 COPY docker/morscout/consul.service /etc/service/consul/run
 RUN chmod agu+x /etc/service/*/run
 

@@ -16,10 +16,11 @@ services:
       args:
         address: morteam.com
     networks:
-      app:
-       aliases:
-        - load-balancer
+      # app:
+      #  aliases:
+      #   - load-balancer
       consul:
+        ipv4_address: 192.19.0.6
     ports:
       - "127.0.0.1:8080:80"
       - "127.0.0.1:8433:433"
@@ -32,6 +33,8 @@ services:
     networks:
       consul:
         ipv4_address: 192.19.0.2
+        aliases:
+          - consul
       # - backup
     environment:
       CONSUL_ALLOW_PRIVILEGED_PORTS: ""

@@ -51,7 +51,7 @@ github_build_task:
 
 docker_builder:
   only_if: $CIRRUS_TAG != ''
-  depends_on: 
+  depends_on:
     - test
     - lint
   env:
@@ -78,19 +78,17 @@ docker_builder:
   snyk_install_script: npm i -g snyk
   snyk_login_script: snyk auth $SNYK_API_KEY
   docker_login_script: docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
-  pull_script: docker pull $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest || true
-  app_build_script:
-    - yarn build:server
-    - yarn build:app
+  pull_script:
+    - docker-compose pull --file docker/prod/docker-compose.yml
+    - docker-compose pull --file docker/dev/docker-compose.yml
   docker_build_script:
-    - docker build --file docker/Dockerfile.prod --cache-from $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest --tag $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest .
-    - docker build --file docker/Dockerfile.dev --cache-from $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest-dev --tag $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest-dev .
+    - docker-compose build --file docker/prod/docker-compose.yml
+    - docker-compose build --file docker/dev/docker-compose.yml
   test_script: snyk test --docker $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest
   tag_script: docker tag $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest $DOCKER_USERNAME/$CIRRUS_REPO_NAME:r`echo $CIRRUS_TAG | sed "s/^[a-z0-9A-Z]//"`
   docker_push_script:
-    - docker push $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest
-    - docker push docker tag $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest $DOCKER_USERNAME/$CIRRUS_REPO_NAME:v`echo $CIRRUS_TAG | sed "s/^[a-z0-9A-Z]//"`
-    - docker push $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest-dev
+    - docker-compose push --file docker/prod/docker-compose.yml
+    - docker-compose push --file docker/dev/docker-compose.yml
 
 
 rn_build_task:

@@ -12,7 +12,7 @@ import api from "./api"
  *
  * @interface importsType
  */
-interface importsType {
+interface optionsType {
   development: boolean,
   modules: {
     mongoose: mongoose.Connection
@@ -31,16 +31,16 @@ interface morscoutServerType {
 /**
  *  Creates a MorScout Server Instance
  *
- * @param {importsType} imports
+ * @param {optionsType} options options for creating the MorScout server
  * @returns {morscoutServerType}
  */
-function server(imports: importsType):morscoutServerType {
-  const { development } = imports;
-  const { mongoose } = imports.modules;
+function server(options: optionsType):morscoutServerType {
+  const { development } = options;
+  const { mongoose } = options.modules;
   const io = socketIo();
 
   io.on("connection", socket => {
-    api.io(socket);
+    api.io(socket, {mongoose});
   });
 
   const app = express();
@@ -53,7 +53,8 @@ function server(imports: importsType):morscoutServerType {
 
   // Main Route Handler(only if not DevServer)
   if (!development) {
-    app.get("/", express.static(pathJoin(__dirname, "..", "..", "app", "build", "web"))
+    app.get("/",
+      express.static(pathJoin(__dirname, "..", "..", "app", "build", "web"))
     );
   }
   return {
@@ -65,7 +66,7 @@ export default server;
 
 if (require.main === module) {
   if (isDocker()) {
-    const imports: importsType = {
+    const imports: optionsType = {
       development: process.env.PRODUCTION !== "true",
       modules: {
         mongoose: mongoose.createConnection("mongodb://morscout@mongodb:27017/MorScout")

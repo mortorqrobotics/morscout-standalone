@@ -2,10 +2,10 @@ import { loggedin, loggedout } from "shared/types/Basic/LogIn";
 import { send } from "./util";
 import Matches from "./Matches";
 
-export default sock => {
+export default (sock, { mongoose }) => {
   // console.log(socket);
   const socket = sock;
-  Matches(socket);
+  Matches(socket, { mongoose });
   socket.on("getTeams", async () => await socket.User);
   socket.on("LOGIN", ({ username /* , password */ }) => {
     socket.user = {

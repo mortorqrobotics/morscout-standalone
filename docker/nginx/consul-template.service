@@ -1,5 +1,5 @@
-#!/bin/sh
+#!/sbin/openrc
 
-exec consul-template \
-    -consul-addr 192.19.0.2:53 \
-    -template "/etc/consul-templates/app.conf:/etc/nginx/conf.d/app.conf:service nginx reload"
+command = /bin/consul-template
+command_args = -config /consul-config/template.hcl
+pid_file = /pid/consul.pid
