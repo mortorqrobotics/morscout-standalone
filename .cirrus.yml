@@ -34,20 +34,10 @@ lint_task:
     populate_script: yarn install
   lint_script: yarn run lint
 
-github_build_task:
-  only_if: $CIRRUS_TAG != ''
-  env:
-    GITHUB_TOKEN: ENCRYPTED[fe2f6a4cb19c2b021a40d50aa13797cd32fe0b66062db53700fefe3dd1650ffa3b5af637005b735b82fc9fa69689a480]
-  node_modules_cache:
-    folder: node_modules
-    fingerprint_script: sha1sum yarn.lock
-    populate_script: yarn install
-  build_script:
-    - yarn run build:app
-    - yarn run build:server
-    - yarn run build:cli
-  bundle_script: webpack --config .cirrus/webpack.config.compressor.js
-  github_upload_script: .cirrus/upload_assets.sh
+lynis_task:
+  container:
+    image: lynis:latest
+  test_script: lynis audit dockerfile docker/prod/Dockerfile
 
 docker_builder:
   only_if: $CIRRUS_TAG != ''
@@ -84,11 +74,14 @@ docker_builder:
   docker_build_script:
     - docker-compose build --file docker/prod/docker-compose.yml
     - docker-compose build --file docker/dev/docker-compose.yml
+  docker_bundle_script:
+    - docker-compose bundle --file docker/prod/docker-compose.yml
   test_script: snyk test --docker $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest
   tag_script: docker tag $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest $DOCKER_USERNAME/$CIRRUS_REPO_NAME:r`echo $CIRRUS_TAG | sed "s/^[a-z0-9A-Z]//"`
   docker_push_script:
     - docker-compose push --file docker/prod/docker-compose.yml
     - docker-compose push --file docker/dev/docker-compose.yml
+  bundle_upload_script: .cirrus/upload_assets.sh
 
 
 rn_build_task:

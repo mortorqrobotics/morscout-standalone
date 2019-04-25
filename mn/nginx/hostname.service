@@ -1,0 +1,6 @@
+#!/sbin/openrc-run
+
+command="/bin/exit"
+
+depend() {
+}

@@ -28,6 +28,8 @@ RUN yarn build
 
 FROM node:lts-alpine
 
+
+LABEL maintainer="mortorqrobotics"
 LABEL dev=false
 LABEL prod=true
 ENV NODE_ENV=production
@@ -48,7 +50,9 @@ COPY --from=consul:latest /bin/consul /bin/consul
 COPY docker/morscout/consul.json /consul/morscout.json
 
 WORKDIR /morscout
-
+RUN addgroup morscout &&\
+  adduser morscout --disabled-password -D -h /morscout -G morscout
+USER morscout
 # Copy patches
 COPY patches patches
 COPY .snyk .snyk
@@ -61,4 +65,4 @@ RUN yarn install --production --non-interactive --frozen-lockfile && rm -rf pack
 COPY --from=builder /root/app/build/web/ ./app/build/web/
 COPY --from=builder /root/server/build/ ./server/build/
 
-CMD ["/start.sh"]
+CMD ["/bin/sh", "start.sh"]

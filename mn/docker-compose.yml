@@ -11,6 +11,8 @@ services:
     image: mortorqrobotics/mornetwork-nginx
     logging:
       *default-logging
+    build:
+      context: nginx
     networks:
       # app:
       #  aliases:
@@ -25,7 +27,9 @@ services:
   Consul:
     logging:
       *default-logging
-    image: mortorqrobotics/mornetwork-consul:latest
+    image: mortorqrobotics/mornetwork-consul
+    build:
+        context: consul
     networks:
       consul:
         ipv4_address: 192.19.0.2
@@ -64,9 +68,6 @@ services:
     logging:
       *default-logging
     image: mortorqrobotics/morscout:latest
-    build:
-      context: ../..
-      dockerfile: docker/prod/Dockerfile
     depends_on:
       # - MongoDB
       - Consul

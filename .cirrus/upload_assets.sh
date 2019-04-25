@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 
 file_content_type="application/octet-stream"
-files_to_upload=( 
-  out/server.js
-  out/cli.js
-  out/cli-server.js
+files_to_upload=(
+  out/docker.dab
 )
 
 

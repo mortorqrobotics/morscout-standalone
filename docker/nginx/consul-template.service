@@ -1,5 +1,0 @@
-#!/sbin/openrc
-
-command = /bin/consul-template
-command_args = -config /consul-config/template.hcl
-pid_file = /pid/consul.pid

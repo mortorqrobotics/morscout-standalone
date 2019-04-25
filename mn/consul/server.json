@@ -9,5 +9,6 @@
   },
   "addresses" : {
     "http": "192.19.0.2"
-  }
+  },
+  "ui": true
 }

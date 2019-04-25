@@ -1,0 +1,13 @@
+#!/sbin/openrc-run
+
+command="/usr/local/bin/consul-template"
+command_args="-config /consul-config/template.hcl"
+pid_file="/pid/consul.pid"
+# supervisor = runit
+
+depend() {
+  # need runsvdir
+  need syslog-ng
+  need nginx
+	# need net
+}
