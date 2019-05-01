@@ -4,20 +4,19 @@ x-logging:
   options:
     max-size: '12m'
     max-file: '5'
-  driver: none
+  driver: json-file
 
 services:
   nginx:
+    image: mortorqrobotics/mornetwork-nginx:latest
     logging:
       *default-logging
-    build:
-      context: ../nginx
-      args:
-        address: morteam.com
     networks:
-      app:
-       aliases:
-        - load-balancer
+      # app:
+      #  aliases:
+      #   - load-balancer
+      consul:
+        ipv4_address: 192.19.0.6
     ports:
       - "127.0.0.1:8080:80"
       - "127.0.0.1:8433:433"
@@ -26,15 +25,25 @@ services:
   Consul:
     logging:
       *default-logging
-    image: consul:latest
+    image: mortorqrobotics/mornetwork-consul:latest
     networks:
-      - app
+      consul:
+        ipv4_address: 192.19.0.2
+        aliases:
+          - consul
       # - backup
     environment:
       CONSUL_ALLOW_PRIVILEGED_PORTS: ""
-    command: consul agent -server -dns-port=53 -recursor=8.8.8.8 -data-dir /consul/data -bootstrap
+    command: 192.19.0.2 -bootstrap
     expose:
-      - 53
+      - 8300
+      - 8301
+      - 8302
+      - 8400
+      - 8500
+      - 8600
+    ports:
+      - "127.0.0.1:8500:8500"
   Vault:
     logging:
       *default-logging
@@ -49,23 +58,37 @@ services:
       - Consul
     networks:
       - app
-      - backup
     expose:
       - 8200
   MorScout:
-    image: morscout:latest
+    logging:
+      *default-logging
+    image: mortorqrobotics/morscout:latest-dev
     build:
       context: ../..
-      dockerfile: docker/prod/Dockerfile
+      dockerfile: docker/dev/Dockerfile
+    volumes:
+      - type: bind
+        source: .
+        target: /root
+        consistency: cached
     depends_on:
-      - db
+      # - MongoDB
+      - Consul
     expose:
       - 443
+      - 8301
+      - 8302
+      - 8400
+      - 8500
+      - 8600
     networks:
       app:
         aliases:
           - morscout
-  db:
+      consul:
+        ipv4_address: 192.19.0.4
+  MongoDB:
     image: mvertes/alpine-mongo
     logging:
       *default-logging
@@ -74,11 +97,12 @@ services:
     networks:
       app:
         aliases:
-          - db
-      backup:
-        aliases:
-          - db
+          - mongo
 
 networks:
   app:
-  backup:
+  consul:
+    ipam:
+      driver: default
+      config:
+        - subnet: "192.19.0.0/24"
