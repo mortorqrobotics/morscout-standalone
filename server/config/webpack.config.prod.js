@@ -1,18 +1,17 @@
 const path = require("path");
+const webpack = require("webpack");
 const HardSourceWebpackPlugin = require("hard-source-webpack-plugin");
 const NodeExternals = require("webpack-node-externals");
 const ClosurePlugin = require("closure-webpack-plugin");
-const ManifestPlugin = require("webpack-manifest-plugin");
 const eslintFormatter = require("react-dev-utils/eslintFormatter");
 const ModuleScopePlugin = require("react-dev-utils/ModuleScopePlugin");
 const paths = require("./paths");
 const getClientEnvironment = require("./env");
+const packageJson = require("../../package.json");
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // It requires a trailing slash, or the file assets will get an incorrect path.
 const publicPath = paths.servedPath;
-// Source maps are resource heavy and can cause out of memory issue for large source files.
-const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== "false";
 // `publicUrl` is just like `publicPath`, but we will provide it to our app
 // as %PUBLIC_URL% in `index.html` and `process.env.PUBLIC_URL` in JavaScript.
 // Omit trailing slash as %PUBLIC_URL%/xyz looks better than %PUBLIC_URL%xyz.
@@ -38,7 +37,7 @@ module.exports = {
   bail: true,
   // We generate sourcemaps in production. This is slow but gives good results.
   // You can exclude the *.map files from the build during deployment.
-  devtool: false,
+  devtool: "source-map",
   // In production, we only want to load the polyfills and the app code.
   entry: {
     server: paths.appIndexJs
@@ -204,18 +203,14 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.BannerPlugin({
+      raw: true,
+      banner: "require('source-map-support').install();"
+    }),
     new HardSourceWebpackPlugin(),
-    // Generate a manifest file which contains a mapping of all asset filenames
-    // to their corresponding output file so that tools can pick it up without
-    // having to parse `index.html`.
-    new ManifestPlugin({
-      fileName: "asset-manifest.json",
-      publicPath
+    new webpack.EnvironmentPlugin({
+      __version: packageJson.version
     })
-    // new webpack.DefinePlugin({
-    //   '__dirname': '"' + paths.serverBuild + '"',
-    //   'VERSION': '"' + require('../../package.json').version +  '"',
-    // }),
   ],
   externals: [NodeExternals()],
   // Turn off performance processing because we utilize

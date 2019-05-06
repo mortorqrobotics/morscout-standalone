@@ -1,11 +1,10 @@
 import express from "express";
-import Models from "models";
+import { Team } from "models";
 
 export default ({ mongoose }) => {
-  const { Teams } = Models({ mongoose });
   const app = express.Router();
   app.get("/teams", async (req, res) => {
-    res.send(JSON.stringify(Teams.getList()));
+    res.send(JSON.stringify(Team.getList()));
   });
   app.get("/team/:id", async (req, res) => {
     res.send();

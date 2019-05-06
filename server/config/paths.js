@@ -4,24 +4,26 @@ const url = require("url");
 
 // Make sure any symlinks in the project folder are resolved:
 // https://github.com/facebook/create-react-app/issues/637
-const appDirectory = fs.realpathSync(process.cwd());
-const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
+const appDirectory = fs.realpathSync(path.join(__dirname, ".."));
+const resolveApp = (...relativePath) =>
+  path.resolve(appDirectory, path.join(...relativePath));
 
 const envPublicUrl = process.env.PUBLIC_URL;
 
-function ensureSlash(p, needsSlash) {
-  const hasSlash = p.endsWith("/");
+function ensureSlash(inputPath, needsSlash) {
+  const hasSlash = inputPath.endsWith("/");
   if (hasSlash && !needsSlash) {
-    return p.substr(p, p.length - 1);
+    return inputPath.substr(0, inputPath.length - 1);
   }
   if (!hasSlash && needsSlash) {
-    return `${p}/`;
+    return `${inputPath}/`;
   }
-  return p;
+  return inputPath;
 }
 
-// eslint-disable-next-line
-const getPublicUrl = appPackageJson => envPublicUrl || require(appPackageJson).homepage;
+const getPublicUrl = appPackageJson =>
+  // eslint-disable-next-line global-require, import/no-dynamic-require
+  envPublicUrl || require(appPackageJson).homepage;
 
 // We use `PUBLIC_URL` environment variable or "homepage" field to infer
 // "public path" at which the app is served.
@@ -36,24 +38,48 @@ function getServedPath(appPackageJson) {
   return ensureSlash(servedUrl, true);
 }
 
+const moduleFileExtensions = [
+  "web.mjs",
+  "mjs",
+  "web.js",
+  "js",
+  "web.ts",
+  "ts",
+  "web.tsx",
+  "tsx",
+  "json",
+  "web.jsx",
+  "jsx"
+];
+
+// Resolve file paths in the same order as webpack
+const resolveModule = (resolveFn, filePath) => {
+  const extension = moduleFileExtensions.find(ext =>
+    fs.existsSync(resolveFn(`${filePath}.${ext}`))
+  );
+
+  if (extension) {
+    return resolveFn(`${filePath}.${extension}`);
+  }
+
+  return resolveFn(`${filePath}.js`);
+};
+
 // config after eject: we're in ./config/
 module.exports = {
   dotenv: resolveApp(".env"),
   appPath: resolveApp("."),
-  appIndexJs: resolveApp("server/src/index.ts"),
-  appPackageJson: resolveApp("package.json"),
-  appSrc: resolveApp("server/src"),
-  appBuild: resolveApp("server/build"),
-  testsSetup: resolveApp("server/src/setupTests.js"),
-  appNodeModules: resolveApp("node_modules"),
-  publicUrl: getPublicUrl(resolveApp("package.json")),
-  servedPath: getServedPath(resolveApp("package.json"))
+  appBuild: resolveApp("build"),
+  appIndexJs: resolveModule(resolveApp, "src/index"),
+  appPackageJson: resolveApp("..", "package.json"),
+  appSrc: resolveApp("src"),
+  appTsConfig: resolveApp("..", "tsconfig.json"),
+  yarnLockFile: resolveApp("yarn.lock"),
+  testsSetup: resolveModule(resolveApp, "src/setupTests"),
+  proxySetup: resolveApp("src/setupProxy.js"),
+  appNodeModules: resolveApp("..", "node_modules"),
+  publicUrl: getPublicUrl(resolveApp("..", "package.json")),
+  servedPath: getServedPath(resolveApp("..", "package.json"))
 };
 
-module.exports.srcPaths = [module.exports.appSrc];
-
-module.exports.useYarn = fs.existsSync(
-  path.join(module.exports.appPath, "yarn.lock")
-);
-
-module.exports.useYarn = module.exports.useYarn;
+module.exports.moduleFileExtensions = moduleFileExtensions;

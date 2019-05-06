@@ -75,7 +75,7 @@ function s(proxy, allowedHost) {
       ignored: ignoredFiles(paths.appSrc)
     },
     // Enable HTTPS if the HTTPS environment variable is set to 'true'
-    https: protocol === "https",
+    https: protocol === "https" || require("is-docker")(),
     host,
     overlay: false,
     historyApiFallback: {
@@ -91,19 +91,11 @@ function s(proxy, allowedHost) {
         // eslint-disable-next-line global-require, import/no-dynamic-require
         require(paths.proxySetup)(app);
       }
-      if (!fs.existsSync("../../server/build/server.js")) {
-        shell.exec("npm run build:server");
-      }
-      // eslint-disable-next-line global-require
-      const { app: api, io } = require("../../server/build/server.js")({
-        development: true,
-        modules: {
-          mongoose
-        }
+      app.get("/config", (req, res) => {
+        res.json({
+          socketIo: "localhost:3002"
+        });
       });
-      io.listen(http.Server().listen(3030), {});
-      app.use(api);
-
       // This lets us fetch source contents from webpack for the error overlay
       app.use(evalSourceMapMiddleware(server));
       // This lets us open files from the runtime error overlay.

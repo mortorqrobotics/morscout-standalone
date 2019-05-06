@@ -36,7 +36,7 @@ ENV NODE_ENV=production
 
 # Install runit for daemons & update certificates
 RUN apk add --no-cache runit ca-certificates bash
-COPY docker/morscout/consul.service /etc/service/consul/run
+COPY docker/morscout/consul.sh /etc/service/consul/run
 RUN chmod agu+x /etc/service/*/run
 
 # Copy starter script
@@ -50,9 +50,9 @@ COPY --from=consul:latest /bin/consul /bin/consul
 COPY docker/morscout/consul.json /consul/morscout.json
 
 WORKDIR /morscout
-RUN addgroup morscout &&\
-  adduser morscout --disabled-password -D -h /morscout -G morscout
-USER morscout
+# RUN addgroup morscout &&\
+#   adduser morscout --disabled-password -D -h /morscout -G morscout
+# USER morscout
 # Copy patches
 COPY patches patches
 COPY .snyk .snyk
@@ -65,4 +65,4 @@ RUN yarn install --production --non-interactive --frozen-lockfile && rm -rf pack
 COPY --from=builder /root/app/build/web/ ./app/build/web/
 COPY --from=builder /root/server/build/ ./server/build/
 
-CMD ["/bin/sh", "start.sh"]
+CMD ["/bin/sh", "/start.sh"]

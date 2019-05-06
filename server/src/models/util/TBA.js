@@ -1,7 +1,6 @@
 export const eventTypes = {
   0: {
-    name: "regional",
-
+    name: "regional"
   },
   1: "distict",
   2: "districtCompetion",

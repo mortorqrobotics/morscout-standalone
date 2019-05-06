@@ -76,13 +76,16 @@ module.exports = {
   favicon: resolveApp(path.join("public", "logo.png")),
   appPackageJson: resolveApp("..", "package.json"),
   appSrc: resolveApp("src"),
-  appTsConfig: resolveApp("tsconfig.json"),
+  appTsConfig: resolveApp("..", "tsconfig.json"),
+  appTsLint: resolveApp("..", ".tslint.json"),
   yarnLockFile: resolveApp("yarn.lock"),
   testsSetup: resolveModule(resolveApp, "src/setupTests"),
   proxySetup: resolveApp("src/setupProxy.js"),
   appNodeModules: resolveApp("../node_modules"),
   publicUrl: getPublicUrl(resolveApp("..", "package.json")),
-  servedPath: getServedPath(resolveApp("..", "package.json"))
+  servedPath: require("is-docker")()
+    ? "scout.test.localhost"
+    : getServedPath(resolveApp("..", "package.json"))
 };
 
 module.exports.moduleFileExtensions = moduleFileExtensions;

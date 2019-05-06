@@ -10,17 +10,14 @@ module.exports = options => {
   // eslint-disable-next-line prefer-const
   let extensions = (options.sourceExts || paths.moduleFileExtensions)
     .map(ext => `.${ext}`)
-    .filter(ext => !ext.includes("ts"))
     .concat(
-      paths.moduleFileExtensions
-        .map(ext => `.${options.platform || "web"}.${ext}`)
-        .filter(ext => !ext.includes("ts"))
+      paths.moduleFileExtensions.map(
+        ext => `.${options.platform || "web"}.${ext}`
+      )
     );
   if (options.platform === "ios" || options.platform === "android") {
     extensions = extensions.concat(
-      paths.moduleFileExtensions
-        .map(ext => `.native.${ext}`)
-        .filter(ext => !ext.includes("ts"))
+      paths.moduleFileExtensions.map(ext => `.native.${ext}`)
     );
   }
   // eslint-disable-next-line prefer-const

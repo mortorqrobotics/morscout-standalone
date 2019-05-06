@@ -6,7 +6,10 @@
     "**/node_modules/**": true,
     "**/windows/**": true,
     "**/ios/**": true,
-    "**/android/**": true
+    "**/android/**": true,
+    "**/build/**": true,
+    "**/patches/**": true,
+    "**/__snapshots/**": true
   },
   "files.exclude": {
     "**/.git": true,
@@ -17,7 +20,10 @@
     "yarn.lock": true,
     "package-lock.json": true,
     ".gitattributes": true,
-    "packages-cache": true
+    "packages-cache": true,
+    "android": true,
+    "ios": true,
+    "windows": true
   },
   "javascript.implicitProjectConfig.experimentalDecorators": true,
   "editor.tabSize": 2

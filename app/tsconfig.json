@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "baseUrl": "..",
+    "paths": {
+      "~": ["app/src/components"],
+      "screen": ["app/src/screens"],
+      "shared": ["app/src/shared"],
+      "style": ["app/src/style"],
+      "actions": ["app/src/redux-state/actions"],
+      "reducers": ["app/src/redux-state/reducers"],
+      "store": ["app/src/redux-state/store"],
+      "uranium": ["app/src/uranium"],
+      "@": ["app/src/polyfills"]
+    }
+  }
+}

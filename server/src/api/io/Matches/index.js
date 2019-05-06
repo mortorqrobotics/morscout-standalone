@@ -1,10 +1,11 @@
-import { updated as updatedMatches } from "shared/types/Matches";
-import { send } from "../util";
-import getMatches from "./getMatches";
+import { updated, loadAllMatches } from "shared/types/Matches";
+import getMatches from "./getAllMatches";
 
-export default (socket, { mongoose }) => {
-  socket.on(
-    "getMatches",
-    send(updatedMatches, getMatches(socket, { mongoose })).bind(socket)
-  );
+export default socket => {
+  socket.on(loadAllMatches, async () => {
+    socket.emit("action", {
+      type: updated,
+      data: await getMatches(socket)
+    });
+  });
 };

@@ -1,3 +1,9 @@
-#!/bin/sh
+[Unit]
+Description=Consul Service
 
-consul agent -config-file /consul/morscout.json -join 192.19.0.2 -client 0.0.0.0 -bind 192.19.0.4
+[Service]
+Type=simple
+ExecStart=/bin/bash /root/docker/morscout/consul.sh
+
+[Install]
+WantedBy=multi-user.target

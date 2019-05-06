@@ -193,6 +193,21 @@ module.exports = {
         include: paths.appSrc
       },
       {
+        test: /\.(ts|tsx)$/,
+        enforce: "pre",
+        use: [
+          {
+            loader: require.resolve("tslint-loader"),
+            options: {
+              fix: true,
+              configFile: paths.appTsLint,
+              tsConfigFile: paths.appTsConfig
+            }
+          }
+        ],
+        include: paths.appSrc
+      },
+      {
         // "oneOf" will traverse all following loaders until one will
         // match the requirements. When no loader matches it will fall
         // back to the "file" loader at the end of the loader list.
@@ -208,10 +223,15 @@ module.exports = {
               name: "static/media/[name].[hash:8].[ext]"
             }
           },
+          {
+            test: /\.(ts|tsx)$/,
+            include: paths.appSrc,
+            loader: require.resolve("ts-loader")
+          },
           // Process application JS with Babel.
           // The preset includes JSX, Flow, and some ESnext features.
           {
-            test: /\.(js|mjs|jsx|ts|tsx)$/,
+            test: /\.(js|mjs|jsx)$/,
             include: paths.appSrc,
             loader: require.resolve("babel-loader"),
             options: {
@@ -450,37 +470,8 @@ module.exports = {
         yandex: true,
         windows: true
       }
-    }),
-    // TypeScript type checking
-    useTypeScript &&
-      new ForkTsCheckerWebpackPlugin({
-        typescript: resolve.sync("typescript", {
-          basedir: paths.appNodeModules
-        }),
-        async: false,
-        checkSyntacticErrors: true,
-        tsconfig: paths.appTsConfig,
-        compilerOptions: {
-          module: "esnext",
-          moduleResolution: "node",
-          resolveJsonModule: true,
-          isolatedModules: true,
-          noEmit: true,
-          jsx: "preserve"
-        },
-        reportFiles: [
-          "**",
-          "!**/*.json",
-          "!**/__tests__/**",
-          "!**/?(*.)(spec|test).*",
-          "!src/setupProxy.js",
-          "!src/setupTests.*"
-        ],
-        watch: paths.appSrc,
-        silent: true,
-        formatter: typescriptFormatter
-      })
-  ].filter(Boolean),
+    })
+  ],
 
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.

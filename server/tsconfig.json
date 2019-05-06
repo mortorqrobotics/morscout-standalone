@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "baseUrl": "..",
+    "paths": {
+      "models": ["server/src/models"],
+      "shared": ["server/src/shared"]
+    }
+  }
+}

@@ -1,6 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 set -m
+yarn start:web &
 
-nodemon /morscout/server/build/server.js &
+/root/docker/morscout/consul.sh
 
-runsvdir /etc/service
+fg %1

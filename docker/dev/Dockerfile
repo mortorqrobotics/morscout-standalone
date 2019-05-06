@@ -9,8 +9,13 @@ ENV NODE_ENV=development
 WORKDIR /root
 
 RUN apt-get update &&\
-  apt-get install -y build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev &&\
-  apt-get clean
+  apt-get install -y build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev systemd apt-utils nano vim wget git curl &&\
+  apt-get upgrade -y
+
+# Add system services
+COPY docker/morscout/consul.service /lib/systemd/system/consul.service
+RUN systemctl enable consul
+
 # Copy patches
 COPY patches patches
 COPY .snyk .snyk
@@ -24,11 +29,11 @@ RUN yarn install --non-interactive --frozen-lockfile
 
 
 # Copy Sources
-COPY . .
+# COPY . .
 VOLUME [ "/root" ]
 
 # Copy starter script
-COPY docker/morscout/prod.sh /start.sh
+COPY docker/morscout/dev.sh /start.sh
 RUN chmod agu+x /start.sh
 
 # Install Consul
