@@ -1,11 +1,11 @@
-import * as socketIo from "socket.io";
+import socketIo from "socket.io";
 import { join as pathJoin } from "path";
-import * as express from "express";
+import express from "express";
 import { createServer as http } from "http";
 import { createServer as https } from "https";
 import { createServer as http2 } from "http2";
 import * as mongoose from "mongoose";
-import * as isDocker from "is-docker";
+import isDocker from "is-docker";
 import api from "./api";
 if (isDocker()) {
   const development = process.env.NODE_ENV !== "production";
@@ -55,3 +55,5 @@ if (isDocker()) {
     );
   }
 }
+
+console.log("HI!!!")

@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "sourceMap": true,
+    "esModuleInterop": true,
     "baseUrl": "..",
     "paths": {
       "models": ["server/src/models"],

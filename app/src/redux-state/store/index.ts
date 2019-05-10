@@ -35,8 +35,7 @@ const socketIoMiddleware: Middleware = () => {
       if (socket === undefined) {
         queue.push(action);
       } else {
-        console.log(action.type);
-        socket.emit(action.type);
+        socket.emit(action.type, action.data);
       }
     }
     next(action);
@@ -64,7 +63,7 @@ fetch("/config")
   .then(config => {
     socket = io(config.socketIo);
     socketWildcard();
-    socket.on("action", action =>{
+    socket.on("action", action => {
       store.dispatch(action)}
     );
     for (let i = queue.length; i > 0; i++) {

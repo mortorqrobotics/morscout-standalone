@@ -8,16 +8,18 @@ const getSrc = (...p) => path.join(__dirname, "..", "src", ...p);
 
 module.exports = options => {
   // eslint-disable-next-line prefer-const
-  let extensions = (options.sourceExts || paths.moduleFileExtensions)
-    .map(ext => `.${ext}`)
-    .concat(
-      paths.moduleFileExtensions.map(
-        ext => `.${options.platform || "web"}.${ext}`
-      )
-    );
+  let extensions = (options.sourceExts || paths.moduleFileExtensions).map(
+    ext => `.${ext}`
+  );
   if (options.platform === "ios" || options.platform === "android") {
     extensions = extensions.concat(
       paths.moduleFileExtensions.map(ext => `.native.${ext}`)
+    );
+  } else {
+    extensions = extensions.concat(
+      paths.moduleFileExtensions.map(
+        ext => `.${options.platform || "web"}.${ext}`
+      )
     );
   }
   // eslint-disable-next-line prefer-const

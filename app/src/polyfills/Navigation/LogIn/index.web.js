@@ -114,6 +114,10 @@ class LogIn extends React.Component {
   handleSubmit(event) {
     const { dispatch } = this.props;
     const { username, password } = this.state;
+    this.setState({
+      ...this.state,
+      passwordOverlay: this.#cipher.decrypt(password)
+    });
     dispatch({
       type: login,
       data: {
