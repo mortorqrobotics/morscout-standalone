@@ -40,11 +40,6 @@ lint_task:
     populate_script: yarn install
   lint_script: yarn run lint
 
-lynis_task:
-  container:
-    image: lynis:latest
-  test_script: lynis audit dockerfile docker/prod/Dockerfile
-
 docker_builder:
   only_if: $CIRRUS_TAG != ''
   depends_on:
