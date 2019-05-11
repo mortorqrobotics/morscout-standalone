@@ -1,10 +1,9 @@
 # MorScout
-[![Build Status](https://api.cirrus-ci.com/github/eschablowski/morscout.svg)](https://cirrus-ci.com/github/eschablowski/morscout)
-[![Known Vulnerabilities](https://snyk.io/test/github/eschablowski/morscout/badge.svg)](https://snyk.io/test/github/eschablowski/morscout)
-[![codecov](https://codecov.io/gh/eschablowski/morscout/branch/master/graph/badge.svg)](https://codecov.io/gh/eschablowski/morscout)
-[![iOS Build](https://build.appcenter.ms/v0.1/apps/61c8eba5-9bc7-4233-b86a-d2fbc36e319e/branches/master/badge)](https://appcenter.ms/users/eschablowski/apps/MorScout-iOS/build/branches/master)
-[![Android Build](https://build.appcenter.ms/v0.1/apps/d564ddf2-220d-4f9e-8ec1-1422b9c6272a/branches/master/badge)](https://appcenter.ms/users/eschablowski/apps/MorScout/build/branches/master)
-
+[![Build Status](https://api.cirrus-ci.com/github/mortorqrobotics/morscout-standalone.svg)](https://cirrus-ci.com/github/mortorqrobotics/morscout-standalone)
+[![Known Vulnerabilities](https://snyk.io/test/github/mortorqrobotics/morscout-standalone/badge.svg)](https://snyk.io/test/github/mortorqrobotics/morscout-standalone)
+[![codecov](https://codecov.io/gh/mortorqrobotics/morscout-standalone/branch/master/graph/badge.svg)](https://codecov.io/gh/mortorqrobotics/morscout-standalone)
+[![iOS Build](https://build.appcenter.ms/v0.1/apps/a0fa44cd-1214-41c9-942b-a1a33bfea92b/branches/master/badge)](https://appcenter.ms)
+[![Android Build](https://build.appcenter.ms/v0.1/apps/af68d026-c265-4753-a756-2764cdfe5137/branches/master/badge)](https://appcenter.ms)
 
 This is a repository for the server, app, and CLI of MorScout, the official MorTorq FRC scouting application
 
