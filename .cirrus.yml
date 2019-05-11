@@ -3,8 +3,8 @@ container:
 
 test_task:
   env:
-    SNYK_API_KEY: ENCRYPTED[eac7bad296c62312d7ab0f4e53bbf159c77f9e59169950293bd8e93edb708689345f949fcfe6e47e7c0ea6af5cd2f4d5]
-    CODECOV_TOKEN: ENCRYPTED[91e06a49ded64384320f2d35490413c7a2c9ce1eea072b68451f823b45b82550fea9fda85f9992e1679bf43f663f8c8f]
+    SNYK_API_KEY: ENCRYPTED[314a3a0ecb95b127e5d8913af21829d6a5fe46ef7fc707f3a1c9fc1da8afe7740a3f956c42753b52007aaabbec707ad2]
+    CODECOV_TOKEN: ENCRYPTED[4d6a291143f26cb298cc95deae4bda9479e2696de6069f91159c876b4763d9fe39439f859c1b68fd198282db32c5e011]
   container:
     matrix:
       image: node:stretch
@@ -49,8 +49,8 @@ docker_builder:
     ARCH: x64
     YARN_VERSION: 1.10.1
     DOCKER_USERNAME: eschabblowski
-    DOCKER_PASSWORD: ENCRYPTED[be48c52b4385a779d7c01a7d551b2b08439e93ef6ca81d6b42c811be31f8d59b19a80d31d61c10f5f5f4d2d0651ab4e7]
-    SNYK_API_KEY: ENCRYPTED[eac7bad296c62312d7ab0f4e53bbf159c77f9e59169950293bd8e93edb708689345f949fcfe6e47e7c0ea6af5cd2f4d5]
+    DOCKER_PASSWORD: ENCRYPTED[5a6ab12ab304d3b0720848514f01fb37047b4ef50b8f4d805d9a696453a981b62e6e0c26f4359822503a9b26e5055b7f]
+    SNYK_API_KEY: ENCRYPTED[314a3a0ecb95b127e5d8913af21829d6a5fe46ef7fc707f3a1c9fc1da8afe7740a3f956c42753b52007aaabbec707ad2]
   node_install_script:
     - set -x
     - curl -fsSLO --compressed "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-$ARCH.tar.xz"
@@ -82,14 +82,3 @@ docker_builder:
     - docker-compose push --file docker/prod/docker-compose.yml
     - docker-compose push --file docker/dev/docker-compose.yml
   bundle_upload_script: .cirrus/upload_assets.sh
-
-
-rn_build_task:
-  only_if: $CIRRUS_TAG != ""
-  windows_container:
-    image: cirrusci/windowsservercore:2019
-    os_version: 2019
-  depends_on:
-    - test
-    - lint
-  install_script:
