@@ -16,6 +16,7 @@ test_task:
     #     env:
     #       MONGO_INITDB_ROOT_USERNAME: ""
     #       MONGO_INITDB_ROOT_PASSWORD: ""
+  install_script: sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
   node_modules_cache:
     folder: node_modules
     fingerprint_script: sha1sum yarn.lock
@@ -28,6 +29,7 @@ test_task:
     - bash <(curl -s https://codecov.io/bash) -cF cli -F `node -v | sed 's/\..*$//'` -s cli/coverage/ -t $CODECOV_TOKEN
 
 lint_task:
+  install_script: sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
   node_modules_cache:
     folder: node_modules
     fingerprint_script: sha1sum yarn.lock
@@ -64,7 +66,9 @@ docker_builder:
     - ln -s /opt/yarn-v$YARN_VERSION/bin/yarn /usr/local/bin/yarn
     - ln -s /opt/yarn-v$YARN_VERSION/bin/yarnpkg /usr/local/bin/yarnpkg
     - rm yarn-v$YARN_VERSION.tar.gz
-  app_install_script: yarn install
+  app_install_script:
+    - sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
+    - yarn install
   snyk_install_script: npm i -g snyk
   snyk_login_script: snyk auth $SNYK_API_KEY
   docker_login_script: docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
