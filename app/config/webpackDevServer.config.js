@@ -3,9 +3,6 @@ const evalSourceMapMiddleware = require("react-dev-utils/evalSourceMapMiddleware
 const noopServiceWorkerMiddleware = require("react-dev-utils/noopServiceWorkerMiddleware");
 const ignoredFiles = require("react-dev-utils/ignoredFiles");
 const fs = require("fs");
-const http = require("http");
-const mongoose = require("mongoose");
-const shell = require("shelljs");
 const config = require("./webpack.config.dev");
 const paths = require("./paths");
 
