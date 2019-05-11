@@ -22,7 +22,7 @@
     "start": "node server/build/server",
     "test": "run-p test:**",
     "test:snyk": "snyk test",
-    "test-coverage": "run-p -s test:** -- --coverage",
+    "test-coverage": "run-s \"test:** --coverage\"",
     "release": "release-it",
     "commit": "run-s -s git-add git-cz git-push",
     "lint": "eslint \"cli/**/*.js\" \"app/**/*.js\" \"server/**/*.js\"",
