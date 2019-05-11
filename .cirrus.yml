@@ -1,0 +1,95 @@
+container:
+    image: node:dubnium-stretch
+
+test_task:
+  env:
+    SNYK_API_KEY: ENCRYPTED[eac7bad296c62312d7ab0f4e53bbf159c77f9e59169950293bd8e93edb708689345f949fcfe6e47e7c0ea6af5cd2f4d5]
+    CODECOV_TOKEN: ENCRYPTED[91e06a49ded64384320f2d35490413c7a2c9ce1eea072b68451f823b45b82550fea9fda85f9992e1679bf43f663f8c8f]
+  container:
+    matrix:
+      image: node:stretch
+      image: node:dubnium-stretch
+    # additional_containers:
+    #   - name: mongo
+    #     image: mongo:latest
+    #     port: 27017
+    #     env:
+    #       MONGO_INITDB_ROOT_USERNAME: ""
+    #       MONGO_INITDB_ROOT_PASSWORD: ""
+  node_modules_cache:
+    folder: node_modules
+    fingerprint_script: sha1sum yarn.lock
+    populate_script: yarn install
+  login_script: yarn snyk auth $SNYK_API_KEY
+  test_script: yarn run test:coverage
+  coverage_upload_script:
+    - bash <(curl -s https://codecov.io/bash) -cF app -F `node -v | sed 's/\..*$//'` -s app/coverage/ -t $CODECOV_TOKEN
+    - bash <(curl -s https://codecov.io/bash) -cF server -F `node -v | sed 's/\..*$//'` -s server/coverage/ -t $CODECOV_TOKEN
+    - bash <(curl -s https://codecov.io/bash) -cF cli -F `node -v | sed 's/\..*$//'` -s cli/coverage/ -t $CODECOV_TOKEN
+
+lint_task:
+  node_modules_cache:
+    folder: node_modules
+    fingerprint_script: sha1sum yarn.lock
+    populate_script: yarn install
+  lint_script: yarn run lint
+
+lynis_task:
+  container:
+    image: lynis:latest
+  test_script: lynis audit dockerfile docker/prod/Dockerfile
+
+docker_builder:
+  only_if: $CIRRUS_TAG != ''
+  depends_on:
+    - test
+    - lint
+  env:
+    NODE_VERSION: 10.13.0
+    ARCH: x64
+    YARN_VERSION: 1.10.1
+    DOCKER_USERNAME: eschabblowski
+    DOCKER_PASSWORD: ENCRYPTED[be48c52b4385a779d7c01a7d551b2b08439e93ef6ca81d6b42c811be31f8d59b19a80d31d61c10f5f5f4d2d0651ab4e7]
+    SNYK_API_KEY: ENCRYPTED[eac7bad296c62312d7ab0f4e53bbf159c77f9e59169950293bd8e93edb708689345f949fcfe6e47e7c0ea6af5cd2f4d5]
+  node_install_script:
+    - set -x
+    - curl -fsSLO --compressed "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-$ARCH.tar.xz"
+    - tar -xJf "node-v$NODE_VERSION-linux-$ARCH.tar.xz" -C /usr/local --strip-components=1 --no-same-owner
+    - rm "node-v$NODE_VERSION-linux-$ARCH.tar.xz"
+    - ln -s /usr/local/bin/node /usr/local/bin/nodejs
+  yarn_install_script:
+    - curl -fsSLO --compressed "https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz"
+    - mkdir -p /opt
+    - tar -xzf yarn-v$YARN_VERSION.tar.gz -C /opt/
+    - ln -s /opt/yarn-v$YARN_VERSION/bin/yarn /usr/local/bin/yarn
+    - ln -s /opt/yarn-v$YARN_VERSION/bin/yarnpkg /usr/local/bin/yarnpkg
+    - rm yarn-v$YARN_VERSION.tar.gz
+  app_install_script: yarn install
+  snyk_install_script: npm i -g snyk
+  snyk_login_script: snyk auth $SNYK_API_KEY
+  docker_login_script: docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
+  pull_script:
+    - docker-compose pull --file docker/prod/docker-compose.yml
+    - docker-compose pull --file docker/dev/docker-compose.yml
+  docker_build_script:
+    - docker-compose build --file docker/prod/docker-compose.yml
+    - docker-compose build --file docker/dev/docker-compose.yml
+  docker_bundle_script:
+    - docker-compose bundle --file docker/prod/docker-compose.yml
+  test_script: snyk test --docker $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest
+  tag_script: docker tag $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest $DOCKER_USERNAME/$CIRRUS_REPO_NAME:r`echo $CIRRUS_TAG | sed "s/^[a-z0-9A-Z]//"`
+  docker_push_script:
+    - docker-compose push --file docker/prod/docker-compose.yml
+    - docker-compose push --file docker/dev/docker-compose.yml
+  bundle_upload_script: .cirrus/upload_assets.sh
+
+
+rn_build_task:
+  only_if: $CIRRUS_TAG != ""
+  windows_container:
+    image: cirrusci/windowsservercore:2019
+    os_version: 2019
+  depends_on:
+    - test
+    - lint
+  install_script:
