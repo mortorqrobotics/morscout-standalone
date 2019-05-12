@@ -1450,3 +1450,5 @@ Schema {
   "virtuals": Object {},
 }
 `;
+
+exports[`Model is same throughout 2`] = `[Function]`;

@@ -1,21 +1,4 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.13.1
-# ignores vulnerabilities until expiry date; change duration by modifying expiry date
-ignore:
-  'npm:plist:20180219':
-    - '*':
-        reason: None Given
-        expires: 2020-01-01T00:00:00.000Z
-  'npm:mem:20180117':
-    - '*':
-        reason: None Given
-        expires: 2020-01-01T00:00:00.000Z
-  'npm:braces:20180219':
-    - '*':
-        reason: None Given
-        expires: 2020-01-01T00:00:00.000Z
-  SNYK-JS-LODASHMERGE-173732:
-    - '*':
-        reason: None Given
-        expires: 2020-01-01T00:00:00.000Z
+version: v1.13.5
+ignore: {}
 patch: {}

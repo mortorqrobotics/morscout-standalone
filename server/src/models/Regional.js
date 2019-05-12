@@ -1,6 +1,5 @@
 import { Schema } from "mongoose";
 import { pointSchema, polygonSchema } from "./util/GeoJSON";
-import { eventTypes } from "./util/TBA";
 
 const RegionalSchema = new Schema({
   name: String,
@@ -11,8 +10,19 @@ const RegionalSchema = new Schema({
     validate: url => encodeURI(url) === url
   },
   eventType: {
-    type: Number,
-    validate: type => Object.keys(eventTypes).includes(type)
+    type: String,
+    enum: [
+      "regional",
+      "district",
+      "districtCompetition",
+      "championshipDivision",
+      "championshipFinals",
+      "disitrictCompetitionDivision",
+      "festivalOfChampions",
+      "offseason",
+      "preseason",
+      "unlabeled"
+    ]
   },
   startDate: {
     type: Date

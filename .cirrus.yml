@@ -9,13 +9,6 @@ test_task:
     matrix:
       image: node:stretch
       image: node:dubnium-stretch
-    # additional_containers:
-    #   - name: mongo
-    #     image: mongo:latest
-    #     port: 27017
-    #     env:
-    #       MONGO_INITDB_ROOT_USERNAME: ""
-    #       MONGO_INITDB_ROOT_PASSWORD: ""
   install_script:
     - apt-get update
     - apt-get install -y build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev

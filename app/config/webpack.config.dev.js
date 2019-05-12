@@ -35,5 +35,3 @@ module.exports = merge.smart(common, {
     new webpack.HotModuleReplacementPlugin()
   ]
 });
-
-console.log(JSON.stringify(module.exports));

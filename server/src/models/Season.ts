@@ -31,4 +31,4 @@ const Season: mongoose.Schema = new mongoose.Schema({
   }
 });
 
-export default mongoose.model("Season", Season);
+export default Season;
