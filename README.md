@@ -45,7 +45,7 @@ This is a repository for the server, app, and CLI of MorScout, the official MorT
 
 [Docker](https://store.docker.com/search?type=edition&offering=community)
 
-[Container](https://github.com/eschablowski/morscout/releases)
+[Container](https://github.com/mortorqrobotics/morscout-standalone/releases)
 
 > Just download the source file (already .tar.gz) and extract to get docker.tar
 
@@ -55,7 +55,7 @@ This is a repository for the server, app, and CLI of MorScout, the official MorT
 
 ### Starting Container
 
-`docker run -p <port>:8080 -d eschablowski/morscout`
+`docker run -p <port>:8080 -d mortorqrobotics/morscout-standalone`
 
 ## Native
 
@@ -128,8 +128,8 @@ Follow instructions for install for [canvas](https://www.npmjs.com/package/canva
 Verify Dockerfile has `RUN yarn` not `RUN yarn --production`
 
 ```bash
-docker build -t <username>/morscout . # builds image and saves it in docker images
-docker save <username>/morscout -o docker.tar
+docker build -t <username>/morscout-standalone . # builds image and saves it in docker images
+docker save <username>/morscout-standalone -o docker.tar
 tar -cvzf docker.tar.gz docker.tar # this may take several minutes and is mostly just for GH release updates (limited to 2GB)
 ```
 
@@ -137,7 +137,7 @@ tar -cvzf docker.tar.gz docker.tar # this may take several minutes and is mostly
 Verify Dockerfile has `RUN yarn --production` not `RUN yarn`
 
 ```bash
-docker build -t <username>/morscout . # builds image and saves it in docker images
-docker save <username>/morscout -o docker.tar
+docker build -t <username>/morscout-standalone . # builds image and saves it in docker images
+docker save <username>/morscout-standalone -o docker.tar
 tar -cvzf docker.tar.gz docker.tar # this may take several minutes and is mostly just for GH release updates (limited to 2GB)
 ```
