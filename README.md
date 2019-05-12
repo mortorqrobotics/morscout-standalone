@@ -1,15 +1,12 @@
-# MorScout - EXPERIMENTAL
+# MorScout - Experimental
 
-> This is a repository for the server, app, and CLI of MorScout, the official MorTorq FRC scouting application
-
-<!-- The cirrus badge updates every 24hrs-->
 [![Build Status](https://api.cirrus-ci.com/github/mortorqrobotics/morscout-standalone.svg)](https://cirrus-ci.com/github/mortorqrobotics/morscout-standalone)
 [![Known Vulnerabilities](https://snyk.io/test/github/mortorqrobotics/morscout-standalone/badge.svg)](https://snyk.io/test/github/mortorqrobotics/morscout-standalone)
 [![codecov](https://codecov.io/gh/mortorqrobotics/morscout-standalone/branch/master/graph/badge.svg)](https://codecov.io/gh/mortorqrobotics/morscout-standalone)
 [![iOS Build](https://build.appcenter.ms/v0.1/apps/a0fa44cd-1214-41c9-942b-a1a33bfea92b/branches/master/badge)](https://appcenter.ms)
 [![Android Build](https://build.appcenter.ms/v0.1/apps/af68d026-c265-4753-a756-2764cdfe5137/branches/master/badge)](https://appcenter.ms)
 
-- [MorScout - EXPERIMENTAL](#morscout---experimental)
+- [MorScout - Experimental](#morscout---experimental)
   - [Installing](#installing)
     - [Docker](#docker)
       - [Production](#production)
