@@ -7,6 +7,7 @@ import { createServer as http2 } from "http2";
 import * as mongoose from "mongoose";
 import isDocker from "is-docker";
 import api from "./api";
+
 if (isDocker()) {
   const development = process.env.NODE_ENV !== "production";
   const io = socketIo();
@@ -30,6 +31,7 @@ if (isDocker()) {
       express.static(pathJoin(__dirname, "..", "..", "app", "build", "web"))
     );
   }
+  app.listen(80, port => console.log(`Started Server on port ${port}`));
 } else {
   const development = process.env.NODE_ENV !== "production";
   const io = socketIo();
@@ -55,5 +57,3 @@ if (isDocker()) {
     );
   }
 }
-
-console.log("HI!!!")

@@ -21,7 +21,7 @@ test_task:
   coverage_upload_script:
     - bash <(curl -s https://codecov.io/bash) -cF app -F `node -v | sed 's/\..*$//'` -s app/coverage/ -t $CODECOV_TOKEN
     - bash <(curl -s https://codecov.io/bash) -cF server -F `node -v | sed 's/\..*$//'` -s server/coverage/ -t $CODECOV_TOKEN
-    - bash <(curl -s https://codecov.io/bash) -cF cli -F `node -v | sed 's/\..*$//'` -s cli/coverage/ -t $CODECOV_TOKEN
+    - bash <(curl -s https://codecov.io/bash) -cF shared -F `node -v | sed 's/\..*$//'` -s shared/coverage/ -t $CODECOV_TOKEN
 
 lint_task:
   install_script:
