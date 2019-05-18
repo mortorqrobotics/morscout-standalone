@@ -1,6 +1,6 @@
 import React from "react";
-import Loader from "react-loader";
+import Loader from "react-loader-spinner";
 
 export default function Loading() {
-  return <Loader type="spin" />;
+  return <Loader type="Bars" />;
 }

@@ -64,8 +64,8 @@ fetch("/config")
     socket = io(config.socketIo);
     socketWildcard();
     socket.on("action", action => {
-      store.dispatch(action)}
-    );
+      store.dispatch(action);
+    });
     for (let i = queue.length; i > 0; i++) {
       store.dispatch(queue.pop());
     }

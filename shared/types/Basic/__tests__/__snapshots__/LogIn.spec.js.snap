@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Invalid Credentials stay the same 1`] = `"error/INVALID_LOGIN_CREDENTIALS"`;
+
+exports[`Loggedin stays the same 1`] = `"LOGGEDIN"`;
+
+exports[`Loggedout stays the same 1`] = `"LOGGEDOUT"`;
+
+exports[`Login stays the same 1`] = `"server/LOGIN"`;
+
+exports[`Logout stays the same 1`] = `"server/LOGOUT"`;

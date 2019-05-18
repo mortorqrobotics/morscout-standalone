@@ -1,8 +1,8 @@
 import { model } from "mongoose";
 import allianceSchema from "shared/schemas/Alliance";
-import matchSchema from "shared/scheams/Match";
+import matchSchema from "shared/schemas/Match";
 import regionalSchema from "shared/schemas/Regional";
-import seasonSchema from "shared/scheams/Season";
+import seasonSchema from "shared/schemas/Season";
 import teamSchema from "shared/schemas/Team";
 import userSchema from "shared/schemas/User";
 

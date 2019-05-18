@@ -40,7 +40,7 @@ test("Line works", async () => {
   const Line = mongoose.model("Line", lineSchema);
   const line = new Line({
     type: "LineString",
-    coordinates: [[0, 0]]
+    coordinates: [[100.0, 0.0], [101.0, 1.0]]
   });
   expect(line.validateSync()).toBeUndefined();
 });

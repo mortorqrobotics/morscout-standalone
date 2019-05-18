@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Models stay the same 1`] = `
+Object {
+  "Alliance": [Function],
+  "Match": [Function],
+  "Regional": [Function],
+  "Season": [Function],
+  "Team": [Function],
+  "User": [Function],
+}
+`;

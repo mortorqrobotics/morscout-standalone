@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Load All Matches stays the same 1`] = `"server/getMatches"`;
+
+exports[`Updated Matches stays the same 1`] = `"UPDATED_MATCHES"`;

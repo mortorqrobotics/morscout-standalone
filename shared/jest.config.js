@@ -15,23 +15,9 @@ module.exports = {
   testEnvironment: "node",
   testURL: "http://localhost",
   transform: {
-    "^.+\\.(ts|tsx)$": "ts-jest",
-    "^.+\\.(js|jsx)$": "<rootDir>/../node_modules/babel-jest"
+    "^.+\\.(ts)$": "ts-jest",
+    "^.+\\.(js)$": "<rootDir>/../node_modules/babel-jest"
   },
   transformIgnorePatterns: ["[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$"],
-  moduleNameMapper: {
-    "^react-native$": "react-native-web"
-  },
-  moduleFileExtensions: [
-    "web.js",
-    "js",
-    "web.ts",
-    "ts",
-    "web.tsx",
-    "tsx",
-    "json",
-    "web.jsx",
-    "jsx",
-    "node"
-  ]
+  moduleFileExtensions: ["js", "ts", "json"]
 };
