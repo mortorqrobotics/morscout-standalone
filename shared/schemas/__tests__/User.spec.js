@@ -30,21 +30,3 @@ test("Compare Password functions", async () => {
   await expect(user.comparePassword("Barnanas")).resolves.toBe(false);
   await expect(user.comparePassword()).rejects.toThrow();
 });
-
-// test("User presave", async () => {
-//   expect.assertions(1);
-//   const User = mongoose.model("User", schema);
-//   const user = new User({
-//     username: "mortorq",
-//     password: "Bananas",
-//     firstname: "mor",
-//     lastname: "torq",
-//     email: "a@a.com", // really need to stop (emails can be other than .com)
-//     phone: "1234567890",
-//     team: new mongoose.Types.ObjectId(),
-//     position: "alumnus"
-//   });
-//   await user.save();
-//   await user.save();
-//   expect(user.password).toBeTruthy();
-// });
