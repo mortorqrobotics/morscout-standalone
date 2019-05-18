@@ -77,31 +77,15 @@ module.exports = {
       // First, run the linter.
       // It's important to do this before Babel processes the JS.
       {
-        test: /\.(js|jsx|mjs)$/,
+        test: /\.(js|jsx|mjs|ts|tsx)$/,
         enforce: "pre",
         use: [
           {
             options: {
               formatter: eslintFormatter,
-              eslintPath: require.resolve("eslint"),
-              // TODO: consider separate config for production,
-              // e.g. to enable no-console and no-debugger only in production.
-              baseConfig: {
-                extends: [require.resolve("eslint-config-react-app")]
-              }
+              eslintPath: require.resolve("eslint")
             },
             loader: require.resolve("eslint-loader")
-          }
-        ],
-        include: paths.srcPaths,
-        exclude: [/[/\\\\]node_modules[/\\\\]/]
-      },
-      {
-        test: /\.(ts|tsx)$/,
-        enforce: "pre",
-        use: [
-          {
-            loader: require.resolve("tslint-loader")
           }
         ],
         include: paths.srcPaths,

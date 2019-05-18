@@ -7,7 +7,7 @@ test_task:
     CODECOV_TOKEN: ENCRYPTED[4d6a291143f26cb298cc95deae4bda9479e2696de6069f91159c876b4763d9fe39439f859c1b68fd198282db32c5e011]
   container:
     matrix:
-      image: node:stretch
+      #image: node:stretch
       image: node:dubnium-stretch
   install_script:
     - apt-get update

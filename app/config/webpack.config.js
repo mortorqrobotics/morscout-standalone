@@ -149,7 +149,7 @@ module.exports = {
       // First, run the linter.
       // It's important to do this before Babel processes the JS.
       {
-        test: /\.(js|mjs|jsx)$/,
+        test: /\.(js|mjs|jsx|(ts)|(tsx))$/,
         enforce: "pre",
         use: [
           {
@@ -159,21 +159,6 @@ module.exports = {
               fix: true
             },
             loader: require.resolve("eslint-loader")
-          }
-        ],
-        include: paths.appSrc
-      },
-      {
-        test: /\.(ts|tsx)$/,
-        enforce: "pre",
-        use: [
-          {
-            loader: require.resolve("tslint-loader"),
-            options: {
-              fix: true,
-              configFile: paths.appTsLint,
-              tsConfigFile: paths.appTsConfig
-            }
           }
         ],
         include: paths.appSrc

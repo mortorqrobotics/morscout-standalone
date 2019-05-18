@@ -11,8 +11,7 @@ const Match = new Schema({
   },
   winner: {
     type: String,
-    enum: ["Red", "Blue"],
-    default: null
+    enum: ["Red", "Blue"]
   },
   startDate: {
     type: Date

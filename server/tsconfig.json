@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src", // This must be specified if "paths" is.
+    "paths": {
+      "shared": ["shared"],
+      "models": ["models"],
+      "config": ["config"]
+    },
+    "esModuleInterop": true
+  }
+}

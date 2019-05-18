@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src", // This must be specified if "paths" is.
+    "paths": {
+      "react-native": ["react-native-web"],
+      "shared": ["shared"],
+      "screen": ["screens"],
+      "~": ["components"],
+      "@": ["polyfills"],
+      "style": ["style"],
+      "store": ["redux-state/store"],
+      "reducers": ["redux-state/reducers"],
+      "actions": ["redux-state/actions"],
+      "uranium": ["uranium"]
+    }
+  }
+}
