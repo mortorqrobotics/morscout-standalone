@@ -4,11 +4,6 @@ import geojson from "geojson";
 import schema from "../Team";
 import { pointSchema } from "../util/GeoJSON";
 
-test("Team is same throughout", async () => {
-  expect.assertions(1);
-  expect(schema).toMatchSnapshot();
-});
-
 test("Team is a schema", async () => {
   expect.assertions(1);
   expect(schema).toBeInstanceOf(mongoose.Schema);

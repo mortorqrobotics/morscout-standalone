@@ -3,11 +3,6 @@ import mongoose from "mongoose";
 import schema from "../Regional";
 import { pointSchema, polygonSchema } from "../util/GeoJSON";
 
-test("Regional is same", async () => {
-  expect.assertions(1);
-  expect(schema).toMatchSnapshot();
-});
-
 test("Regional is a Schema", async () => {
   expect.assertions(1);
   expect(schema).toBeInstanceOf(mongoose.Schema);

@@ -4,7 +4,8 @@ import { pointSchema } from "./util/GeoJSON";
 const Team: mongoose.Schema = new mongoose.Schema({
   name: {
     // The team name
-    type: String
+    type: String,
+    required: true
   },
   number: {
     // Just the team number
@@ -17,7 +18,8 @@ const Team: mongoose.Schema = new mongoose.Schema({
         num > 0 &&
         num <= 9999,
       message: "{ Value } is not a legal team number"
-    }
+    },
+    required: true
   },
   /**
    * Awards the team has earned
@@ -27,7 +29,9 @@ const Team: mongoose.Schema = new mongoose.Schema({
    * }
    */
   awards: {
-    Type: Map
+    type: Map,
+    required: true,
+    default: new Map()
   },
   // List of Registered Regionals
   registeredRegionals: [
@@ -36,7 +40,10 @@ const Team: mongoose.Schema = new mongoose.Schema({
       ref: "Regional"
     }
   ],
-  location: pointSchema
+  location: {
+    type: pointSchema,
+    required: true
+  }
 });
 
 export default Team;

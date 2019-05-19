@@ -2,12 +2,19 @@ import { Schema } from "mongoose";
 import { pointSchema, polygonSchema } from "./util/GeoJSON";
 
 const RegionalSchema = new Schema({
-  name: String,
-  location: pointSchema,
+  name: {
+    type: String,
+    required: true
+  },
+  location: {
+    type: pointSchema,
+    required: true
+  },
   district: polygonSchema,
   url: {
     type: String,
-    validate: url => encodeURI(url) === url
+    validate: url => encodeURI(url) === url,
+    required: true
   },
   eventType: {
     type: String,
@@ -22,17 +29,21 @@ const RegionalSchema = new Schema({
       "offseason",
       "preseason",
       "unlabeled"
-    ]
+    ],
+    required: true
   },
   startDate: {
-    type: Date
+    type: Date,
+    required: true
   },
   endDate: {
-    type: Date
+    type: Date,
+    required: true
   },
   season: {
     type: Schema.Types.ObjectId,
-    ref: "Season"
+    ref: "Season",
+    required: true
   }
 });
 

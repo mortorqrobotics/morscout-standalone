@@ -4,7 +4,8 @@ const Alliance = new Schema({
   teams: [
     {
       type: Schema.Types.ObjectId,
-      ref: "Team"
+      ref: "Team",
+      required: true
     }
   ]
 });

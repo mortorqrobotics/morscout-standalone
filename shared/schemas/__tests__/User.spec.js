@@ -2,11 +2,6 @@ import "mockingoose";
 import mongoose from "mongoose";
 import schema from "../User";
 
-test("User is same throughout", async () => {
-  expect.assertions(1);
-  expect(schema).toMatchSnapshot();
-});
-
 test("User is a schema", async () => {
   expect.assertions(1);
   expect(schema).toBeInstanceOf(mongoose.Schema);
