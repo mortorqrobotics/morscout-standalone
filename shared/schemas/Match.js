@@ -3,25 +3,30 @@ import { Schema } from "mongoose";
 const Match = new Schema({
   redAlliance: {
     type: Schema.Types.ObjectId,
-    ref: "Alliance"
+    ref: "Alliance",
+    required: true
   },
   blueAlliance: {
     type: Schema.Types.ObjectId,
-    ref: "Alliance"
+    ref: "Alliance",
+    required: true
   },
   winner: {
     type: String,
     enum: ["Red", "Blue"]
   },
   startDate: {
-    type: Date
+    type: Date,
+    required: true
   },
   endDate: {
-    type: Date
+    type: Date,
+    required: true
   },
   Regional: {
     type: Schema.Types.ObjectId,
-    ref: "Regional"
+    ref: "Regional",
+    required: true
   }
 });
 

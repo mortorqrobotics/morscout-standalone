@@ -6,127 +6,47 @@ exports[`reducer returns the same as before (for compatibility) 1`] = `Object {}
 
 exports[`reducer returns the same as before (for compatibility) 2`] = `
 Object {
-  "1": Object {
-    "progress": 3,
-    "teams": Object {
-      "blue": Array [
-        Object {
-          "num": 1515,
-        },
-        Object {
-          "num": 1928,
-        },
-        Object {
-          "num": 1385,
-        },
-      ],
-      "red": Array [
-        Object {
-          "num": 999,
-        },
-        Object {
-          "num": 666,
-        },
-        Object {
-          "num": 333,
-        },
-      ],
-    },
-    "time": 2017-12-17T17:45:00.000Z,
+  "5ce0cae66228c07c50f12e24": Object {
+    "Regional": "5ce0cae66228c07c50f12e24",
+    "_id": "5ce0cae66228c07c50f12e24",
+    "blueAlliance": "5ce0cae66228c07c50f12e24",
+    "endDate": 2017-12-17T17:45:00.000Z,
+    "redAlliance": "5ce0cae66228c07c50f12e24",
+    "startDate": 2017-12-17T17:45:00.000Z,
   },
 }
 `;
 
 exports[`reducer returns the same as before (for compatibility) 3`] = `
 Object {
-  "1": Object {
-    "progress": 4,
-    "teams": Object {
-      "blue": Array [
-        Object {
-          "num": 1515,
-        },
-        Object {
-          "num": 1928,
-        },
-        Object {
-          "num": 1385,
-        },
-      ],
-      "red": Array [
-        Object {
-          "num": 999,
-        },
-        Object {
-          "num": 666,
-        },
-        Object {
-          "num": 333,
-        },
-      ],
-    },
-    "time": 2017-12-17T17:45:00.000Z,
+  "5ce0cae66228c07c50f12e23": Object {
+    "Regional": "5ce0cae66228c07c50f12e24",
+    "_id": "5ce0cae66228c07c50f12e23",
+    "blueAlliance": "5ce0cae66228c07c50f12e24",
+    "endDate": 2017-12-17T17:45:00.000Z,
+    "redAlliance": "5ce0cae66228c07c50f12e24",
+    "startDate": 2017-12-17T17:45:00.000Z,
   },
-  "2": Object {
-    "progress": 2,
-    "teams": Object {
-      "blue": Array [
-        Object {
-          "num": 1515,
-        },
-        Object {
-          "num": 1928,
-        },
-        Object {
-          "num": 1385,
-        },
-      ],
-      "red": Array [
-        Object {
-          "num": 999,
-        },
-        Object {
-          "num": 666,
-        },
-        Object {
-          "num": 333,
-        },
-      ],
-    },
-    "time": 2017-12-17T17:45:00.000Z,
+  "5ce0cae66228c07c50f12e24": Object {
+    "Regional": "5ce0cae66228c07c50f12e24",
+    "_id": "5ce0cae66228c07c50f12e24",
+    "blueAlliance": "5ce0cae66228c07c50f12e24",
+    "endDate": 2017-12-17T17:45:00.000Z,
+    "redAlliance": "5ce0cae66228c07c50f12e24",
+    "startDate": 2017-12-17T17:45:00.000Z,
   },
 }
 `;
 
 exports[`reducer returns the same as before (for compatibility) 4`] = `
 Object {
-  "1": Object {
-    "progress": 3,
-    "teams": Object {
-      "blue": Array [
-        Object {
-          "num": 1515,
-        },
-        Object {
-          "num": 1928,
-        },
-        Object {
-          "num": 1385,
-        },
-      ],
-      "red": Array [
-        Object {
-          "num": 999,
-        },
-        Object {
-          "num": 666,
-        },
-        Object {
-          "num": 333,
-        },
-      ],
-    },
-    "time": 2017-12-17T17:45:00.000Z,
+  "5ce0cae66228c07c50f12e24": Object {
+    "Regional": "5ce0cae66228c07c50f12e24",
+    "_id": "5ce0cae66228c07c50f12e24",
+    "blueAlliance": "5cd0cae66228c07c50f12e24",
+    "endDate": 2017-12-17T17:45:00.000Z,
+    "redAlliance": "5ce0cae66228c07c50f12e24",
+    "startDate": 2017-12-17T17:45:00.000Z,
   },
 }
 `;

@@ -1,121 +1,45 @@
 [
-  {},
-  {
-    "1": {
-      time: "2017-12-17T17:45:00.000Z",
-      teams: {
-        blue: [
-          {
-            num: 1515,
-          },
-          {
-            num: 1928,
-          },
-          {
-            num: 1385,
-          },
-        ],
-        red: [
-          {
-            num: 999,
-          },
-          {
-            num: 666,
-          },
-          {
-            num: 333,
-          },
-        ],
-      },
+  [],
+  [
+    {
+      _id: "5ce0cae66228c07c50f12e24",
+      startDate: "2017-12-17T17:45:00.000Z",
+      endDate: "2017-12-17T17:45:00.000Z",
+      blueAlliance: "5ce0cae66228c07c50f12e24",
+      redAlliance: "5ce0cae66228c07c50f12e24",
       progress: 3,
-    },
-  },
-  {
-    "1": {
-      time: "2017-12-17T17:45:00.000Z",
-      teams: {
-        blue: [
-          {
-            num: 1515,
-          },
-          {
-            num: 1928,
-          },
-          {
-            num: 1385,
-          },
-        ],
-        red: [
-          {
-            num: 999,
-          },
-          {
-            num: 666,
-          },
-          {
-            num: 333,
-          },
-        ],
-      },
-      progress: 4,
-    },
-    "2": {
-      time: "2017-12-17T17:45:00.000Z",
-      teams: {
-        blue: [
-          {
-            num: 1515,
-          },
-          {
-            num: 1928,
-          },
-          {
-            num: 1385,
-          },
-        ],
-        red: [
-          {
-            num: 999,
-          },
-          {
-            num: 666,
-          },
-          {
-            num: 333,
-          },
-        ],
-      },
-      progress: 2,
+      Regional: "5ce0cae66228c07c50f12e24"
     }
-  },
-  {
-    "1": {
-      time: "2017-12-17T17:45:00.000Z",
-      teams: {
-        blue: [
-          {
-            num: 1515,
-          },
-          {
-            num: 1928,
-          },
-          {
-            num: 1385,
-          },
-        ],
-        red: [
-          {
-            num: 999,
-          },
-          {
-            num: 666,
-          },
-          {
-            num: 333,
-          },
-        ],
-      },
+  ],
+  [
+    {
+      _id: "5ce0cae66228c07c50f12e24",
+      startDate: "2017-12-17T17:45:00.000Z",
+      endDate: "2017-12-17T17:45:00.000Z",
+      blueAlliance: "5ce0cae66228c07c50f12e24",
+      redAlliance: "5ce0cae66228c07c50f12e24",
       progress: 3,
+      Regional: "5ce0cae66228c07c50f12e24"
     },
-  },
+    {
+      _id: "5ce0cae66228c07c50f12e23",
+      startDate: "2017-12-17T17:45:00.000Z",
+      endDate: "2017-12-17T17:45:00.000Z",
+      blueAlliance: "5ce0cae66228c07c50f12e24",
+      redAlliance: "5ce0cae66228c07c50f12e24",
+      progress: 3,
+      Regional: "5ce0cae66228c07c50f12e24"
+    }
+  ],
+  [
+    {
+      _id: "5ce0cae66228c07c50f12e24",
+      startDate: "2017-12-17T17:45:00.000Z",
+      endDate: "2017-12-17T17:45:00.000Z",
+      blueAlliance: "5cd0cae66228c07c50f12e24",
+      redAlliance: "5ce0cae66228c07c50f12e24",
+      progress: 4,
+      Regional: "5ce0cae66228c07c50f12e24"
+    }
+  ]
 ]

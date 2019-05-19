@@ -1,4 +1,4 @@
-// __tests__/index.spec.js
+import { Schema } from "mongoose";
 import { updated } from "shared/types/Matches";
 import { parse as parse5 } from "json5";
 import { readFile } from "fs-extra";
