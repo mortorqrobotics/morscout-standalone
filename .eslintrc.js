@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ["plugin:prettier/recommended"],
+  extends: ["plugin:jest/recommended", "plugin:prettier/recommended"],
   parser: "babel-eslint",
   parserOptions: {
     ecmaVersion: 2018,
@@ -40,7 +40,10 @@ module.exports = {
     "react/no-typos": "error",
     "react/react-in-jsx-scope": "error",
     "react/require-render-return": "error",
-    "react/style-prop-object": "warn"
+    "react/style-prop-object": "warn",
+    "jest/prefer-spy-on": "warn",
+    "jest/no-test-callback": "error",
+    "jest/lowercase-name": "warn"
   },
   overrides: {
     files: ['**/*.ts', '**/*.tsx'],

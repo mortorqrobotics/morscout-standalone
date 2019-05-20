@@ -3,11 +3,11 @@ import { writeFileSync, unlinkSync } from "fs";
 import { stringify } from "yaml";
 import config, { loadConfig } from "../config";
 
-test("Configuration loads", () => {
+test("configuration loads", () => {
   expect(config()).resolves.toBeInstanceOf(Object);
 });
 
-test("Configuration Loader works", async () => {
+test("configuration Loader works", async () => {
   const data = {
     hi: "Hi"
   };
@@ -15,13 +15,13 @@ test("Configuration Loader works", async () => {
   expect(await loadConfig(join(__dirname, "config.yml"))).toMatchObject(data);
 });
 
-test("Configuration Loader throws error on nonexistant file", async () => {
+test("configuration Loader throws error on nonexistant file", async () => {
   await expect(
     loadConfig(join(__dirname, "nonexistant.yml"))
   ).rejects.toThrow();
 });
 
-test("Configuration Loader throws error on erronious yaml file", async () => {
+test("configuration Loader throws error on erronious yaml file", async () => {
   await expect(loadConfig(join(__dirname, "error.yml"))).rejects.toThrow();
 });
 

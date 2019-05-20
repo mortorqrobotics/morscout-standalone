@@ -26,7 +26,7 @@ module.exports = {
   ],
   moduleNameMapper: {
     "^react-native$": "react-native-web",
-    "^shared(.*)$": getSrc("shared", "$1"),
+    "^shared(.*)$": getSrc("shared", "src", "$1"),
     "^screen(.*)$": getSrc("screens", "$1"),
     "^~/(.*)$": getSrc("components", "$1"),
     "^@/(.*)$": getSrc("polyfills", "$1"),
@@ -49,5 +49,6 @@ module.exports = {
     "jsx",
     "node"
   ],
-  coveragePathIgnorePatterns: ["uranium"]
+  coveragePathIgnorePatterns: ["uranium"],
+  rootDir: __dirname
 };

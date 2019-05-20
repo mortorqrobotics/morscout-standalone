@@ -5,7 +5,7 @@ import Message, { RandomMessage } from "../Messages";
 
 // console.log(require("canvas"));
 
-test("Message renders correctly", async () => {
+test("message renders correctly", async () => {
   expect.assertions(1);
   const tree = renderer
     .create(React.createElement(Message, {}, ["Hello"]))
@@ -13,7 +13,7 @@ test("Message renders correctly", async () => {
   expect(tree).toMatchSnapshot();
 });
 
-test("Random Message renders correctly", async () => {
+test("random Message renders correctly", async () => {
   expect.assertions(1);
   const tree = renderer
     .create(React.createElement(RandomMessage, {}, ["Hello"]))

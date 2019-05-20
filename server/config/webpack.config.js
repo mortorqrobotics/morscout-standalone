@@ -56,7 +56,7 @@ module.exports = {
     }),
     alias: {
       // MorScout Folder Linking
-      shared: getSrc("shared"),
+      shared: getSrc("shared", "src"),
       models: getSrc("models")
     },
     plugins: [

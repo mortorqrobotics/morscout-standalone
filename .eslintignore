@@ -4,12 +4,11 @@
 /windows
 
 # for speed
-/ssl
 /docker
-
-# outside references
-/ndocs
 
 # other auto-generated files
 node_modules
 **/build
+/coverage
+/patches
+/.*

@@ -18,7 +18,8 @@ module.exports = {
   },
   transformIgnorePatterns: ["[/\\\\]node_modules[/\\\\].+\\.(js|ts)$"],
   moduleNameMapper: {
-    "^shared(.*)$": getSrc("shared", "$1")
+    "^shared(.*)$": getSrc("shared", "src", "$1")
   },
-  moduleFileExtensions: ["js", "ts", "json", "node"]
+  moduleFileExtensions: ["js", "ts", "json", "node"],
+  rootDir: __dirname
 };

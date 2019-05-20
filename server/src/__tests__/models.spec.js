@@ -1,6 +1,6 @@
 import "mockingoose";
 import * as models from "../models";
 
-test("Models stay the same", () => {
+test("models stay the same", () => {
   expect(models).toMatchSnapshot();
 });

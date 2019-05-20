@@ -1,17 +1,12 @@
 module.exports = {
-  collectCoverageFrom: ["**/*.{js,jsx,ts,tsx}", "!**/*.d.ts"],
-  coveragePathIgnorePatterns: [
-    "/node_modules",
-    "/coverage/",
-    "<rootDir>/jest.config.js",
-    "/scripts/"
-  ],
+  collectCoverageFrom: ["src/**/*.{js,jsx,ts,tsx}", "!src/**/*.d.ts"],
+  coveragePathIgnorePatterns: ["/node_modules"],
   resolver: "jest-pnp-resolver",
   testMatch: [
     "<rootDir>/**/__tests__/**/*.{js,jsx,ts,tsx}",
     "<rootDir>/**/?(*.)(spec|test).{js,jsx,ts,tsx}"
   ],
-  testPathIgnorePatterns: ["/node_modules/", "/scripts/"],
+  testPathIgnorePatterns: ["/node_modules/"],
   testEnvironment: "node",
   testURL: "http://localhost",
   transform: {
@@ -19,5 +14,6 @@ module.exports = {
     "^.+\\.(js)$": "<rootDir>/../node_modules/babel-jest"
   },
   transformIgnorePatterns: ["[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$"],
-  moduleFileExtensions: ["js", "ts", "json"]
+  moduleFileExtensions: ["js", "ts", "json"],
+  rootDir: __dirname
 };

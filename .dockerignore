@@ -5,6 +5,7 @@
 /android
 /ios
 /node_modules
+/coverage
 
 /docker
 !/docker/morscout
