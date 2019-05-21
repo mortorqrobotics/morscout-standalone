@@ -8,7 +8,7 @@ x-logging:
 
 services:
   nginx:
-    image: mortorqrobotics/mornetwork-nginx:latest
+    image: mortorqrobotics/mornetwork-nginx
     logging:
       *default-logging
     networks:
@@ -19,7 +19,7 @@ services:
         ipv4_address: 192.19.0.6
     ports:
       - "127.0.0.1:8080:80"
-      - "127.0.0.1:8443:433"
+      - "127.0.0.1:8433:433"
     depends_on:
       - Consul
   Consul:
@@ -63,15 +63,14 @@ services:
   MorScout:
     logging:
       *default-logging
-    image: mortorqrobotics/morscout:latest-dev
+    image: mortorqrobotics/morscout:latest
     build:
       context: ../..
       dockerfile: docker/dev/Dockerfile
     volumes:
-      - type: bind
-        source: ../..
-        target: /root
-        consistency: consistent
+      - ..:/workspace
+      # This lets you avoid setting up Git again in the container
+      - ~/.gitconfig:/root/.gitconfig
     depends_on:
       # - MongoDB
       - Consul
