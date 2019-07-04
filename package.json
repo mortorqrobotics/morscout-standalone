@@ -31,7 +31,9 @@
     "protect": "snyk protect",
     "git-add": "git-add",
     "git-cz": "git-cz",
-    "git-push": "git push"
+    "git-push": "git push",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "bin": "cli/build/cli.js",
   "license": "GPL-3.0",
@@ -63,7 +65,7 @@
     "nodemon": "^1.19.0",
     "npm-run-all": "^4.1.5",
     "patch-package": "^6.1.2",
-    "snyk": "^1.161.1",
+    "snyk": "^1.189.0",
     "socket.io": "^2.2.0",
     "socketio-wildcard": "^2.0.0",
     "source-map-support": "^0.5.12",
