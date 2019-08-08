@@ -1,4 +1,4 @@
-import { loadMatch } from "shared/types/Match";
+import { loadMatch } from "Shared/types/Match";
 
 export default id => ({
   type: loadMatch,

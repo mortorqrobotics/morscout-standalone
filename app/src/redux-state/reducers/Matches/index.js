@@ -1,6 +1,6 @@
-import { updated } from "shared/types/Matches";
+import { updated } from "Shared/types/Matches";
 import { recursive } from "merge";
-import Match from "shared/schemas/Match";
+import Match from "Shared/schemas/Match";
 import mongoose from "mongoose/browser";
 
 export default (state = {}, action) => {

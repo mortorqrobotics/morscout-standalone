@@ -3,7 +3,6 @@
     "baseUrl": "src", // This must be specified if "paths" is.
     "paths": {
       "react-native": ["react-native-web"],
-      "shared": ["shared"],
       "screen": ["screens"],
       "~": ["components"],
       "@": ["polyfills"],

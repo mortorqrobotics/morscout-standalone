@@ -17,9 +17,6 @@ module.exports = {
     "^(?!.*\\.(js|ts|json)$)": "<rootDir>/config/jest/fileTransform.js"
   },
   transformIgnorePatterns: ["[/\\\\]node_modules[/\\\\].+\\.(js|ts)$"],
-  moduleNameMapper: {
-    "^shared(.*)$": getSrc("shared", "src", "$1")
-  },
   moduleFileExtensions: ["js", "ts", "json", "node"],
   rootDir: __dirname
 };

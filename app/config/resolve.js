@@ -57,7 +57,6 @@ module.exports = options => {
       "~": getSrc("components"),
       // Global Redirects
       screen: getSrc("screens"),
-      shared: getSrc("shared", "src"),
       style: getSrc("style"),
 
       // Redux stuff

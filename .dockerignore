@@ -2,10 +2,9 @@
 !/.babelrc
 !/.flowconfig
 !/.snyk
-/android
-/ios
 /node_modules
 /coverage
+/**/build
 
 /docker
 !/docker/morscout

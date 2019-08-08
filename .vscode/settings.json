@@ -17,13 +17,9 @@
     "**/.hg": true,
     "**/CVS": true,
     "**/.DS_Store": true,
-    "yarn.lock": true,
     "package-lock.json": true,
     ".gitattributes": true,
     "packages-cache": true,
-    "android": true,
-    "ios": true,
-    "windows": true
   },
   "javascript.implicitProjectConfig.experimentalDecorators": true,
   "editor.tabSize": 2

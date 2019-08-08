@@ -4,7 +4,7 @@ import {
   logout,
   loggedout,
   invalidCredentials
-} from "shared/types/Basic/LogIn";
+} from "Shared/types/Basic/LogIn";
 import { getUserLoggin, logoutUser } from "./user";
 
 export default socket => {

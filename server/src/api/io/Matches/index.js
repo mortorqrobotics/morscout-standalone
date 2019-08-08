@@ -1,4 +1,4 @@
-import { updated, loadAllMatches } from "shared/types/Matches";
+import { updated, loadAllMatches } from "Shared/types/Matches";
 import getMatches from "./getAllMatches";
 
 export default socket => {

@@ -2,9 +2,8 @@
   "recommendations": [
     "dbaeumer.vscode-eslint",
     "msjsdiag.debugger-for-chrome",
-    "peterjausovec.vscode-docker",
+    "ms-azuretools.vscode-docker",
     "esbenp.prettier-vscode",
-    "mrmlnc.vscode-json5",
     "editorconfig.editorconfig"
   ]
 }

@@ -1,4 +1,4 @@
-import { updated } from "shared/types/Teams";
+import { updated } from "Shared/types/Teams";
 
 export default (state = {}, action) => {
   const teams = Object.assign({}, state);

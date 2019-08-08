@@ -6,19 +6,37 @@ module.exports = {
       {
         displayName: "Server"
       },
-      require("./server/jest.config")
+      require("./Server/jest.config")
     ),
     Object.assign(
       {
-        displayName: "Client"
+        displayName: "Client Common"
       },
-      require("./app/jest.config")
+      require("./Client/common/jest.config")
+    ),
+    Object.assign(
+      {
+        displayName: "Client Web"
+      },
+      require("./Client/web/jest.config")
+    ),
+    Object.assign(
+      {
+        displayName: "Client Electron"
+      },
+      require("./Client/electron/jest.config")
+    ),
+    Object.assign(
+      {
+        displayName: "Client React Native"
+      },
+      require("./Client/react-native/jest.config")
     ),
     Object.assign(
       {
         displayName: "Shared"
       },
-      require("./shared/jest.config")
+      require("./Shared/jest.config")
     )
   ]
 };

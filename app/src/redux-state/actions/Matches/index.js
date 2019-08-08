@@ -1,4 +1,4 @@
-import { loadAllMatches } from "shared/types/Matches";
+import { loadAllMatches } from "Shared/types/Matches";
 
 export default () => ({
   type: loadAllMatches,

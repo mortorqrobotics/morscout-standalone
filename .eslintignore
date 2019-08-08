@@ -1,7 +1,7 @@
 # auto-generated files
-/android
-/ios
-/windows
+**/android
+**/ios
+**/windows
 
 # for speed
 /docker
@@ -9,6 +9,6 @@
 # other auto-generated files
 node_modules
 **/build
-/coverage
+**/coverage
 /patches
 /.*

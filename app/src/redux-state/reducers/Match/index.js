@@ -1,4 +1,4 @@
-import { updated } from "shared/types/Match";
+import { updated } from "Shared/types/Match";
 
 export default (state = {}, action) => {
   const matches = Object.assign({}, state);

@@ -1,5 +1,5 @@
 // __tests__/index.spec.js
-import { updated } from "shared/types/Teams";
+import { updated } from "Shared/types/Teams";
 import { parse as parse5 } from "json5";
 import { readFile } from "fs-extra";
 import { join } from "path";
