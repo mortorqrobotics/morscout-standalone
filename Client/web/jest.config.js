@@ -15,7 +15,7 @@ module.exports = {
   testURL: "http://localhost",
   transform: {
     "^.+\\.(ts|tsx)$": "ts-jest",
-    "^.+\\.(js|jsx)$": "<rootDir>/../node_modules/babel-jest",
+    "^.+\\.(js|jsx)$": require.resolve("babel-jest"),
     "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
     "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)":
       "<rootDir>/config/jest/fileTransform.js"

@@ -32,7 +32,7 @@ const openBrowser = require("react-dev-utils/openBrowser");
 const { checkBrowsers } = require("react-dev-utils/browsersHelper");
 
 const paths = require("../config/paths");
-const config = require("../app/config/webpack.config.dev");
+const config = require("../config/webpack.config.dev");
 const createDevServerConfig = require("../config/webpackDevServer.config");
 // eslint-disable-next-line import/no-dynamic-require
 const appPackageJson = require(paths.appPackageJson);

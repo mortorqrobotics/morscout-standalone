@@ -15,8 +15,7 @@ module.exports = {
   testURL: "http://localhost",
   transform: {
     "^.+\\.(ts|tsx)$": "ts-jest",
-    "^.+\\.(js|jsx)$": "<rootDir>/../node_modules/babel-jest",
-    "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+    "^.+\\.(js|jsx)$": require.resolve("babel-jest"),
     "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)":
       "<rootDir>/config/jest/fileTransform.js"
   },
@@ -25,7 +24,6 @@ module.exports = {
     "^.+\\.module\\.(css|sass|scss)$"
   ],
   moduleNameMapper: {
-    "^react-native$": "react-native-web",
     "^screen(.*)$": getSrc("screens", "$1"),
     "^~/(.*)$": getSrc("components", "$1"),
     "^@/(.*)$": getSrc("polyfills", "$1"),

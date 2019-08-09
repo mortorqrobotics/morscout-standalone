@@ -10,8 +10,8 @@ module.exports = {
   },
   settings: {
     react: {
-      version: 'detect',
-    },
+      version: "detect"
+    }
   },
   plugins: ["import"],
   rules: {
@@ -19,19 +19,21 @@ module.exports = {
     "jest/no-test-callback": "error",
     "jest/lowercase-name": "warn"
   },
-  overrides: {
-    files: ['**/*.ts', '**/*.tsx'],
-    parser: '@typescript-eslint/parser',
-    parserOptions: {
-      ecmaVersion: 2018,
-      sourceType: 'module',
-      ecmaFeatures: {
-        jsx: true,
-      },
+  overrides: [
+    {
+      files: ["**/*.ts", "**/*.tsx"],
+      parser: "@typescript-eslint/parser",
+      parserOptions: {
+        ecmaVersion: 2018,
+        sourceType: "module",
+        ecmaFeatures: {
+          jsx: true
+        },
 
-      // typescript-eslint specific options
-      warnOnUnsupportedTypeScriptVersion: true,
-    },
-    plugins: ['@typescript-eslint'],
-  }
+        // typescript-eslint specific options
+        warnOnUnsupportedTypeScriptVersion: true
+      },
+      plugins: ["@typescript-eslint"]
+    }
+  ]
 };

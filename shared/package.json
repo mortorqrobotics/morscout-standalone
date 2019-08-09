@@ -1,4 +1,7 @@
 {
   "name": "shared",
-  "version": "0.0.1"
+  "version": "0.0.1",
+  "devDependencies": {
+    "babel-jest": "^24.8.0"
+  }
 }
