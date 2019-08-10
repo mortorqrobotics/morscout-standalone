@@ -9,7 +9,7 @@ import {
   multiPolygonSchema
 } from "../GeoJSON";
 
-test("Point works", async () => {
+test("point works", async () => {
   expect.assertions(3);
   expect(pointSchema).toMatchSnapshot();
   expect(pointSchema).toBeInstanceOf(mongoose.Schema);
@@ -21,7 +21,7 @@ test("Point works", async () => {
   expect(point.validateSync()).toBeUndefined();
 });
 
-test("MultiPoint works", async () => {
+test("multiPoint works", async () => {
   expect.assertions(3);
   expect(multiPointSchema).toMatchSnapshot();
   expect(multiPointSchema).toBeInstanceOf(mongoose.Schema);
@@ -33,7 +33,7 @@ test("MultiPoint works", async () => {
   expect(multiPoint.validateSync()).toBeUndefined();
 });
 
-test("Line works", async () => {
+test("line works", async () => {
   expect.assertions(3);
   expect(lineSchema).toMatchSnapshot();
   expect(lineSchema).toBeInstanceOf(mongoose.Schema);
@@ -45,7 +45,7 @@ test("Line works", async () => {
   expect(line.validateSync()).toBeUndefined();
 });
 
-test("MultiLine works", async () => {
+test("multiLine works", async () => {
   expect.assertions(3);
   expect(multiLineSchema).toMatchSnapshot();
   expect(multiLineSchema).toBeInstanceOf(mongoose.Schema);
@@ -57,7 +57,7 @@ test("MultiLine works", async () => {
   expect(multiLine.validateSync()).toBeUndefined();
 });
 
-test("Polygon works", async () => {
+test("polygon works", async () => {
   expect.assertions(3);
   expect(polygonSchema).toMatchSnapshot();
   expect(polygonSchema).toBeInstanceOf(mongoose.Schema);
@@ -71,7 +71,7 @@ test("Polygon works", async () => {
   expect(polygon.validateSync()).toBeUndefined();
 });
 
-test("MultiPolygon works", async () => {
+test("multiPolygon works", async () => {
   expect.assertions(3);
   expect(multiPolygonSchema).toMatchSnapshot();
   expect(multiPolygonSchema).toBeInstanceOf(mongoose.Schema);

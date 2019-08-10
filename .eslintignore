@@ -8,6 +8,7 @@
 
 # other auto-generated files
 node_modules
+**/node_modules
 **/build
 **/coverage
 /patches

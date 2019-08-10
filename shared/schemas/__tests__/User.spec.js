@@ -2,12 +2,12 @@ import "mockingoose";
 import mongoose from "mongoose";
 import schema from "../User";
 
-test("User is a schema", async () => {
+test("user is a schema", async () => {
   expect.assertions(1);
   expect(schema).toBeInstanceOf(mongoose.Schema);
 });
 
-test("Compare Password functions", async () => {
+test("compare Password functions", async () => {
   expect.assertions(3);
   const User = mongoose.model("User", schema);
   const user = new User({

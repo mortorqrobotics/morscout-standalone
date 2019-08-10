@@ -38,7 +38,7 @@
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.8.0",
     "babel-loader": "^8.0.5",
-    "babel-plugin-named-asset-import": "^0.3.2",
+    "babel-plugin-named-asset-import": "^0.3.3",
     "case-sensitive-paths-webpack-plugin": "^2.2.0",
     "closure-webpack-plugin": "^2.0.1",
     "dotenv": "^8.0.0",
@@ -75,7 +75,7 @@
     "typescript": "^3.4.5",
     "url-loader": "^2.1.0",
     "webpack": "^4.30.0",
-    "webpack-dev-server": "^3.3.0",
+    "webpack-dev-server": "^3.8.0",
     "webpack-manifest-plugin": "^2.0.3",
     "webpack-merge": "^4.2.1",
     "webpack-node-externals": "^1.7.2"

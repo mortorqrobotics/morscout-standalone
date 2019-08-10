@@ -2,7 +2,7 @@ process.env.NODE_ENV = "development";
 const {
   NodeJsInputFileSystem,
   CachedInputFileSystem,
-  ResolverFactory,
+  ResolverFactory
 } = require("enhanced-resolve");
 const path = require("path");
 const configFactory = require("../../app/config/resolve.js");
@@ -14,7 +14,7 @@ function resolver(context) {
   // which wraps the Node.js `fs` wrapper to add resilience + caching.
   config.fileSystem = new CachedInputFileSystem(
     new NodeJsInputFileSystem(),
-    4000,
+    4000
   );
   config.useSyncFileSystemCalls = true;
   return ResolverFactory.createResolver(config);
@@ -26,9 +26,9 @@ module.exports = {
     getTransformOptions: async () => ({
       transform: {
         experimentalImportSupport: false,
-        inlineRequires: false,
-      },
-    }),
+        inlineRequires: false
+      }
+    })
   },
   resolver: {
     resolveRequest(context, moduleName, platform) {
@@ -38,12 +38,12 @@ module.exports = {
       const p = resolvers[platform].resolveSync(
         {},
         path.dirname(context.originModulePath),
-        moduleName,
+        moduleName
       );
       return {
         type: "sourceFile",
-        filePath: p,
+        filePath: p
       };
-    },
-  },
+    }
+  }
 };

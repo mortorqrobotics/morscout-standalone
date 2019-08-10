@@ -3,12 +3,12 @@ import mongoose from "mongoose";
 import schema from "../Regional";
 import { pointSchema, polygonSchema } from "../util/GeoJSON";
 
-test("Regional is a Schema", async () => {
+test("regional is a Schema", async () => {
   expect.assertions(1);
   expect(schema).toBeInstanceOf(mongoose.Schema);
 });
 
-test("Regional does not throw on valid Regional", async () => {
+test("regional does not throw on valid Regional", async () => {
   const Regional = mongoose.model("Regional", schema);
   const Point = mongoose.model("Point", pointSchema);
   const Polygon = mongoose.model("Polygon", polygonSchema);

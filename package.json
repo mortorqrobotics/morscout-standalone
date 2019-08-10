@@ -30,6 +30,7 @@
   "workspaces": {
     "packages": [
       "Client/*",
+      "Client/common/*",
       "Server",
       "Shared"
     ],

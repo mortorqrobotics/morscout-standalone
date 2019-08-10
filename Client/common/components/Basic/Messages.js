@@ -3,8 +3,6 @@ import Uranium from "uranium";
 import { Text } from "react-native";
 import PropTypes from "prop-types";
 
-export default
-@Uranium
 class Message extends React.Component {
   static propTypes = {
     isVisible: PropTypes.bool,
@@ -37,6 +35,7 @@ class Message extends React.Component {
     );
   }
 }
+export default Uranium(Message);
 
 class RandomMessageInt extends React.Component {
   constructor(p) {

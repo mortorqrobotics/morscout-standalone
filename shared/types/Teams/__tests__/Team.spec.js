@@ -1,9 +1,9 @@
 import { loadTeams, updated } from "../index";
 
-test("Load Team stays the same", () => {
+test("load Team stays the same", () => {
   expect(loadTeams).toMatchSnapshot();
 });
 
-test("Updated Team stays the same", () => {
+test("updated Team stays the same", () => {
   expect(updated).toMatchSnapshot();
 });

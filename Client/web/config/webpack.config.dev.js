@@ -1,11 +1,7 @@
 const webpack = require("webpack");
 const merge = require("webpack-merge");
 const paths = require("./paths");
-const common = require("client-common/config/webpack.config")(
-  paths,
-  require("./env"),
-  require("./resolve")
-);
+const common = require("./webpack.config");
 // This is the development configuration.
 // It is focused on developer experience and fast rebuilds.
 // The production configuration is different and lives in a separate file.

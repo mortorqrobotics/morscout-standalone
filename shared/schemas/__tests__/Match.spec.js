@@ -2,12 +2,12 @@ import "mockingoose";
 import mongoose from "mongoose";
 import schema from "../Match";
 
-test("Match is a Schema", async () => {
+test("match is a Schema", async () => {
   expect.assertions(1);
   expect(schema).toBeInstanceOf(mongoose.Schema);
 });
 
-test("Match does not throw on valid match", async () => {
+test("match does not throw on valid match", async () => {
   expect.assertions(1);
   const Match = mongoose.model("Match", schema);
   const match = {

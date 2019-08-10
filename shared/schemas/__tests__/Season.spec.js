@@ -2,12 +2,12 @@ import "mockingoose";
 import mongoose from "mongoose";
 import schema from "../Season";
 
-test("Season is a schema", async () => {
+test("season is a schema", async () => {
   expect.assertions(1);
   expect(schema).toBeInstanceOf(mongoose.Schema);
 });
 
-test("Season does not throw on valid season", async () => {
+test("season does not throw on valid season", async () => {
   expect.assertions(2);
   const Season = mongoose.model("Season", schema);
   const season1 = new Season({

@@ -1,4 +1,4 @@
-import reducers from "reducers";
+import reducers from "../redux-state-reducers";
 import {
   Action,
   applyMiddleware,
@@ -11,7 +11,6 @@ import * as storage from "redux-storage";
 import filter from "redux-storage-decorator-filter";
 import createEngine from "redux-storage-engine-reactnativeasyncstorage";
 import * as io from "socket.io-client";
-import * as socketWildcard from "socketio-wildcard";
 
 const engine: storage.StorageEngine = filter(
   createEngine("redux"),
@@ -62,7 +61,6 @@ fetch("/config")
   })
   .then(config => {
     socket = io(config.socketIo);
-    socketWildcard();
     socket.on("action", action => {
       store.dispatch(action);
     });

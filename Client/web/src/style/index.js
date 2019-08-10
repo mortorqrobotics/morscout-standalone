@@ -1,2 +1,2 @@
-import styles from "client-common/src/style";
+import styles from "../common/style";
 export default styles;

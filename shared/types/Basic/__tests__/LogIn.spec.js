@@ -6,22 +6,22 @@ import {
   invalidCredentials
 } from "../LogIn";
 
-test("Login stays the same", () => {
+test("login stays the same", () => {
   expect(login).toMatchSnapshot();
 });
 
-test("Loggedin stays the same", () => {
+test("loggedin stays the same", () => {
   expect(loggedin).toMatchSnapshot();
 });
 
-test("Logout stays the same", () => {
+test("logout stays the same", () => {
   expect(logout).toMatchSnapshot();
 });
 
-test("Loggedout stays the same", () => {
+test("loggedout stays the same", () => {
   expect(loggedout).toMatchSnapshot();
 });
 
-test("Invalid Credentials stay the same", () => {
+test("invalid Credentials stay the same", () => {
   expect(invalidCredentials).toMatchSnapshot();
 });

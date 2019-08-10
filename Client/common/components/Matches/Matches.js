@@ -88,9 +88,7 @@ class Matches extends React.Component {
                     ).getMinutes()}`,
                     red: match.red,
                     blue: match.blue,
-                    progress: `${match.progress.current} of ${
-                      match.progress.max
-                    }`
+                    progress: `${match.progress.current} of ${match.progress.max}`
                   }));
                   if (_.has(key)) {
                     const fuse = new Fuse(

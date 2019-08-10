@@ -1,16 +1,16 @@
 {
-  "compilerOptions": {
-    "baseUrl": "src", // This must be specified if "paths" is.
-    "paths": {
-      "react-native": ["react-native-web"],
-      "screen": ["screens"],
-      "~": ["components"],
-      "@": ["polyfills"],
-      "style": ["style"],
-      "store": ["redux-state/store"],
-      "reducers": ["redux-state/reducers"],
-      "actions": ["redux-state/actions"],
-      "uranium": ["uranium"]
-    }
+  "baseUrl": "src/",
+  "include": ["**/*"],
+  "exclude": ["node_modules"],
+  "paths": {
+    "react-native": ["react-native-web"],
+    "screen": ["screens"],
+    "~": ["common/components"],
+    "@": ["polyfills"],
+    "style": ["style"],
+    "store": ["common/redux-state-store"],
+    "reducers": ["common/redux-state-reducers"],
+    "actions": ["common/redux-state-actions"],
+    "uranium": ["common/uranium/src"]
   }
 }

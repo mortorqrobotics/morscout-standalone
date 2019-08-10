@@ -76,6 +76,11 @@ module.exports = {
   favicon: resolveApp(path.join("public", "logo.png")),
   appPackageJson: resolveApp("package.json"),
   appSrc: resolveApp("src"),
+  appsSrc: [
+    resolveApp("src"),
+    resolveApp("..", "common"),
+    resolveApp("..", "uranium")
+  ],
   appTsConfig: resolveApp("..", "tsconfig.json"),
   appTsLint: resolveApp("..", ".tslint.json"),
   yarnLockFile: resolveApp("yarn.lock"),

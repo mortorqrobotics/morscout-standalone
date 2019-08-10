@@ -4,12 +4,12 @@ import geojson from "geojson";
 import schema from "../Team";
 import { pointSchema } from "../util/GeoJSON";
 
-test("Team is a schema", async () => {
+test("team is a schema", async () => {
   expect.assertions(1);
   expect(schema).toBeInstanceOf(mongoose.Schema);
 });
 
-test("Team does not throw on valid team", async () => {
+test("team does not throw on valid team", async () => {
   expect.assertions(1);
   const Team = mongoose.model("Team", schema);
   const Point = mongoose.model("Point", pointSchema);

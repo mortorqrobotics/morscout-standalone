@@ -3,8 +3,8 @@ import { writeFileSync, unlinkSync } from "fs";
 import { stringify } from "yaml";
 import config, { loadConfig } from "../config";
 
-test("configuration loads", () => {
-  expect(config()).resolves.toBeInstanceOf(Object);
+test("configuration loads", async () => {
+  await expect(config()).resolves.toBeInstanceOf(Object);
 });
 
 test("configuration Loader works", async () => {
