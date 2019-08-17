@@ -3,7 +3,8 @@
     "baseUrl": "src", // This must be specified if "paths" is.
     "paths": {
       "models": ["models"],
-      "config": ["config"]
+      "config": ["config"],
+      "user": ["user"]
     },
     "esModuleInterop": true
   }

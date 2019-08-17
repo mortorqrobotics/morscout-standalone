@@ -14,7 +14,7 @@ const getSrc = (...folder) => path.resolve(__dirname, "..", "src", ...folder);
 // It compiles slowly and is focused on producing a fast and minimal bundle.
 // The development configuration is different and lives in a separate file.
 module.exports = {
-  target: "async-node",
+  target: "node",
   // We generate sourcemaps in production. This is slow but gives good results.
   // You can exclude the *.map files from the build during deployment.
   devtool: "source-map",
@@ -29,7 +29,6 @@ module.exports = {
     // There will be one main bundle, and one file per asynchronous chunk.
     // We don't currently advertise code splitting but Webpack supports it.
     filename: "[name].js",
-    chunkFilename: "chunks/[name].[chunkhash:8].chunk.js",
     // // We inferred the "public path" (such as / or /my-project) from homepage.
     publicPath: paths.serverBuild,
     library: "morscout",
@@ -45,6 +44,7 @@ module.exports = {
       // It is guaranteed to exist because we tweak it in `env.js`
       process.env.NODE_PATH.split(path.delimiter).filter(Boolean)
     ),
+    symlinks: false,
     // These are the reasonable defaults supported by the Node ecosystem.
     // We also include JSX as a common component filename extension to support
     // some tools, although we do not recommend using it, see:
@@ -56,7 +56,9 @@ module.exports = {
     }),
     alias: {
       // MorScout Folder Linking
-      models: getSrc("models")
+      models: getSrc("models"),
+      config: getSrc("config"),
+      user: getSrc("user")
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).
@@ -117,28 +119,13 @@ module.exports = {
           {
             test: /\.(ts|tsx)$/,
             include: paths.srcPaths,
-            exclude: [/[/\\\\]node_modules[/\\\\]/],
+            // exclude: [/[/\\\\]node_modules[/\\\\]/],
             loader: require.resolve("ts-loader")
           },
-          // Process any JS outside of the app with Babel.
-          // Unlike the application JS, we only compile the standard ES features.
           {
-            test: /\.js$/,
-            use: [
-              // This loader parallelizes code compilation, it is optional but
-              // improves compile time on larger projects
-              require.resolve("thread-loader"),
-              {
-                loader: require.resolve("babel-loader"),
-                options: {
-                  cacheDirectory: true,
-                  highlightCode: true
-                }
-              }
-            ]
+            test: /\.node$/,
+            loader: require.resolve("node-loader")
           }
-          // ** STOP ** Are you adding a new loader?
-          // Make sure to add the new loader(s) before the "file" loader.
         ]
       }
     ]
@@ -151,9 +138,16 @@ module.exports = {
     new HardSourceWebpackPlugin(),
     new webpack.EnvironmentPlugin({
       __version: packageJson.version
+    }),
+    new webpack.optimize.LimitChunkCountPlugin({
+      maxChunks: 1
     })
   ],
-  externals: [NodeExternals()],
+  externals: [
+    NodeExternals({
+      modulesFromFile: true
+    })
+  ],
   node: {
     Buffer: false,
     __dirname: true,

@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "scripts": {
     "start": "node ./scripts/start.js",
-    "build": "node ./scripts/start.js",
+    "build": "node ./scripts/build.js",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
     "test": "jest",
     "test:snyk": "snyk test",
@@ -125,5 +125,6 @@
     "webpack-merge": "^4.2.1",
     "webpack-node-externals": "^1.7.2",
     "workbox-webpack-plugin": "^4.3.1"
-  }
+  },
+  "main": "build/asset-manifest.json"
 }

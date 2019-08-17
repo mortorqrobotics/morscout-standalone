@@ -1,6 +1,17 @@
-import { loadAllMatches } from "Shared/types/Matches";
+import { loadAllMatches, loadMatch } from "Shared/types/Matches";
 
-export default () => ({
-  type: loadAllMatches,
-  data: "LOAD_ALL_MATCHES"
-});
+export function getMatches() {
+  return {
+    type: loadAllMatches,
+    data: "LOAD_ALL_MATCHES"
+  };
+}
+
+export function getMatch(id) {
+  return {
+    type: loadMatch,
+    data: {
+      id
+    }
+  };
+}

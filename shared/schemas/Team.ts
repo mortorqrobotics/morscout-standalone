@@ -10,15 +10,15 @@ const Team: mongoose.Schema = new mongoose.Schema({
   number: {
     // Just the team number
     type: Number,
-    validate: {
-      validator: num =>
+    validate: [
+      num =>
         Number.isSafeInteger(num) &&
         Number.isFinite(num) &&
         !Number.isNaN(num) &&
         num > 0 &&
         num <= 9999,
-      message: "{ Value } is not a legal team number"
-    },
+      "{ Value } is not a legal team number"
+    ],
     required: true
   },
   /**

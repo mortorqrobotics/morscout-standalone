@@ -1,5 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Load Match stays the same 1`] = `"server/LOAD_MATCH"`;
-
-exports[`Updated Match stays the same 1`] = `"UPDATED_MATCH"`;

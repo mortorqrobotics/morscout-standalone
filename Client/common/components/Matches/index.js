@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import loadMatches from "actions/Matches/index";
+import { getMatches } from "actions/Matches";
 import Matches from "./Matches";
 
 function mapStateToProps(state) {
@@ -24,7 +24,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    load: () => dispatch(loadMatches())
+    load: () => dispatch(getMatches())
   };
 }
 

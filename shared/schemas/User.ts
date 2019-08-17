@@ -1,5 +1,5 @@
 import * as mongoose from "mongoose";
-import * as bcrypt from "bcryptjs";
+import bcrypt from "bcryptjs";
 
 let SALT_WORK_FACTOR = 10;
 
@@ -57,19 +57,19 @@ var userSchema = new mongoose.Schema({
   }
 });
 
-userSchema.pre("save", function(next) {
+userSchema.pre<userInterface>("save", function(next) {
   let capitalize = str => str[0].toUpperCase() + str.slice(1).toLowerCase();
   this.firstname = capitalize(this.firstname);
   this.lastname = capitalize(this.lastname);
   next();
 });
 
-userSchema.pre("save", function(next) {
+userSchema.pre<userInterface>("save", function(next) {
   let user = this;
 
   // if (!user.isModified("password")) return next(); Doesn't work
 
-  bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
+  bcrypt.genSalt(SALT_WORK_FACTOR, function(err: Error, salt: string) {
     bcrypt.hash(user.password, salt, function(err, hash) {
       user.password = hash;
       next();
@@ -89,5 +89,13 @@ userSchema.methods.comparePassword = function(candidatePassword) {
     })
   );
 };
+
+export interface userInterface extends mongoose.Document {
+  comparePassword(password: string): boolean;
+  username: string;
+  password: string;
+  firstname: string;
+  lastname: string;
+}
 
 export default userSchema;

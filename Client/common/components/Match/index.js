@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import loadMatch from "actions/Match";
+import { getMatch } from "actions/Matches";
 import Match from "./Match";
 
 export default function makeMatch(id) {
@@ -20,7 +20,7 @@ export default function makeMatch(id) {
 
   function mapDispatchToProps(dispatch) {
     return {
-      load: i => dispatch(loadMatch(i))
+      load: i => dispatch(getMatch(i))
     };
   }
 

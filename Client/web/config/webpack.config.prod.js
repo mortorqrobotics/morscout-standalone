@@ -3,11 +3,7 @@ const ClosurePlugin = require("closure-webpack-plugin");
 const safePostCssParser = require("postcss-safe-parser");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const paths = require("./paths");
-const common = require("client-common/config/webpack.config")(
-  paths,
-  require("./env"),
-  require("./resolve")
-);
+const common = require("./webpack.config");
 
 // This is the development configuration.
 // It is focused on developer experience and fast rebuilds.

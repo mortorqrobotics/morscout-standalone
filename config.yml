@@ -1,7 +1,9 @@
 logging: console # Logging configuration, can be redis, console, logstash, or apm
 log_level: info # Log level, can be debug, info, warning, or error
 
-tba_api_key: # The blue alliance API keys, to get it go to https://thebluealliance.com
+tba_api_key: Null # The blue alliance API keys, to get it go to https://thebluealliance.com
+
+port: 8443
 
 mongo: # used for information storage (e.g. Matches, Teams, Users, etc.) and a backup if redis is not configured
   use: # Disable use for testing (default is wheather hostname or consul_service are set)
@@ -21,20 +23,15 @@ vault: # used for access control and api keys if configured
   consul_service: # Name of the consul service
   hostname:
 
-consul: # used for service discovery
-  use: # Disable use for testing (default is wheather hostname or consul_service are set)
-  hostname:
-  service: # metadata for the service, should probably not be changed
-    name: morscout
-    tags:
-      - node
-      - web
-      - react
-morscout: # General settings for morscout
-  ports:
-    http:
-    http_redirect: 80
-    https: 443
-    http2:
-    grpc:
-    socket.io: 3002
+# consul: # used for service discovery
+#   use: # Disable use for testing (default is wheather hostname or consul_service are set)
+#   hostname:
+#   service: # metadata for the service, should probably not be changed
+#     name: morscout
+#     tags:
+#       - node
+#       - web
+#       - react
+env:
+  devlopment:
+    consul: false
