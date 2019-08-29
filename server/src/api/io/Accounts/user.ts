@@ -1,9 +1,10 @@
 import { User } from "models";
+import secureCompare from "secure-compare";
 import { genToken } from "user";
 import { userInterface } from "Shared/schemas/User";
 import { invalidCredentials } from "Shared/types/Basic/LogIn";
 export const getUserLoggin = async (token, username, password) => {
-  if (token !== undefined)
+  if (typeof token == "undefined")
     return (
       (await User.findOne(
         {

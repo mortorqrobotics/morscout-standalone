@@ -6,3 +6,7 @@ env:
   node: true
 globals:
   configEmitter: readonly
+plugins:
+  - security
+extends:
+  - plugin:security/recommended

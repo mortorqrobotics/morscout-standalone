@@ -1,6 +1,7 @@
 import consul, { Agent } from "consul";
 import { v4 as uuid } from "uuid";
 import ConfigEmitter, { Configuration } from "./ConfigEmitter";
+import changed from "./changed";
 
 export interface ConsulArgs {
   hostname: string;
@@ -51,6 +52,7 @@ export default (configEmitter: ConfigEmitter, consulArgs: ConsulArgs) => {
     );
   });
 
+  // eslint-disable-next-line security/detect-non-literal-fs-filename
   const monitor = consulClient.watch({
     method: consulClient.kv.get,
     options: {
@@ -65,10 +67,7 @@ export default (configEmitter: ConfigEmitter, consulArgs: ConsulArgs) => {
       .map(name => name.substr("morscout/".length))
       .forEach(key => {
         const val = kvData.getValue(key);
-        if (val !== configEmitter.config[key]) {
-          configEmitter.config[key] = val;
-          configEmitter.emit(`changed${key[0].toUpper()}${key.substr(1)}`, val);
-        }
+        changed(configEmitter, key, val);
       });
   });
 
