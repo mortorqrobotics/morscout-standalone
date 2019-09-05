@@ -6,6 +6,7 @@ import redisClient from "./redis";
 import consulClient from "./consul";
 import mongooseClient from "./mongo";
 import defaultConfig from "./defaultConfig";
+import logger from "./logger";
 
 function loadConfig(path): Configuration {
   const data: Buffer = readFileSync(path);
@@ -23,6 +24,8 @@ configEmitter.config = Object.assign(
   args
 );
 
+logger(configEmitter);
+
 let consulArgs: URL;
 try {
   consulArgs = new URL(args.consulHost as string);
@@ -35,7 +38,7 @@ let mongoArgs: URL;
 try {
   mongoArgs = new URL(args.redisHost as string);
 } catch {}
-if (!((config.mongoose && config.mongoose.use) || mongoArgs)) {
+if (!(config.mongo || mongoArgs)) {
   throw new Error("MORSCOUT NEEDS MONGODB!");
 }
 mongooseClient(configEmitter, mongoArgs);

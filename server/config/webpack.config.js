@@ -58,7 +58,9 @@ module.exports = {
       // MorScout Folder Linking
       models: getSrc("models"),
       config: getSrc("config"),
-      user: getSrc("user")
+      user: getSrc("user"),
+      api: getSrc("api", "general"),
+      cli: getSrc("cli")
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).

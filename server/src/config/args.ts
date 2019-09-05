@@ -1,7 +1,9 @@
-import * as yargs from "yargs";
+import Yargs from "yargs/yargs";
 import isDocker from "is-docker";
 import { path as appRootPath } from "app-root-path";
 import { join } from "path";
+
+const yargs = Yargs(process.argv.slice(2));
 
 const development: boolean =
   (process.env.NODE_ENV !== "production" &&
@@ -14,15 +16,28 @@ export default yargs
   .scriptName("morscout-server")
   .env("MORSCOUT")
   .usage("$0 [args]")
+  .option("interactive", {
+    demandOption: false,
+    default: development && !docker,
+    type: "boolean"
+  })
+  .option("install", {
+    alias: "i",
+    demandOption: false,
+    default: false,
+    type: "boolean"
+  })
   .option("development", {
     alias: "d",
     demandOption: false,
-    default: undefined
+    default: false,
+    type: "boolean"
   })
   .option("config", {
     alias: "c",
     demandOption: false,
-    default: `${join(appRootPath, "config.yml")}`
+    default: `${join(appRootPath, "config.yml")}`,
+    type: "string"
   })
   .option("port", {
     alias: "p",

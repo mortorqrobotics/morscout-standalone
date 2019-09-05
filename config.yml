@@ -1,30 +1,28 @@
 logging: console # Logging configuration, can be redis, console, logstash, or apm
-log_level: info # Log level, can be debug, info, warning, or error
+logLevel: info # Log level, can be debug, info, warning, or error
+interactive: true
 
-tba_api_key: Null # The blue alliance API keys, to get it go to https://thebluealliance.com
+tbaApiKey: Null # The blue alliance API keys, to get it go to https://thebluealliance.com
 
 port: 8443
 
 mongo: # used for information storage (e.g. Matches, Teams, Users, etc.) and a backup if redis is not configured
-  use: # Disable use for testing (default is wheather hostname or consul_service are set)
-  consul_service: # Name of the consul service
-  hostname: localhost:27017
-  username:
-  password:
+  consulService: # Name of the consul service
+  url: mongodb+srv://morscout:tails@morscout-b981s.mongodb.net/morscout?retryWrites=true&w=majority
 
 redis: # used for session storage and logging if configured to do so
-  use: # Disable use for testing (default is wheather hostname or consul_service are set)
-  consul_service: # Name of the consul service
+  use: # Disable use for testing (default is wheather hostname or consulService are set)
+  consulService: # Name of the consul service
   hostname:
   password:
 
 vault: # used for access control and api keys if configured
-  use: # Disable use for testing (default is wheather hostname or consul_service are set)
-  consul_service: # Name of the consul service
+  use: # Disable use for testing (default is wheather hostname or consulService are set)
+  consulService: # Name of the consul service
   hostname:
 
 # consul: # used for service discovery
-#   use: # Disable use for testing (default is wheather hostname or consul_service are set)
+#   use: # Disable use for testing (default is wheather hostname or consulService are set)
 #   hostname:
 #   service: # metadata for the service, should probably not be changed
 #     name: morscout

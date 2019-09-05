@@ -5,7 +5,7 @@ import {
   loggedout,
   anonymous
 } from "Shared/types/Basic/LogIn";
-import { getUserLoggin, logoutUser } from "./user";
+import { getUserLoggin, logoutUser } from "api/Accounts";
 
 export default socket => {
   socket.user = anonymous;
@@ -14,9 +14,13 @@ export default socket => {
     const info = getUserLoggin(token, username, password);
     socket.user = user;
     socket.token = info.token;
+    socket.team = getTeam(info.team);
     socket.emit("action", {
       type: loggedin,
-      data: info
+      data: {
+        user: info,
+        team: socket.team
+      }
     });
   });
   socket.on(logout, async () => {

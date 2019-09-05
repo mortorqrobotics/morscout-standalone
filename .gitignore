@@ -59,3 +59,5 @@ buck-out/
 
 /*/build
 /coverage
+
+/config.yaml

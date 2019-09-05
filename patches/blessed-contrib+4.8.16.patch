@@ -1,0 +1,38 @@
+diff --git a/node_modules/blessed-contrib/index.d.ts b/node_modules/blessed-contrib/index.d.ts
+index 94f6896..30dddb1 100644
+--- a/node_modules/blessed-contrib/index.d.ts
++++ b/node_modules/blessed-contrib/index.d.ts
+@@ -431,7 +431,25 @@ declare namespace BlessedContrib {
+             options: TreeOptions;
+         }
+ 
++        export interface CarouselOptions {
++            screen: Blessed.Widgets.Screen;
++            rotate?: boolean;
++            interval?: number;
++            controlKeys?: boolean;
++        }
++
++        export class CarouselElement implements IHasOptions<CarouselOptions> {
++            constructor(opts: CarouselOptions)
+ 
++            move(): void;
++            next(): void;
++            prev(): void;
++            home(): void;
++            end(): void;
++            start(): void;
++
++            options: CarouselOptions;
++        }
+     }
+ 
+     export module widget {
+@@ -502,6 +520,7 @@ declare namespace BlessedContrib {
+     export function gaugeList(options?: Widgets.GaugeListOptions): Widgets.GaugeListElement
+ 
+     export function donut(options?: Widgets.DonutOptions): Widgets.DonutElement
++    export function carousel(screens: ((screen: Blessed.Widgets.Screen) => void)[], options?: Widgets.CarouselOptions): void;
+ 
+ }
+ 

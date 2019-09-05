@@ -12,7 +12,7 @@
     "release": "release-it",
     "commit": "run-s -s git-add git-cz git-push",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx Client Shared Server",
-    "postinstall": "run-p -s protect patch",
+    "postinstall": "run-p -s patch",
     "patch": "patch-package",
     "protect": "snyk protect",
     "git-add": "git-add",

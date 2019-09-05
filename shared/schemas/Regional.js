@@ -44,6 +44,12 @@ const RegionalSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Season",
     required: true
+  },
+  key: {
+    type: String,
+    required: true,
+    unique: true,
+    index: true
   }
 });
 

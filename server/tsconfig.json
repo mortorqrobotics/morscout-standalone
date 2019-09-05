@@ -4,7 +4,9 @@
     "paths": {
       "models": ["models"],
       "config": ["config"],
-      "user": ["user"]
+      "user": ["user"],
+      "api/*": ["api/general/*"],
+      "cli": ["cli"]
     },
     "esModuleInterop": true
   }
