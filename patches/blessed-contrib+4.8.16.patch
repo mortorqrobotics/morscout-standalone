@@ -1,8 +1,18 @@
 diff --git a/node_modules/blessed-contrib/index.d.ts b/node_modules/blessed-contrib/index.d.ts
-index 94f6896..30dddb1 100644
+index 94f6896..93a31af 100644
 --- a/node_modules/blessed-contrib/index.d.ts
 +++ b/node_modules/blessed-contrib/index.d.ts
-@@ -431,7 +431,25 @@ declare namespace BlessedContrib {
+@@ -336,6 +336,9 @@ declare namespace BlessedContrib {
+         export class MapElement extends CanvasElement implements IHasOptions<MapOptions> {
+             constructor(opts: MapOptions)
+ 
++            addMarker(marker: object): void;
++            clearMarkers(): void;
++
+             options: MapOptions;
+         }
+ 
+@@ -431,7 +434,25 @@ declare namespace BlessedContrib {
              options: TreeOptions;
          }
  
@@ -28,7 +38,7 @@ index 94f6896..30dddb1 100644
      }
  
      export module widget {
-@@ -502,6 +520,7 @@ declare namespace BlessedContrib {
+@@ -502,6 +523,7 @@ declare namespace BlessedContrib {
      export function gaugeList(options?: Widgets.GaugeListOptions): Widgets.GaugeListElement
  
      export function donut(options?: Widgets.DonutOptions): Widgets.DonutElement

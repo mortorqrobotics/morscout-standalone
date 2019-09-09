@@ -1,8 +1,7 @@
 import blessed from "blessed";
-// import config from "config";
 import contrib from "blessed-contrib";
-import { terminalControl } from "./terminal";
-import { Writable } from "stream";
+import page1 from "./Log";
+import page2 from "./Dashboard";
 
 export const screen = blessed.screen({
   smartCSR: true,
@@ -11,44 +10,14 @@ export const screen = blessed.screen({
   ignoreDockContrast: true,
   title: "morscout"
 });
-screen.key(["escape", "C-c"], function(ch, key) {
+screen.key(["escape", "C-c", "q"], function(ch, key) {
   screen.destroy();
   process.exit(0);
 });
 
-export const terminalBox = blessed.box({
-  parent: screen,
-  border: {
-    type: "line"
-  },
-  width: "50%",
-  left: "50%"
+var carousel = new contrib.carousel([page1, page2], {
+  screen: screen,
+  interval: 0, //how often to switch views (set 0 to never swicth automatically)
+  controlKeys: true //should right and left keyboard arrows control view rotation
 });
-
-export const logText = contrib.log({
-  parent: screen,
-  label: "Server Log",
-  border: { type: "line" },
-  width: "50%"
-});
-
-terminalControl(terminalBox, logText);
-
-class LogStream extends Writable {
-  constructor(options) {
-    super(options);
-    this.log = options.log;
-  }
-  log: blessed.Widgets.Log;
-  _write(chunk, encoding, callback) {
-    try {
-      this.log.log(chunk);
-    } catch {}
-  }
-}
-export const logStream = new LogStream({ log: logText });
-
-screen.key(["escape", "C-c"], function(ch, key) {
-  screen.destroy();
-  return process.exit(0);
-});
+carousel.start();

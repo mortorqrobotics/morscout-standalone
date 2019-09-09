@@ -7,11 +7,12 @@ import config from "config";
 export default () => {
   const router = express.Router();
   router.use((req, res, next) => {
-    config.logger.info(req);
+    config.logger.debug(req);
     next();
   });
   router.use(Matches);
   router.use(Teams);
   router.use(Misc);
+  config.logger.info("Finished setting up HTTP API");
   return router;
 };

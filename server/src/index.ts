@@ -9,6 +9,7 @@ import api from "./api";
 import { readFileSync } from "fs";
 import generateCertificateKey from "./generateCert";
 import configEmitter from "config";
+import "cli";
 
 const io: socketIo.Server = socketIo();
 
@@ -56,7 +57,10 @@ let server: Server = Application.listen(
     port: configEmitter.config.port,
     host: configEmitter.config.hostname
   },
-  () => console.log(`Started Server on port ${configEmitter.config.port}`)
+  () =>
+    configEmitter.logger.info(
+      `Started Server on port ${configEmitter.config.port}`
+    )
 );
 configEmitter.on("changePort", (port: number) => {
   const tmpServer = Application.listen({
