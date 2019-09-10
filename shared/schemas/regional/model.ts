@@ -1,7 +1,8 @@
 import { Schema } from "mongoose";
-import { pointSchema, polygonSchema } from "./util/GeoJSON";
+import { pointSchema, polygonSchema } from "../util/geojson";
+import IRegional from "./interface";
 
-const RegionalSchema = new Schema({
+const RegionalSchema: Schema<IRegional> = new Schema({
   name: {
     type: String,
     required: true

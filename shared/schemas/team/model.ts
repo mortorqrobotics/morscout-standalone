@@ -1,7 +1,8 @@
-import * as mongoose from "mongoose";
-import { pointSchema } from "./util/GeoJSON";
+import { Schema } from "mongoose";
+import { pointSchema } from "../util/geojson";
+import ITeam from "./interface";
 
-const Team: mongoose.Schema = new mongoose.Schema({
+export default new Schema<ITeam>({
   name: {
     // The team name
     type: String,
@@ -36,14 +37,15 @@ const Team: mongoose.Schema = new mongoose.Schema({
   // List of Registered Regionals
   registeredRegionals: [
     {
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: "Regional"
     }
   ],
   location: {
     type: pointSchema,
     required: true
+  },
+  regional: {
+    type: String
   }
 });
-
-export default Team;

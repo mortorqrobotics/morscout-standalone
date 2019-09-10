@@ -1,6 +1,6 @@
 import "mockingoose";
 import mongoose from "mongoose";
-import schema from "../User";
+import schema from ".";
 
 test("user is a schema", async () => {
   expect.assertions(1);

@@ -1,6 +1,4 @@
-const path = require("path");
-
-const getSrc = (...p) => path.join(__dirname, "src", ...p);
+const resolve = require("./config/webpack.config");
 
 module.exports = {
   collectCoverageFrom: ["src/**/*.{js,ts}", "!src/**/*.d.ts"],
@@ -13,10 +11,16 @@ module.exports = {
   testURL: "http://localhost",
   transform: {
     "^.+\\.(ts)$": "ts-jest",
-    "^.+\\.(js)$": "<rootDir>/../node_modules/babel-jest",
-    "^(?!.*\\.(js|ts|json)$)": "<rootDir>/config/jest/fileTransform.js"
+    "^.+\\.(js)$": "<rootDir>/config/jest/babelTransform.js"
   },
   transformIgnorePatterns: ["[/\\\\]node_modules[/\\\\].+\\.(js|ts)$"],
   moduleFileExtensions: ["js", "ts", "json", "node"],
-  rootDir: __dirname
+  rootDir: __dirname,
+  moduleNameMapper: Object.entries(resolve.resolve.alias).reduce(
+    (p, v) => ({
+      ...p,
+      [`^${v[0]}(.*)$`]: `${v[1]}$1`
+    }),
+    {}
+  )
 };

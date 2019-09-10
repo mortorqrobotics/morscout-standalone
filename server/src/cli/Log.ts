@@ -12,7 +12,8 @@ export default screen => {
   screen.render();
   const log = blessed.log({
     label: "Server Log",
-    border: { type: "line" }
+    border: { type: "line" },
+    height: "100%-1"
   });
   logging = true;
   logStream.setLog(log);

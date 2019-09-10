@@ -5,7 +5,8 @@ import { dirname } from "path";
 import { Server } from "net";
 import { createServer as https } from "https";
 import { createSecureServer as http2 } from "http2";
-import api from "./api";
+import httpAPI from "./api/server";
+import ioAPI from "./api/io";
 import { readFileSync } from "fs";
 import generateCertificateKey from "./generateCert";
 import configEmitter from "config";
@@ -14,16 +15,11 @@ import "cli";
 const io: socketIo.Server = socketIo();
 
 io.on("connection", (socket: socketIo.Socket) => {
-  api.io(socket);
+  ioAPI(socket);
 });
 
 const app = express();
-app.use(
-  "/api",
-  api.server({
-    mongoose
-  })
-);
+app.use("/api", httpAPI());
 
 app.get("/config", (req, res) =>
   res.json({

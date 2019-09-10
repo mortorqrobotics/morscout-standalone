@@ -1,6 +1,7 @@
 import { Schema } from "mongoose";
+import IAlliance from "./interface";
 
-const Alliance = new Schema({
+export default new Schema<IAlliance>({
   teams: [
     {
       type: Schema.Types.ObjectId,
@@ -9,5 +10,3 @@ const Alliance = new Schema({
     }
   ]
 });
-
-export default Alliance;

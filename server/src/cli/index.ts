@@ -1,7 +1,8 @@
 import blessed from "blessed";
 import contrib from "blessed-contrib";
-import page1 from "./Log";
-import page2 from "./Dashboard";
+import page1 from "./log";
+import page2 from "./dashboard";
+import buttons from "./buttons";
 
 export const screen = blessed.screen({
   smartCSR: true,
@@ -10,7 +11,7 @@ export const screen = blessed.screen({
   ignoreDockContrast: true,
   title: "morscout"
 });
-screen.key(["escape", "C-c", "q"], function(ch, key) {
+screen.key(["escape", "C-c", "q"], (ch, key) => {
   screen.destroy();
   process.exit(0);
 });
@@ -21,3 +22,8 @@ var carousel = new contrib.carousel([page1, page2], {
   controlKeys: true //should right and left keyboard arrows control view rotation
 });
 carousel.start();
+
+buttons(screen);
+screen.key(["right", "left", "home", "end"], () => {
+  setImmediate(() => buttons(screen));
+});

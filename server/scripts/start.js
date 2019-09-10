@@ -65,6 +65,7 @@ const compiler = createCompiler({
 });
 let server;
 const watcher = compiler.watch({}, (error, stats) => {
+  console.log(error);
   if (error) {
     console.log(error);
     return;
@@ -74,7 +75,7 @@ const watcher = compiler.watch({}, (error, stats) => {
     );
     if (fs.existsSync(path.join(__dirname, "..", "build", "server.js"))) {
       if (typeof server !== "undefined") server.kill();
-      server = fork(path.join(__dirname, "..", "build", "server.js"));
+      // server = fork(path.join(__dirname, "..", "build", "server.js"));
     }
   }
 });

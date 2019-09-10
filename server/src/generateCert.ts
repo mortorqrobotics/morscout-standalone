@@ -1,7 +1,12 @@
 import { pki } from "node-forge";
 
 // generate a keypair and create an X.509v3 certificate
-export default (hostname: string) => {
+export default (
+  hostname: string
+): {
+  key: string;
+  certificate: string;
+} => {
   var keys = pki.rsa.generateKeyPair(2048);
   var cert = pki.createCertificate();
   cert.publicKey = keys.publicKey;

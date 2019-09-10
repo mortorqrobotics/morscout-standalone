@@ -1,5 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Load Team stays the same 1`] = `"server/getTeams"`;
+exports[`load Team stays the same 1`] = `"server/getTeams"`;
 
-exports[`Updated Team stays the same 1`] = `"UPDATED_TEAMS"`;
+exports[`updated Team stays the same 1`] = `"UPDATED_TEAMS"`;

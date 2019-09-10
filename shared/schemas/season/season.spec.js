@@ -1,6 +1,6 @@
 import "mockingoose";
 import mongoose from "mongoose";
-import schema from "../Season";
+import schema from ".";
 
 test("season is a schema", async () => {
   expect.assertions(1);

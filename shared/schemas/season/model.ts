@@ -1,6 +1,7 @@
-import * as mongoose from "mongoose";
+import { Schema } from "mongoose";
+import ISeason from "./interface";
 
-const Season: mongoose.Schema = new mongoose.Schema({
+export default new Schema<ISeason>({
   year: {
     type: Number,
     validate: year => year >= 1989 && year <= new Date().getUTCFullYear() + 1,
@@ -29,5 +30,3 @@ const Season: mongoose.Schema = new mongoose.Schema({
     required: true
   }
 });
-
-export default Season;

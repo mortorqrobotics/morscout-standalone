@@ -1,7 +1,21 @@
 {
   "name": "shared",
   "version": "0.0.1",
+  "scripts": {
+    "test": "jest"
+  },
   "devDependencies": {
-    "babel-jest": "^24.9.0"
+    "@types/bcryptjs": "^2.4.2",
+    "@types/geojson": "^7946.0.7",
+    "@types/mongoose": "^5.5.17",
+    "babel-jest": "^24.9.0",
+    "core-js": "^3.2.1",
+    "jest": "^24.9.0",
+    "mockingoose": "^2.13.2",
+    "ts-jest": "^24.0.2"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "geojson-validation": "^0.2.1"
   }
 }

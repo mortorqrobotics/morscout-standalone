@@ -1,14 +1,14 @@
 import { parse } from "yaml";
 import { readFileSync } from "fs";
 import args from "./args";
-import ConfigEmitter, { Configuration } from "./ConfigEmitter";
+import ConfigEmitter, { IConfiguration } from "./ConfigEmitter";
 import redisClient from "./redis";
 import consulClient from "./consul";
 import mongooseClient from "./mongo";
 import defaultConfig from "./defaultConfig";
 import logger from "./logger";
 
-function loadConfig(path): Configuration {
+function loadConfig(path): IConfiguration {
   const data: Buffer = readFileSync(path);
   return parse(data.toString());
 }

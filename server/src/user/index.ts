@@ -5,6 +5,7 @@ import configEmitter from "config";
 export function genToken(user) {
   let token = base64url(randomBytes(36));
   configEmitter.clients.redis.set(token, user._id);
+  return token;
 }
 
 export function getUser(token) {

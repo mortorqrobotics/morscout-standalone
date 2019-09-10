@@ -5,33 +5,33 @@ import Consul from "consul";
 import mongoose from "mongoose";
 import winston from "winston";
 
-interface CommonOpts {
+interface ICommonOpts {
   use: boolean;
   consulService: string;
 }
 
-interface ConsulOpts
+interface IConsulOpts
   extends Consul.ConsulOptions,
     Consul.Agent.Check.RegisterOptions,
-    CommonOpts {}
-interface RedisOpts extends ClientOpts, CommonOpts {}
-interface MongooseOpts extends mongoose.ConnectionOptions, CommonOpts {
+    ICommonOpts {}
+interface IRedisOpts extends ClientOpts, ICommonOpts {}
+interface IMongooseOpts extends mongoose.ConnectionOptions, ICommonOpts {
   url: string;
 }
 
-export interface Configuration {
+export interface IConfiguration {
   interactive: boolean;
   development: boolean;
   port: number;
   redirectPort: number;
   hostname: string;
-  redis: RedisOpts;
-  consul: ConsulOpts;
-  mongo: MongooseOpts;
+  redis: IRedisOpts;
+  consul: IConsulOpts;
+  mongo: IMongooseOpts;
   cert: string;
   key: string;
   env: {
-    [propName: string]: Configuration;
+    [propName: string]: IConfiguration;
   };
   install: {
     full: boolean;
@@ -45,7 +45,7 @@ export interface Configuration {
 }
 
 export default class ConfigEmitter extends EventEmitter {
-  config: Configuration;
+  config: IConfiguration;
   logger: winston.Logger;
   clients: {
     consul?: Consul.Consul;

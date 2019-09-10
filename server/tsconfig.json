@@ -9,5 +9,6 @@
       "cli": ["cli"]
     },
     "esModuleInterop": true
-  }
+  },
+  "files": ["i-really-hope-you-dont-have-a-file-with-this-name"]
 }

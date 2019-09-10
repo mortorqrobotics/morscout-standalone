@@ -1,6 +1,6 @@
 import consul, { Agent } from "consul";
 import { v4 as uuid } from "uuid";
-import ConfigEmitter, { Configuration } from "./ConfigEmitter";
+import ConfigEmitter, { IConfiguration } from "./ConfigEmitter";
 import changed from "./changed";
 
 export interface ConsulArgs {

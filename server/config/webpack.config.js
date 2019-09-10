@@ -122,7 +122,10 @@ module.exports = {
             test: /\.(ts|tsx)$/,
             include: paths.srcPaths,
             // exclude: [/[/\\\\]node_modules[/\\\\]/],
-            loader: require.resolve("ts-loader")
+            loader: require.resolve("ts-loader"),
+            options: {
+              allowTsInNodeModules: true
+            }
           },
           {
             test: /\.node$/,
@@ -154,5 +157,8 @@ module.exports = {
     Buffer: false,
     __dirname: true,
     __filename: false
+  },
+  watchOptions: {
+    ignored: /node_modules/
   }
 };

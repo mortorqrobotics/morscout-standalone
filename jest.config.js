@@ -8,29 +8,29 @@ module.exports = {
       },
       require("./Server/jest.config")
     ),
-    Object.assign(
-      {
-        displayName: "Client Common"
-      },
-      require("./Client/common/jest.config")
-    ),
+    // Object.assign(
+    //   {
+    //     displayName: "Client Common"
+    //   },
+    //   require("./clients/common/jest.config")
+    // ),
     Object.assign(
       {
         displayName: "Client Web"
       },
-      require("./Client/web/jest.config")
+      require("./clients/web/jest.config")
     ),
     Object.assign(
       {
         displayName: "Client Electron"
       },
-      require("./Client/electron/jest.config")
+      require("./clients/electron/jest.config")
     ),
     Object.assign(
       {
         displayName: "Client React Native"
       },
-      require("./Client/react-native/jest.config")
+      require("./clients/react-native/jest.config")
     ),
     Object.assign(
       {

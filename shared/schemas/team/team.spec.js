@@ -1,7 +1,7 @@
 import "mockingoose";
 import mongoose from "mongoose";
 import geojson from "geojson";
-import schema from "../Team";
+import schema from ".";
 import { pointSchema } from "../util/GeoJSON";
 
 test("team is a schema", async () => {

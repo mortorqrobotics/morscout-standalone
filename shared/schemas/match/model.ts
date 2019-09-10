@@ -1,6 +1,7 @@
 import { Schema } from "mongoose";
+import IMatch from "./interface";
 
-const Match = new Schema({
+export default new Schema<IMatch>({
   redAlliance: {
     type: Schema.Types.ObjectId,
     ref: "Alliance",
@@ -29,5 +30,3 @@ const Match = new Schema({
     required: true
   }
 });
-
-export default Match;

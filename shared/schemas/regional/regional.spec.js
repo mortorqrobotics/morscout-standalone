@@ -1,6 +1,6 @@
 import "mockingoose";
 import mongoose from "mongoose";
-import schema from "../Regional";
+import schema from ".";
 import { pointSchema, polygonSchema } from "../util/GeoJSON";
 
 test("regional is a Schema", async () => {
@@ -25,7 +25,8 @@ test("regional does not throw on valid Regional", async () => {
     startDate: new Date(0),
     endDate: new Date(1000),
     season: mongoose.Types.ObjectId(), // Generate a random ObjectID
-    eventType: "regional"
+    eventType: "regional",
+    key: "abc123"
   };
   expect(new Regional(regional).validateSync()).toBeUndefined();
 });

@@ -1,0 +1,12 @@
+import { Document } from "mongoose";
+import ITeam from "../Team/interface";
+
+export default interface IUser extends Document {
+  comparePassword(password: string): Promise<boolean>;
+  username: string;
+  password: string;
+  mobileDeviceTokens: string[];
+  firstname: string;
+  lastname: string;
+  team: ITeam["_id"];
+}

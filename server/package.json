@@ -4,7 +4,8 @@
   "scripts": {
     "start": "node scripts/start",
     "build": "node scripts/build",
-    "lint": "eslint --ext .js,.jsx,.ts,.tsx ."
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
+    "test": "jest"
   },
   "dependencies": {
     "add": "^2.0.6",
@@ -69,6 +70,7 @@
     "@types/blessed": "^0.1.12",
     "@types/consul": "^0.23.33",
     "@types/express": "^4.17.1",
+    "@types/geojson": "^7946.0.7",
     "@types/jest": "^24.0.18",
     "@types/mongoose": "^5.5.17",
     "@types/node": "^12.7.4",
@@ -112,6 +114,7 @@
     "node-loader": "^0.6.0",
     "pnp-webpack-plugin": "^1.4.3",
     "prettier": "^1.17.0",
+    "redis-mock": "^0.46.0",
     "semver": "^6.0.0",
     "shelljs": "^0.8.3",
     "source-map-loader": "^0.2.3",
