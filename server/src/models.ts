@@ -1,10 +1,10 @@
 import { model, Model } from "mongoose";
-import allianceSchema, { IAlliance } from "Shared/schemas/Alliance";
-import matchSchema, { IMatch } from "Shared/schemas/Match";
-import regionalSchema, { IRegional } from "shared/schemas/Regional";
-import seasonSchema, { ISeason } from "Shared/schemas/Season";
-import teamSchema, { ITeam } from "Shared/schemas/Team";
-import userSchema, { IUser } from "Shared/schemas/User";
+import allianceSchema, { IAlliance } from "shared/schemas/alliance";
+import matchSchema, { IMatch } from "shared/schemas/match";
+import regionalSchema, { IRegional } from "shared/schemas/regional";
+import seasonSchema, { ISeason } from "shared/schemas/season";
+import teamSchema, { ITeam } from "shared/schemas/team";
+import userSchema, { IUser } from "shared/schemas/user";
 
 export const Alliance: Model<IAlliance> = model("Alliance", allianceSchema);
 export const Match: Model<IMatch> = model("Match", matchSchema);

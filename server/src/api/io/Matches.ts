@@ -1,4 +1,4 @@
-import { updated, loadAllMatches, loadMatch } from "Shared/types/Matches";
+import { updated, loadAllMatches, loadMatch } from "shared/types/Matches";
 import getMatches from "api/Matches/getMatches";
 import getMatch from "api/Matches/getMatch";
 import { Schema } from "mongoose";

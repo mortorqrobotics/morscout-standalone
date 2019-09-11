@@ -1,4 +1,4 @@
-import { loggedin, loggedout } from "Shared/types/Basic/LogIn";
+import { loggedin, loggedout } from "shared/types/Basic/LogIn";
 
 export default (state = { loggedIn: false }, { type, data }) => {
   switch (type) {

@@ -1,4 +1,4 @@
-import { updated, loadTeams, loadTeam } from "Shared/types/Teams";
+import { updated, loadTeams, loadTeam } from "shared/types/Teams";
 import { Schema } from "mongoose";
 import { Socket } from "socket.io";
 import getTeams from "api/Teams/getTeams";

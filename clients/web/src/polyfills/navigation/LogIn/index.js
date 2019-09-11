@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignInAlt } from "@fortawesome/free-solid-svg-icons";
 import nanoid from "nanoid";
 import { createCipher } from "aes256";
-import { login } from "Shared/types/Basic/LogIn";
+import { login } from "shared/types/Basic/LogIn";
 import styles from "./styles";
 
 Modal.setAppElement("#root");

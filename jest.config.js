@@ -34,9 +34,9 @@ module.exports = {
     ),
     Object.assign(
       {
-        displayName: "Shared"
+        displayName: "shared"
       },
-      require("./Shared/jest.config")
+      require("./shared/jest.config")
     )
   ]
 };

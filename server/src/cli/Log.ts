@@ -13,7 +13,20 @@ export default screen => {
   const log = blessed.log({
     label: "Server Log",
     border: { type: "line" },
-    height: "100%-1"
+    height: "100%-1",
+    keys: true,
+    vi: true,
+    mouse: true,
+    scrollback: 100,
+    scrollbar: {
+      ch: " ",
+      track: {
+        bg: "yellow"
+      },
+      style: {
+        inverse: true
+      }
+    }
   });
   logging = true;
   logStream.setLog(log);

@@ -4,7 +4,7 @@ import {
   logout,
   loggedout,
   anonymous
-} from "Shared/types/Basic/LogIn";
+} from "shared/types/Basic/LogIn";
 import { getUserLoggin, logoutUser } from "api/Accounts";
 
 export default socket => {

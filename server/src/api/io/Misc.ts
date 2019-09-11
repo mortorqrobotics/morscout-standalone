@@ -1,4 +1,4 @@
-import { loadSeason, updatedSeason } from "Shared/types/Misc/Season";
+import { loadSeason, updatedSeason } from "shared/types/Misc/Season";
 import getSeason from "api/Misc/getSeason";
 import { Socket } from "socket.io";
 

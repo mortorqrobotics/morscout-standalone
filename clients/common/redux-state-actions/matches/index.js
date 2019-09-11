@@ -1,4 +1,4 @@
-import { loadAllMatches, loadMatch } from "Shared/types/Matches";
+import { loadAllMatches, loadMatch } from "shared/types/Matches";
 
 export function getMatches() {
   return {

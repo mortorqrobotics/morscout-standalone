@@ -1,4 +1,4 @@
-import { loadTeams } from "Shared/types/Teams";
+import { loadTeams } from "shared/types/Teams";
 
 export default id => ({
   type: loadTeams,
