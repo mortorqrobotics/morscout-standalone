@@ -16,11 +16,15 @@ export default (box: blessed.Widgets.BoxElement) => {
         bg: "blue",
         hover: {
           bg: "red"
+        },
+        focus: {
+          bg: "green",
+          hover: { bg: "green" }
         }
       }
     });
     button.on("press", async () => {
-      button.setContent("{green-bg}Installing{/green-bg}");
+      button.setContent("Installing");
       await install();
       button.destroy();
       installed = true;

@@ -1,4 +1,3 @@
-import "mockingoose";
 import * as models from "../models";
 
 test("models stay the same", () => {

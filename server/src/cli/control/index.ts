@@ -1,6 +1,5 @@
 import blessed from "blessed";
-import map from "./map";
-import resources from "./resources";
+import clear from "./clear";
 
 //create layout and widgets
 export default (screen: blessed.Widgets.Screen) => {
@@ -9,19 +8,13 @@ export default (screen: blessed.Widgets.Screen) => {
   const bbox = blessed.box({
     height: "100%-1"
   });
+  clear(
+    blessed.box({
+      parent: bbox,
+      top: 0,
+      left: 0
+    })
+  );
   screen.render();
-  map(
-    blessed.box({
-      width: "50%",
-      parent: bbox
-    })
-  );
-  resources(
-    blessed.box({
-      width: "50%",
-      right: 0,
-      parent: bbox
-    })
-  );
   screen.append(bbox);
 };

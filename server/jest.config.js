@@ -7,6 +7,7 @@ module.exports = {
     "<rootDir>/src/**/__tests__/**/*.{js,ts}",
     "<rootDir>/src/**/?(*.)(spec|test).{js,ts}"
   ],
+  setupFiles: ["<rootDir>/config/jest/setup/mongoose.js"],
   testEnvironment: "node",
   testURL: "http://localhost",
   transform: {

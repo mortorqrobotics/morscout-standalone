@@ -1,5 +1,5 @@
 logging: console # Logging configuration, can be redis, console, logstash, or apm
-logLevel: info # Log level, can be debug, info, warning, or error
+logLevel: debug # Log level, can be debug, info, warning, or error
 interactive: true
 
 tbaApiKey: Null # The blue alliance API keys, to get it go to https://thebluealliance.com

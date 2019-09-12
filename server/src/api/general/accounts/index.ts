@@ -1,17 +1,28 @@
 import { User } from "models";
+import IUser from "shared/schemas/user/interface";
 import secureCompare from "secure-compare";
-import { genToken } from "user";
+import { genToken, delToken } from "user";
 import { invalidCredentials } from "shared/types/Basic/LogIn";
-export const getUserLoggin = async (token, username, password) => {
-  if (typeof token == "undefined")
-    return (
-      (await User.findOne(
-        {
-          mobileDeviceToken: token
-        },
-        "-password -mobileTokens -email -parentEmail -phone"
-      )) || invalidCredentials
+
+export interface IUserLogin extends IUser {
+  token: string;
+}
+
+export const getUserLoggin = async (
+  token,
+  username,
+  password
+): Promise<IUserLogin> => {
+  if (typeof token == "undefined") {
+    let user = await User.findOne(
+      {
+        mobileDeviceToken: token
+      },
+      "-password -mobileTokens -email -parentEmail -phone"
     );
+    if (!user) throw new Error(invalidCredentials);
+    return Object.assign(user, { token: genToken(user) });
+  }
   const user = await User.findOne(
     {
       username
@@ -19,12 +30,9 @@ export const getUserLoggin = async (token, username, password) => {
     "-password -mobileTokens -email -parentEmail -phone"
   );
   if (await user.comparePassword(password)) {
-    return {
-      ...user,
-      mobileDeviceTokens: undefined,
-      password: undefined
-    };
+    return Object.assign(user, { token: genToken(user) });
   }
+  throw new Error(invalidCredentials);
 };
 
-export const logoutUser = () => true;
+export const logoutUser = (token: string) => delToken(token);
