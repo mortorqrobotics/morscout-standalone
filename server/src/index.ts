@@ -19,7 +19,7 @@ io.on("connection", (socket: socketIo.Socket) => {
 });
 
 const app = express();
-app.use("/api", httpAPI());
+app.use("/api", httpAPI);
 
 app.get("/config", (req, res) =>
   res.json({

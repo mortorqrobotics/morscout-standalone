@@ -9,4 +9,6 @@ export default interface IUser extends Document {
   firstname: string;
   lastname: string;
   team: ITeam["_id"];
+  phone: number;
+  email: string;
 }

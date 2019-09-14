@@ -1,0 +1,220 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`http has the same routes 1`] = `
+Array [
+  Layer {
+    "handle": [Function],
+    "keys": Array [],
+    "name": "<anonymous>",
+    "params": undefined,
+    "path": undefined,
+    "regexp": /\\^\\\\/\\?\\(\\?=\\\\/\\|\\$\\)/i,
+    "route": undefined,
+  },
+  Layer {
+    "handle": [Function],
+    "keys": Array [
+      Object {
+        "name": "regional",
+        "offset": 10,
+        "optional": false,
+      },
+    ],
+    "name": "bound dispatch",
+    "params": undefined,
+    "path": undefined,
+    "regexp": /\\^\\\\/matches\\\\/\\(\\?:\\(\\[\\^\\\\/\\]\\+\\?\\)\\)\\\\/\\?\\$/i,
+    "route": Route {
+      "methods": Object {
+        "get": true,
+      },
+      "path": "/matches/:regional",
+      "stack": Array [
+        Layer {
+          "handle": [Function],
+          "keys": Array [],
+          "method": "get",
+          "name": "<anonymous>",
+          "params": undefined,
+          "path": undefined,
+          "regexp": /\\^\\\\/\\?\\$/i,
+        },
+      ],
+    },
+  },
+  Layer {
+    "handle": [Function],
+    "keys": Array [
+      Object {
+        "name": "match",
+        "offset": 8,
+        "optional": false,
+      },
+    ],
+    "name": "bound dispatch",
+    "params": undefined,
+    "path": undefined,
+    "regexp": /\\^\\\\/match\\\\/\\(\\?:\\(\\[\\^\\\\/\\]\\+\\?\\)\\)\\\\/\\?\\$/i,
+    "route": Route {
+      "methods": Object {
+        "get": true,
+      },
+      "path": "/match/:match",
+      "stack": Array [
+        Layer {
+          "handle": [Function],
+          "keys": Array [],
+          "method": "get",
+          "name": "<anonymous>",
+          "params": undefined,
+          "path": undefined,
+          "regexp": /\\^\\\\/\\?\\$/i,
+        },
+      ],
+    },
+  },
+  Layer {
+    "handle": [Function],
+    "keys": Array [
+      Object {
+        "name": "season",
+        "offset": 8,
+        "optional": false,
+      },
+    ],
+    "name": "bound dispatch",
+    "params": undefined,
+    "path": undefined,
+    "regexp": /\\^\\\\/teams\\\\/\\(\\?:\\(\\[\\^\\\\/\\]\\+\\?\\)\\)\\\\/\\?\\$/i,
+    "route": Route {
+      "methods": Object {
+        "get": true,
+      },
+      "path": "/teams/:season",
+      "stack": Array [
+        Layer {
+          "handle": [Function],
+          "keys": Array [],
+          "method": "get",
+          "name": "<anonymous>",
+          "params": undefined,
+          "path": undefined,
+          "regexp": /\\^\\\\/\\?\\$/i,
+        },
+      ],
+    },
+  },
+  Layer {
+    "handle": [Function],
+    "keys": Array [
+      Object {
+        "name": "team",
+        "offset": 7,
+        "optional": false,
+      },
+    ],
+    "name": "bound dispatch",
+    "params": undefined,
+    "path": undefined,
+    "regexp": /\\^\\\\/team\\\\/\\(\\?:\\(\\[\\^\\\\/\\]\\+\\?\\)\\)\\\\/\\?\\$/i,
+    "route": Route {
+      "methods": Object {
+        "get": true,
+      },
+      "path": "/team/:team",
+      "stack": Array [
+        Layer {
+          "handle": [Function],
+          "keys": Array [],
+          "method": "get",
+          "name": "<anonymous>",
+          "params": undefined,
+          "path": undefined,
+          "regexp": /\\^\\\\/\\?\\$/i,
+        },
+      ],
+    },
+  },
+  Layer {
+    "handle": [Function],
+    "keys": Array [],
+    "name": "bound dispatch",
+    "params": undefined,
+    "path": undefined,
+    "regexp": /\\^\\\\/season\\\\/\\?\\$/i,
+    "route": Route {
+      "methods": Object {
+        "get": true,
+      },
+      "path": "/season",
+      "stack": Array [
+        Layer {
+          "handle": [Function],
+          "keys": Array [],
+          "method": "get",
+          "name": "<anonymous>",
+          "params": undefined,
+          "path": undefined,
+          "regexp": /\\^\\\\/\\?\\$/i,
+        },
+      ],
+    },
+  },
+  Layer {
+    "handle": [Function],
+    "keys": Array [
+      Object {
+        "name": "year",
+        "offset": 9,
+        "optional": false,
+      },
+    ],
+    "name": "bound dispatch",
+    "params": undefined,
+    "path": undefined,
+    "regexp": /\\^\\\\/season\\\\/\\(\\?:\\(\\[\\^\\\\/\\]\\+\\?\\)\\)\\\\/\\?\\$/i,
+    "route": Route {
+      "methods": Object {
+        "get": true,
+      },
+      "path": "/season/:year",
+      "stack": Array [
+        Layer {
+          "handle": [Function],
+          "keys": Array [],
+          "method": "get",
+          "name": "<anonymous>",
+          "params": undefined,
+          "path": undefined,
+          "regexp": /\\^\\\\/\\?\\$/i,
+        },
+      ],
+    },
+  },
+  Layer {
+    "handle": [Function],
+    "keys": Array [],
+    "name": "bound dispatch",
+    "params": undefined,
+    "path": undefined,
+    "regexp": /\\^\\\\/\\?\\$/i,
+    "route": Route {
+      "methods": Object {
+        "get": true,
+      },
+      "path": "/",
+      "stack": Array [
+        Layer {
+          "handle": [Function],
+          "keys": Array [],
+          "method": "get",
+          "name": "<anonymous>",
+          "params": undefined,
+          "path": undefined,
+          "regexp": /\\^\\\\/\\?\\$/i,
+        },
+      ],
+    },
+  },
+]
+`;

@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`get matches by id works 1`] = `"{\\"_id\\":\\"7d7be5a7994e35048b9e5e0e\\",\\"redAlliance\\":\\"2d7ce5a7994e35048b9e5e0e\\",\\"blueAlliance\\":\\"2d7ce5a7994e35048b9e5e0e\\",\\"winner\\":\\"Red\\",\\"startDate\\":\\"2019-02-03T17:00:00.000Z\\",\\"endDate\\":\\"2019-02-03T17:10:00.000Z\\",\\"Regional\\":\\"6d7be5a7994e35048b9e5e0e\\",\\"__v\\":0}"`;
+
+exports[`get matches by regional works 1`] = `"[{\\"_id\\":\\"7d7be5a7994e35048b9e5e0e\\",\\"redAlliance\\":\\"2d7ce5a7994e35048b9e5e0e\\",\\"blueAlliance\\":\\"2d7ce5a7994e35048b9e5e0e\\",\\"winner\\":\\"Red\\",\\"startDate\\":\\"2019-02-03T17:00:00.000Z\\",\\"endDate\\":\\"2019-02-03T17:10:00.000Z\\",\\"Regional\\":\\"6d7be5a7994e35048b9e5e0e\\",\\"__v\\":0}]"`;
+
+exports[`matches has the same routes 1`] = `
+Array [
+  "/match/:match",
+  "/matches/:regional",
+]
+`;

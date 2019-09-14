@@ -1,14 +1,33 @@
+import { setup, teardown } from "setup/mongoose";
 jest.doMock("fs");
+jest.doMock("redis");
+jest.doMock("consul");
 import args from "../args";
-jest.requireMock("fs").__setMockFiles({
-  [args.config]: `
-  logLevel: error
-  mongo:
-    url: localhost:123`
-});
-import configEmitter from "..";
 import { EventEmitter } from "events";
+import ConfigEmitter from "../ConfigEmitter";
+
+afterAll(async () => {
+  // configEmitter.clients.mongoose.disconnect();
+  await teardown();
+});
+
+let configEmitter: ConfigEmitter;
+
+beforeAll(async () => {
+  jest.requireMock("fs").__setMockFiles({
+    [args.config]: `
+logLevel: error
+mongo:
+  url: ${await setup()}
+consul:
+  use: true
+  hostname: googleplex
+  port: 1`
+  });
+  configEmitter = require("..").default;
+});
 
 test("configEmitter is an EventEmitter", async () => {
+  expect(configEmitter).toBeInstanceOf(ConfigEmitter);
   expect(configEmitter).toBeInstanceOf(EventEmitter);
 });

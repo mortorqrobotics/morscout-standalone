@@ -1,9 +1,10 @@
 import { User, Team } from "models";
-export default async socket => {
+export default async userId => {
+  if (!userId) return;
   return await Team.find(
     {
       registeredRegionals: (await Team.findById(
-        (await User.findById(socket.user.id)).team
+        (await User.findById(userId)).team
       )).regional
     },
     "+number"

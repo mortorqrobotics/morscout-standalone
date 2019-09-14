@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`/season returns the current season 1`] = `"{\\"_id\\":\\"5d7be5a7994e35048b9e5e0e\\",\\"year\\":2019,\\"name\\":\\"Destination Deep Space\\",\\"buildStart\\":\\"2019-01-04T17:00:00.000Z\\",\\"buildEnd\\":\\"2019-01-06T17:00:00.000Z\\",\\"seasonStart\\":\\"2019-01-08T17:00:00.000Z\\",\\"seasonEnd\\":\\"2019-02-03T17:00:00.000Z\\",\\"__v\\":0}"`;
+
+exports[`/season/year returns the correct year 1`] = `"{\\"_id\\":\\"4d7be5a7994e35048b9e5e0e\\",\\"year\\":2015,\\"name\\":\\"Destination Deep Space\\",\\"buildStart\\":\\"2019-01-04T17:00:00.000Z\\",\\"buildEnd\\":\\"2019-01-06T17:00:00.000Z\\",\\"seasonStart\\":\\"2019-01-08T17:00:00.000Z\\",\\"seasonEnd\\":\\"2019-02-03T17:00:00.000Z\\",\\"__v\\":0}"`;
+
+exports[`miscelaneous routes are the same 1`] = `
+Array [
+  "/season",
+  "/season/:year",
+]
+`;

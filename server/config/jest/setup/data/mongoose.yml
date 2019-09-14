@@ -1,0 +1,58 @@
+Season:
+  - _id: 5d7be5a7994e35048b9e5e0e
+    year: 2019
+    name: Destination Deep Space
+    buildStart: 2019-01-04 12:00:00 -5
+    buildEnd: 2019-01-06 12:00:00 -5
+    seasonStart: 2019-01-08 12:00:00 -5
+    seasonEnd: 2019-02-03 12:00:00 -5
+  - _id: 4d7be5a7994e35048b9e5e0e
+    year: 2015
+    name: Destination Deep Space
+    buildStart: 2019-01-04 12:00:00 -5
+    buildEnd: 2019-01-06 12:00:00 -5
+    seasonStart: 2019-01-08 12:00:00 -5
+    seasonEnd: 2019-02-03 12:00:00 -5
+Regional:
+  - _id: 6d7be5a7994e35048b9e5e0e
+    name: Hi!!!
+    key: abc
+    url: google.com
+    eventType: regional
+    startDate: 2019-01-08 12:00:00 -5
+    endDate: 2019-02-03 12:00:00 -5
+    season: 5d7be5a7994e35048b9e5e0e
+    location:
+      type: Point
+      coordinates: [0,0]
+Alliance:
+  - _id: 2d7ce5a7994e35048b9e5e0e
+    teams:
+      - 1d7ce5a7994e35048b9e5e0e
+      - 1d7ce5a7994e35048b9e5e0e
+      - 1d7ce5a7994e35048b9e5e0e
+Match:
+  - _id: 7d7be5a7994e35048b9e5e0e
+    redAlliance: 2d7ce5a7994e35048b9e5e0e
+    blueAlliance: 2d7ce5a7994e35048b9e5e0e
+    winner: Red
+    startDate: 2019-02-03 12:00:00 -5
+    endDate: 2019-02-03 12:10:00 -5
+    Regional: 6d7be5a7994e35048b9e5e0e
+User:
+  - _id: 8d7be5a7994e35048b9e5e0f
+    team: 9d7be5a7994e35048b9e5e0e
+    phone: 1334567890
+    email: bo@bob.bob
+    firstname: Bob
+    lastname: Boby
+    password: Secret
+    username: bob2
+Team:
+  - _id: 9d7be5a7994e35048b9e5e0e
+    regional: 6d7be5a7994e35048b9e5e0e
+    number: 1515
+    name: MorTorq
+    location:
+      type: Point
+      coordinates: [0,0]
