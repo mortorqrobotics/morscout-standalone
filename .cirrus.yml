@@ -57,5 +57,3 @@ docker_builder:
   docker_push_script:
     - docker-compose push --file docker/prod/docker-compose.yml
     - docker-compose push --file docker/dev/docker-compose.yml
-  docker_artifacts:
-    files: morscout.dab
