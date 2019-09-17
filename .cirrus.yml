@@ -12,7 +12,7 @@ test_task:
   install_script:
     - apt-get update
     - apt-get install -y build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev mongodb-server
-  node_modules: yarn install
+  yarn_install: yarn install
   test_script: yarn run test-coverage
   coverage_upload_script: bash <(curl -s https://codecov.io/bash) -F `node -v | sed 's/\..*$//'` -s coverage/ -t $CODECOV_TOKEN
 
@@ -20,11 +20,11 @@ lint_task:
   install_script:
     - apt-get update
     - apt-get install -y build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
-  node_modules: yarn install
+  yarn_install: yarn install
   lint_script: yarn run lint
 
 docker_builder:
-  only_if: $CIRRUS_TAG != ''
+  trigger_type: manual
   depends_on:
     - test
     - lint
@@ -41,17 +41,6 @@ docker_builder:
     - tar -xJf "node-v$NODE_VERSION-linux-$ARCH.tar.xz" -C /usr/local --strip-components=1 --no-same-owner
     - rm "node-v$NODE_VERSION-linux-$ARCH.tar.xz"
     - ln -s /usr/local/bin/node /usr/local/bin/nodejs
-  yarn_install_script:
-    - curl -fsSLO --compressed "https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz"
-    - mkdir -p /opt
-    - tar -xzf yarn-v$YARN_VERSION.tar.gz -C /opt/
-    - ln -s /opt/yarn-v$YARN_VERSION/bin/yarn /usr/local/bin/yarn
-    - ln -s /opt/yarn-v$YARN_VERSION/bin/yarnpkg /usr/local/bin/yarnpkg
-    - rm yarn-v$YARN_VERSION.tar.gz
-  app_install_script:
-    - apt-get update
-    - apt-get install -y build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
-    - yarn install
   snyk_install_script: npm i -g snyk
   snyk_login_script: snyk auth $SNYK_API_KEY
   docker_login_script: docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
@@ -62,10 +51,11 @@ docker_builder:
     - docker-compose build --file docker/prod/docker-compose.yml
     - docker-compose build --file docker/dev/docker-compose.yml
   docker_bundle_script:
-    - docker-compose bundle --file docker/prod/docker-compose.yml
+    - docker-compose bundle --file docker/prod/docker-compose.yml -o morscout.dab
   test_script: snyk test --docker $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest
   tag_script: docker tag $DOCKER_USERNAME/$CIRRUS_REPO_NAME:latest $DOCKER_USERNAME/$CIRRUS_REPO_NAME:r`echo $CIRRUS_TAG | sed "s/^[a-z0-9A-Z]//"`
   docker_push_script:
     - docker-compose push --file docker/prod/docker-compose.yml
     - docker-compose push --file docker/dev/docker-compose.yml
-  bundle_upload_script: .cirrus/upload_assets.sh
+  docker_artifacts:
+    files: morscout.dab
