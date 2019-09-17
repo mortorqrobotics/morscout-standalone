@@ -1,17 +1,17 @@
 container:
-    image: node:dubnium-stretch
+    image: node:lts-stretch
 
 test_task:
   env:
     CODECOV_TOKEN: ENCRYPTED[4d6a291143f26cb298cc95deae4bda9479e2696de6069f91159c876b4763d9fe39439f859c1b68fd198282db32c5e011]
-    MONGOMS_SYSTEM_BINARY: /usr/local/bin/mongod
+    MONGOMS_SYSTEM_BINARY: /usr/bin/mongod
   container:
     matrix:
       #image: node:stretch
       image: node:dubnium-stretch
   install_script:
     - apt-get update
-    - apt-get install -y build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev mongod
+    - apt-get install -y build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev mongodb-server
   node_modules_cache:
     folder: node_modules
     fingerprint_script: sha1sum yarn.lock
