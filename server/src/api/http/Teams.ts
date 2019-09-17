@@ -1,5 +1,5 @@
-import getTeams from "api/Teams/getTeams";
-import getTeam from "api/Teams/getTeam";
+import getTeams from "api/teams/getTeams";
+import getTeam from "api/teams/getTeam";
 import { Router, Request, Response } from "express";
 
 export default (router: Router) => {

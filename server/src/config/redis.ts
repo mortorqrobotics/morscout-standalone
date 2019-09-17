@@ -7,9 +7,8 @@ export interface RedisArgs {
 }
 
 export default (configEmitter: ConfigEmitter, redisArgs: RedisArgs) => {
-  configEmitter.clients.redis = generateAsync(
-    createClient(configEmitter.config.redis as ClientOpts)
-  );
+  configEmitter.clients.redis = createClient(configEmitter.config
+    .redis as ClientOpts);
   configEmitter.on("changeRedis", (config: ClientOpts) => {
     configEmitter.clients.redis = createClient(config);
   });
