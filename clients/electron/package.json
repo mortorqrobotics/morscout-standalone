@@ -6,7 +6,6 @@
     "build": "electron-builder build",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
     "test": "jest",
-    "test:snyk": "snyk test",
     "test-coverage": "jest --coverage"
   },
   "dependencies": {

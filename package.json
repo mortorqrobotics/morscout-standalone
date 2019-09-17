@@ -7,23 +7,17 @@
   "scripts": {
     "start": "node Server/build/server",
     "test": "jest",
-    "test:snyk": "snyk test",
     "test-coverage": "jest --coverage",
     "release": "release-it",
     "commit": "run-s -s git-add git-cz git-push",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx Client shared Server",
-    "postinstall": "patch",
     "patch": "patch-package",
-    "protect": "snyk protect",
     "git-add": "git-add",
     "git-cz": "git-cz",
-    "git-push": "git push",
-    "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect"
+    "git-push": "git push"
   },
   "license": "GPL-3.0",
   "dependencies": {
-    "nodemon": "^1.19.1",
     "npm-run-all": "^4.1.5",
     "patch-package": "^6.1.2"
   },

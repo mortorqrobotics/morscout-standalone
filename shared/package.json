@@ -2,7 +2,8 @@
   "name": "shared",
   "version": "0.0.1",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "postinstall": "yarn --cwd .. run patch-package"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
@@ -15,6 +16,7 @@
     "ts-jest": "^24.0.2"
   },
   "dependencies": {
+    "patch-package": "^6.2.0",
     "bcryptjs": "^2.4.3",
     "geojson-validation": "^0.2.1"
   }

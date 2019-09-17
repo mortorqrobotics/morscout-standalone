@@ -42,7 +42,6 @@
     "patch-package": "^6.1.4",
     "redis": "^2.8.0",
     "secure-compare": "^3.0.1",
-    "snyk": "^1.226.0",
     "socket.io": "^2.2.0",
     "source-map-support": "^0.5.12",
     "spdy": "^4.0.1",
