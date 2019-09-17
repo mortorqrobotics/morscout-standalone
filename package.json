@@ -44,10 +44,5 @@
     ]
   },
   "main": "Server/build/server.js",
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
   "snyk": true
 }
