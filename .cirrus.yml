@@ -12,10 +12,7 @@ test_task:
   install_script:
     - apt-get update
     - apt-get install -y build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev mongodb-server
-  node_modules_cache:
-    folder: node_modules
-    fingerprint_script: sha1sum yarn.lock
-    populate_script: yarn install
+  node_modules: yarn install
   test_script: yarn run test-coverage
   coverage_upload_script: bash <(curl -s https://codecov.io/bash) -F `node -v | sed 's/\..*$//'` -s coverage/ -t $CODECOV_TOKEN
 
@@ -23,10 +20,7 @@ lint_task:
   install_script:
     - apt-get update
     - apt-get install -y build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
-  node_modules_cache:
-    folder: node_modules
-    fingerprint_script: sha1sum yarn.lock
-    populate_script: yarn install
+  node_modules: yarn install
   lint_script: yarn run lint
 
 docker_builder:
