@@ -12,5 +12,8 @@
     "reducers": ["common/redux-state-reducers"],
     "actions": ["common/redux-state-actions"],
     "uranium": ["common/uranium/src"]
+  },
+  "compilerOptions": {
+    "jsx": "react"
   }
 }

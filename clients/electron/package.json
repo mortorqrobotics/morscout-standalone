@@ -9,7 +9,7 @@
     "test-coverage": "jest --coverage"
   },
   "dependencies": {
-    "electron": "^6.0.7",
+    "electron": "^6.0.9",
     "shelljs": "^0.8.3",
     "socket.io-client": "^2.2.0"
   },
