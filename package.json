@@ -10,7 +10,7 @@
     "test-coverage": "jest --coverage",
     "release": "release-it",
     "commit": "run-s -s git-add git-cz git-push",
-    "lint": "eslint --ext .js,.jsx,.ts,.tsx \"clients/*\" \"clients/common/*\" shared server",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx clients shared server",
     "patch": "patch-package",
     "git-add": "git-add",
     "git-cz": "git-cz",

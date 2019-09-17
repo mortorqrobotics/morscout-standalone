@@ -1,3 +1,4 @@
+/* eslint-disable security/detect-object-injection */
 import { join } from "path";
 import { readFileSync } from "fs";
 import { parse } from "yaml";
