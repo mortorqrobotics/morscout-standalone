@@ -5,7 +5,7 @@ const {
   ResolverFactory
 } = require("enhanced-resolve");
 const path = require("path");
-const configFactory = require("../../app/config/resolve.js");
+const configFactory = require("./config/resolve.js");
 
 // create a resolver
 function resolver(context) {

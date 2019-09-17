@@ -2,13 +2,13 @@ const resolve = require("./config/webpack.config");
 
 module.exports = {
   // automock: true,
-  preset: "@shelf/jest-mongodb",
   collectCoverageFrom: ["src/**/*.{js,ts}", "!src/**/*.d.ts"],
   resolver: "jest-pnp-resolver",
   testMatch: [
     "<rootDir>/src/**/__tests__/**/*{js,ts}",
     "<rootDir>/src/**/?(*.)(spec|test).{js,ts}"
   ],
+  globalSetup: "<rootDir>/config/jest/globalSetup.ts", // This thing just downloads MongoDB to stop timeouts
   testEnvironment: "node",
   testURL: "http://localhost",
   transform: {

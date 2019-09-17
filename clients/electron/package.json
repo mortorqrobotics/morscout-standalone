@@ -62,7 +62,6 @@
     "jest-canvas-mock": "^2.1.1",
     "jest-pnp-resolver": "^1.2.1",
     "jest-resolve": "^24.9.0",
-    "jest-watch-select-projects": "^0.1.1",
     "loader-utils": "^1.2.3",
     "node-loader": "^0.6.0",
     "pnp-webpack-plugin": "^1.4.3",

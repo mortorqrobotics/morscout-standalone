@@ -85,7 +85,6 @@
     "jest": "^24.9.0",
     "jest-pnp-resolver": "^1.2.1",
     "jest-resolve": "^24.9.0",
-    "jest-watch-select-projects": "^0.1.1",
     "loader-utils": "^1.2.3",
     "metro-react-native-babel-preset": "^0.56.0",
     "mockingoose": "^2.13.0",

@@ -15,7 +15,7 @@ const postcssPresetEnv = require("postcss-preset-env");
 const { argv } = require("yargs");
 const paths = require("./paths");
 const getClientEnvironment = require("./env");
-const resolveConf = require("./resolve");
+const resolve = require("./resolve");
 
 const getCSSModuleLocalIdent = function getLocalIdent(
   context,
@@ -130,9 +130,7 @@ module.exports = {
     // https://twitter.com/wSokra/status/969679223278505985
     runtimeChunk: true
   },
-  resolve: resolveConf({
-    platform: "web"
-  }),
+  resolve,
   resolveLoader: {
     plugins: [
       // Also related to Plug'n'Play, but this time it tells Webpack to load its loaders

@@ -1,7 +1,4 @@
-const path = require("path");
-
-const getSrc = (...p) => path.join(__dirname, "src", ...p);
-
+const resolve = require("./config/resolve");
 module.exports = {
   collectCoverageFrom: ["src/**/*.{js,jsx,ts,tsx}", "!src/**/*.d.ts"],
   resolver: "jest-pnp-resolver",
@@ -23,18 +20,15 @@ module.exports = {
     "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
     "^.+\\.module\\.(css|sass|scss)$"
   ],
-  moduleNameMapper: {
-    // "^react-native$": "react-native-web",
-    "^screen(.*)$": getSrc("screens", "$1"),
-    "^~/(.*)$": getSrc("components", "$1"),
-    "^@/(.*)$": getSrc("polyfills", "$1"),
-    "^style(.*)$": getSrc("style", "$1"),
-    "^store(.*)$": getSrc("redux-state", "store", "$1"),
-    "^reducers(.*)$": getSrc("redux-state", "reducers", "$1"),
-    "^actions/(.*)$": getSrc("redux-state", "actions", "$1"),
-    "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",
-    "^uranium": getSrc("uranium")
-  },
+  moduleNameMapper: Object.assign(
+    Object.entries(resolve.alias).reduce(
+      (p, v) => ({
+        ...p,
+        [`^${v[0]}(.*)$`]: `${v[1]}$1`
+      }),
+      {}
+    )
+  ),
   moduleFileExtensions: [
     "native.js",
     "js",

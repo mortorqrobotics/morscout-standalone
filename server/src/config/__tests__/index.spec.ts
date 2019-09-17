@@ -11,8 +11,6 @@ afterAll(async () => {
   await teardown();
 });
 
-let configEmitter: ConfigEmitter;
-
 beforeAll(async () => {
   jest.requireMock("fs").__setMockFiles({
     [args.config]: `
@@ -24,10 +22,11 @@ consul:
   hostname: googleplex
   port: 1`
   });
-  configEmitter = require("..").default;
 });
 
 test("configEmitter is an EventEmitter", async () => {
+  jest.useFakeTimers();
+  const configEmitter = require("..").default;
   expect(configEmitter).toBeInstanceOf(ConfigEmitter);
   expect(configEmitter).toBeInstanceOf(EventEmitter);
 });

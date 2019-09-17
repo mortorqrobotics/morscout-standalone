@@ -18,6 +18,6 @@ export async function setup() {
   return mongoUri;
 }
 
-export async function teardown(){
+export async function teardown() {
   mongoServer.stop();
 }

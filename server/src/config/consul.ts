@@ -60,16 +60,16 @@ export default (configEmitter: ConfigEmitter, consulArgs: ConsulArgs) => {
       // recurse: true
     }
   });
-  monitor.on("changed", kvData => {
-    const keys = kvData.getKeys();
-    keys
-      .filter(name => name.indexOf("morscout/") == 0)
-      .map(name => name.substr("morscout/".length))
-      .forEach(key => {
-        const val = kvData.getValue(key);
-        changed(configEmitter, key, val);
-      });
-  });
+  // monitor.on("changed", kvData => {
+  //   const keys = kvData.getKeys();
+  //   keys
+  //     .filter(name => name.indexOf("morscout/") == 0)
+  //     .map(name => name.substr("morscout/".length))
+  //     .forEach(key => {
+  //       const val = kvData.getValue(key);
+  //       changed(configEmitter, key, val);
+  //     });
+  // });
 
   Object.assign(configEmitter.config);
 };

@@ -42,7 +42,7 @@ module.exports = {
     reducers: getSrc("common", "redux-state-reducers"),
     store: getSrc("common", "redux-state-store"),
     // Platform Specific Polyfills
-    "@": getSrc("polyfills")
+    "@/": getSrc("polyfills")
   },
   plugins: [
     // Adds support for installing with Plug'n'Play, leading to faster installs and adding
