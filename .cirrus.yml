@@ -3,7 +3,6 @@ container:
 
 test_task:
   env:
-    SNYK_API_KEY: ENCRYPTED[314a3a0ecb95b127e5d8913af21829d6a5fe46ef7fc707f3a1c9fc1da8afe7740a3f956c42753b52007aaabbec707ad2]
     CODECOV_TOKEN: ENCRYPTED[4d6a291143f26cb298cc95deae4bda9479e2696de6069f91159c876b4763d9fe39439f859c1b68fd198282db32c5e011]
   container:
     matrix:
@@ -16,7 +15,6 @@ test_task:
     folder: node_modules
     fingerprint_script: sha1sum yarn.lock
     populate_script: yarn install
-  login_script: yarn snyk auth $SNYK_API_KEY
   test_script: yarn run test-coverage
   coverage_upload_script: bash <(curl -s https://codecov.io/bash) -F `node -v | sed 's/\..*$//'` -s coverage/ -t $CODECOV_TOKEN
 
