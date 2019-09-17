@@ -1,5 +1,5 @@
-import getMatches from "api/Matches/getMatches";
-import getMatch from "api/Matches/getMatch";
+import getMatches from "api/matches/getMatches";
+import getMatch from "api/matches/getMatch";
 import { Router, Request, Response } from "express";
 
 export default (router: Router) => {

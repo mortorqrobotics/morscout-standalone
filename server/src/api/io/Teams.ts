@@ -1,8 +1,8 @@
-import { updated, loadTeams, loadTeam } from "shared/types/Teams";
+import { updated, loadTeams, loadTeam } from "shared/types/teams";
 import { Schema } from "mongoose";
 import { Socket } from "socket.io";
-import getTeams from "api/Teams/getTeams";
-import getTeam from "api/Teams/getTeam";
+import getTeams from "api/teams/getTeams";
+import getTeam from "api/teams/getTeam";
 
 export default (socket: Socket) => {
   socket.on(loadTeams, async () => {

@@ -4,7 +4,7 @@ import {
   logout,
   loggedout,
   invalidCredentials
-} from "../LogIn";
+} from "../logIn";
 
 test("login stays the same", () => {
   expect(login).toMatchSnapshot();

@@ -2,7 +2,7 @@ import "mockingoose";
 import mongoose from "mongoose";
 import geojson from "geojson";
 import schema from ".";
-import { pointSchema } from "../util/GeoJSON";
+import { pointSchema } from "../util/geojson";
 
 test("team is a schema", async () => {
   expect.assertions(1);

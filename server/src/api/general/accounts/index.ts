@@ -1,8 +1,7 @@
 import { User } from "models";
 import IUser from "shared/schemas/user/interface";
-import secureCompare from "secure-compare";
 import { genToken, delToken } from "user";
-import { invalidCredentials } from "shared/types/Basic/LogIn";
+import { invalidCredentials } from "shared/types/basic/logIn";
 
 export interface IUserLogin extends IUser {
   token: string;

@@ -2,7 +2,6 @@ import { randomBytes } from "crypto";
 import base64url from "base64url";
 import configEmitter from "config";
 import IUser from "shared/schemas/user/interface";
-import { promisify } from "util";
 
 const { redis } = configEmitter.clients;
 

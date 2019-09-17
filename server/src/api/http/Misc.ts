@@ -1,4 +1,4 @@
-import getSeason from "api/Misc/getSeason";
+import getSeason from "api/misc/getSeason";
 import { Router, Request, Response } from "express";
 
 export default (router: Router) => {

@@ -7,7 +7,7 @@ import {
   multiLineSchema,
   polygonSchema,
   multiPolygonSchema
-} from "../GeoJSON";
+} from "../geojson";
 
 test("point works", async () => {
   expect.assertions(3);

@@ -1,6 +1,6 @@
-import { updated, loadAllMatches, loadMatch } from "shared/types/Matches";
-import getMatches from "api/Matches/getMatches";
-import getMatch from "api/Matches/getMatch";
+import { updated, loadAllMatches, loadMatch } from "shared/types/matches";
+import getMatches from "api/matches/getMatches";
+import getMatch from "api/matches/getMatch";
 import { Schema } from "mongoose";
 import { Socket } from "socket.io";
 

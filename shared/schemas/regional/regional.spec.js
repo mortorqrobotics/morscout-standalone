@@ -1,7 +1,7 @@
 import "mockingoose";
 import mongoose from "mongoose";
 import schema from ".";
-import { pointSchema, polygonSchema } from "../util/GeoJSON";
+import { pointSchema, polygonSchema } from "../util/geojson";
 
 test("regional is a Schema", async () => {
   expect.assertions(1);
