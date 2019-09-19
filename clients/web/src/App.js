@@ -1,9 +1,9 @@
 import React from "react";
 import { Provider } from "react-redux";
-import Index from "screen/Index";
-import Matches from "screen/Matches";
-import Match from "screen/Match";
-import Teams from "screen/Teams";
+import Index from "screen/index";
+import Matches from "screen/matches";
+import Match from "screen/match";
+import Teams from "screen/teams";
 import { createNavigator, SwitchRouter } from "@react-navigation/core";
 import { createBrowserApp } from "@react-navigation/web";
 import Navigation from "@/Navigation";

@@ -1,5 +1,5 @@
 module.exports = {
-  preset: "react-native",
+  // preset: "react-native",
   collectCoverageFrom: ["*/**/*.{js,jsx,ts,tsx}", "!*/**/*.d.ts"],
   resolver: "jest-pnp-resolver",
   // browser: true,
