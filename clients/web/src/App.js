@@ -4,11 +4,10 @@ import Index from "screen/Index";
 import Matches from "screen/Matches";
 import Match from "screen/Match";
 import Teams from "screen/Teams";
-import Settings from "screen/Settings";
 import { createNavigator, SwitchRouter } from "@react-navigation/core";
 import { createBrowserApp } from "@react-navigation/web";
 import Navigation from "@/Navigation";
-import store from "store";
+import store from "client-common-redux";
 
 const App = createBrowserApp(
   createNavigator(
@@ -17,7 +16,6 @@ const App = createBrowserApp(
       Index,
       Matches,
       Match,
-      Settings,
       Teams
     }),
     {}

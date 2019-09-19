@@ -9,7 +9,7 @@ export async function setup() {
   (process as any).mongoUri = mongoUri;
   await mongoose.connect(
     mongoUri,
-    { useNewUrlParser: true, useCreateIndex: true },
+    { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true },
     err => {
       if (err) console.error(err);
     }

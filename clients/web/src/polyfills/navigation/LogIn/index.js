@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import Modal from "react-modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignInAlt } from "@fortawesome/free-solid-svg-icons";
-import nanoid from "nanoid";
+import nanoid from "nanoid/non-secure";
 import { createCipher } from "aes256";
 import { login } from "shared/types/Basic/LogIn";
 import styles from "./styles";

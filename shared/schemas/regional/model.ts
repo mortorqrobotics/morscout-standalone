@@ -1,6 +1,6 @@
 import { Schema } from "mongoose";
 import { pointSchema, polygonSchema } from "../util/geojson";
-import IRegional from "./interface";
+import IRegional, {eventTypes} from "./interface";
 
 const RegionalSchema: Schema<IRegional> = new Schema({
   name: {
@@ -19,18 +19,7 @@ const RegionalSchema: Schema<IRegional> = new Schema({
   },
   eventType: {
     type: String,
-    enum: [
-      "regional",
-      "district",
-      "districtCompetition",
-      "championshipDivision",
-      "championshipFinals",
-      "disitrictCompetitionDivision",
-      "festivalOfChampions",
-      "offseason",
-      "preseason",
-      "unlabeled"
-    ],
+    enum: Object.keys(eventTypes),
     required: true
   },
   startDate: {

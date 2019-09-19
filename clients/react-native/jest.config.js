@@ -2,7 +2,7 @@ const resolve = require("./config/resolve");
 const escape = require("escape-string-regexp");
 
 module.exports = {
-  preset: "react-native",
+  // preset: "react-native",
   collectCoverageFrom: ["src/**/*.{js,jsx,ts,tsx}", "!src/**/*.d.ts"],
   resolver: "jest-pnp-resolver",
   browser: true,

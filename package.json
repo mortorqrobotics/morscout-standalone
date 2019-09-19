@@ -2,7 +2,7 @@
   "name": "morscout",
   "description": "FRC scouting application from MorTorq Robotics",
   "author": "MorTorq Robotics <mortorqrobotics@gmail.com> (https://team1515.org)",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha.1",
   "private": true,
   "scripts": {
     "start": "node Server/build/server",
@@ -23,7 +23,9 @@
   },
   "devDependencies": {
     "git-add": "^0.0.2",
-    "git-cz": "^3.2.1"
+    "git-cz": "^3.2.1",
+    "release-it": "^12.4.1",
+    "set-versions": "^1.0.3"
   },
   "workspaces": {
     "packages": [

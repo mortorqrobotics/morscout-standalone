@@ -1,0 +1,18 @@
+{
+  "baseUrl": "src/",
+  "include": ["**/*"],
+  "exclude": ["node_modules"],
+  "paths": {
+    "react-native": ["react-native-web"],
+    "~": ["components"],
+    "style": ["style"],
+    "store": ["redux-state-store"],
+    "reducers": ["redux-state-reducers"],
+    "actions": ["redux-state-actions"],
+    "uranium": ["uranium/src"]
+  },
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "jsx": "react"
+  }
+}

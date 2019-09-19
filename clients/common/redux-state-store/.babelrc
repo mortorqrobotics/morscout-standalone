@@ -1,0 +1,30 @@
+{
+  "sourceType": "unambiguous",
+  "presets": [
+    "@babel/react",
+    [
+      "@babel/env",
+      {
+        "useBuiltIns": "entry",
+        "corejs": 3,
+        "modules": false
+      }
+    ]
+  ],
+  "plugins": [
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/plugin-syntax-dynamic-import",
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ],
+    [
+      "@babel/plugin-proposal-class-properties",
+      {
+        "loose": false
+      }
+    ]
+  ]
+}

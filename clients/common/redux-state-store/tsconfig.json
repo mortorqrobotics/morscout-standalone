@@ -1,0 +1,9 @@
+{
+  "baseUrl": "src/",
+  "include": ["**/*"],
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "jsx": "react"
+  }
+}

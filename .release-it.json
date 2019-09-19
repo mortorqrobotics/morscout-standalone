@@ -1,4 +1,7 @@
 {
+  "hooks": {
+    "after:bump": "npx set-versions --workspaces"
+  },
   "git": {
     "requireCleanWorkingDir": false
   },

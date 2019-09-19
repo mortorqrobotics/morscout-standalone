@@ -1,0 +1,23 @@
+{
+  "name": "client-common-redux",
+  "version": "0.0.1-alpha.1",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "fs-extra": "^8.1.0",
+    "jest": "^24.9.0",
+    "json5": "^2.1.0",
+    "typescript": "^3.6.3"
+  },
+  "dependencies": {
+    "redux": "^4.0.4",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-storage": "^4.1.2",
+    "redux-storage-decorator-filter": "^1.1.8",
+    "redux-storage-engine-reactnativeasyncstorage": "^1.0.5",
+    "socket.io-client": "^2.2.0"
+  },
+  "main": "src",
+  "license": "MIT"
+}

@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`load Team stays the same 1`] = `"GET_SEASON"`;
+
+exports[`updated Team stays the same 1`] = `"UPDATED_SEASON"`;
