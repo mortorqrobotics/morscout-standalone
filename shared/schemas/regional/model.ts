@@ -1,6 +1,6 @@
 import { Schema } from "mongoose";
 import { pointSchema, polygonSchema } from "../util/geojson";
-import IRegional, {eventTypes} from "./interface";
+import IRegional, { eventTypes } from "./interface";
 
 const RegionalSchema: Schema<IRegional> = new Schema({
   name: {
