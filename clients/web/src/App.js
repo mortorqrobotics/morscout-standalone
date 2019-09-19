@@ -6,7 +6,7 @@ import Match from "screen/match";
 import Teams from "screen/teams";
 import { createNavigator, SwitchRouter } from "@react-navigation/core";
 import { createBrowserApp } from "@react-navigation/web";
-import Navigation from "@/Navigation";
+import Navigation from "@/navigation";
 import store from "client-common-redux";
 
 const App = createBrowserApp(
