@@ -3,7 +3,7 @@ import { View } from "react-native";
 import Uranium from "uranium";
 import style from "style";
 
-import Message, { RandomMessage } from "~/Basic/Messages";
+import Message, { RandomMessage } from "~/basic/Messages";
 import H from "@/H";
 
 export default

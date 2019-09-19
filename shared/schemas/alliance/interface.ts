@@ -1,5 +1,5 @@
 import { Document } from "mongoose";
-import ITeam from "../Team/interface";
+import ITeam from "../team/interface";
 
 type team = ITeam["_id"];
 export default interface IAlliance extends Document {

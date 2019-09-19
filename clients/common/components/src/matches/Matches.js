@@ -7,7 +7,7 @@ import fuzzyFilterFactory from "react-fuzzy-filter";
 import { View } from "react-native";
 import Match from "./Match";
 import H from "@/H";
-import Loader from "~/Basic/Loader";
+import Loader from "~/basic/Loader";
 
 const { InputFilter, FilterResults } = fuzzyFilterFactory();
 const fuseConfig = {

@@ -3,8 +3,6 @@ import React from "react";
 import renderer from "react-test-renderer";
 import Message, { RandomMessage } from "../Messages";
 
-// console.log(require("canvas"));
-
 test("message renders correctly", async () => {
   expect.assertions(1);
   const tree = renderer

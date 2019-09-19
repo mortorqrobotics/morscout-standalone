@@ -15,7 +15,7 @@ module.exports = babelJest.createTransformer({
       "@babel/env",
       {
         corejs: 3,
-        useBuiltIns: "entry"
+        useBuiltIns: "usage"
       }
     ]
   ],

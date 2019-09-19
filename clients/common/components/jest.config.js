@@ -19,7 +19,7 @@ module.exports = {
   transformIgnorePatterns: [
     "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
     "^.+\\.module\\.(css|sass|scss)$",
-    "!node_modules/(?!(shared)/)"
+    "!node_modules/(?!(shared|uranium)/)"
   ],
   moduleFileExtensions: [
     "web.js",

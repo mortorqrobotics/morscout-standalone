@@ -5,7 +5,7 @@ import Uranium from "uranium";
 import { withNavigation } from "@react-navigation/core";
 import style from "style";
 import Loadable from "react-loadable";
-import Loader from "~/Basic/Loader";
+import Loader from "~/basic/Loader";
 
 export default
 @withNavigation

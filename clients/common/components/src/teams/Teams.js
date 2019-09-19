@@ -6,7 +6,7 @@ import style from "style";
 import fuzzyFilterFactory from "react-fuzzy-filter";
 import { View } from "react-native";
 import H from "@/H";
-import Loader from "~/Basic/Loader";
+import Loader from "~/basic/Loader";
 
 const { InputFilter, FilterResults } = fuzzyFilterFactory();
 const fuseConfig = {
@@ -33,7 +33,7 @@ class Matches extends React.Component {
           PropTypes.number,
           PropTypes.string,
         ]),
-      })), 
+      })),
      })).isRequired, */
   };
 
