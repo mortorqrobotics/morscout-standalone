@@ -1,5 +1,5 @@
 import { Document } from "mongoose";
-import ITeam from "../t eam/interface";
+import ITeam from "../team/interface";
 
 export default interface IUser extends Document {
   comparePassword(password: string): Promise<boolean>;
