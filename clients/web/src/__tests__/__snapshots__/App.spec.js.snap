@@ -1,0 +1,212 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`app matches the snapshot 1`] = `
+<div
+  className="ur ur-4946712 ur ur-4946712 css-view-1dbjc4n"
+>
+  <div
+    className="ur ur-982a71e ur ur-982a71e css-view-1dbjc4n"
+    onClick={[Function]}
+  >
+    <div
+      className="ur ur-1baabca ur ur-1baabca css-view-1dbjc4n"
+    >
+      <a
+        href="/"
+        onClick={[Function]}
+      >
+        <style>
+          .ur.ur-526994a{background-color:orange;}
+        </style>
+        <svg
+          aria-hidden="true"
+          className="svg-inline--fa fa-home fa-w-18 "
+          data-icon="home"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          style={Object {}}
+          viewBox="0 0 576 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"
+            fill="currentColor"
+            style={Object {}}
+          />
+        </svg>
+      </a>
+      <a
+        href="/Matches"
+        onClick={[Function]}
+      >
+        <style>
+          .ur.ur-526994a{background-color:orange;}
+        </style>
+        All Matches
+      </a>
+      <a
+        href="/Teams"
+        onClick={[Function]}
+      >
+        <style>
+          .ur.ur-526994a{background-color:orange;}
+        </style>
+        Team List
+      </a>
+      <style>
+        .ur.ur-1baabca{flex-direction:column;}@media screen and (min-aspect-ratio: 1/1){.ur.ur-1baabca{flex-direction:row;}}
+      </style>
+    </div>
+    <div
+      className="ur ur-1baabca ur ur-1baabca css-view-1dbjc4n"
+    >
+      <div
+        className="ur ur-526994a ur ur-526994a css-text-901oao"
+        css={
+          Object {
+            "backgroundColor": "orange",
+          }
+        }
+        dir="auto"
+        onClick={[Function]}
+      >
+        <style>
+          .ur.ur-526994a{background-color:orange;}
+        </style>
+        MorTeam
+      </div>
+      <div
+        className="css-view-1dbjc4n"
+      >
+        <div>
+          <a
+            onClick={[Function]}
+            role="button"
+            tabIndex="-1"
+          >
+            Log In
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-sign-in-alt fa-w-16 "
+              data-icon="sign-in-alt"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M416 448h-84c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h84c17.7 0 32-14.3 32-32V160c0-17.7-14.3-32-32-32h-84c-6.6 0-12-5.4-12-12V76c0-6.6 5.4-12 12-12h84c53 0 96 43 96 96v192c0 53-43 96-96 96zm-47-201L201 79c-15-15-41-4.5-41 17v96H24c-13.3 0-24 10.7-24 24v96c0 13.3 10.7 24 24 24h136v96c0 21.5 26 32 41 17l168-168c9.3-9.4 9.3-24.6 0-34z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <style>
+        .ur.ur-1baabca{flex-direction:column;}@media screen and (min-aspect-ratio: 1/1){.ur.ur-1baabca{flex-direction:row;}}
+      </style>
+    </div>
+    <style>
+      .ur.ur-982a71e{align-items:flex-start;background-color:orange;flex-direction:column;flex-wrap:wrap;justify-content:space-between;overflow-x:hidden;transition:0.5s;visibility:hidden;width:0px;z-index:0;}@media screen and (min-aspect-ratio: 1/1){.ur.ur-982a71e{box-shadow:0px 10px 5px grey;flex-direction:row;transition:0s;visibility:visible;width:100%;z-index:1;}}@media print{.ur.ur-982a71e{height:0px;visibility:hidden;width:0px;}}
+    </style>
+  </div>
+  <button
+    className="ur ur-7bf60b1"
+    css={
+      Object {
+        "@media print": Object {
+          "border": 0,
+          "height": 0,
+          "margin": 0,
+          "padding": 0,
+          "visibility": "hidden",
+          "width": 0,
+        },
+        "@media screen and (min-aspect-ratio: 1/1)": Object {
+          "border": 0,
+          "height": 0,
+          "margin": 0,
+          "minHeight": 0,
+          "minWidth": 0,
+          "padding": 0,
+          "visibility": "hidden",
+          "width": 0,
+        },
+        "backgroundColor": "orange",
+        "borderColor": "black",
+        "borderRadius": "40vh",
+        "boxShadow": "-2.5px 2.5px 5px grey",
+        "height": "3vh",
+        "marginLeft": "5px",
+        "marginTop": "5px",
+        "minHeight": "25px",
+        "minWidth": "25px",
+        "position": "relative",
+        "width": "3vh",
+        "zIndex": 9999,
+      }
+    }
+    onClick={[Function]}
+    style={Object {}}
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      className="svg-inline--fa fa-bars fa-w-14 "
+      data-icon="bars"
+      data-prefix="fas"
+      focusable="false"
+      role="img"
+      style={Object {}}
+      viewBox="0 0 448 512"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"
+        fill="currentColor"
+        style={Object {}}
+      />
+    </svg>
+    <style>
+      .ur.ur-7bf60b1{background-color:orange;border-bottom-color:black;border-bottom-left-radius:40vh;border-bottom-right-radius:40vh;border-left-color:black;border-right-color:black;border-top-color:black;border-top-left-radius:40vh;border-top-right-radius:40vh;box-shadow:-2.5px 2.5px 5px grey;height:3vh;margin-left:5px;margin-top:5px;min-height:25px;min-width:25px;position:relative;width:3vh;z-index:9999;}@media screen and (min-aspect-ratio: 1/1){.ur.ur-7bf60b1{border:0px;height:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;margin-top:0px;min-height:0px;min-width:0px;padding-bottom:0px;padding-left:0px;padding-right:0px;padding-top:0px;visibility:hidden;width:0px;}}@media print{.ur.ur-7bf60b1{border:0px;height:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;margin-top:0px;padding-bottom:0px;padding-left:0px;padding-right:0px;padding-top:0px;visibility:hidden;width:0px;}}
+    </style>
+  </button>
+  <div
+    className="ur ur-6113973 ur ur-6113973 css-view-1dbjc4n"
+    onClick={[Function]}
+  >
+    <div
+      className="ur ur-99914b9 ur ur-99914b9 css-view-1dbjc4n"
+    >
+      <h1>
+        MorScout -- Index
+      </h1>
+      <div
+        className="css-text-901oao"
+        dir="auto"
+        onClick={[Function]}
+      >
+        <span
+          className="css-text-901oao css-textHasAncestor-16my406"
+          dir="auto"
+        >
+          Made With Fifty Shades of Orange
+        </span>
+      </div>
+      <style>
+        .ur.ur-99914b9{}
+      </style>
+    </div>
+    <style>
+      .ur.ur-6113973{background-color:white;box-shadow:-10px 0px 5px gray;flex-basis:auto;flex-grow:1;flex-shrink:1;height:100%;margin-left:-34px;padding-left:9px;position:relative;transition:0.5s;z-index:1;}@media screen and (min-aspect-ratio: 1/1){.ur.ur-6113973{margin-left:0px;transition:0s;}}
+    </style>
+  </div>
+  <style>
+    .ur.ur-4946712{flex-direction:row;height:100vh;}@media screen and (min-aspect-ratio: 1/1){.ur.ur-4946712{flex-direction:column;}}
+  </style>
+</div>
+`;

@@ -60,4 +60,4 @@ buck-out/
 /*/build
 /coverage
 
-/config.yaml
+# /config.yaml

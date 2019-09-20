@@ -33,14 +33,10 @@ module.exports = {
     "react-native": require.resolve("react-native-web"),
     uranium: getSrc("common", "uranium", "src"),
     // Basic Redirects
-    "~": getSrc("common", "components"),
+    "~": path.dirname(require.resolve("client-common-components")),
     // Global Redirects
     screen: getSrc("screens"),
     style: getSrc("style"),
-
-    actions: getSrc("common", "redux-state-actions"),
-    reducers: getSrc("common", "redux-state-reducers"),
-    store: getSrc("common", "redux-state-store"),
     // Platform Specific Polyfills
     "@/": getSrc("polyfills")
   },

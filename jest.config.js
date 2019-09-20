@@ -1,7 +1,7 @@
 const projects = [
   "shared",
-  "server",
-  // "clients/common",
+  // "server",
+  "clients/common/*",
   "clients/web",
   "clients/electron",
   "clients/react-native"
@@ -10,7 +10,9 @@ const projects = [
 module.exports = {
   collectCoverageFrom: [
     "**/{types,schemas,src}/**/*.{js,jsx,ts,tsx}",
-    "!**/{types,schemas,src}/**/*.d.ts"
+    "**/clients/common/*/**/*.{js,jsx,ts,tsx}",
+    "!**/{types,schemas,src}/**/*.d.ts",
+    "!**/cli/**/*.{js,jsx,ts,tsx}"
   ],
   rootDir: __dirname,
   projects

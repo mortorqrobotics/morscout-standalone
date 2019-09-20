@@ -14,14 +14,15 @@ module.exports = {
   testURL: "http://localhost",
   transform: {
     "^.+\\.(ts|tsx)$": "ts-jest",
-    "^.+\\.(js|jsx)$": require.resolve("babel-jest"),
+    "^.+\\.(js|jsx)$": "<rootDir>/config/jest/babelTransform.js",
     "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
     "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)":
       "<rootDir>/config/jest/fileTransform.js"
   },
   transformIgnorePatterns: [
-    "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
+    // "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
     "^.+\\.module\\.(css|sass|scss)$"
+    // "![/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$"
   ],
   moduleNameMapper: Object.assign(
     Object.entries(resolve.alias).reduce(
@@ -44,5 +45,6 @@ module.exports = {
     "jsx"
   ],
   coveragePathIgnorePatterns: ["uranium"],
-  rootDir: __dirname
+  rootDir: __dirname,
+  setupFiles: ["<rootDir>/config/jest/setup.js"]
 };

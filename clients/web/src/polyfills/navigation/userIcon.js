@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignOutAlt, faUser, faCog } from "@fortawesome/free-solid-svg-icons";
 import { connect } from "react-redux";
 import { Link } from "./index";
-import LogIn from "./LogIn";
+import LogIn from "./logIn";
 import styleFunc from "./style";
 
 @Uranium

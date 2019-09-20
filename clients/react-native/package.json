@@ -1,6 +1,6 @@
 {
   "name": "client-react-native",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha.1",
   "scripts": {
     "avd": "node ./scripts/emulator.js",
     "start": "react-native start",

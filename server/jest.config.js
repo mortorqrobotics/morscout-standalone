@@ -30,5 +30,6 @@ module.exports = {
       "^setup(.*)$": "<rootDir>/config/jest/setup$1",
       "^teardown(.*)$": "<rootDir>/config/jest/teardown$1"
     }
-  )
+  ),
+  globals: { "ts-jest": { isolatedModules: true } }
 };

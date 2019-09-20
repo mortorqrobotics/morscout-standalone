@@ -1,4 +1,3 @@
-import mongoose from "mongoose";
 import { setup, teardown } from "setup/mongoose";
 
 import { User, Team } from "models";

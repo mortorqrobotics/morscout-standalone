@@ -1,5 +1,4 @@
 {
-  "sourceType": "unambiguous",
   "presets": [
     "@babel/react",
     [

@@ -1,0 +1,12 @@
+{
+  "name": "redux-actions",
+  "version": "0.0.1-alpha.1",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0",
+    "typescript": "^3.6.3"
+  },
+  "license": "MIT"
+}

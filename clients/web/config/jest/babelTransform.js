@@ -7,9 +7,32 @@
  */
 
 const babelJest = require("babel-jest");
-const fs = require("fs");
-const path = require("path");
 
-module.exports = babelJest.createTransformer(
-  JSON.parse(fs.readFileSync(path.resolve(__dirname, "..", "..", ".babelrc")))
-);
+module.exports = babelJest.createTransformer({
+  presets: [
+    "@babel/react",
+    [
+      "@babel/env",
+      {
+        corejs: 3,
+        useBuiltIns: "entry"
+      }
+    ]
+  ],
+  plugins: [
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/plugin-syntax-dynamic-import",
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        legacy: true
+      }
+    ],
+    [
+      "@babel/plugin-proposal-class-properties",
+      {
+        loose: false
+      }
+    ]
+  ]
+});

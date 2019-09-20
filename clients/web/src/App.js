@@ -1,14 +1,13 @@
 import React from "react";
 import { Provider } from "react-redux";
-import Index from "screen/Index";
-import Matches from "screen/Matches";
-import Match from "screen/Match";
-import Teams from "screen/Teams";
-import Settings from "screen/Settings";
+import Index from "screen/index";
+import Matches from "screen/matches";
+import Match from "screen/match";
+import Teams from "screen/teams";
 import { createNavigator, SwitchRouter } from "@react-navigation/core";
 import { createBrowserApp } from "@react-navigation/web";
-import Navigation from "@/Navigation";
-import store from "store";
+import Navigation from "@/navigation";
+import store from "client-common-redux";
 
 const App = createBrowserApp(
   createNavigator(
@@ -17,7 +16,6 @@ const App = createBrowserApp(
       Index,
       Matches,
       Match,
-      Settings,
       Teams
     }),
     {}

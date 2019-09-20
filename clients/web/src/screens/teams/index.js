@@ -3,7 +3,7 @@ import { View } from "react-native";
 import Uranium from "uranium";
 import style from "style";
 import Loadable from "react-loadable";
-import Loader from "~/Basic/Loader";
+import Loader from "~/basic/Loader";
 
 const MatchContainer = Loadable({
   loader: () => import("~/Teams"),

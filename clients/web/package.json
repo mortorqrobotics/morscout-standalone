@@ -1,6 +1,6 @@
 {
   "name": "client-web",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha.1",
   "scripts": {
     "start": "node ./scripts/start.js",
     "build": "node ./scripts/build.js",
@@ -93,6 +93,7 @@
     "html-webpack-plugin": "^3.2.0",
     "jest": "^24.9.0",
     "jest-canvas-mock": "^2.1.1",
+    "jest-fetch-mock": "^2.1.2",
     "jest-pnp-resolver": "^1.2.1",
     "jest-resolve": "^24.9.0",
     "loader-utils": "^1.2.3",
