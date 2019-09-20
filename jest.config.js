@@ -1,6 +1,6 @@
 const projects = [
   "shared",
-  // "server",
+  "server",
   "clients/common/*",
   "clients/web",
   "clients/electron",
