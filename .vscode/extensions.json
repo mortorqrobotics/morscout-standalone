@@ -4,6 +4,7 @@
     "msjsdiag.debugger-for-chrome",
     "ms-azuretools.vscode-docker",
     "esbenp.prettier-vscode",
-    "editorconfig.editorconfig"
+    "editorconfig.editorconfig",
+    "yzhang.markdown-all-in-one"
   ]
 }

@@ -1,4 +1,4 @@
-# MorScout - Experimental
+# MorScout - Experimental <!-- omit in toc -->
 
 [![Build Status](https://api.cirrus-ci.com/github/mortorqrobotics/morscout-standalone.svg)](https://cirrus-ci.com/github/mortorqrobotics/morscout-standalone)
 [![Known Vulnerabilities](https://snyk.io/test/github/mortorqrobotics/morscout-standalone/badge.svg)](https://snyk.io/test/github/mortorqrobotics/morscout-standalone)
@@ -6,29 +6,19 @@
 [![iOS Build](https://build.appcenter.ms/v0.1/apps/a0fa44cd-1214-41c9-942b-a1a33bfea92b/branches/master/badge)](https://appcenter.ms)
 [![Android Build](https://build.appcenter.ms/v0.1/apps/af68d026-c265-4753-a756-2764cdfe5137/branches/master/badge)](https://appcenter.ms)
 
-- [MorScout - Experimental](#morscout---experimental)
-  - [Installing](#installing)
-    - [Docker](#docker)
-      - [Production](#production)
-      - [Development](#development)
-    - [Native](#native)
-  - [Starting](#starting)
-    - [Development](#development-1)
-      - [npm](#npm)
-      - [yarn](#yarn)
-    - [Production](#production-1)
-      - [npm](#npm-1)
-      - [yarn](#yarn-1)
-  - [Building](#building)
-    - [Web](#web)
-      - [npm](#npm-2)
-      - [yarn](#yarn-2)
-    - [Electron](#electron)
-      - [npm](#npm-3)
-      - [yarn](#yarn-3)
-    - [Server](#server)
-      - [npm](#npm-4)
-      - [yarn](#yarn-4)
+- [Installing](#installing)
+  - [Docker](#docker)
+    - [Production](#production)
+    - [Development](#development)
+  - [Native](#native)
+- [Starting Development](#starting-development)
+  - [Web](#web)
+  - [Server](#server)
+  - [Docker (Starts both web and server in sync)](#docker-starts-both-web-and-server-in-sync)
+- [Building](#building)
+  - [Web](#web-1)
+  - [Electron](#electron)
+  - [Server](#server-1)
 
 ## Installing
 
@@ -57,62 +47,54 @@ docker-compose pull
 ```bash
 git clone https://github.com/mortorqrobotics/morscout-standalone.git
 cd morscout-standalone
-yarn # Or npm i
+yarn
 ```
 
-## Starting
+## Starting Development
 
-### Development
+> Note that the server/website cannot be started seperately in native
 
-> Note that the server/website can be started seperately
+### Web
+```bash
+cd clients/web
+yarn start
+```
 
-#### npm
+### Server
 
-`npm run start:web`
+> This needs web to have been built
 
-#### yarn
+```bash
+cd server
+yarn start
+```
 
-`yarn start:web`
+### Docker (Starts both web and server in sync)
 
-### Production
-
-#### npm
-
-`npm start`
-
-#### yarn
-
-`yarn start`
+```bash
+cd morscout-standalone/docker/dev
+docker-compose up
+```
 
 ## Building
 
 ### Web
 
-#### npm
-
-`npm run build:app`
-
-#### yarn
-
-`yarn build:app`
+```bash
+cd clients/web
+yarn build
+```
 
 ### Electron
 
-#### npm
-
-`npm run build:electron`
-
-#### yarn
-
-`yarn build:electron`
+```bash
+cd clients/electron
+yarn build
+```
 
 ### Server
 
-#### npm
-
-`npm run build:server`
-
-#### yarn
-
-`yarn build:server`
-
+```bash
+cd server
+yarn build
+```
