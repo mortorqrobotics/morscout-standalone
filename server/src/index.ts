@@ -1,6 +1,6 @@
 import socketIo from "socket.io";
 import express from "express";
-import { dirname } from "path";
+import { dirname, resolve } from "path";
 import { Server } from "net";
 import { createServer as https } from "https";
 import httpAPI from "./api/http";
@@ -25,8 +25,15 @@ app.get("/config", (req, res) =>
 app.use("/api", httpAPI);
 
 if (!configEmitter.config.development) {
-  app.get("/", express.static(dirname(require.resolve("client-web"))));
-  app.get("/", (req, res) => res.sendFile(require.resolve("client-web")));
+  app.get(
+    "/",
+    express.static(resolve(dirname(require.resolve("client-web/")), "build"))
+  );
+  app.get("/", (req, res) =>
+    res.sendFile(
+      resolve(dirname(require.resolve("client-web/")), "build", "index.html")
+    )
+  );
 }
 
 let { certificate, key } =
