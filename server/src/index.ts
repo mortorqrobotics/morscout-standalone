@@ -1,6 +1,6 @@
 import socketIo from "socket.io";
 import express from "express";
-import { dirname } from "path";
+import { dirname, resolve } from "path";
 import { Server } from "net";
 import { createServer as https } from "https";
 import httpAPI from "./api/http";
@@ -17,17 +17,23 @@ io.on("connection", (socket: socketIo.Socket) => {
 });
 
 const app = express();
-app.use("/api", httpAPI);
-
 app.get("/config", (req, res) =>
   res.json({
-    io: configEmitter.config.port
+    socketIO: ":" + configEmitter.config.port
   })
 );
+app.use("/api", httpAPI);
 
 if (!configEmitter.config.development) {
-  app.get("/", express.static(dirname(require.resolve("client-web"))));
-  app.get("/", (req, res) => res.sendFile(require.resolve("client-web")));
+  app.get(
+    "/",
+    express.static(resolve(dirname(require.resolve("client-web/")), "build"))
+  );
+  app.get("/", (req, res) =>
+    res.sendFile(
+      resolve(dirname(require.resolve("client-web/")), "build", "index.html")
+    )
+  );
 }
 
 let { certificate, key } =
@@ -37,7 +43,6 @@ let { certificate, key } =
         certificate: readFileSync(configEmitter.config.cert)
       }
     : generateCertificateKey(configEmitter.config.hostname);
-
 const Application = https(
   {
     cert: certificate,
@@ -88,3 +93,7 @@ configEmitter.on("changeRedirectPort", (port: number) => {
     server = tmpServer;
   });
 });
+
+if (configEmitter.config.port == configEmitter.config.socketPort)
+  io.listen(server);
+else io.listen(configEmitter.config.socketPort);

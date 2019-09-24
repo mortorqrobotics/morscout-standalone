@@ -5,6 +5,7 @@ const ignoredFiles = require("react-dev-utils/ignoredFiles");
 const fs = require("fs");
 const config = require("./webpack.config.dev");
 const paths = require("./paths");
+const io = require("socket.io");
 
 const protocol = process.env.HTTPS === "true" ? "https" : "http";
 const host = process.env.HOST || "0.0.0.0";
@@ -88,9 +89,13 @@ function s(proxy, allowedHost) {
         // eslint-disable-next-line global-require, import/no-dynamic-require
         require(paths.proxySetup)(app);
       }
+      io().listen(3002);
       app.get("/config", (req, res) => {
         res.json({
-          socketIo: "localhost:3002"
+          extends: ":8443/config",
+          default: {
+            socketIO: ":3002"
+          }
         });
       });
       // This lets us fetch source contents from webpack for the error overlay

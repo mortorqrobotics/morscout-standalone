@@ -6,6 +6,9 @@ tbaApiKey: Null # The blue alliance API keys, to get it go to https://theblueall
 
 port: 8443
 
+cert: "/Users/eliasschablowski/Desktop/morscout-standalone/ssl/server.cert"
+key: "/Users/eliasschablowski/Desktop/morscout-standalone/ssl/server.key"
+
 mongo: # used for information storage (e.g. Matches, Teams, Users, etc.) and a backup if redis is not configured
   consulService: # Name of the consul service
   url: mongodb+srv://morscout:tails@morscout-b981s.mongodb.net/morscout?retryWrites=true&w=majority

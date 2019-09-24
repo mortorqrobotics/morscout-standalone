@@ -24,6 +24,7 @@ export interface IConfiguration {
   development: boolean;
   port: number;
   redirectPort: number;
+  socketPort: number;
   hostname: string;
   redis: IRedisOpts;
   consul: IConsulOpts;

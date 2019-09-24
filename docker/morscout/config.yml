@@ -1,0 +1,31 @@
+logging: # Logging configuration, can be redis, console, logstash, fluentd, or apm
+  - console
+  - fluentd
+interactive: false
+
+tbaApiKey: Null # The blue alliance API keys, to get it go to https://thebluealliance.com
+
+port: 443
+
+mongo:
+  consulService: mongodb
+
+redis:
+  consulService: redis
+
+vault:
+  consulService: vault
+
+consul:
+  hostname: consul
+  service:
+    name: morscout
+    tags:
+      - node
+      - web
+      - react
+env:
+  development:
+    logLevel: info
+  production:
+    logLevel: warning

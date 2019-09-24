@@ -1,4 +1,4 @@
-version: '3.6'
+version: '3.7'
 x-logging:
   &default-logging
   options:
@@ -7,74 +7,21 @@ x-logging:
   driver: json-file
 
 services:
-  nginx:
-    image: mortorqrobotics/mornetwork-nginx
-    logging:
-      *default-logging
-    networks:
-      # app:
-      #  aliases:
-      #   - load-balancer
-      consul:
-        ipv4_address: 192.19.0.6
-    ports:
-      - "127.0.0.1:8080:80"
-      - "127.0.0.1:8433:433"
-    depends_on:
-      - Consul
-  Consul:
-    logging:
-      *default-logging
-    image: mortorqrobotics/mornetwork-consul:latest
-    networks:
-      consul:
-        ipv4_address: 192.19.0.2
-        aliases:
-          - consul
-      # - backup
-    environment:
-      CONSUL_ALLOW_PRIVILEGED_PORTS: ""
-    command: 192.19.0.2 -bootstrap
-    expose:
-      - 8300
-      - 8301
-      - 8302
-      - 8400
-      - 8500
-      - 8600
-    ports:
-      - "127.0.0.1:8500:8500"
-  Vault:
-    logging:
-      *default-logging
-    image: vault:latest
-    environment:
-      VAULT_ADDR: http://127.0.0.1:8200
-      VAULT_LOCAL_CONFIG: "{\"backend\": {\"file\": {\"path\": \"/vault/file\"}}, \"default_lease_ttl\": \"168h\", \"max_lease_ttl\": \"720h\"}"
-    command: server
-    cap_add:
-      - IPC_LOCK
-    depends_on:
-      - Consul
-    networks:
-      - app
-    expose:
-      - 8200
   MorScout:
     logging:
       *default-logging
-    image: mortorqrobotics/morscout:latest
+    image: mortorqrobotics/morscout:dev
     build:
       context: ../..
       dockerfile: docker/dev/Dockerfile
     volumes:
-      - ..:/workspace
       # This lets you avoid setting up Git again in the container
       - ~/.gitconfig:/root/.gitconfig
     depends_on:
-      # - MongoDB
+      - MongoDB
       - Consul
     expose:
+      - 3000
       - 443
       - 8301
       - 8302
@@ -86,22 +33,12 @@ services:
         aliases:
           - morscout
       consul:
-        ipv4_address: 192.19.0.4
-  MongoDB:
-    image: mvertes/alpine-mongo
-    logging:
-      *default-logging
-    expose:
-      - 27017
-    networks:
-      app:
-        aliases:
-          - mongo
+        # ipv4_address: 192.19.0.4
 
 networks:
   app:
   consul:
     ipam:
       driver: default
-      config:
-        - subnet: "192.19.0.0/24"
+      # config:
+      #   - subnet: "192.19.0.0/24"

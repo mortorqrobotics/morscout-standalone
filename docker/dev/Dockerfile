@@ -1,9 +1,4 @@
-#-------------------------------------------------------------------------------------------------------------
-# Copyright (c) Microsoft Corporation. All rights reserved.
-# Licensed under the MIT License. See https://go.microsoft.com/fwlink/?linkid=2090316 for license information.
-#-------------------------------------------------------------------------------------------------------------
-
-FROM node:lts
+FROM node:lts-stretch
 
 LABEL maintainer="mortorqrobotics"
 LABEL dev=true
@@ -13,10 +8,12 @@ ENV NODE_ENV=development
 # Configure apt
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt update &&\
-    apt upgrade &&\
+    apt upgrade -y &&\
     apt -y install --no-install-recommends apt-utils 2>&1 &&\
     # Verify git and process tools are installed
-    apt-get install -y git procps build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev systemd apt-utils nano vim wget curl
+    apt-get install -y git procps build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev systemd apt-utils nano vim wget curl runit bash ca-certificates
+COPY docker/morscout/consul.sh /etc/service/consul/run
+RUN chmod agu+x /etc/service/*/run
 
 # Remove outdated yarn from /opt and install via package
 # so it can be easily updated via apt-get upgrade yarn
@@ -29,7 +26,7 @@ RUN rm -rf /opt/yarn-* \
     && apt-get update \
     && apt-get -y install --no-install-recommends yarn
 
-# Install Dependencies
+# Install global CLIs
 RUN yarn global add nodemon eslint jest snyk webpack-cli react-native-cli
 
 # Add system services
@@ -47,5 +44,11 @@ COPY --from=consul:latest /bin/consul /bin/consul
 
 # Copy Consul config
 COPY docker/morscout/consul.json /consul/morscout.json
+
+# Install morscout
+WORKDIR /root/morscout
+COPY . .
+ENV MONGOMS_DISABLE_POSTINSTALL=1
+RUN yarn install --non-interactive
 
 CMD ["/bin/sh", "/start.sh"]

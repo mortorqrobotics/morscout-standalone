@@ -1,7 +1,7 @@
 #!/bin/bash
 set -m
 
-node /morscout/server/build/server.js &
+yarn start &
 
 runsvdir /etc/service
 

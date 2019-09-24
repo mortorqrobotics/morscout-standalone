@@ -1,5 +1,4 @@
 import { Team } from "models";
-import { Schema } from "mongoose";
-export default async (id: Schema.Types.ObjectId) => {
+export default async (id: string) => {
   return await Team.findById(id);
 };

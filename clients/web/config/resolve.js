@@ -1,7 +1,7 @@
 const path = require("path");
 const fs = require("fs");
 const PnpWebpackPlugin = require("pnp-webpack-plugin");
-const ModuleScopePlugin = require("react-dev-utils/ModuleScopePlugin");
+// const ModuleScopePlugin = require("react-dev-utils/ModuleScopePlugin");
 const paths = require("./paths");
 
 const getSrc = (...p) => path.join(__dirname, "..", "src", ...p);
@@ -38,17 +38,20 @@ module.exports = {
     screen: getSrc("screens"),
     style: getSrc("style"),
     // Platform Specific Polyfills
-    "@/": getSrc("polyfills")
+    "@": getSrc("polyfills"),
+
+    // Just for error mitigation
+    react: require.resolve("react")
   },
   plugins: [
     // Adds support for installing with Plug'n'Play, leading to faster installs and adding
     // guards against forgotten dependencies and such.
-    PnpWebpackPlugin,
+    PnpWebpackPlugin
     // Prevents users from importing files from outside of src/ (or node_modules/).
     // This often causes confusion because we only process files within src/ with babel.
     // To fix this, we prevent you from importing files out of src/ -- if you'd like to,
     // please link the files into your node_modules/ and let module-resolution kick in.
     // Make sure your source files are compiled, as they will not be processed in any way.
-    new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson])
+    // new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson])
   ]
 };

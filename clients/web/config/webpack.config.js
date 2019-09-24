@@ -135,7 +135,7 @@ module.exports = {
     plugins: [
       // Also related to Plug'n'Play, but this time it tells Webpack to load its loaders
       // from the current package.
-      PnpWebpackPlugin.moduleLoader(module)
+      // PnpWebpackPlugin.moduleLoader(module)
     ]
   },
   module: {
@@ -159,6 +159,7 @@ module.exports = {
             loader: require.resolve("eslint-loader")
           }
         ],
+        exclude: /node_modules/,
         include: paths.appsSrc
       },
       {
@@ -429,7 +430,8 @@ module.exports = {
     fs: "empty",
     net: "empty",
     tls: "empty",
-    child_process: "empty"
+    child_process: "empty",
+    url: true
   },
   // Turn off performance processing because we utilize
   // our own hints via the FileSizeReporter

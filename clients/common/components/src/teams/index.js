@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import loadTeams from "actions/Teams/index";
+import loadTeams from "redux-actions/src/teams";
 import Teams from "./Teams";
 
 function mapStateToProps(state) {

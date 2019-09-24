@@ -6,7 +6,7 @@ import Loadable from "react-loadable";
 import Loader from "~/basic/Loader";
 
 const MatchContainer = Loadable({
-  loader: () => import("~/Matches"),
+  loader: () => import("~/matches"),
   loading: Loader
 });
 

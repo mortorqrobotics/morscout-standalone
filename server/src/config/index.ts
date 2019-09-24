@@ -15,6 +15,10 @@ function loadConfig(path): IConfiguration {
 
 const config = loadConfig(args.config);
 
+Object.keys(args).forEach(key => {
+  if (!args[key] && typeof args[key] !== "boolean") delete args[key];
+});
+
 const configEmitter = new ConfigEmitter();
 configEmitter.config = Object.assign(
   {},

@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { getMatch } from "actions/Matches";
+import { getMatch } from "redux-actions/src/matches";
 import Match from "./Match";
 
 export default function makeMatch(id) {

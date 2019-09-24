@@ -7,10 +7,12 @@ import {
   Middleware
 } from "redux";
 import { composeWithDevTools as compose } from "redux-devtools-extension";
-import * as storage from "redux-storage";
+import storage from "redux-storage";
 import filter from "redux-storage-decorator-filter";
 import createEngine from "redux-storage-engine-reactnativeasyncstorage";
-import * as io from "socket.io-client";
+import io from "socket.io-client";
+import config from "./config";
+import parseUrl from "./parse";
 
 const engine: storage.StorageEngine = filter(
   createEngine("redux"),
@@ -55,18 +57,15 @@ load(store)
   // eslint-disable-next-line no-console
   .then(console.debug);
 
-fetch("/config")
-  .then(res => {
-    return res.json();
-  })
-  .then(config => {
-    socket = io(config.socketIo);
-    socket.on("action", action => {
-      store.dispatch(action);
-    });
-    for (let i = queue.length; i > 0; i++) {
-      store.dispatch(queue.pop());
-    }
+config("/config").then(config => {
+  console.log(parseUrl(config.socketIO).toString());
+  socket = io(parseUrl(config.socketIO).toString());
+  socket.on("action", action => {
+    store.dispatch(action);
   });
+  for (let i = queue.length; i > 0; i++) {
+    store.dispatch(queue.pop());
+  }
+});
 
 export default store;

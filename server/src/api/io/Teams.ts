@@ -11,7 +11,7 @@ export default (socket: Socket) => {
       data: await getTeams(socket)
     });
   });
-  socket.on(loadTeam, async (id: Schema.Types.ObjectId) => {
+  socket.on(loadTeam, async (id: string) => {
     socket.emit("action", {
       type: updated,
       data: {
