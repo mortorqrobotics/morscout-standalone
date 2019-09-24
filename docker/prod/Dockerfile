@@ -18,12 +18,18 @@ COPY .snyk .snyk
 # where available (npm@5+)
 COPY package*.json ./
 COPY yarn.lock yarn.lock
+ENV MONGOMS_DISABLE_POSTINSTALL=1
 RUN yarn install --non-interactive --frozen-lockfile
 
 # Copy over all sources
 COPY . .
 
-# Build cli, server, and app
+# Build app
+WORKDIR /root/clients/web
+RUN yarn build
+
+# Build server
+WORKDIR /root/server
 RUN yarn build
 
 FROM node:lts-alpine

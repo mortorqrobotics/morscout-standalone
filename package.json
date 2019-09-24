@@ -5,7 +5,7 @@
   "version": "0.0.1-alpha.1",
   "private": true,
   "scripts": {
-    "start": "node Server/build/server",
+    "start": "node server/build/server",
     "test": "jest",
     "test-coverage": "jest --coverage",
     "release": "release-it",
@@ -45,6 +45,6 @@
       "**/appcenter*/**"
     ]
   },
-  "main": "Server/build/server.js",
+  "main": "server/build/server.js",
   "snyk": true
 }

@@ -1,7 +1,9 @@
 #!/bin/bash
 set -m
-yarn start:web &
+yarn --cwd server run start &
 
-/root/docker/morscout/consul.sh
+yarn --cwd client/web run start &
+
+runsvdir /etc/service
 
 fg %1

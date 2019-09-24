@@ -5,6 +5,7 @@
 [![codecov](https://codecov.io/gh/mortorqrobotics/morscout-standalone/branch/master/graph/badge.svg)](https://codecov.io/gh/mortorqrobotics/morscout-standalone)
 [![iOS Build](https://build.appcenter.ms/v0.1/apps/a0fa44cd-1214-41c9-942b-a1a33bfea92b/branches/master/badge)](https://appcenter.ms)
 [![Android Build](https://build.appcenter.ms/v0.1/apps/af68d026-c265-4753-a756-2764cdfe5137/branches/master/badge)](https://appcenter.ms)
+[![VSCode Remote Containers](https://img.shields.io/badge/VSCode%20Remote%20Containers-Enabled-brightgreen)](https://code.visualstudio.com/docs/remote/containers)
 
 - [Installing](#installing)
   - [Docker](#docker)
@@ -29,7 +30,7 @@
 ```bash
 git clone https://github.com/mortorqrobotics/morscout-standalone.git
 cd morscout-standalone/docker/prod
-docker-compose pull
+docker-compose -f docker-compose.yml -f ../docker-common.yml pull
 ```
 
 #### Development
@@ -39,7 +40,7 @@ docker-compose pull
 ```bash
 git clone https://github.com/mortorqrobotics/morscout-standalone.git
 cd morscout-standalone/docker/dev
-docker-compose pull
+docker-compose -f docker-compose.yml -f ../docker-common.yml pull
 ```
 
 ### Native
@@ -73,7 +74,7 @@ yarn start
 
 ```bash
 cd morscout-standalone/docker/dev
-docker-compose up
+docker-compose -f docker-compose.yml -f ../docker-common.yml up
 ```
 
 ## Building
