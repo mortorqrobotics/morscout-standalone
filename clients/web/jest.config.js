@@ -25,13 +25,15 @@ module.exports = {
     // "![/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$"
   ],
   moduleNameMapper: Object.assign(
-    Object.entries(resolve.alias).reduce(
-      (p, v) => ({
+    Object.entries(resolve.alias).reduce((p, v) => {
+      if (v[0] === "react") return p;
+      if (v[0].length == 1) v[0] = `${v[0]}/`;
+      v[0] = escape(v[0]);
+      return {
         ...p,
-        [`^${escape(v[0])}(.*)$`]: `${v[1]}/$1`
-      }),
-      {}
-    )
+        [`^${v[0]}(.*)$`]: `${v[1]}/$1`
+      };
+    }, {})
   ),
   moduleFileExtensions: [
     "web.js",
