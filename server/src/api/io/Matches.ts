@@ -11,7 +11,7 @@ export default (socket: Socket) => {
       data: await getMatches(regionalId)
     });
   });
-  socket.on(loadMatch, async (id: Schema.Types.ObjectId) => {
+  socket.on(loadMatch, async (id: string) => {
     socket.emit("action", {
       type: updated,
       data: {

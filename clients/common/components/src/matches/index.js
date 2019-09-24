@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { getMatches } from "actions/Matches";
+import { getMatches } from "redux-actions/src/matches";
 import Matches from "./Matches";
 
 function mapStateToProps(state) {

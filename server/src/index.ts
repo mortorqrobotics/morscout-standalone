@@ -17,13 +17,12 @@ io.on("connection", (socket: socketIo.Socket) => {
 });
 
 const app = express();
-app.use("/api", httpAPI);
-
 app.get("/config", (req, res) =>
   res.json({
-    io: configEmitter.config.port
+    socketIO: ":" + configEmitter.config.port
   })
 );
+app.use("/api", httpAPI);
 
 if (!configEmitter.config.development) {
   app.get("/", express.static(dirname(require.resolve("client-web"))));
@@ -37,7 +36,6 @@ let { certificate, key } =
         certificate: readFileSync(configEmitter.config.cert)
       }
     : generateCertificateKey(configEmitter.config.hostname);
-
 const Application = https(
   {
     cert: certificate,
@@ -88,3 +86,7 @@ configEmitter.on("changeRedirectPort", (port: number) => {
     server = tmpServer;
   });
 });
+
+if (configEmitter.config.port == configEmitter.config.socketPort)
+  io.listen(server);
+else io.listen(configEmitter.config.socketPort);

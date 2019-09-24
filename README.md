@@ -52,7 +52,7 @@ yarn
 
 ## Starting Development
 
-> Note that the server/website cannot be started seperately in native
+> Note that the server/website can be started seperately and run in sync
 
 ### Web
 ```bash

@@ -30,7 +30,7 @@ class MatchScreen extends React.Component {
       <View css={style.Basic.background}>
         {React.createElement(
           Loadable({
-            loader: () => import("~/Match/index.js"),
+            loader: () => import("~/match/index.js"),
             loading: Loader,
             render(loaded) {
               const Match = loaded.default(navigation.getParam("id", "1001"));
