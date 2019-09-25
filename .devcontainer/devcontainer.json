@@ -1,14 +1,21 @@
 // See https://aka.ms/vscode-remote/devcontainer.json for format details.
 {
-    "name": "Node.js & Mongo DB",
-    "context": "../docker/dev",
-    "dockerComposeFile": ["../docker/docker-common.yml", "../docker/dev/docker-compose.yml"],
-    "service": "MorScout",
-    "workspaceMount": "src=${localWorkspaceFolder},dst=/workspace,type=bind,consistency=cached",
-    "workspaceFolder": "/root/morscout",
-    "postCreateCommand": "yarn install",
-    "shutdownAction": "stopCompose",
-    "extensions": [
-        "dbaeumer.vscode-eslint"
-    ]
+  "name": "Node.js & Mongo DB",
+  "context": "../docker/dev",
+  "dockerComposeFile": [
+    "../docker/dev/docker-compose.yml",
+    "../docker/docker-common.yml"
+  ],
+  "service": "MorScout",
+  "workspaceMount": "src=${localWorkspaceFolder},dst=/root/morscout,type=bind,consistency=cached",
+  "workspaceFolder": "/root/morscout",
+  "shutdownAction": "stopCompose",
+  "extensions": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "editorconfig.editorconfig",
+    "yzhang.markdown-all-in-one",
+    "hangxingliu.vscode-systemd-support",
+    "redhat.vscode-yaml"
+  ]
 }

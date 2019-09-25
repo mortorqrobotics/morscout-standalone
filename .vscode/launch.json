@@ -6,22 +6,6 @@
     "configurations": [
         {
             "type": "node",
-            "request": "launch",
-            "name": "Launch via Web",
-            "runtimeExecutable": "yarn",
-            "runtimeArgs": [
-                "start"
-            ]
-        },
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Electron",
-            "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
-            "program": "${workspaceFolder}/app/electron/index.js"
-        },
-        {
-            "type": "node",
             "request": "attach",
             "name": "Attach by Process ID",
             "processId": "${command:PickProcess}"
@@ -35,13 +19,6 @@
             "restart": true,
             "console": "integratedTerminal",
             "internalConsoleOptions": "neverOpen"
-        },
-        {
-            "type": "chrome",
-            "request": "launch",
-            "name": "Launch Chrome",
-            "url": "http://localhost:3000",
-            "webRoot": "${workspaceFolder}"
         }
     ]
 }

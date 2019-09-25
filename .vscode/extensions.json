@@ -5,6 +5,9 @@
     "ms-azuretools.vscode-docker",
     "esbenp.prettier-vscode",
     "editorconfig.editorconfig",
-    "yzhang.markdown-all-in-one"
+    "yzhang.markdown-all-in-one",
+    "hangxingliu.vscode-systemd-support",
+    "redhat.vscode-yaml",
+    "ms-vscode-remote.remote-containers"
   ]
 }
