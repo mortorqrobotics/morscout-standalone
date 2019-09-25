@@ -1,9 +1,3 @@
-!/.babelrc
-!/.flowconfig
-!/.snyk
-/node_modules
-/coverage
-/**/build
-
-/docker
-!/docker/morscout
+node_modules
+coverage
+build

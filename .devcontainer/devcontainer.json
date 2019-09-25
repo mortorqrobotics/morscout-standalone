@@ -1,7 +1,7 @@
 // See https://aka.ms/vscode-remote/devcontainer.json for format details.
 {
     "name": "Node.js & Mongo DB",
-    "context": "..",
+    "context": "../docker/dev",
     "dockerComposeFile": ["../docker/docker-common.yml", "../docker/dev/docker-compose.yml"],
     "service": "MorScout",
     "workspaceMount": "src=${localWorkspaceFolder},dst=/workspace,type=bind,consistency=cached",
