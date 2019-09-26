@@ -29,6 +29,8 @@
 3. Run the `Remote-Containers: Open Folder in Container` command and select the morscout-standalone folder
 4. Enjoy the isolation
 
+> You still need to start all of the servers (/start.sh should be enough) or see [this](#starting-development).
+
 ## Installing
 
 ### Docker
