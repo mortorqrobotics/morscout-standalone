@@ -7,6 +7,7 @@
 [![Android Build](https://build.appcenter.ms/v0.1/apps/af68d026-c265-4753-a756-2764cdfe5137/branches/master/badge)](https://appcenter.ms)
 [![VSCode Remote Containers](https://img.shields.io/badge/VSCode%20Remote%20Containers-Enabled-brightgreen)](https://code.visualstudio.com/docs/remote/containers)
 
+- [VSCode Remote Containers (recommended way Develop)](#vscode-remote-containers-recommended-way-develop)
 - [Installing](#installing)
   - [Docker](#docker)
     - [Production](#production)
@@ -20,6 +21,15 @@
   - [Web](#web-1)
   - [Electron](#electron)
   - [Server](#server-1)
+
+## VSCode Remote Containers (recommended way Develop)
+
+1. Install [Docker](https://hub.docker.com/search/?type=edition&offering=community)
+2. Install [VSCode Remote](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) or [VSCode Remote Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+3. Run the `Remote-Containers: Open Folder in Container` command and select the morscout-standalone folder
+4. Enjoy the isolation
+
+> You still need to start all of the servers (/start.sh should be enough) or see [this](#starting-development).
 
 ## Installing
 
@@ -35,7 +45,7 @@ docker-compose -f docker-compose.yml -f ../docker-common.yml pull
 
 #### Development
 
-> Currently a work in progress
+> Recommended
 
 ```bash
 git clone https://github.com/mortorqrobotics/morscout-standalone.git

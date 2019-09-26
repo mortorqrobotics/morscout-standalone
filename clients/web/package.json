@@ -125,5 +125,5 @@
     "webpack-node-externals": "^1.7.2",
     "workbox-webpack-plugin": "^4.3.1"
   },
-  "main": "build/asset-manifest.json"
+  "main": "package.json"
 }

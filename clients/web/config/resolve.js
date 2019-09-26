@@ -31,7 +31,6 @@ module.exports = {
   extensions: paths.moduleFileExtensions.map(ext => `.${ext}`),
   alias: {
     "react-native": require.resolve("react-native-web"),
-    uranium: getSrc("common", "uranium", "src"),
     // Basic Redirects
     "~": path.dirname(require.resolve("client-common-components")),
     // Global Redirects

@@ -10,7 +10,6 @@ const development: boolean =
     process.env.MORSCOUT_ENV !== "production") ||
   ((yargs.argv.d as boolean) || (yargs.argv.development as boolean));
 const docker: boolean = isDocker();
-const appPort: number = !development || docker ? 443 : 8443;
 
 export default yargs
   .scriptName("morscout-server")
@@ -42,14 +41,12 @@ export default yargs
   .option("port", {
     alias: "p",
     demandOption: false,
-    default: appPort,
     describe: "the port to listen for HTTP requests",
     type: "number"
   })
   .option("socketPort", {
     alias: "sp",
     demandOption: false,
-    default: appPort,
     describe: "the port to listen for Socket.io requests",
     type: "number"
   })

@@ -6,7 +6,7 @@ export default (configEmitter: ConfigEmitter) => {
     level: "info",
     format: winston.format.json(),
     defaultMeta: { service: "user-service" },
-    transports: []
+    transports: [new winston.transports.Console()]
   });
   process.on("uncaughtException", (error: Error) => {
     configEmitter.logger.error(

@@ -79,7 +79,7 @@ module.exports = {
   appsSrc: [
     resolveApp("src"),
     resolveApp("..", "common"),
-    resolveApp("..", "uranium")
+    resolveApp("..", "..")
   ],
   appTsConfig: resolveApp("..", "tsconfig.json"),
   appTsLint: resolveApp("..", ".tslint.json"),

@@ -61,10 +61,11 @@ let server: Server = Application.listen(
       `Started Server on port ${configEmitter.config.port}`
     )
 );
+console.log(configEmitter.config);
 configEmitter.on("changePort", (port: number) => {
   const tmpServer = Application.listen({
-    port,
-    hostname: configEmitter.config.hostname
+    port //,
+    // hostname: configEmitter.config.hostname
   });
   server.close(() => {
     server = tmpServer;

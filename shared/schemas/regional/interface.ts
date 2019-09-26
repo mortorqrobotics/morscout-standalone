@@ -1,7 +1,7 @@
 import { Document } from "mongoose";
 import ISeason from "../season/interface";
-import { IPoint } from "../util/geojson/Point";
-import { IPolygon } from "../util/geojson/Polygon";
+import { IPoint } from "../util/geojson/point";
+import { IPolygon } from "../util/geojson/polygon";
 
 export enum eventTypes {
   regional = "regional",
