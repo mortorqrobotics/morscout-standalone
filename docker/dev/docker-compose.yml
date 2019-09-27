@@ -8,6 +8,7 @@ x-logging:
 
 services:
   MorScout:
+    user: mortorqrobotics
     logging:
       *default-logging
     image: mortorqrobotics/morscout:dev
@@ -15,6 +16,10 @@ services:
       context: ../..
       dockerfile: docker/dev/Dockerfile
     volumes:
+      -
+        type: bind
+        source: ../..
+        target: /home/mortorqrobotics/morscout
       # This lets you avoid setting up Git again in the container
       - ~/.gitconfig:/root/.gitconfig
     depends_on:

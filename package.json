@@ -29,10 +29,10 @@
   },
   "workspaces": {
     "packages": [
-      "clients/*",
+      "shared",
       "clients/common/*",
-      "server",
-      "shared"
+      "clients/*",
+      "server"
     ],
     "nohoist": [
       "**/react-native",

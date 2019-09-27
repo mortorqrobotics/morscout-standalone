@@ -7,8 +7,13 @@
     "../docker/docker-common.yml"
   ],
   "service": "MorScout",
-  "workspaceMount": "src=${localWorkspaceFolder},dst=/root/morscout,type=bind,consistency=cached",
-  "workspaceFolder": "/root/morscout",
+  "appPort": [
+    3000,
+    3002,
+    8443
+  ],
+  "workspaceFolder": "/home/mortorqrobotics/morscout",
+  "postCreateCommand": "yarn install",
   "shutdownAction": "stopCompose",
   "extensions": [
     "dbaeumer.vscode-eslint",

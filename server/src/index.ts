@@ -61,7 +61,7 @@ let server: Server = Application.listen(
       `Started Server on port ${configEmitter.config.port}`
     )
 );
-console.log(configEmitter.config);
+
 configEmitter.on("changePort", (port: number) => {
   const tmpServer = Application.listen({
     port //,

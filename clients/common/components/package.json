@@ -22,7 +22,9 @@
     "react-native": "^0.60.5",
     "react-native-web": "^0.11.7",
     "react-redux": "^7.1.1",
-    "redux": "^4.0.4"
+    "uranium": "0.0.1-alpha.1",
+    "redux-actions": "0.0.1-alpha.1",
+    "client-common-style": "0.0.1-alpha.1"
   },
   "main": "src",
   "license": "MIT"

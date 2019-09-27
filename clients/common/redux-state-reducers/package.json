@@ -7,13 +7,14 @@
   "devDependencies": {
     "fs-extra": "^8.1.0",
     "jest": "^24.9.0",
-    "json5": "^2.1.0",
+    "yaml": "^1.7.0",
     "typescript": "^3.6.3"
   },
   "dependencies": {
     "core-js": "^3.2.1",
     "merge": "^1.2.1",
-    "mongoose": "^5.7.1"
+    "mongoose": "^5.7.1",
+    "shared": "0.0.1-alpha.1"
   },
   "main": "src",
   "license": "MIT"

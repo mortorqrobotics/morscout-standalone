@@ -1,6 +1,6 @@
 /* eslint-disable security/detect-object-injection */
 import { join } from "path";
-import { readFileSync } from "fs";
+import { readFile } from "fs-extra";
 import { parse } from "yaml";
 import * as models from "../../../src/models";
 
@@ -8,7 +8,7 @@ export default async function getData() {
   let data = {};
   try {
     data = parse(
-      readFileSync(join(__dirname, "data", "mongoose.yml")).toString()
+      await readFile(join(__dirname, "data", "mongoose.yml")).toString()
     );
   } catch (e) {
     console.log(e);

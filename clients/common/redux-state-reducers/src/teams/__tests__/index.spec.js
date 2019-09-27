@@ -1,6 +1,6 @@
 // __tests__/index.spec.js
 import { updated } from "shared/types/teams";
-import { parse as parse5 } from "json5";
+import { parse } from "yaml";
 import { readFile } from "fs-extra";
 import { join } from "path";
 import reducer from "..";
@@ -16,7 +16,7 @@ test("reducer must never mutate the state directly", async () => {
 
 test("reducer returns the same as before (for compatibility)", async () => {
   const teams = {};
-  const data = parse5(await readFile(join(__dirname, "index.data.json5")));
+  const data = parse(await readFile(join(__dirname, "index.data.yml")));
   expect.assertions(data.length);
   data.forEach(d => {
     const ret = reducer(teams, { type: updated, data: d });
