@@ -1,0 +1,23 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.13.5
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:debug:20170905':
+    - appcenter > appcenter-link-scripts > debug:
+        patched: '2019-09-28T03:18:31.296Z'
+    - appcenter-analytics > appcenter > appcenter-link-scripts > debug:
+        patched: '2019-09-28T03:18:31.296Z'
+    - appcenter-crashes > appcenter > appcenter-link-scripts > debug:
+        patched: '2019-09-28T03:18:31.296Z'
+    - appcenter-push > appcenter > appcenter-link-scripts > debug:
+        patched: '2019-09-28T03:18:31.296Z'
+  'npm:ms:20170412':
+    - appcenter > appcenter-link-scripts > debug > ms:
+        patched: '2019-09-28T03:18:31.296Z'
+    - appcenter-analytics > appcenter > appcenter-link-scripts > debug > ms:
+        patched: '2019-09-28T03:18:31.296Z'
+    - appcenter-crashes > appcenter > appcenter-link-scripts > debug > ms:
+        patched: '2019-09-28T03:18:31.296Z'
+    - appcenter-push > appcenter > appcenter-link-scripts > debug > ms:
+        patched: '2019-09-28T03:18:31.296Z'

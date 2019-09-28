@@ -6,7 +6,9 @@
     "start": "react-native start",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
     "test": "jest",
-    "test-coverage": "jest --coverage"
+    "test-coverage": "jest --coverage",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.10.2",
@@ -49,7 +51,8 @@
     "redux-storage": "^4.1.2",
     "redux-storage-decorator-filter": "^1.1.8",
     "redux-storage-engine-reactnativeasyncstorage": "^1.0.5",
-    "socket.io-client": "^2.2.0"
+    "socket.io-client": "^2.2.0",
+    "snyk": "^1.228.5"
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",
@@ -92,5 +95,6 @@
     "shelljs": "^0.8.3",
     "ts-jest": "^24.0.2",
     "typescript": "^3.6.2"
-  }
+  },
+  "snyk": true
 }
