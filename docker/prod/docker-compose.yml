@@ -1,4 +1,4 @@
-version: '3.6'
+version: '3.7'
 x-logging:
   &default-logging
   options:
@@ -31,28 +31,6 @@ services:
           - morscout
       consul:
         ipv4_address: 192.19.0.4
-  nginx:
-    extends:
-      file: ../docker-common.yml
-      service: nginx
-    depends_on:
-      - Consul
-  Consul:
-    extends:
-      file: ../docker-common.yml
-      service: Consul
-    ports:
-      - "127.0.0.1:8500:8500"
-  Vault:
-    extends:
-      file: ../docker-common.yml
-      service: Vault
-    depends_on:
-      - Consul
-  MongoDB:
-    extends:
-      file: ../docker-common.yml
-      service: MongoDB
 
 networks:
   app:

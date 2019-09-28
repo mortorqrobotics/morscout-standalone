@@ -1,37 +1,38 @@
-FROM node:lts-stretch AS builder
+FROM node:lts-stretch as builder
 
+LABEL maintainer="mortorqrobotics"
 LABEL dev=false
 LABEL prod=true
+ENV NODE_ENV=production
 
-# Create app directory
-WORKDIR /root
+# Configure apt
+ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update &&\
-  apt-get install -y build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev &&\
-  apt-get clean
-# Copy patches
-COPY patches patches
-COPY .snyk .snyk
+RUN apt update &&\
+    apt upgrade -y &&\
+    apt -y install --no-install-recommends apt-utils 2>&1 &&\
+    # Verify git and process tools are installed
+    apt-get install -y git procps build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev ca-certificates &&\
+    rm -rf /opt/yarn-* \
+    && rm -f /usr/local/bin/yarn \
+    && rm -f /usr/local/bin/yarnpkg \
+    && apt-get install -y curl apt-transport-https lsb-release \
+    && curl -sS https://dl.yarnpkg.com/$(lsb_release -is | tr '[:upper:]' '[:lower:]')/pubkey.gpg | apt-key add - 2>/dev/null \
+    && echo "deb https://dl.yarnpkg.com/$(lsb_release -is | tr '[:upper:]' '[:lower:]')/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
+    && apt-get update \
+    && apt-get -y install --no-install-recommends yarn
 
-# Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-# where available (npm@5+)
-COPY package*.json ./
-COPY yarn.lock yarn.lock
-ENV MONGOMS_DISABLE_POSTINSTALL=1
-RUN yarn install --non-interactive --frozen-lockfile
-
-# Copy over all sources
+RUN yarn global add react-native-cli
+# Install morscout
+WORKDIR /home/mortorqrobotics/morscout
 COPY . .
 
-# Build app
-WORKDIR /root/clients/web
-RUN yarn build
+ENV MONGOMS_DISABLE_POSTINSTALL=1
+RUN yarn install --production=false --non-interactive --frozen-lockfile &&\
+    yarn --cwd clients/web run build &&\
+    yarn --cwd server run build
 
-# Build server
-WORKDIR /root/server
-RUN yarn build
-
+# Production
 FROM node:lts-alpine
 
 
@@ -56,19 +57,19 @@ COPY --from=consul:latest /bin/consul /bin/consul
 COPY docker/morscout/consul.json /consul/morscout.json
 
 WORKDIR /morscout
-# RUN addgroup morscout &&\
-#   adduser morscout --disabled-password -D -h /morscout -G morscout
-# USER morscout
-# Copy patches
+RUN addgroup morscout &&\
+  adduser morscout --disabled-password -D -h /morscout -G morscout
+USER morscout
 COPY patches patches
-COPY .snyk .snyk
 
 # Install prod dependencies
 COPY package*.json ./
+COPY **/package*.json ./
+
 COPY yarn.lock yarn.lock
 RUN yarn install --production --non-interactive --frozen-lockfile && rm -rf packages-cache && yarn cache clean
 
-COPY --from=builder /root/app/build/web/ ./app/build/web/
-COPY --from=builder /root/server/build/ ./server/build/
+COPY --from=builder /morscout/web/build ./web/build
+COPY --from=builder /morscout/server/build/ ./server/build/
 
 CMD ["/bin/sh", "/start.sh"]
