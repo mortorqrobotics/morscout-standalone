@@ -6,7 +6,8 @@
   },
   "devDependencies": {
     "@types/react": "^16.9.2",
-    "jest": "^24.9.0"
+    "jest": "^24.9.0",
+    "snyk": "^1.230.0"
   },
   "dependencies": {
     "react-native": "^0.60.5"

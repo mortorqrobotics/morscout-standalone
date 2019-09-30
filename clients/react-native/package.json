@@ -22,6 +22,8 @@
     "appcenter-analytics": "^2.3.0",
     "appcenter-crashes": "^2.3.0",
     "appcenter-push": "^2.3.0",
+    "client-common-components": "0.0.1-alpha.1",
+    "client-common-redux": "0.0.1-alpha.1",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dev-utils": "^9.0.3",
@@ -42,17 +44,9 @@
     "redux-storage": "^4.1.2",
     "redux-storage-decorator-filter": "^1.1.8",
     "redux-storage-engine-reactnativeasyncstorage": "^1.0.5",
-    "socket.io-client": "^2.2.0",
-    "client-common-components": "0.0.1-alpha.1",
-    "client-common-redux": "0.0.1-alpha.1"
+    "socket.io-client": "^2.2.0"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.18",
-    "@types/mongoose": "^5.5.17",
-    "@types/redux-storage": "^4.1.0",
-    "@types/socket.io-client": "^1.4.32",
-    "@typescript-eslint/eslint-plugin": "^2.3.0",
-    "@typescript-eslint/parser": "^2.3.0",
     "@babel/core": "^7.6.0",
     "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/plugin-proposal-decorators": "^7.6.0",
@@ -65,6 +59,12 @@
     "@babel/preset-env": "^7.6.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/runtime": "^7.6.0",
+    "@types/jest": "^24.0.18",
+    "@types/mongoose": "^5.5.17",
+    "@types/redux-storage": "^4.1.0",
+    "@types/socket.io-client": "^1.4.32",
+    "@typescript-eslint/eslint-plugin": "^2.3.0",
+    "@typescript-eslint/parser": "^2.3.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
@@ -90,6 +90,7 @@
     "prettier": "^1.17.0",
     "semver": "^6.0.0",
     "shelljs": "^0.8.3",
+    "snyk": "^1.230.0",
     "ts-jest": "^24.0.2",
     "typescript": "^3.6.2"
   }

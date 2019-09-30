@@ -9,9 +9,11 @@
     "@types/react": "^16.9.2",
     "@types/react-redux": "^7.1.2",
     "jest": "^24.9.0",
+    "snyk": "^1.230.0",
     "typescript": "^3.6.3"
   },
   "dependencies": {
+    "client-common-style": "0.0.1-alpha.1",
     "core-js": "^3.2.1",
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
@@ -22,9 +24,8 @@
     "react-native": "^0.60.5",
     "react-native-web": "^0.11.7",
     "react-redux": "^7.1.1",
-    "uranium": "0.0.1-alpha.1",
     "redux-actions": "0.0.1-alpha.1",
-    "client-common-style": "0.0.1-alpha.1"
+    "uranium": "0.0.1-alpha.1"
   },
   "main": "src",
   "license": "MIT"

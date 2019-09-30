@@ -9,6 +9,8 @@
     "test-coverage": "jest --coverage"
   },
   "dependencies": {
+    "client-common-components": "0.0.1-alpha.1",
+    "client-common-redux": "0.0.1-alpha.1",
     "core-js": "^3.2.1",
     "prop-types": "^15.7.2",
     "radium": "^0.26.0",
@@ -29,9 +31,7 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-socket.io": "^1.4.0",
     "redux-storage": "^4.1.2",
-    "redux-storage-decorator-filter": "^1.1.8",
-    "client-common-components": "0.0.1-alpha.1",
-    "client-common-redux": "0.0.1-alpha.1"
+    "redux-storage-decorator-filter": "^1.1.8"
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",
@@ -111,6 +111,7 @@
     "react-test-renderer": "^16.9.0",
     "sass-loader": "^8.0.0",
     "semver": "^6.0.0",
+    "snyk": "^1.230.0",
     "socket.io-client": "^2.2.0",
     "source-map-loader": "^0.2.3",
     "style-loader": "^1.0.0",

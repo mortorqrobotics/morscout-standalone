@@ -22,12 +22,12 @@ RUN apt update &&\
     && apt-get update \
     && apt-get -y install --no-install-recommends yarn
 
-RUN yarn global add react-native-cli
 # Install morscout
 WORKDIR /home/mortorqrobotics/morscout
 COPY . .
 
 ENV MONGOMS_DISABLE_POSTINSTALL=1
+ENV ELECTRON_SKIP_BINARY_DOWNLOAD=1
 RUN yarn install --production=false --non-interactive --frozen-lockfile &&\
     yarn --cwd clients/web run build &&\
     yarn --cwd server run build
@@ -67,6 +67,8 @@ COPY package*.json ./
 COPY **/package*.json ./
 
 COPY yarn.lock yarn.lock
+ENV ELECTRON_SKIP_BINARY_DOWNLOAD=1
+ENV MONGOMS_DISABLE_POSTINSTALL=1
 RUN yarn install --production --non-interactive --frozen-lockfile && rm -rf packages-cache && yarn cache clean
 
 COPY --from=builder /morscout/web/build ./web/build
