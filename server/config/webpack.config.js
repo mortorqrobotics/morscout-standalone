@@ -51,7 +51,7 @@ module.exports = {
     // https://github.com/facebook/create-react-app/issues/290
     // `web` extension prefixes have been added for better support
     // for React Native Web.
-    extensions: paths.moduleFileExtensions.map(function (ext) {
+    extensions: paths.moduleFileExtensions.map(function(ext) {
       return "." + ext;
     }),
     alias: {
