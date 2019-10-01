@@ -16,7 +16,9 @@ test("reducer must never mutate the state directly", async () => {
 
 test("reducer returns the same as before (for compatibility)", async () => {
   const teams = {};
-  const data = parse(await readFile(join(__dirname, "index.data.yml")));
+  const data = await parse(
+    (await readFile(join(__dirname, "index.data.yml"))).toString()
+  );
   expect.assertions(data.length);
   data.forEach(d => {
     const ret = reducer(teams, { type: updated, data: d });
