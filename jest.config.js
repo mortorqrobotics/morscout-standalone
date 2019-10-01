@@ -15,5 +15,6 @@ module.exports = {
     "!**/cli/**/*.{js,jsx,ts,tsx}"
   ],
   rootDir: __dirname,
-  projects
+  projects,
+  reporters: ["default", "jest-junit"]
 };

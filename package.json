@@ -24,6 +24,7 @@
   "devDependencies": {
     "git-add": "^0.0.2",
     "git-cz": "^3.2.1",
+    "jest-junit": "^8.0.0",
     "release-it": "^12.4.1",
     "set-versions": "^1.0.3"
   },
