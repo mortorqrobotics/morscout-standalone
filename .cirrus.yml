@@ -15,7 +15,7 @@ test_task:
     - apt-get update
     - apt-get install -y build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev mongodb-server
   node_modules_cache:
-    populate_script: yarn install && find . -name node_modules -exec tar -rf archive.tar '{}' \; && find . -name node_modules -type d -exec rm -rf {} +
+    populate_script: yarn install && find . -name node_modules -exec tar -rf node_modules.tar '{}' \; && find . -name node_modules -type d -exec rm -rf {} +
     folder: node_modules.tar
     fingerprint_script: sha1sum yarn.lock
   unpack_node_modules_script: tar -xf ./node_modules.tar
@@ -31,7 +31,7 @@ lint_task:
     - apt-get update
     - apt-get install -y build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
   node_modules_cache:
-    populate_script: yarn install && find . -name node_modules -exec tar -rf archive.tar '{}' \; && find . -name node_modules -type d -exec rm -rf {} +
+    populate_script: yarn install && find . -name node_modules -exec tar -rf node_modules.tar '{}' \; && find . -name node_modules -type d -exec rm -rf {} +
     folder: node_modules.tar
     fingerprint_script: sha1sum yarn.lock
   unpack_node_modules_script: tar -xf ./node_modules.tar
