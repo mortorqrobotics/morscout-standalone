@@ -28,7 +28,7 @@
     "appcenter-analytics": "^2.3.0",
     "appcenter-crashes": "^2.3.0",
     "appcenter-push": "^2.3.0",
-    "mongoose": "^5.7.1",
+    "mongoose": "^5.7.5",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dev-utils": "^9.0.3",
