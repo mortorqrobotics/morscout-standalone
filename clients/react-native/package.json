@@ -31,7 +31,7 @@
     "mongoose": "^5.7.1",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
-    "react-dev-utils": "^9.0.3",
+    "react-dev-utils": "^11.0.4",
     "react-fuzzy-filter": "^5.0.1",
     "react-loadable": "^5.5.0",
     "react-native": "^0.60.5",
