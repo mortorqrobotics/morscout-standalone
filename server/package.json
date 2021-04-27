@@ -40,7 +40,7 @@
     "node-vault": "^0.9.11",
     "nodemon": "^1.19.2",
     "patch-package": "^6.2.0",
-    "redis": "^2.8.0",
+    "redis": "^3.1.1",
     "secure-compare": "^3.0.1",
     "socket.io": "^2.2.0",
     "source-map-support": "^0.5.12",
