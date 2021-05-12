@@ -31,7 +31,7 @@
     "json-stringify-safe": "^5.0.1",
     "json5": "^2.1.0",
     "lodash": "^4.17.11",
-    "merge": "^1.2.1",
+    "merge": "^2.1.1",
     "minimist-reverse": "^1.1.0",
     "mongoose": "^5.7.1",
     "nanoid": "^2.1.1",
