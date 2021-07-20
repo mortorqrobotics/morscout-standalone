@@ -34,7 +34,7 @@
     "react-dev-utils": "^9.0.3",
     "react-fuzzy-filter": "^5.0.1",
     "react-loadable": "^5.5.0",
-    "react-native": "^0.60.5",
+    "react-native": "^0.62.3",
     "react-native-gesture-handler": "^1.4.1",
     "react-native-keychain": "^4.0.0",
     "react-native-match-media": "^0.1.1",
