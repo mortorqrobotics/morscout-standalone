@@ -50,7 +50,7 @@
     "tba-api-v3client": "^3.3.1",
     "util-promisifyall": "^1.0.6",
     "uuid": "^3.3.3",
-    "vm2": "^3.8.4",
+    "vm2": "^3.9.4",
     "winston": "^3.2.1",
     "yaml": "^1.5.1",
     "yargs": "^14.0.0"
