@@ -22,7 +22,7 @@
     "daemonize2": "^0.4.2",
     "deep-extend": "^0.6.0",
     "delay": "^4.3.0",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "fs-extra": "^8.0.1",
     "geojson": "^0.5.0",
     "geojson-validation": "^0.2.1",
