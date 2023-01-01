@@ -7,7 +7,7 @@
   "devDependencies": {
     "fs-extra": "^8.1.0",
     "jest": "^24.9.0",
-    "json5": "^2.1.0",
+    "json5": "^2.2.2",
     "typescript": "^3.6.3"
   },
   "dependencies": {
