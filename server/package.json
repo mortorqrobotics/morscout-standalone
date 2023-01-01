@@ -29,7 +29,7 @@
     "is-docker": "^2.0.0",
     "jshashes": "^1.0.7",
     "json-stringify-safe": "^5.0.1",
-    "json5": "^2.1.0",
+    "json5": "^2.2.2",
     "lodash": "^4.17.11",
     "merge": "^1.2.1",
     "minimist-reverse": "^1.1.0",
